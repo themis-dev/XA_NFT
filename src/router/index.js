@@ -8,7 +8,7 @@ Vue.use(Router)
 
 /* Layout */
 import Layout from '../views/layout/Layout'
-import MainLayout from '../views/layout/MainLayout'
+// import MainLayout from '../views/layout/MainLayout'
 
 /**
 * hidden: true                   if `hidden:true` will not show in the sidebar(default is false)
@@ -28,13 +28,28 @@ export const constantRouterMap = [
   {
     path: '/',
     component: Layout,
-    redirect: '/home/index',
+    redirect: '/home',
     name: 'Home',
     children: [{
       name: 'home',
       path: 'home',
       component: () => import('@/views/home/index')
-    }
+    },
+    {
+      name: 'user',
+      path: 'mine/user',
+      component: () => import('@/views/mine/user')
+    },
+    {
+      name: 'order',
+      path: 'mine/order',
+      component: () => import('@/views/mine/orders')
+    },
+    {
+      name: 'collection',
+      path: 'mine/collection',
+      component: () => import('@/views/mine/collection')
+    },
     ]
   }
 ]

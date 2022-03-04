@@ -1,0 +1,126 @@
+<template>
+    <div class="container content">
+        <div class="collection">
+            <MineTab />
+            <div class="mine-collection">
+              <div class="title">藏品列表</div>
+              <div class="collection-content">
+                <div class="collection-content-item">
+                  <img src="../../images/nft-img.png" alt="">
+                  <div class="item-title">《雄安赋》</div>
+                  <div class="item-number">AC9163#00074/10000</div>
+                  <div class="author">王大力</div>
+                </div>
+                <div class="collection-content-item">
+                  <img src="../../images/nft-img.png" alt="">
+                  <div class="item-title">《雄安赋》</div>
+                  <div class="item-number">AC9163#00074/10000</div>
+                  <div class="author">李二狗</div>
+                </div>
+                <div class="collection-content-item">
+                  <img src="../../images/nft-img.png" alt="">
+                  <div class="item-title">《雄安赋》</div>
+                  <div class="item-number">AC9163#00074/10000</div>
+                  <div class="author">王大力</div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+  export default {
+    name: 'collection',
+    components: {
+      MineTab: () => import('./MineTab.vue')
+    },
+    data() {
+      return {
+      }
+    },
+    computed: {
+      message() {
+        return ''
+      }
+    }
+  }
+</script>
+
+<style rel="stylesheet/scss" lang="scss" scoped>
+.content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 46px;
+    // margin-left: 30px;
+}
+.collection {
+    width: 67.5rem;
+    margin-left: 50%;
+    transform: translate(-50%);
+}
+.mine-collection {
+    width: 67.5rem;
+    height: 39.375rem;
+    background: rgba(255, 255, 255,1);
+    border-radius: 6px 6px 0px 0px;
+    margin-top: 25px;
+    .title {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 37px;
+      color: #333333;
+      text-align: center;
+      padding-top: 1.875rem;
+    }
+    .collection-content {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 54px;
+      .collection-content-item  {
+        width: 17.5rem;
+        height: 22.875rem;
+        background: rgba(81, 81, 82, 1);
+        opacity: 1;
+        border-radius: 20px;
+        .item-title {
+          font-size: 16px;
+          font-family: MiSans;
+          font-weight: 600;
+          line-height: 22px;
+          color: #FFFFFF;
+          margin-left: 11px;
+          margin-top: 13px;
+
+        }
+        .item-number {
+          width: 14rem;
+          height: 2rem;
+          background-image: url(../../images/collection-arrow.png);
+          background-size: 100%;
+          background-repeat: no-repeat;
+          background-position: center center;
+          margin-left: 11px;
+          margin-top: 4px;
+          font-size: 16px;
+          font-family: MiSans;
+          font-weight: 400;
+          line-height: 16px;
+          color: #515152;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .author {
+          font-size: 12px;
+          font-family: MiSans;
+          font-weight: 400;
+          line-height: 16px;
+          color: #D9D9D9;
+          margin-left: 16px;
+          margin-top: 6px;
+        }
+      }
+    }
+}
+</style>

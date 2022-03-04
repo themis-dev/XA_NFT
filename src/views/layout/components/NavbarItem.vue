@@ -14,10 +14,10 @@
       <a
         v-if="item.subTitle"
         class=" nav-link-toggle nav-link header-nav-link "
-        href="javascript:;"
+        :href="item.path"
         >{{ item.title }}</a
       >
-      <a class="nav-link header-nav-link " href="/" v-else>{{ item.title }}</a>
+      <a class="nav-link header-nav-link " :href="item.path" v-else>{{ item.title }}</a>
       <ul
         v-if="item.subTitle"
         :class="[subTitleIndex === index ? 'slideInUp' : 'fadeOut']"
@@ -59,13 +59,16 @@ export default {
       activeLang: false,
       navData: [
         {
-          title: "首页"
+          title: '首页',
+          path: '/home'
         },
         {
-          title: "交易市场"
+          title: '交易市场',
+          path: '/'
         },
         {
-          title: "我的"
+          title: '我的',
+          path: '/mine/user'
         }
       ],
     };
@@ -80,13 +83,6 @@ export default {
     }
   },
   created() {
-    if (process.env.NETWORK !== 'mainnet') {
-      // 如果不是正式网，添加水龙头
-      this.navData[this.navData.length - 1].subTitle.push({
-        title: this.$t('navBar.navigation6-1'),
-        path: '/faucet'
-      });
-    }
     const language = navigator.language || navigator.userLanguage;
     const lang = this.$cookies.get('CultureInfo') || language;
     this.currentLang = lang !== 'zh-CN' ? 'English' : '简体中文'
