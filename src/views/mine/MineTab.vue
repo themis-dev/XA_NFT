@@ -22,7 +22,7 @@ export default {
   mounted() {
     if ( this.$route.name === 'user') this.active = 1
     if ( this.$route.name === 'collection') this.active = 2
-    if ( this.$route.name === 'order') this.active = 3
+    if ( this.$route.name === 'order' || this.$route.name === 'orderDetail') this.active = 3
   },
   methods: {
     clickItem(item) {
