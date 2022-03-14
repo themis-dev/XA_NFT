@@ -64,7 +64,7 @@ export default {
         },
         {
           title: '交易市场',
-          path: '/'
+          path: '/market'
         },
         {
           title: '我的',

@@ -55,6 +55,11 @@ export const constantRouterMap = [
       path: 'mine/collection',
       component: () => import('@/views/mine/collection')
     },
+    {
+      name: 'market',
+      path: 'market',
+      component: () => import('@/views/market')
+    },
     ]
   }
 ]
