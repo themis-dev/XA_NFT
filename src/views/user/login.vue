@@ -2,16 +2,16 @@
     <div class="login-container">
         <div class="login-wrapper">
             <div class="login-tabs">
-                <div class="tab" :class="(activeName == 1) ? 'active' : ''" @click="hanldeLoginClick(1)">密码登录</div>
-                <div class="tab" :class="(activeName == 2) ? 'active' : ''" @click="hanldeLoginClick(2)">验证码登录</div>
+                <div class="tab" :class="(activeName == 1) ? 'active' : ''" @click="handleTabsClick(1)">密码登录</div>
+                <div class="tab" :class="(activeName == 2) ? 'active' : ''" @click="handleTabsClick(2)">验证码登录</div>
             </div>
             <div v-if="activeName == 1" class="phoneNum-wrapper">
                 <div class="num">
                     <span>+86</span>
-                    <input placeholder="请输入手机号码"/>
+                    <input v-model="phoneNumber" placeholder="请输入手机号码"/>
                 </div>
                 <div class="password">
-                    <input placeholder="请输入密码"/>
+                    <input v-model="password" placeholder="请输入密码"/>
                     <span>
                         <i class="el-icon-view"></i>
                     </span>
@@ -20,17 +20,17 @@
             <div v-else class="code-wrapper">
                 <div class="num">
                     <span>+86</span>
-                    <input placeholder="请输入手机号码"/>
+                    <input v-model="phoneNumber" placeholder="请输入手机号码"/>
                 </div>
                 <div class="password">
-                    <input placeholder="请输入验证码"/>
+                    <input v-model="captcha" placeholder="请输入验证码"/>
                     <span>
                         发送验证码
                     </span>
                 </div>
             </div>
             <div class="btn-wrapper">
-                <button type="primary">登录</button>
+                <button type="primary" @click="handleLoginClick">登录</button>
             </div>
             <div class="note-wrapper">
                 <span @click="handleRegisterClick">注册账号</span>
@@ -40,21 +40,42 @@
     </div>
 </template>
 <script>
+import { login } from '@/api/user'
+import { ACCESS_TOKEN } from '@/store/mutation-types'
 
 export default {
     name: 'login',
     data () {
         return {
             activeName: 1,
+            phoneNumber: '',
+            password: '',
+            captcha: ''
         }
     },
     methods: {
-        hanldeLoginClick(value) {
+        handleTabsClick(value) {
             if(value == 1) {
                 this.activeName = 1
             } else if(value == 2) {
                 this.activeName = 2
             }
+        },
+        handleLoginClick() {
+            let reqObj = {
+                phoneNumber: this.phoneNumber,
+                password: this.password,
+                captcha: this.captcha
+            }
+            login(reqObj).then(res => {
+                if(res.status == 1 && res.data) {
+                    window.sessionStorage.setItem(ACCESS_TOKEN, `Bearer ${res.data.token}`)
+                    window.sessionStorage.setItem('avatar', res.data.avatar)
+                    this.$router.push({
+                        path: '/'
+                    })
+                }
+            })
         },
         handleRegisterClick() {
             this.$router.push({

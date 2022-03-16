@@ -4,24 +4,24 @@
             <div class="market">
               <div class="title">交易市场</div>
               <div class="collection-content">
-                <div class="collection-content-item" v-for="item in data" v-bind:key='item'>
+                <div class="collection-content-item" v-for="item in marketData" v-bind:key='item.pid' @click="goDetail(item)">
                   <div class="time">
                     <img src="../../images/time.png" alt="">
-                    <span>即将开售 18:05:48</span>
+                    <span>即将开售 {{ item.openingTime }}</span>
                   </div>
-                  <img src="../../images/nft-img.png" alt="" class="nft-img">
-                  <div class="item-title">白洋淀风景年画系列·年年有鱼</div>
+                  <img :src="item.productImage" alt="" class="nft-img">
+                  <div class="item-title">{{ item.name }}</div>
                   <div class="item-number">
                     <div class="item-number-name">限量</div>
-                    <div class="item-number-val">8000份</div>
+                    <div class="item-number-val">{{ item.num }}份</div>
                   </div>
                   <div class="author-price">
                     <div class="author">
                       <img src="" alt="">
-                      <div>王大力</div>
+                      <div>{{ item.creator }}</div>
                     </div>
                     <div class="price">
-                      ¥ 19.90
+                      ¥ {{ item.price }}
                     </div>
                   </div>
                 </div>
@@ -39,7 +39,7 @@ import { getMarketData } from '@/api/market.js'
     },
     data() {
       return {
-        data: [1,2,3,4,5,6,3]
+        marketData: []
       }
     },
     computed: {
@@ -53,12 +53,20 @@ import { getMarketData } from '@/api/market.js'
       this.getData()
     },
     methods: {
-      goDetail() {
-        this.$router.push({path:'/mine/order-detail'});
+      goDetail(item) {
+        this.$router.push({
+          path:'/market-detail',
+          query: {
+            pid: item.pid
+          }
+        });
       },
       getData() {
         getMarketData({pageNo: 1, pageSize: 100}).then(res => {
           console.log(res)
+          if(res.status == 1 && res.data) {
+            this.marketData = res.data
+          }
         })
       }
     }
@@ -130,6 +138,7 @@ import { getMarketData } from '@/api/market.js'
          }
          .nft-img {
            width: 280px;
+           height: 261px;
          }
         .item-title {
           font-size: 16px;

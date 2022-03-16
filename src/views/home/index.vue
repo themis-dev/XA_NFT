@@ -283,6 +283,7 @@ export default {
 <style rel="stylesheet/scss" lang="scss" scoped>
 .homePage-container {
   overflow-y: scroll;
+  overflow-x: hidden;
   // 推荐
   .recommend-wrapper{
     width: 100%;
@@ -317,7 +318,7 @@ export default {
           }
           .check{
             margin-top: 15px;
-            margin-left: 34px;
+            padding-left: 34px;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
@@ -393,6 +394,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
     .platform-info{
       .title{
         display: flex;
@@ -494,6 +496,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
     .value-info{
       .title{
         display: flex;
@@ -619,6 +622,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
     .artist-info{
       .title{
         display: flex;
@@ -683,6 +687,7 @@ export default {
 
   @media (min-width: 991.98px) {
     .recommend-wrapper {
+      overflow: hidden;
       .recommend-info{
         width: 1089px;
         height: 100%;
@@ -732,6 +737,7 @@ export default {
       display: flex;
       flex-direction: column;
       position: relative;
+      overflow: hidden;
       .platform-info{
         width: 1089px;
         height: 100%;
@@ -825,6 +831,8 @@ export default {
       display: flex;
       flex-direction: column;
       position: relative;
+      background: #FFFFFF;
+      overflow: hidden;
       .value-info{
         width: 1089px;
         height: 100%;
@@ -921,6 +929,7 @@ export default {
       display: flex;
       flex-direction: column;
       position: relative;
+      overflow: hidden;
       .artist-info{
         width: 1089px;
         height: 100%;

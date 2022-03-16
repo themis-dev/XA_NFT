@@ -1,19 +1,19 @@
 <template>
     <div class="market-detail">
       <section class="detail-top">
-        <img src="../../images/detail-img.png" alt="" class="work">
+        <img :src="detailData.productImage" alt="" class="work">
         <div class="work-msg">
-          <div class="work-name">白洋淀风景年画系列·年年有鱼</div>
+          <div class="work-name">{{ detailData.name }}</div>
           <div class="work-num">
             <div class="item-number">
               <div class="item-number-name">限量</div>
-              <div class="item-number-val">8000份</div>
+              <div class="item-number-val">{{ detailData.num }}份</div>
             </div>
             <div class="price">
-              ¥ 19.90
+              ¥ {{ detailData.price }}
             </div>
           </div>
-          <div class="buy-btn">立即购买</div>
+          <div class="buy-btn" @click="handleClick">立即购买</div>
         </div>
       </section>
       <div class="work-content container">
@@ -23,18 +23,42 @@
         <div class="line"></div>
         <img src="../../images/img-left.png" alt="" class="img-left">
         <img src="../../images/img-right.png" alt="" class="img-right">
-        <div class="work-msg-item" v-for="item in data" v-bind:key="item.title">
+        <!-- <div class="work-msg-item" v-for="item in data" v-bind:key="item.title">
           <div class="work-msg-item-title">{{item.title}}</div>
           <div class="work-msg-item-val">{{item.content}}</div>
+        </div> -->
+        <div class="work-msg-item">
+          <div class="work-msg-item-title">作品介绍</div>
+          <div class="work-msg-item-val">{{detailData.productIntroduction}}</div>
+        </div>
+        <div class="work-msg-item">
+          <div class="work-msg-item-title">作品细节</div>
+          <div class="work-msg-item-val">{{detailData.productDetail}}</div>
+        </div>
+        <div class="work-msg-item">
+          <div class="work-msg-item-title">作者介绍</div>
+          <div class="work-msg-item-val">{{detailData.creatorIntroduction}}</div>
+        </div>
+        <div class="work-msg-item">
+          <div class="work-msg-item-title">发行方</div>
+          <div class="work-msg-item-val">{{detailData.publisher}}</div>
+        </div>
+        <div class="work-msg-item">
+          <div class="work-msg-item-title">收藏价值</div>
+          <div class="work-msg-item-val">{{detailData.numismaticValue}}</div>
+        </div>
+        <div class="work-msg-item">
+          <div class="work-msg-item-title">创作背景</div>
+          <div class="work-msg-item-val">{{detailData.creationBackground}}</div>
         </div>
         <div class="work-msg-author">
           <div class="work-msg-author-item">
             <span class="author-item1">创作者</span>
-            <span class="author-item2">唐诗</span>
+            <span class="author-item2">{{ detailData.creator }}</span>
           </div>
           <div class="work-msg-author-item">
             <span class="author-item1">发行方</span>
-            <span class="author-item2">湖南叶传媒有限公司</span>
+            <span class="author-item2">{{ detailData.publisher }}</span>
           </div>
         </div>
         <div class="purchase-notes">
@@ -54,13 +78,14 @@
 </template>
 
 <script>
-import { getMarketData } from '@/api/market.js'
+import { getMarketDetail, marketPayment } from '@/api/market.js'
   export default {
     name: 'collection',
     components: {
     },
     data() {
       return {
+        pid: this.$route.query.pid,
         data: [
           {
             title: '作品介绍',
@@ -86,7 +111,8 @@ import { getMarketData } from '@/api/market.js'
             title: '创作背景',
             content: '作为数字藏品的收藏家，你拥有每个数字藏品背后对应的特定作品、艺术品和商品的单个数字复制品，不仅可以观赏藏品、享受收藏的美好体验，还可以与好友分享收藏见解和快乐。'
           },
-        ]
+        ],
+        detailData: {}
 
       }
     },
@@ -98,13 +124,22 @@ import { getMarketData } from '@/api/market.js'
     created() {
     },
     mounted() {
+      this.getData()
     },
     methods: {
       goDetail() {
         this.$router.push({path:'/mine/order-detail'});
       },
       getData() {
-        getMarketData({pageNo: 1, pageSize: 100}).then(res => {
+        getMarketDetail({pid: this.pid}).then(res => {
+          console.log(res)
+          if(res.status == 1 && res.data) {
+            this.detailData = res.data
+          }
+        })
+      },
+      handleClick() {
+        marketPayment(this.pid).then(res => {
           console.log(res)
         })
       }
