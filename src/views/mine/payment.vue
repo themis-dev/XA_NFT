@@ -1,5 +1,5 @@
 <template>
-    <div class="content">
+    <div class="payment-container">
         <div class="order-detail">
             <div class="nav" @click="goback">
               <img src="../../images/back.png" alt="">
@@ -71,130 +71,109 @@ import { goPayment } from '@/api/mine'
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-.content {
+.payment-container {
+    width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
     margin-top: 46px;
-    // margin-left: 30px;
-}
-.order-detail {
-    width: 27.4rem;
-    margin-left: 50%;
-    transform: translate(-50%);
-    .nav {
-      display: flex;
-      margin-top: 40px;
-      padding-left: 60px;
-      align-items: center;
-      cursor: pointer;
-      img {
-        width: 10px;
-        height: 18px;
-      }
-      .nav-title {
-        font-size: 16px;
-        font-family: MiSans;
-        font-weight: 600;
-        color: #333333;
-        padding-left: 3px;
-      }
-    }
-}
-.order-detail-content {
-  width: 535px;
-  height: 569px;
-  background: rgba(255, 255, 255, 1);
-  border-radius: 6px 6px 0px 0px;
-  margin: 0 auto;
-  margin-top: 20px;
-  padding: 0 47px;
-  .order-status {
-    padding-top: 50px;
-    text-align: center;
-    img {
-      width: 47px;
-      height: 47px;
-      margin-bottom: 15px;
-    }
-    font-size: 14px;
-    font-family: MiSans;
-    font-weight: 500;
-    color: #333333;
-  }
-  .order-msg {
-    width: 439px;
-    // background-color: aqua;
-    margin-top: 45px;
-    margin-bottom: 20px;
-    .nft-msg {
-      width: 439px;
-      height: 110px;
-      background: rgba(81, 81, 82, 1);
-      border-radius: 8px;
-      display: flex;
-      img {
-        width: 190px;
-        height: 110px;
-      }
-      .nft-msg-right {
-        margin-left: 34px;
-        .nft-msg-title {
-          font-size: 18px;
-          font-family: MiSans;
-          font-weight: 600;
-          line-height: 24px;
-          color: #FFFFFF;
-          margin-top: 18px;
-        }
-        .nft-msg-num {
-          font-size: 12px;
-          font-family: MiSans;
-          font-weight: 400;
-          line-height: 16px;
-          color: #EEE1C5;
-          margin-top: 10px;
-        }
-        .nft-msg-author {
-          font-size: 12px;
-          font-family: MiSans;
-          font-weight: 400;
-          line-height: 16px;
-          color: #CCCCCC;
-          margin-top: 14px;
-        }
-      }
-    }
-  }
-  .radio-group-wrapper{
-      width: 14.6rem;
-      margin: 0 auto;
+  .order-detail {
+      width: 100%;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      padding-left: 80px;
-      padding-top: 20px;
-      .el-radio{
-          padding-bottom: 20px;
+      align-items: center;
+      .nav {
+        width: 21.4rem;
+        display: flex;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        align-items: center;
+        cursor: pointer;
+        img {
+          width: 10px;
+          height: 18px;
+        }
+        .nav-title {
+          font-size: 16px;
+          font-family: MiSans;
+          font-weight: 600;
+          margin-left: 5px;
+          color: #333333;
+        }
       }
   }
-  .btn-wrapper{
-        height: 50px;
-        margin-top: 35px;
-        width: 10.2rem;
-        margin: 0 auto;
-        button{
-            height: 100%;
-            border: none;
-            width: 100%;
-            height: 100%;
-            border-radius: 25px;
-            background: #4859D8;
-            color: #ffffff;
-            font-size: 16px;
+  .order-detail-content {
+    width: 21.4rem;
+    .order-msg {
+      .nft-msg {
+        background: rgba(81, 81, 82, 1);
+        border-radius: 8px;
+        display: flex;
+        flex-direction: row;
+        img {
+          width: 11.8rem;
+          height: 110px;
         }
-        button:hover{
-            background: #5D6FD5;
+        .nft-msg-right {
+          padding-left: 18px;
+          .nft-msg-title {
+            font-size: 18px;
+            font-family: MiSans;
+            font-weight: 600;
+            line-height: 24px;
+            color: #FFFFFF;
+            margin-top: 18px;
+          }
+          .nft-msg-num {
+            font-size: 12px;
+            font-family: MiSans;
+            font-weight: 400;
+            line-height: 16px;
+            color: #EEE1C5;
+            margin-top: 10px;
+          }
+          .nft-msg-author {
+            font-size: 12px;
+            font-family: MiSans;
+            font-weight: 400;
+            line-height: 16px;
+            color: #CCCCCC;
+            margin-top: 14px;
+          }
+        }
+      }
+    }
+    .radio-group-wrapper{
+        width: 14.6rem;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 5rem;
+        padding-top: 20px;
+        .el-radio{
+            padding-bottom: 20px;
         }
     }
+    .btn-wrapper{
+          height: 50px;
+          margin-top: 35px;
+          width: 10.2rem;
+          margin: 0 auto;
+          button{
+              height: 100%;
+              border: none;
+              width: 100%;
+              height: 100%;
+              border-radius: 25px;
+              background: #4859D8;
+              color: #ffffff;
+              font-size: 16px;
+          }
+          button:hover{
+              background: #5D6FD5;
+          }
+      }
+  }
 }
 </style>
