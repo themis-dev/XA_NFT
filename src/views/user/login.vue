@@ -11,9 +11,10 @@
                     <input v-model="phoneNumber" placeholder="请输入手机号码"/>
                 </div>
                 <div class="password">
-                    <input v-model="password" placeholder="请输入密码"/>
-                    <span>
-                        <i class="el-icon-view"></i>
+                    <input v-model="password" :type="passwrodType" placeholder="请输入密码"/>
+                    <span class="" @click="handleShowPasswordClick">
+                        <span v-if="isShowPassword"><i class="el-icon-view"></i></span>
+                        <span class="highlight" v-else><i class="el-icon-view"></i></span>
                     </span>
                 </div>
             </div>
@@ -24,8 +25,9 @@
                 </div>
                 <div class="password">
                     <input v-model="captcha" placeholder="请输入验证码"/>
-                    <span>
-                        发送验证码
+                    <span @click="handleSendCodeClick">
+                        <span v-if="isShowSend">发送验证码</span>
+                        <span v-else>{{ countNum }}s后重发</span>
                     </span>
                 </div>
             </div>
@@ -50,15 +52,24 @@ export default {
             activeName: 1,
             phoneNumber: '',
             password: '',
-            captcha: ''
+            captcha: '',
+            passwrodType: 'password',
+            isShowPassword: true,
+            isShowSend: true,
+            timer: null,
+            countNum: 60
         }
     },
     methods: {
         handleTabsClick(value) {
             if(value == 1) {
                 this.activeName = 1
+                this.phoneNumber = ''
+                this.captcha = ''
             } else if(value == 2) {
                 this.activeName = 2
+                this.phoneNumber = ''
+                this.password = ''
             }
         },
         handleLoginClick() {
@@ -75,7 +86,41 @@ export default {
                         path: '/'
                     })
                 }
+            }).catch(error => {
+                console.log(error)
             })
+        },
+        handleShowPasswordClick() {
+            this.isShowPassword = !this.isShowPassword
+            if(this.isShowPassword) {
+                this.passwrodType = 'password'
+            } else {
+                this.passwrodType = 'text'
+            }
+        },
+        handleSendCodeClick() {
+            // let reqObj = {
+            //         index: 2,
+            //         phoneNumber: this.phoneNumber
+            //     }
+            //     getCaptcha(reqObj).then(res => {
+            //         if(res.status == 1) {
+            //             this.$message({
+            //                 message: res.message,
+            //                 type: 'success'
+            //             })
+            //         }
+            //     })
+            this.isShowSend = false
+            this.timer = setInterval(() => {
+                this.countNum--
+                if(this.countNum == 0) {
+                    this.isShowSend = true
+                    clearInterval(this.timer)
+                    this.countNum = 60
+                    return
+                } 
+            }, 1000)
         },
         handleRegisterClick() {
             this.$router.push({
@@ -87,6 +132,9 @@ export default {
                 path: '/'
             })
         }
+    },
+    beforeDestroy() {
+        clearInterval(this.timer)
     }
 }
 </script>
@@ -162,6 +210,15 @@ export default {
                 }
                 span{
                     padding: 13px 15px;
+                    color: #999999;
+                    .highlight{
+                        i{
+                            color: #4859D8;
+                        }
+                    }
+                }
+                span:hover{
+                    cursor: pointer;
                 }
             }
         }
@@ -211,7 +268,15 @@ export default {
                     padding-left: 15px;
                 }
                 span{
-                    padding: 13px 15px;
+                    width: 100px;
+                    padding: 13px 0;
+                    background: #4859D8;
+                    color: #FFFFFF;
+                    border-radius: 8px;
+                    text-align: center;
+                }
+                span:hover{
+                    cursor: pointer;
                 }
             }
         }

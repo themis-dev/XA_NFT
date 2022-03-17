@@ -13,7 +13,7 @@
                     <input :class="{ 'active': isFifthActive }" ref="fifth" v-model="fifthValue" maxlength="1" oninput = "value = value.replace(/[^0-9]/g,'')"/>
                     <input :class="{ 'active': isSixthActive }" ref="sixth" v-model="sixthValue" maxlength="1" oninput = "value = value.replace(/[^0-9]/g,'')"/>
                 </div>
-                <div class="resend-wrapper">0s后重新获取验证码</div>
+                <div class="resend-wrapper">{{ countTime }}s后重新获取验证码</div>
             </div>
         </div>
     </div>
@@ -36,7 +36,9 @@ export default {
             fourthValue: '',
             fifthValue: '',
             sixthValue: '',
-            phoneNumber: this.$route.query.phoneNumber
+            phoneNumber: this.$route.query.phoneNumber,
+            countTime: 60,
+            countDate: null
         }
     },
     watch: {
@@ -99,6 +101,14 @@ export default {
     },
     mounted () {
         this.$refs.first.focus()
+        this.countDate = setInterval(() => {
+            this.countTime--
+            if(this.countTime == 0) {
+                clearInterval(this.countDate)
+                this.countTime = 60
+                return
+            }
+        }, 1000)
     },
     methods: {
          hanldeBackClick() {
@@ -110,6 +120,9 @@ export default {
                 this.isActive = true
              }
          }
+    },
+    beforeDestroy() {
+        clearInterval(this.countDate)
     }
 }
 </script>

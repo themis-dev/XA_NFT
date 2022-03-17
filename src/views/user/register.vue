@@ -56,6 +56,8 @@ export default {
                             phoneNumber: this.phoneNumber
                         }
                     })
+                }).catch(error => {
+                    console.log(error)
                 })
             } else {
                 this.$message({

@@ -78,7 +78,9 @@ export default {
                          path: '/user/login'
                      })
                 }
-             })
+             }).catch(error => {
+                console.log(error)
+            })
          }
     }
 }

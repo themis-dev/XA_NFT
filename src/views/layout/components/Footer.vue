@@ -1,6 +1,21 @@
 ﻿﻿<template>
   <footer class="footer">
     <div class="container">
+      <div class="left">
+        <img src="../../../images/footer-icon1.png"/>
+        <span class="title">幻安</span>
+        <span class="desc">雄安官方数字藏品NFT平台</span>
+      </div>
+      <div class="right">
+        <div>
+          <img/>
+          <span>雄安新区未来工业设计研究院</span>
+        </div>
+        <div class="right-footer">
+          <img/>
+          <span>雄安新区区块链实验室</span>
+        </div>
+      </div>
     </div>
   </footer>
 </template>
@@ -49,6 +64,76 @@
 <style rel="stylesheet/scss" lang="scss" >
   .footer{
     height: 148px;
-    background: #BCBCBC
+    background: #BCBCBC;
+    .container{
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      .left{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        img{
+          width: 26.82px;
+          height: 41px;
+          vertical-align: middle;
+        }
+        .title{
+          font-size: 24px;
+          font-family: MiSans;
+          font-weight: 800;
+          color: #FFFFFF;
+          margin-left: 21px;
+        }
+        .desc{
+          display: none;
+          font-size: 16px;
+          font-family: MiSans;
+          font-weight: 400;
+          color: #FFFFFF;
+          margin-left: 24px;
+        }
+      }
+      .right{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #FFFFFF;
+        .right-footer{
+          margin-top: 17px;
+        }
+      }
+    }
+
+    @media (min-width: 991.98px) {
+      .left{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        img{
+          width: 26.82px;
+          height: 41px;
+          vertical-align: middle;
+        }
+        .title{
+          font-size: 24px;
+          font-family: MiSans;
+          font-weight: 800;
+          color: #FFFFFF;
+          margin-left: 21px;
+        }
+        .desc{
+          display: inline-block!important;
+          font-size: 16px;
+          font-family: MiSans;
+          font-weight: 400;
+          color: #FFFFFF;
+          margin-left: 24px;
+        }
+      }
+    }
   }
 </style>
