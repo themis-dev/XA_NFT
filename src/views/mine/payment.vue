@@ -53,6 +53,11 @@ import { goPayment } from '@/api/mine'
           }
           goPayment(reqObj).then(res => {
               console.log(res)
+              const div = document.createElement('div')
+              div.id = 'alipay'
+              div.innerHTML = res
+              document.body.appendChild(div)
+              document.querySelector('#alipay').children[0].submit()
           })
       },
     clickItem(item) {
