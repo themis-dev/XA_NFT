@@ -4,23 +4,23 @@
             <MineTab />
             <div class="mine-order">
               <div class="tab">
-                <div :class="active === 1 ? 'tab-item active': 'tab-item'" @click="clickItem(1)">全部</div>
-                <div :class="active === 2 ? 'tab-item active': 'tab-item'" @click="clickItem(2)">待付款</div>
-                <div :class="active === 3 ? 'tab-item active': 'tab-item'" @click="clickItem(3)">已付款</div>
-                <div :class="active === 4 ? 'tab-item active': 'tab-item'" @click="clickItem(4)">已取消</div>
+                <div :class="active === 10 ? 'tab-item active': 'tab-item'" @click="clickItem(10)">全部</div>
+                <div :class="active === 9 ? 'tab-item active': 'tab-item'" @click="clickItem(9)">待付款</div>
+                <div :class="active === 1 ? 'tab-item active': 'tab-item'" @click="clickItem(1)">已付款</div>
+                <div :class="active === 0 ? 'tab-item active': 'tab-item'" @click="clickItem(0)">已取消</div>
               </div>
               <div class="line"></div>
               <div class="order-content">
-                <div class="order-item" @click="goDetail" v-for="item in data" v-bind:key='item'>
+                <div class="order-item" @click="goDetail(item)" v-for="(item, index) in data" v-bind:key='index'>
                   <div class="item-left">
                     <img src="../../images/nft-img.png" alt="">
                     <div>
-                      <div class="item-title">AI人工</div>
-                      <div class="item-author">唐诗</div>
-                      <div class="item-price">19.99 元</div>
+                      <div class="item-title">{{ item.productName }}</div>
+                      <div class="item-author">{{ item.creator }}</div>
+                      <div class="item-price">{{ item.price }} 元</div>
                     </div>
                   </div>
-                  <div class="status">交易成功</div>
+                  <div class="status">{{ setOrderStatus(item.orderStatus) }}</div>
                 </div>
               </div>
             </div>
@@ -29,6 +29,7 @@
 </template>
 
 <script>
+import { getOrderList } from '@/api/mine'
 
   export default {
     name: 'order',
@@ -37,8 +38,8 @@
     },
     data() {
       return {
-        active: 1,
-        data: [1,2,3,4,5]
+        active: 10,
+        data: []
       }
     },
     computed: {
@@ -46,12 +47,52 @@
         return ''
       }
     },
+    mounted() {
+      this.getData()
+    },
     methods: {
     clickItem(item) {
       this.active = item
+      getOrderList({index: this.active}).then(res => {
+          if(res.status == 1 && res.data) {
+            this.data = res.data
+          }
+        })
     },
-    goDetail() {
-      this.$router.push({path:'/mine/order-detail'});
+    getData() {
+      getOrderList({index: 10}).then(res => {
+        if(res.status == 1 && res.data) {
+          this.data = res.data
+        }
+      })
+    },
+    goDetail(item) {
+      if(item.orderStatus == 9) {
+        this.$router.push({
+          path: '/mine/payment',
+          query: {
+            oid: item.oid
+          }
+        })
+      } else {
+        this.$router.push({
+          path:'/mine/order-detail',
+          query: {
+            pid: item.pid
+          }
+          
+        });
+      }
+    },
+    setOrderStatus(status) {
+      switch (status) {
+        case 0:
+          return '已取消';
+        case 1:
+          return "已付款";
+        case 9:
+          return '待付款';
+      }
     }
   }
   }

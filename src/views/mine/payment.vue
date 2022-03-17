@@ -1,16 +1,11 @@
 <template>
-    <div class="container content">
+    <div class="content">
         <div class="order-detail">
-            <MineTab />
             <div class="nav" @click="goback">
               <img src="../../images/back.png" alt="">
-              <div class="nav-title">我的订单列表</div>
+              <div class="nav-title">支付</div>
             </div>
             <div class="order-detail-content">
-              <div class="order-status">
-                <img src="../../images/success.png" alt="">
-                <div>交易成功</div>
-              </div>
               <div class="order-msg">
                 <div class="nft-msg">
                   <img src="../../images/nft-img.png" alt="">
@@ -20,51 +15,29 @@
                     <div class="nft-msg-author">唐诗</div>
                   </div>
                 </div>
-                <div class="order-data">
-                  <div class="data-item">
-                    <div class="data-item-title">订单金额</div>
-                    <div class="data-item-num">19.90元</div>
-                  </div>
-                  <div class="data-item">
-                    <div class="data-item-title">交易数量</div>
-                    <div class="data-item-num">1</div>
-                  </div>
-                  <div class="data-item">
-                    <div class="data-item-title">创建时间</div>
-                    <div class="data-item-num">2021.12.29 13:20:34</div>
-                  </div>
-                  <div class="data-item">
-                    <div class="data-item-title">付款时间</div>
-                    <div class="data-item-num">2021.12.29 13:20:34</div>
-                  </div>
-                  <div class="data-item">
-                    <div class="data-item-title">订单编号</div>
-                    <div class="data-item-num">2022021041245566777955</div>
-                  </div>
-                  <div class="data-item">
-                    <div class="data-item-title">交易编号</div>
-                    <div class="data-item-num">20220210412455612367779123455</div>
-                  </div>
-                </div>
               </div>
-              
+              <el-radio-group v-model="radioValue" class="radio-group-wrapper">
+                <el-radio :label="1">支付宝</el-radio>
+                <el-radio :label="2">微信</el-radio>
+              </el-radio-group>
+              <div class="btn-wrapper">
+                <button type="primary" @click="handlePaymentClick">去支付</button>
+            </div>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import { getOrderDetail } from '@/api/mine'
+import { goPayment } from '@/api/mine'
 
   export default {
     name: 'order',
-    components: {
-      MineTab: () => import('./MineTab.vue')
-    },
     data() {
       return {
         active: 1,
-        pid: this.$route.query.pid
+        oid: this.$route.query.oid,
+        radioValue: 1
       }
     },
     computed: {
@@ -72,14 +45,20 @@ import { getOrderDetail } from '@/api/mine'
         return ''
       }
     },
-    mounted() {
-      this.getData()
-    },
     methods: {
-      getData() {
-        getOrderDetail({pid: this.pid}).then(res => {
-          
-        })
+      handlePaymentClick() {
+          let reqObj = {
+              oid: this.oid,
+              whichPay: this.radioValue
+          }
+          goPayment(reqObj).then(res => {
+              console.log(res)
+              const div = document.createElement('div')
+              div.id = 'alipay'
+              div.innerHTML = res
+              document.body.appendChild(div)
+              document.querySelector('#alipay').children[0].submit()
+          })
       },
     clickItem(item) {
       this.active = item
@@ -99,13 +78,13 @@ import { getOrderDetail } from '@/api/mine'
     // margin-left: 30px;
 }
 .order-detail {
-    width: 67.5rem;
+    width: 27.4rem;
     margin-left: 50%;
     transform: translate(-50%);
     .nav {
       display: flex;
       margin-top: 40px;
-      margin-left: 60px;
+      padding-left: 60px;
       align-items: center;
       cursor: pointer;
       img {
@@ -117,7 +96,7 @@ import { getOrderDetail } from '@/api/mine'
         font-family: MiSans;
         font-weight: 600;
         color: #333333;
-        margin-left: 3px;
+        padding-left: 3px;
       }
     }
 }
@@ -144,9 +123,9 @@ import { getOrderDetail } from '@/api/mine'
   }
   .order-msg {
     width: 439px;
-    height: 360px;
     // background-color: aqua;
     margin-top: 45px;
+    margin-bottom: 20px;
     .nft-msg {
       width: 439px;
       height: 110px;
@@ -185,36 +164,37 @@ import { getOrderDetail } from '@/api/mine'
         }
       }
     }
-    .order-data {
-      width: 100%;
-      height: 220px;
-      // background-color: #EEE1C5;
-      margin-top: 34px;
-      padding: 0 27px;
-      background-image: url(../../images/watermark.png);
-      background-size: auto 60%;
-      background-repeat: no-repeat;
-      background-position: 70% 0%;
-      .data-item {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 16px;
-        .data-item-title {
-          font-size: 14px;
-          font-family: MiSans;
-          font-weight: 400;
-          line-height: 19px;
-          color: #999999;
-        }
-        .data-item-num {
-          font-size: 14px;
-          font-family: MiSans;
-          font-weight: 500;
-          line-height: 19px;
-          color: #333333;
-        }
-      }
-    }
   }
+  .radio-group-wrapper{
+      width: 14.6rem;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 80px;
+      padding-top: 20px;
+      .el-radio{
+          padding-bottom: 20px;
+      }
+  }
+  .btn-wrapper{
+        height: 50px;
+        margin-top: 35px;
+        width: 10.2rem;
+        margin: 0 auto;
+        button{
+            height: 100%;
+            border: none;
+            width: 100%;
+            height: 100%;
+            border-radius: 25px;
+            background: #4859D8;
+            color: #ffffff;
+            font-size: 16px;
+        }
+        button:hover{
+            background: #5D6FD5;
+        }
+    }
 }
 </style>

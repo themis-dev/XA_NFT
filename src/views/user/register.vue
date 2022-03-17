@@ -7,7 +7,7 @@
             <div class="phoneNum-wrapper">
                 <div class="num">
                     <span>+86</span>
-                    <input v-model="phoneNum" placeholder="请输入手机号码"/>
+                    <input v-model="phoneNumber" placeholder="请输入手机号码"/>
                 </div>
                 <div class="agreement-wrapper">
                     <el-checkbox v-model="isChecked" @change="handleCheckChange"></el-checkbox>
@@ -21,12 +21,13 @@
     </div>
 </template>
 <script>
+import { getCaptcha } from '@/api/user'
 
 export default {
     name: 'register',
     data () {
         return {
-            phoneNum: '',
+            phoneNumber: '',
             isChecked: false
         }
     },
@@ -36,7 +37,7 @@ export default {
             this.isChecked = value
         },
         handleNextClick() {
-            if(!this.phoneNum) {
+            if(!this.phoneNumber) {
                 this.$message({
                     message: '请输入手机号码',
                     type: 'warning'
@@ -44,8 +45,17 @@ export default {
                 return
             }
             if(this.isChecked) {
-                this.$router.push({
-                    path: '/user/registerCode'
+                let reqObj = {
+                    index: 1,
+                    phoneNumber: this.phoneNumber
+                }
+                getCaptcha(reqObj).then(res => {
+                    this.$router.push({
+                        path: '/user/registerCode',
+                        query: {
+                            phoneNumber: this.phoneNumber
+                        }
+                    })
                 })
             } else {
                 this.$message({

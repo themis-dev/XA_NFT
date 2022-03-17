@@ -69,6 +69,14 @@
       message() {
         return ''
       }
+    },
+    mounted: {
+      handleAvatarSuccess() {
+
+      },
+      beforeAvatarUpload() {
+
+      }
     }
   }
 </script>

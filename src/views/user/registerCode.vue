@@ -6,8 +6,12 @@
             </div>
             <div class="phoneNum-wrapper">
                 <div class="num">
-                    <span>+86</span>
-                    <input placeholder="请输入手机号码"/>
+                    <input :class="{ 'active': isFirstActive }" ref="first" v-model="firstValue" maxlength="1" oninput = "value = value.replace(/[^0-9]/g,'')"/>
+                    <input :class="{ 'active': isSecondActive }" ref="second" v-model="secondValue" maxlength="1" oninput = "value = value.replace(/[^0-9]/g,'')"/>
+                    <input :class="{ 'active': isThirdActive }" ref="third" v-model="thirdValue" maxlength="1" oninput = "value = value.replace(/[^0-9]/g,'')"/>
+                    <input :class="{ 'active': isFourthActive }" ref="fourth" v-model="fourthValue" maxlength="1" oninput = "value = value.replace(/[^0-9]/g,'')"/>
+                    <input :class="{ 'active': isFifthActive }" ref="fifth" v-model="fifthValue" maxlength="1" oninput = "value = value.replace(/[^0-9]/g,'')"/>
+                    <input :class="{ 'active': isSixthActive }" ref="sixth" v-model="sixthValue" maxlength="1" oninput = "value = value.replace(/[^0-9]/g,'')"/>
                 </div>
                 <div class="resend-wrapper">0s后重新获取验证码</div>
             </div>
@@ -20,12 +24,91 @@ export default {
     name: 'registerCode',
     data () {
         return {
-            
+            isFirstActive: false,
+            isSecondActive: false,
+            isThirdActive: false,
+            isFourthActive: false,
+            isFifthActive: false,
+            isSixthActive: false,
+            firstValue: '',
+            secondValue: '',
+            thirdValue: '',
+            fourthValue: '',
+            fifthValue: '',
+            sixthValue: '',
+            phoneNumber: this.$route.query.phoneNumber
         }
+    },
+    watch: {
+        firstValue(newVal) {
+            if(newVal) {
+                this.isFirstActive = true
+                this.$refs.second.focus()
+            } else {
+                this.isFirstActive = false
+            }
+        },
+        secondValue(newVal) {
+            if(newVal) {
+                this.isSecondActive = true
+                this.$refs.third.focus()
+            } else {
+                this.isSecondActive = false
+            }
+        },
+        thirdValue(newVal) {
+            if(newVal) {
+                this.isThirdActive = true
+                this.$refs.fourth.focus()
+            } else {
+                this.isThirdActive = false
+            }
+        },
+        fourthValue(newVal) {
+            if(newVal) {
+                this.isFourthActive = true
+                this.$refs.fifth.focus()
+            } else {
+                this.isFourthActive = false
+            }
+        },
+        fifthValue(newVal) {
+            if(newVal) {
+                this.isFifthActive = true
+                this.$refs.sixth.focus()
+            } else {
+                this.isFifthActive = false
+            }
+        },
+        sixthValue(newVal) {
+            if(newVal) {
+                this.isSixthActive = true
+                if(this.firstValue && this.secondValue && this.thirdValue && this.fourthValue && this.fifthValue && this.sixthValue) {
+                    this.$router.push({
+                        path: '/user/setPassword',
+                        query: {
+                            phoneNumber: this.phoneNumber,
+                            captcha: `${this.firstValue}${this.secondValue}${this.thirdValue}${this.fourthValue}${this.fifthValue}${this.sixthValue}`
+                        }
+                    })
+                }
+            } else {
+                this.isSixthActive = false
+            }
+        }
+    },
+    mounted () {
+        this.$refs.first.focus()
     },
     methods: {
          hanldeBackClick() {
              this.$router.go(-1)
+         },
+         handleFirstFocus(e) {
+             console.log(e.target.value)
+             if(e.target.value) {
+                this.isActive = true
+             }
          }
     }
 }
@@ -56,31 +139,24 @@ export default {
             .num{
                 margin-top: 33px;
                 height: 44px;
-                background: #f5f5f5;
                 display: flex;
                 flex-direction: row;
                 align-items: center;
+                justify-content: space-between;
                 border-radius: 8px;
-                span{
-                    display: inline-block;
-                    padding: 13px 15px;
-                    position: relative;
-                    margin-right: 10px;
-                }
-                span::after{
-                    position: absolute;
-                    content: "";
-                    width: 1px;
-                    height: 20px;
-                    background: #D6D6D6;
-                    top: 14px;
-                    right: 0;
-                }
                 input{
+                    width: 44px;
+                    height: 44px;
                     border: none;
                     background: #f5f5f5;
-                    flex: 1;
-                    padding-right: 5px;
+                    // margin-right: 0.8rem;
+                    text-align: center;
+                    border-radius: 8px;
+                    font-size: 16px;
+                }
+                .active{
+                    background: #4859D8;
+                    color: #FFFFFF;
                 }
             }
             .resend-wrapper{

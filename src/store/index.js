@@ -4,13 +4,15 @@ import Vuex from 'vuex'
 // import user from './modules/user'
 // import permission from './modules/permission'
 import chains from './modules/chains'
+import user from './modules/user'
 import getters from './getters'
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
   modules: {
-    chains
+    chains,
+    user
   },
   getters
 })

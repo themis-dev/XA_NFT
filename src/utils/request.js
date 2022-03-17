@@ -1,5 +1,6 @@
 import axios from 'axios'
 // import { Message } from 'element-ui'
+import { ACCESS_TOKEN } from '@/store/mutation-types'
 
 // 创建axios实例
 const service = axios.create({
@@ -9,6 +10,11 @@ const service = axios.create({
 
 // request拦截器
 service.interceptors.request.use(config => {
+  const token = window.sessionStorage.getItem(ACCESS_TOKEN)
+
+  if(token) {
+    config.headers['Authorization'] = token
+  }
   return config
 }, error => {
   // Do something with request error
