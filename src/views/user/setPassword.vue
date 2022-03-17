@@ -49,6 +49,18 @@ export default {
              this.$router.go(-1)
          },
          handleSubmitClick() {
+             if(!this.nickName) {
+                 this.$message({
+                     message: '请输入昵称',
+                     type: 'warning'
+                 })
+             }
+             if(!this.password) {
+                 this.$message({
+                     message: '请输入密码',
+                     type: 'warning'
+                 })
+             }
              let reqObj = {
                  phoneNumber: this.phoneNumber,
                  captcha: this.captcha,

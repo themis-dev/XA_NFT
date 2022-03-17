@@ -6,25 +6,29 @@ import { ACCESS_TOKEN } from '@/store/mutation-types'
 
 NProgress.configure({ showSpinner: false }); // NProgress Configuration
 
-const whiteList = ['login', 'register', 'registerCode', 'setPasswrod'] // no redirect whitelist
+const whiteList = ['home', 'login', 'register', 'registerCode', 'setPasswrod'] // no redirect whitelist
 const loginRoutePath = '/user/login'
 const defaultRoutePath = '/'
 
 router.beforeEach((to, from, next) => {
   NProgress.start() // start progress bar
-  if(window.sessionStorage.getItem(ACCESS_TOKEN)) {
-    if(to.path === loginRoutePath) {
-      next({ path: defaultRoutePath })
-      NProgress.done()
-    } else {
-      next()
-    }
+  if(whiteList.includes(to.name)) {
+    next()
   } else {
-    if (whiteList.includes(to.name)) {
-      next()
+    if(window.sessionStorage.getItem(ACCESS_TOKEN)) {
+      if(to.path === loginRoutePath) {
+        next({ path: defaultRoutePath })
+        NProgress.done()
+      } else {
+        next()
+      }
     } else {
-      next({ path: loginRoutePath, query: { redirect: to.fullPath } })
-      NProgress.done() 
+      if (whiteList.includes(to.name)) {
+        next()
+      } else {
+        next({ path: loginRoutePath, query: { redirect: to.fullPath } })
+        NProgress.done() 
+      }
     }
   }
 })

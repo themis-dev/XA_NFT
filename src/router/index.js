@@ -89,6 +89,16 @@ export const constantRouterMap = [
       name: 'payment',
       path: 'mine/payment',
       component: () => import('@/views/mine/payment')
+    },
+    {
+      name: 'paymentSuccess',
+      path: 'mine/paymentSuccess',
+      component: () => import('@/views/mine/paymentSuccess')
+    },
+    {
+      name: 'paymentFail',
+      path: 'mine/paymentFail',
+      component: () => import('@/views/mine/paymentFail')
     }
     ]
   }
