@@ -111,7 +111,7 @@ import { goPayment } from '@/api/mine'
         display: flex;
         flex-direction: row;
         img {
-          width: 11.8rem;
+          width: 9.8rem;
           height: 110px;
         }
         .nft-msg-right {
