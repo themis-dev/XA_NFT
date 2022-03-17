@@ -4,7 +4,7 @@
             <div class="market">
               <div class="title">交易市场</div>
               <div class="collection-content">
-                <div class="collection-content-item" v-for="item in data" v-bind:key='item'>
+                <div class="collection-content-item" v-for="item in data" v-bind:key='item' @click="goDetail">
                   <div class="time">
                     <img src="../../images/time.png" alt="">
                     <span>即将开售 18:05:48</span>
@@ -54,7 +54,7 @@ import { getMarketData } from '@/api/market.js'
     },
     methods: {
       goDetail() {
-        this.$router.push({path:'/mine/order-detail'});
+        this.$router.push({path:'/market-detail'});
       },
       getData() {
         getMarketData({pageNo: 1, pageSize: 100}).then(res => {
