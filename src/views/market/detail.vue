@@ -5,9 +5,15 @@
         <div class="work-msg">
           <div class="work-name">{{ detailData.name }}</div>
           <div class="work-num">
-            <div class="item-number">
-              <div class="item-number-name">限量</div>
-              <div class="item-number-val">{{ detailData.num }}份</div>
+            <div>
+              <div class="item-number">
+                <div class="item-number-name">限量</div>
+                <div class="item-number-val">{{ detailData.num }}份</div>
+              </div>
+              <div class="item-number">
+                <div class="item-number-name">剩余</div>
+                <div class="item-number-val">{{ detailData.remainNum }}份</div>
+              </div>
             </div>
             <div class="price">
               ¥ {{ detailData.price }}
@@ -154,15 +160,24 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
           return
         }
         marketPayment(this.pid).then(res => {
+          console.log(res)
           if(res.status == 1) {
             this.$message({
               message: res.message,
               type: 'success'
             })
             this.$router.push({
-              path: '/mine/order'
+              path: '/mine/order',
+              query: {
+                active: 9
+              }
             })
-          } 
+          } else if(res.status == -1) {
+            this.$message({
+              message: res.message,
+              type: 'warning'
+            })
+          }
         }).catch(error => {
           console.log(error.response)
           if(error.response.data.status == -9) {

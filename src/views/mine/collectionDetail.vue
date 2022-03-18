@@ -21,6 +21,24 @@
                     </div>
                   </div>
                 </div>
+                <div class="nft-function">
+                    <div>
+                      <img style="width: 25px;height: 25px;" src="../../images/share-icon.png"/>
+                      <span>分享</span>
+                    </div>
+                    <div>
+                      <img style="width: 25px;height: 25px;" src="../../images/giveto-icon.png"/>
+                      <span>转赠</span>
+                    </div>
+                    <div>
+                      <img style="width: 25px;height: 25px;" src="../../images/certificate-icon.png"/>
+                      <span>证书</span>
+                    </div>
+                    <div>
+                      <img style="width: 25px;height: 25px;" src="../../images/more-icon.png"/>
+                      <span>更多</span>
+                    </div>
+                  </div>
                 <div class="order-data">
                  <div class="data-item">
                     <div class="data-item-title">收藏者</div>
@@ -54,7 +72,16 @@
               </div>
               
             </div>
-        </div>
+            <div class="purchase-notes">
+              <div class="purchase-notes-content">
+                温馨提示：本数字藏品版权由发行方或者原作创作者拥有，除另行取得版权拥有者书面同意外，用户不得将数字藏品用于任何商业用途。请远离非理性炒作，防范欺诈风险
+              </div>
+            </div>
+            <div class="work-msg-footer">
+              <img src="../../images/detail-img2.png" alt="">
+              <div class="work-msg-footer-title">雄安链提供支持</div>
+            </div>
+          </div>
     </div>
 </template>
 
@@ -208,6 +235,23 @@ import { getOrderDetail } from '@/api/mine'
         }
       }
     }
+    .nft-function{
+      width: 300px;
+      display: flex;
+      flex-direction: row;
+      margin-top: 27px;
+      justify-content: space-around;
+      align-items: center;
+      div{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        img{
+          vertical-align: middle;
+        }
+      }
+    }
     .order-data {
       width: 100%;
       // background-color: #EEE1C5;
@@ -239,4 +283,41 @@ import { getOrderDetail } from '@/api/mine'
     }
   }
 }
+.purchase-notes {
+      margin-top: 54px;
+      text-align: center;
+      .purchase-notes-title {
+        font-size: 16px;
+        font-family: MiSans;
+        font-weight: 600;
+        line-height: 22px;
+        color: #777777;
+      }
+      .purchase-notes-content {
+        font-size: 12px;
+        font-family: MiSans;
+        font-weight: 400;
+        line-height: 18px;
+        color: #B5B5B5;
+        margin-top: 12px;
+        padding: 0 260px;
+        text-align: left;
+      }
+    }
+  .work-msg-footer {
+      margin-top: 31px;
+      text-align: center;
+      img {
+        width: 27px;
+        height: 41px;
+      }
+      .work-msg-footer-title {
+        font-size: 16px;
+        font-family: MiSans;
+        font-weight: 400;
+        line-height: 22px;
+        color: #747474;
+        margin-top: 6px;
+      }
+    }
 </style>

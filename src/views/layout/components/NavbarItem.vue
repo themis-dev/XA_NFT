@@ -86,7 +86,7 @@ export default {
           path: '/mine/user'
         }
       ],
-      avatarUrl: '',
+      avatarUrl: window.sessionStorage.getItem('avatar'),
       token: ''
     };
   },
@@ -112,16 +112,22 @@ export default {
         })
         
       }
+    },
+    '$store.state.user.avatar': function() {
+      this.avatarUrl = this.$store.state.user.avatar
     }
   },
   created() {
     const language = navigator.language || navigator.userLanguage;
     const lang = this.$cookies.get('CultureInfo') || language;
     this.currentLang = lang !== 'zh-CN' ? 'English' : '简体中文'
+    // this.avatarUrl = window.sessionStorage.getItem('avatar')
   },
   mounted() {
-    this.avatarUrl = window.sessionStorage.getItem('avatar') ? `${this.$root.avatarUrl}${window.sessionStorage.getItem('avatar')}` : ''
-    console.log(this.avatarUrl)
+    // setTimeout(() => {
+    //   this.avatarUrl = window.sessionStorage.getItem('avatar')
+    // }, 500)
+    // console.log(this.avatarUrl)
     this.token = window.sessionStorage.getItem(ACCESS_TOKEN)
     this.$store.state.user.token = this.token
       if(!this.token) {

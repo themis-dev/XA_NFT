@@ -39,7 +39,7 @@ import { getOrderList } from '@/api/mine'
     },
     data() {
       return {
-        active: 10,
+        active: this.$route.query.active ? this.$route.query.active : 10,
         data: []
       }
     },

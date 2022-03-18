@@ -80,11 +80,13 @@ export default {
             }
             login(reqObj).then(res => {
                 if(res.status == 1 && res.data) {
+                    console.log(this.$root.avatarUrl)
                     window.sessionStorage.setItem(ACCESS_TOKEN, `Bearer ${res.data.token}`)
-                    window.sessionStorage.setItem('avatar', res.data.avatar)
+                    window.sessionStorage.setItem('avatar', `${this.$root.avatarUrl}${res.data.avatar}`)
                     window.sessionStorage.setItem('nickName', res.data.nickName)
                     window.sessionStorage.setItem('phoneNumber', res.data.phoneNumber)
                     this.$store.state.user.token = res.data.token
+                    this.$store.state.user.avatar = `${this.$root.avatarUrl}${res.data.avatar}`
                     this.$router.push({
                         path: '/'
                     })

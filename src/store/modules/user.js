@@ -4,7 +4,8 @@ import { ACCESS_TOKEN } from "../mutation-types"
 
 const user = {
     state: {
-        token: ''
+        token: '',
+        avatar: ''
     },
 
     mutations: {
