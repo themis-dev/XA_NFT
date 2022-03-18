@@ -13,10 +13,11 @@
               <div class="order-content">
                 <div class="order-item" @click="goDetail(item)" v-for="(item, index) in data" v-bind:key='index'>
                   <div class="item-left">
-                    <img src="../../images/nft-img.png" alt="">
+                    <img :src="item.productImage" alt="">
                     <div>
                       <div class="item-title">{{ item.productName }}</div>
                       <div class="item-author">{{ item.creator }}</div>
+                      <div class="item-order">订单号：{{ item.oid }}</div>
                       <div class="item-price">{{ item.price }} 元</div>
                     </div>
                   </div>
@@ -71,7 +72,11 @@ import { getOrderList } from '@/api/mine'
         this.$router.push({
           path: '/mine/payment',
           query: {
-            oid: item.oid
+            oid: item.oid,
+            pid: item.pid,
+            productImage: item.productImage,
+            productName: item.productName,
+            creator: item.creator
           }
         })
       } else {
@@ -148,7 +153,7 @@ import { getOrderList } from '@/api/mine'
       justify-content: space-between;
       flex-wrap: wrap;
       .order-item {
-        width: 446px;
+        width: 466px;
         height: 103px;
         background: rgba(248, 250, 255, 1);
         border-radius: 6px;
@@ -160,6 +165,7 @@ import { getOrderList } from '@/api/mine'
         cursor: pointer;
         .item-left {
           display: flex;
+          align-items: center;
           img {
             width: 61px;
             height: 61px;
@@ -173,6 +179,14 @@ import { getOrderList } from '@/api/mine'
             color: #333333;
           }
           .item-author {
+            font-size: 12px;
+            font-family: MiSans;
+            font-weight: 400;
+            line-height: 16px;
+            color: #999999;
+            margin-top: 3px;
+          }
+          .item-order {
             font-size: 12px;
             font-family: MiSans;
             font-weight: 400;

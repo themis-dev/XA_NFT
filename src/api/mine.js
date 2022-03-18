@@ -26,3 +26,29 @@ export function goPayment (data) {
         data
       })
 }
+
+// 更换头像
+export function updateAvatar(data) {
+  return request({
+    url: '/interface/api/customer/avatar',
+    method: 'post',
+    data
+  })
+}
+
+// 获取个人藏品
+export function getCollection() {
+  return request({
+    url: '/interface/api/customer/collections',
+    method: 'get'
+  })
+}
+
+// 个人收藏详情
+export function getCollectionDetail (params) {
+  return request({
+    url: '/interface/api/customer/collection',
+    method: 'get',
+    params
+  })
+}

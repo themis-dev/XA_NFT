@@ -1,0 +1,242 @@
+<template>
+    <div class="container content">
+        <div class="order-detail">
+            <MineTab />
+            <div class="nav" @click="goback">
+              <img src="../../images/back.png" alt="">
+              <div class="nav-title">我的藏品列表</div>
+            </div>
+            <div class="order-detail-content">
+              <div class="order-status">
+                <div>藏品详情</div>
+              </div>
+              <div class="order-msg">
+                <div class="nft-msg">
+                  <img :src="detailObj.productImage" alt="">
+                  <div class="nft-msg-right">
+                    <div class="nft-msg-title">{{ detailObj.productName }}</div>
+                    <div class="nft-msg-num">
+                        <img src="../../images/order-icon.png"/>
+                        {{ detailObj.oid }}
+                    </div>
+                  </div>
+                </div>
+                <div class="order-data">
+                 <div class="data-item">
+                    <div class="data-item-title">收藏者</div>
+                    <div class="data-item-num">{{  }}</div>
+                  </div>
+                  <div class="data-item">
+                    <div class="data-item-title">生成时间</div>
+                    <div class="data-item-num">{{  }}</div>
+                  </div>
+                  <div class="data-item">
+                    <div class="data-item-title">藏品哈希值</div>
+                    <div class="data-item-num">{{ detailObj.productHash }}</div>
+                  </div>
+                  <div class="data-item">
+                    <div class="data-item-title">创作者</div>
+                    <div class="data-item-num">{{ detailObj.creator }}</div>
+                  </div>
+                  <div class="data-item">
+                    <div class="data-item-title">交易金额</div>
+                    <div class="data-item-num">{{ detailObj.price }}元</div>
+                  </div>
+                  <div class="data-item">
+                    <div class="data-item-title">交易时间</div>
+                    <div class="data-item-num">{{ detailObj.payTime }}</div>
+                  </div>
+                  <div class="data-item">
+                    <div class="data-item-title">记录单号</div>
+                    <div class="data-item-num">{{ detailObj.oid }}</div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+import { getOrderDetail } from '@/api/mine'
+
+  export default {
+    name: 'order',
+    components: {
+      MineTab: () => import('./MineTab.vue')
+    },
+    data() {
+      return {
+        active: 1,
+        pid: this.$route.query.pid,
+        detailObj: {}
+      }
+    },
+    computed: {
+      message() {
+        return ''
+      }
+    },
+    mounted() {
+      this.getData()
+    },
+    methods: {
+      getData() {
+        getOrderDetail({pid: this.pid}).then(res => {
+        console.log(res)
+            if(res.status == 1 && res.data) {
+                this.detailObj = res.data
+            }
+        })
+      },
+    clickItem(item) {
+      this.active = item
+    },
+    goback() {
+      this.$router.go(-1);
+    }
+  }
+  }
+</script>
+
+<style rel="stylesheet/scss" lang="scss" scoped>
+.content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 46px;
+    // margin-left: 30px;
+}
+.order-detail {
+    width: 67.5rem;
+    margin-left: 50%;
+    transform: translate(-50%);
+    .nav {
+      display: flex;
+      margin-top: 40px;
+      margin-left: 60px;
+      align-items: center;
+      cursor: pointer;
+      img {
+        width: 10px;
+        height: 18px;
+      }
+      .nav-title {
+        font-size: 16px;
+        font-family: MiSans;
+        font-weight: 600;
+        color: #333333;
+        margin-left: 3px;
+      }
+    }
+}
+.order-detail-content {
+  width: 535px;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 6px 6px 0px 0px;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 0 47px;
+  .order-status {
+    padding-top: 50px;
+    text-align: center;
+    font-size: 22px;
+    font-family: MiSans;
+    font-weight: 600;
+    color: #333333;
+    img {
+      width: 47px;
+      height: 47px;
+      margin-bottom: 15px;
+    }
+  }
+  .order-msg {
+    width: 439px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 45px;
+    .nft-msg {
+      width: 300px;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      img {
+        width: 300px;
+        height: 300px;
+      }
+      .nft-msg-right {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        .nft-msg-title {
+          font-size: 24px;
+          font-family: MiSans;
+          font-weight: 600;
+          line-height: 37px;
+          color: #333333;
+          margin-top: 18px;
+        }
+        .nft-msg-num {
+          font-size: 12px;
+        font-family: MiSans;
+        font-weight: 400;
+        line-height: 16px;
+        color: #515152;
+          margin-top: 10px;
+          background: rgba(238, 225, 197, 0.39);
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          padding: 8px 16px;
+          img{
+              width: 10.45px;
+              height: 15.97px;
+              margin-right: 5px;
+          }
+        }
+        .nft-msg-author {
+          font-size: 12px;
+          font-family: MiSans;
+          font-weight: 400;
+          line-height: 16px;
+          color: #CCCCCC;
+          margin-top: 14px;
+        }
+      }
+    }
+    .order-data {
+      width: 100%;
+      // background-color: #EEE1C5;
+      margin-top: 34px;
+      padding: 0 27px;
+      background-image: url(../../images/watermark.png);
+      background-size: auto 60%;
+      background-repeat: no-repeat;
+      background-position: 70% 0%;
+      .data-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 16px;
+        .data-item-title {
+          font-size: 14px;
+          font-family: MiSans;
+          font-weight: 400;
+          line-height: 19px;
+          color: #999999;
+        }
+        .data-item-num {
+          font-size: 14px;
+          font-family: MiSans;
+          font-weight: 500;
+          line-height: 19px;
+          color: #333333;
+        }
+      }
+    }
+  }
+}
+</style>

@@ -5,13 +5,13 @@
             <div class="mine-collection">
               <div class="title">藏品列表</div>
               <div class="collection-content">
-                <div class="collection-content-item">
-                  <img src="../../images/nft-img.png" alt="">
-                  <div class="item-title">《雄安赋》</div>
-                  <div class="item-number">AC9163#00074/10000</div>
-                  <div class="author">王大力</div>
+                <div class="collection-content-item" v-for="item of orderList" :key="item.pid" @click="handleClick(item)">
+                  <img :src="item.productImage" alt="">
+                  <div class="item-title">{{ item.productName }}</div>
+                  <div class="item-number">{{ item.oid }}</div>
+                  <div class="author">{{ item.creator }}</div>
                 </div>
-                <div class="collection-content-item">
+                <!-- <div class="collection-content-item">
                   <img src="../../images/nft-img.png" alt="">
                   <div class="item-title">《雄安赋》</div>
                   <div class="item-number">AC9163#00074/10000</div>
@@ -22,7 +22,7 @@
                   <div class="item-title">《雄安赋》</div>
                   <div class="item-number">AC9163#00074/10000</div>
                   <div class="author">王大力</div>
-                </div>
+                </div> -->
               </div>
             </div>
         </div>
@@ -30,6 +30,7 @@
 </template>
 
 <script>
+import { getCollection } from '@/api/mine'
   export default {
     name: 'collection',
     components: {
@@ -37,11 +38,33 @@
     },
     data() {
       return {
+       orderList: []
       }
     },
     computed: {
       message() {
         return ''
+      }
+    },
+    mounted() {
+      this.getCollectionList()
+    },
+    methods: {
+      getCollectionList() {
+        getCollection().then(res => {
+          console.log(res)
+          if(res.status == 1 && res.data) {
+            this.orderList = res.data
+          }
+        })
+      },
+      handleClick(item) {
+        this.$router.push({
+          path: '/mine/collectionDetail',
+          query: {
+            pid: item.pid
+          }
+        })
       }
     }
   }
@@ -79,10 +102,14 @@
       margin-top: 54px;
       .collection-content-item  {
         width: 17.5rem;
-        height: 22.875rem;
+        height: 18.875rem;
         background: rgba(81, 81, 82, 1);
         opacity: 1;
         border-radius: 20px;
+        img {
+          width: 17.5rem;
+          height: 190px;
+        }
         .item-title {
           font-size: 16px;
           font-family: MiSans;
@@ -102,7 +129,7 @@
           background-position: center center;
           margin-left: 11px;
           margin-top: 4px;
-          font-size: 16px;
+          font-size: 12px;
           font-family: MiSans;
           font-weight: 400;
           line-height: 16px;
@@ -120,6 +147,9 @@
           margin-left: 16px;
           margin-top: 6px;
         }
+      }
+      .collection-content-item:hover{
+        cursor: pointer;
       }
     }
 }

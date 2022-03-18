@@ -132,15 +132,48 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
       },
       getData() {
         getMarketDetail({pid: this.pid}).then(res => {
-          console.log(res)
           if(res.status == 1 && res.data) {
             this.detailData = res.data
-          }
+          } 
+        }).catch(error => {
+          console.log(error)
         })
       },
       handleClick() {
+        if(this.detailData.status == 0) {
+          this.$message({
+            message: '当前商品已售罄',
+            type: 'warning'
+          })
+          return
+        } else if(this.detailData.status == 9){
+          this.$message({
+            message: '当前商品未开售',
+            type: 'warning'
+          })
+          return
+        }
         marketPayment(this.pid).then(res => {
-          console.log(res)
+          if(res.status == 1) {
+            this.$message({
+              message: res.message,
+              type: 'success'
+            })
+            this.$router.push({
+              path: '/mine/order'
+            })
+          } 
+        }).catch(error => {
+          console.log(error.response)
+          if(error.response.data.status == -9) {
+            this.$message({
+              message: error.response.data.message,
+              type: 'error'
+            })
+            this.$router.push({
+              path: '/user/login'
+            })
+          }
         })
       }
     }

@@ -7,7 +7,7 @@
                 <div class="collection-content-item" v-for="item in marketData" v-bind:key='item.pid' @click="goDetail(item)">
                   <div class="time">
                     <img src="../../images/time.png" alt="">
-                    <span>即将开售 {{ item.openingTime }}</span>
+                    <span>{{ setStatus(item.status) }} {{ item.openingTime }}</span>
                   </div>
                   <img :src="item.productImage" alt="" class="nft-img">
                   <div class="item-title">{{ item.name }}</div>
@@ -17,7 +17,7 @@
                   </div>
                   <div class="author-price">
                     <div class="author">
-                      <img src="" alt="">
+                      <!-- <img src="" alt=""> -->
                       <div>{{ item.creator }}</div>
                     </div>
                     <div class="price">
@@ -33,6 +33,7 @@
 
 <script>
 import { getMarketData } from '@/api/market.js'
+import moment from 'moment'
   export default {
     name: 'collection',
     components: {
@@ -51,6 +52,7 @@ import { getMarketData } from '@/api/market.js'
     },
     mounted() {
       this.getData()
+      // console.log(moment().default())
     },
     methods: {
       goDetail(item) {
@@ -63,11 +65,20 @@ import { getMarketData } from '@/api/market.js'
       },
       getData() {
         getMarketData({pageNo: 1, pageSize: 100}).then(res => {
-          console.log(res)
           if(res.status == 1 && res.data) {
             this.marketData = res.data
           }
         })
+      },
+      setStatus(value) {
+        switch (value) {
+          case 0:
+            return '售罄';
+          case 1:
+            return '销售中';
+          case 9:
+            return '未开售'
+        }
       }
     }
   }

@@ -149,7 +149,7 @@
         </div>
         <div class="artist-list">
           <div class="item">
-            <img />
+            <img src="https://5b0988e595225.cdn.sohucs.com/images/20180922/1dd9c8b236464d32ad1426a8f5a1df73.jpeg"/>
             <div class="item-desc">
               <span class="name">刘江</span>
               <span class="desc">西泠印社金石篆刻传承人</span>
@@ -157,7 +157,7 @@
             </div>
           </div>
           <div class="item">
-            <img />
+            <img src="https://5b0988e595225.cdn.sohucs.com/images/20180922/1dd9c8b236464d32ad1426a8f5a1df73.jpeg"/>
             <div class="item-desc">
               <span class="name">刘江</span>
               <span class="desc">西泠印社金石篆刻传承人</span>
@@ -165,7 +165,7 @@
             </div>
           </div>
           <div class="item">
-            <img />
+            <img src="https://5b0988e595225.cdn.sohucs.com/images/20180922/1dd9c8b236464d32ad1426a8f5a1df73.jpeg"/>
             <div class="item-desc">
               <span class="name">刘江</span>
               <span class="desc">西泠印社金石篆刻传承人</span>
@@ -173,7 +173,7 @@
             </div>
           </div>
           <div class="item">
-            <img />
+            <img src="https://5b0988e595225.cdn.sohucs.com/images/20180922/1dd9c8b236464d32ad1426a8f5a1df73.jpeg"/>
             <div class="item-desc">
               <span class="name">刘江</span>
               <span class="desc">西泠印社金石篆刻传承人</span>
@@ -181,7 +181,7 @@
             </div>
           </div>
           <div class="item">
-            <img />
+            <img src="https://5b0988e595225.cdn.sohucs.com/images/20180922/1dd9c8b236464d32ad1426a8f5a1df73.jpeg"/>
             <div class="item-desc">
               <span class="name">刘江</span>
               <span class="desc">西泠印社金石篆刻传承人</span>
@@ -189,7 +189,7 @@
             </div>
           </div>
           <div class="item">
-            <img />
+            <img src="https://5b0988e595225.cdn.sohucs.com/images/20180922/1dd9c8b236464d32ad1426a8f5a1df73.jpeg"/>
             <div class="item-desc">
               <span class="name">刘江</span>
               <span class="desc">西泠印社金石篆刻传承人</span>
@@ -197,7 +197,7 @@
             </div>
           </div>
           <div class="item">
-            <img />
+            <img src="https://5b0988e595225.cdn.sohucs.com/images/20180922/1dd9c8b236464d32ad1426a8f5a1df73.jpeg"/>
             <div class="item-desc">
               <span class="name">刘江</span>
               <span class="desc">西泠印社金石篆刻传承人</span>
@@ -205,7 +205,7 @@
             </div>
           </div>
           <div class="item">
-            <img />
+            <img src="https://5b0988e595225.cdn.sohucs.com/images/20180922/1dd9c8b236464d32ad1426a8f5a1df73.jpeg"/>
             <div class="item-desc">
               <span class="name">刘江</span>
               <span class="desc">西泠印社金石篆刻传承人</span>
@@ -213,7 +213,7 @@
             </div>
           </div>
           <div class="item">
-            <img />
+            <img src="https://5b0988e595225.cdn.sohucs.com/images/20180922/1dd9c8b236464d32ad1426a8f5a1df73.jpeg"/>
             <div class="item-desc">
               <span class="name">刘江</span>
               <span class="desc">西泠印社金石篆刻传承人</span>
@@ -221,7 +221,7 @@
             </div>
           </div>
           <div class="item">
-            <img />
+            <img src="https://5b0988e595225.cdn.sohucs.com/images/20180922/1dd9c8b236464d32ad1426a8f5a1df73.jpeg"/>
             <div class="item-desc">
               <span class="name">刘江</span>
               <span class="desc">西泠印社金石篆刻传承人</span>
@@ -229,7 +229,7 @@
             </div>
           </div>
           <div class="item">
-            <img />
+            <img src="https://5b0988e595225.cdn.sohucs.com/images/20180922/1dd9c8b236464d32ad1426a8f5a1df73.jpeg"/>
             <div class="item-desc">
               <span class="name">刘江</span>
               <span class="desc">西泠印社金石篆刻传承人</span>
@@ -237,7 +237,7 @@
             </div>
           </div>
           <div class="item">
-            <img />
+            <img src="https://5b0988e595225.cdn.sohucs.com/images/20180922/1dd9c8b236464d32ad1426a8f5a1df73.jpeg"/>
             <div class="item-desc">
               <span class="name">刘江</span>
               <span class="desc">西泠印社金石篆刻传承人</span>
@@ -255,18 +255,28 @@ export default {
   name: 'home',
   data() {
     return {
-      
+      token: ''
+    }
+  },
+  watch: {
+    token(newVal) {
+      if(newVal) {
+        this.$router.push({
+          path: '/'
+        })
+      }
     }
   },
   components: {},
   computed: {},
   mounted() {
-    
-    
+    this.token = this.$store.state.user.token
   },
   methods: {
     handleExploreClick() {
-
+      this.$router.push({
+        path: '/market'
+      })
     },
     handleRegisterClick() {
       this.$router.push({
@@ -274,7 +284,9 @@ export default {
       })
     },
     handleMoreClick() {
-
+      this.$router.push({
+        path: '/market'
+      })
     }
   }
 }
@@ -482,6 +494,9 @@ export default {
           align-items: center;
           justify-content: center;
           color: #333333;
+        }
+        .btn:hover{
+          cursor: pointer;
         }
       }
     .plarform-left, .plarform-right{
@@ -798,6 +813,9 @@ export default {
           align-items: center;
           justify-content: center;
           color: #333333;
+        }
+        .btn:hover{
+          cursor: pointer;
         }
       }
       .plarform-left{

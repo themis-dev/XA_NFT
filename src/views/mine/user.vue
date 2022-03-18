@@ -8,24 +8,24 @@
                 <div class="item-row">
                   <div class="item">
                     <div class="item-name">昵称</div>
-                    <el-input v-model="name" placeholder="" disabled size="medium"></el-input>
+                    <el-input v-model="nickName" placeholder="" disabled size="medium"></el-input>
                   </div>
                   <div class="item">
                     <div class="item-name">手机号</div>
-                    <el-input v-model="name" placeholder="" disabled size="medium"></el-input>
+                    <el-input v-model="phoneNumber" placeholder="" disabled size="medium"></el-input>
                   </div>
                 </div>
                 <div class="item-row">
-                  <div class="item">
+                  <!-- <div class="item">
                     <div class="item-name">密码</div>
-                    <el-input v-model="name" placeholder="" disabled size="medium"></el-input>
-                  </div>
+                    <el-input v-model="password" placeholder="" disabled size="medium"></el-input>
+                  </div> -->
                   <div class="item">
                     <div class="item-name">头像</div>
                     <div class="item-upload">
                         <el-upload
                         class="avatar-uploader"
-                        action="https://jsonplaceholder.typicode.com/posts/"
+                        action="http://192.168.3.233:8082/interface/api/customer/avatar"
                         :show-file-list="false"
                         :on-success="handleAvatarSuccess"
                         :before-upload="beforeAvatarUpload">
@@ -39,7 +39,7 @@
                 <div class="item-row">
                   <div class="item">
                     <div class="item-name">实名认证</div>
-                    <div class="certification">已通过</div>
+                    <div class="certification">待认证</div>
                   </div>
                 </div>
                 <div class="line"></div>
@@ -54,6 +54,7 @@
 </template>
 
 <script>
+import { updateAvatar } from '@/api/mine'
 
   export default {
     name: 'user',
@@ -62,7 +63,9 @@
     },
     data() {
       return {
-        name: '唐诗'
+        nickName: window.sessionStorage.getItem('nickName'),
+        phoneNumber: window.sessionStorage.getItem('phoneNumber'),
+        imageUrl: ''
       }
     },
     computed: {
@@ -71,8 +74,8 @@
       }
     },
     mounted: {
-      handleAvatarSuccess() {
-
+      handleAvatarSuccess(res) {
+        console.log(res)
       },
       beforeAvatarUpload() {
 

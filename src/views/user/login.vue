@@ -42,7 +42,7 @@
     </div>
 </template>
 <script>
-import { login } from '@/api/user'
+import { login, getCaptcha } from '@/api/user'
 import { ACCESS_TOKEN } from '@/store/mutation-types'
 
 export default {
@@ -82,10 +82,13 @@ export default {
                 if(res.status == 1 && res.data) {
                     window.sessionStorage.setItem(ACCESS_TOKEN, `Bearer ${res.data.token}`)
                     window.sessionStorage.setItem('avatar', res.data.avatar)
+                    window.sessionStorage.setItem('nickName', res.data.nickName)
+                    window.sessionStorage.setItem('phoneNumber', res.data.phoneNumber)
+                    this.$store.state.user.token = res.data.token
                     this.$router.push({
                         path: '/'
                     })
-                }
+                } 
             }).catch(error => {
                 console.log(error)
             })
@@ -99,18 +102,18 @@ export default {
             }
         },
         handleSendCodeClick() {
-            // let reqObj = {
-            //         index: 2,
-            //         phoneNumber: this.phoneNumber
-            //     }
-            //     getCaptcha(reqObj).then(res => {
-            //         if(res.status == 1) {
-            //             this.$message({
-            //                 message: res.message,
-            //                 type: 'success'
-            //             })
-            //         }
-            //     })
+            let reqObj = {
+                    index: 2,
+                    phoneNumber: this.phoneNumber
+                }
+                getCaptcha(reqObj).then(res => {
+                    if(res.status == 1) {
+                        this.$message({
+                            message: res.message,
+                            type: 'success'
+                        })
+                    }
+                })
             this.isShowSend = false
             this.timer = setInterval(() => {
                 this.countNum--

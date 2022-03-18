@@ -8,11 +8,11 @@
             <div class="order-detail-content">
               <div class="order-msg">
                 <div class="nft-msg">
-                  <img src="../../images/nft-img.png" alt="">
+                  <img :src="productImage" alt="">
                   <div class="nft-msg-right">
-                    <div class="nft-msg-title">《雄安赋》</div>
-                    <div class="nft-msg-num">AC9163#00074/10000</div>
-                    <div class="nft-msg-author">唐诗</div>
+                    <div class="nft-msg-title">{{ productName }}</div>
+                    <div class="nft-msg-num">{{ oid }}</div>
+                    <div class="nft-msg-author">{{ creator }}</div>
                   </div>
                 </div>
               </div>
@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import { goPayment } from '@/api/mine'
+import { goPayment, getOrderDetail } from '@/api/mine'
 
   export default {
     name: 'order',
@@ -37,6 +37,10 @@ import { goPayment } from '@/api/mine'
       return {
         active: 1,
         oid: this.$route.query.oid,
+        pid: this.$route.query.pid,
+        productImage: this.$route.query.productImage,
+        productName: this.$route.query.productName,
+        creator: this.$route.query.creator,
         radioValue: 1
       }
     },
@@ -45,14 +49,21 @@ import { goPayment } from '@/api/mine'
         return ''
       }
     },
+    mounted() {
+      // this.getOrderDetail()
+    },
     methods: {
+      // getOrderDetail() {
+      //   getOrderDetail({pid: this.pid}).then(res => {
+      //     console.log(res)
+      //   })
+      // },
       handlePaymentClick() {
           let reqObj = {
               oid: this.oid,
               whichPay: this.radioValue
           }
           goPayment(reqObj).then(res => {
-              console.log(res)
               const div = document.createElement('div')
               div.id = 'alipay'
               div.innerHTML = res
@@ -108,6 +119,7 @@ import { goPayment } from '@/api/mine'
       .nft-msg {
         background: rgba(81, 81, 82, 1);
         border-radius: 8px;
+        overflow: hidden;
         display: flex;
         flex-direction: row;
         img {

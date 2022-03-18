@@ -7,11 +7,11 @@
             <div class="phoneNum-wrapper">
                 <div class="num">
                     <input :class="{ 'active': isFirstActive }" ref="first" v-model="firstValue" maxlength="1" oninput = "value = value.replace(/[^0-9]/g,'')"/>
-                    <input :class="{ 'active': isSecondActive }" ref="second" v-model="secondValue" maxlength="1" oninput = "value = value.replace(/[^0-9]/g,'')"/>
-                    <input :class="{ 'active': isThirdActive }" ref="third" v-model="thirdValue" maxlength="1" oninput = "value = value.replace(/[^0-9]/g,'')"/>
-                    <input :class="{ 'active': isFourthActive }" ref="fourth" v-model="fourthValue" maxlength="1" oninput = "value = value.replace(/[^0-9]/g,'')"/>
-                    <input :class="{ 'active': isFifthActive }" ref="fifth" v-model="fifthValue" maxlength="1" oninput = "value = value.replace(/[^0-9]/g,'')"/>
-                    <input :class="{ 'active': isSixthActive }" ref="sixth" v-model="sixthValue" maxlength="1" oninput = "value = value.replace(/[^0-9]/g,'')"/>
+                    <input :class="{ 'active': isSecondActive }" ref="second" v-model="secondValue" maxlength="1" oninput = "value = value.replace(/[^0-9]/g,'')" @keyup.delete="handleSecondDeleteClick"/>
+                    <input :class="{ 'active': isThirdActive }" ref="third" v-model="thirdValue" maxlength="1" oninput = "value = value.replace(/[^0-9]/g,'')" @keyup.delete="handleThirdDeleteClick"/>
+                    <input :class="{ 'active': isFourthActive }" ref="fourth" v-model="fourthValue" maxlength="1" oninput = "value = value.replace(/[^0-9]/g,'')" @keyup.delete="handleFourthDeleteClick"/>
+                    <input :class="{ 'active': isFifthActive }" ref="fifth" v-model="fifthValue" maxlength="1" oninput = "value = value.replace(/[^0-9]/g,'')" @keyup.delete="handleFifthDeleteClick"/>
+                    <input :class="{ 'active': isSixthActive }" ref="sixth" v-model="sixthValue" maxlength="1" oninput = "value = value.replace(/[^0-9]/g,'')" @keyup.delete="handleSixthDeleteClick"/>
                 </div>
                 <div class="resend-wrapper">{{ countTime }}s后重新获取验证码</div>
             </div>
@@ -119,6 +119,21 @@ export default {
              if(e.target.value) {
                 this.isActive = true
              }
+         },
+         handleSecondDeleteClick() {
+             this.$refs.first.focus()
+         },
+         handleThirdDeleteClick() {
+             this.$refs.second.focus()
+         },
+         handleFourthDeleteClick() {
+             this.$refs.third.focus()
+         },
+         handleFifthDeleteClick() {
+             this.$refs.fourth.focus()
+         },
+         handleSixthDeleteClick() {
+             this.$refs.fifth.focus()
          }
     },
     beforeDestroy() {

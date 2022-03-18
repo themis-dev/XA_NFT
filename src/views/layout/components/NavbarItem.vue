@@ -40,10 +40,25 @@
         <li v-else class="dropdown-divider"></li>
       </ul>
     </li>
+    <li class="nav-item" v-if="token">
+      <!-- <div class="nav-item-image" style="width: 40px;height: 40px;">
+        <img :src="avatarUrl" style="width: 40px;height: 40px;border-radius: 100%"/>
+      </div> -->
+      <el-dropdown @command="handleLogoutCommand">
+        <div class="nav-item-image" style="width: 40px;height: 40px;">
+          <img :src="avatarUrl" style="width: 40px;height: 40px;border-radius: 100%"/>
+        </div>
+        <el-dropdown-menu slot="dropdown">
+          <el-dropdown-item command="1">退出登录</el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>      
+    </li>
+    
   </ul>
 </template>
 
 <script>
+import { ACCESS_TOKEN } from '@/store/mutation-types'
 export default {
   name: 'NavbarItem',
   components: {},
@@ -71,6 +86,8 @@ export default {
           path: '/mine/user'
         }
       ],
+      avatarUrl: '',
+      token: ''
     };
   },
   watch: {
@@ -80,12 +97,44 @@ export default {
           v.opened = false;
         });
       }
+    },
+    "$store.state.user.token": function (){
+      this.token = this.$store.state.user.token
+      if(!this.token) {
+        this.$nextTick(() => {
+          this.navData[2].title = '登录'
+          this.navData[2].path = '/user/login'
+        })
+      } else {
+        this.$nextTick(() => {
+          this.navData[2].title = '我的'
+          this.navData[2].path = '/mine/user'
+        })
+        
+      }
     }
   },
   created() {
     const language = navigator.language || navigator.userLanguage;
     const lang = this.$cookies.get('CultureInfo') || language;
     this.currentLang = lang !== 'zh-CN' ? 'English' : '简体中文'
+  },
+  mounted() {
+    this.avatarUrl = window.sessionStorage.getItem('avatar') ? `${this.$root.avatarUrl}${window.sessionStorage.getItem('avatar')}` : ''
+    console.log(this.avatarUrl)
+    this.token = window.sessionStorage.getItem(ACCESS_TOKEN)
+    this.$store.state.user.token = this.token
+      if(!this.token) {
+        this.$nextTick(() => {
+          this.navData[2].title = '登录'
+        this.navData[2].path = '/user/login'
+        })
+      } else {
+        this.$nextTick(() => {
+          this.navData[2].title = '我的'
+        this.navData[2].path = '/mine/user'
+        })
+      }
   },
   methods: {
     handleClick(index) {
@@ -120,6 +169,16 @@ export default {
     },
     hoverLanguageShow(flag) {
       this.activeLang = flag;
+    },
+    handleLogoutCommand(command) {
+      if(command == 1) {
+        window.sessionStorage.removeItem(ACCESS_TOKEN)
+        this.token = ''
+        this.$store.state.user.token = ''
+        this.$router.push({
+          path: '/user/login'
+        })
+      }
     }
   }
 };
@@ -175,6 +234,17 @@ export default {
         background: #37415c;
         a {
           color: #fff;
+        }
+      }
+      .nav-item {
+        .nav-item-image{
+          width: 49px;
+          height: 49px;
+          background: #000;
+          border-radius: 100%;
+          img{
+            width: 100%;
+          }
         }
       }
     }

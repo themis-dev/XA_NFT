@@ -1,4 +1,5 @@
 import { login } from "@/api/user"
+import { ACCESS_TOKEN } from "../mutation-types"
 
 
 const user = {
@@ -23,6 +24,9 @@ const user = {
                     reject(error)
                 })
             })
+        },
+        setToken({ commit }, token) {
+            commit('SET_TOKEN', token)
         }
     }
 }
