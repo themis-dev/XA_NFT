@@ -179,7 +179,7 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
             })
           }
         }).catch(error => {
-          console.log(error.response)
+          console.log(error)
           if(error.response.data.status == -9) {
             this.$message({
               message: error.response.data.message,
@@ -212,6 +212,7 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
       width: 336px;
       height: 336px;
       margin-top: 76px;
+      border-radius: 8px;
     }
     .work-msg {
       background-image: url(../../images/detail-img1.png);
