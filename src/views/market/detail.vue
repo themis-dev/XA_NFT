@@ -217,7 +217,8 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
     .work-msg {
       background-image: url(../../images/detail-img1.png);
       background-repeat: no-repeat;
-      width: 649px;
+      // width: 649px;
+      width: 40.6rem;
       height: 144px;
       margin-top: 34px;
       display: flex;
@@ -239,7 +240,7 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
         margin-top: 10px;
       }
       .item-number {
-          margin-left: 11px;
+          padding-left: 11px;
           margin-top: 4px;
           height: 18px;
           color: #515152;
@@ -275,7 +276,7 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
         line-height: 39px;
         color: #CFA980;
         letter-spacing: 1.3px;
-        margin-left: 30px;
+        padding-left: 30px;
       }
       .buy-btn {
         width: 215px;
@@ -332,8 +333,8 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
       top: 300px;
     }
     .work-msg-item {
-      margin-left: 73px;
-      margin-right: 66px;
+      padding-left: 73px;
+      padding-right: 66px;
       .work-msg-item-title {
         font-size: 18px;
         font-family: MiSans;
@@ -378,7 +379,7 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
           font-weight: 600;
           line-height: 24px;
           color: #666666;
-          margin-left: 30px;
+          padding-left: 30px;
         }
       }
     }
@@ -399,7 +400,7 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
         line-height: 18px;
         color: #B5B5B5;
         margin-top: 12px;
-        padding: 0 260px;
+        // padding: 0 260px;
         text-align: left;
       }
     }
@@ -421,4 +422,5 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
     }
   }
 }
+
 </style>
