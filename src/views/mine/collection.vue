@@ -52,7 +52,6 @@ import { getCollection } from '@/api/mine'
     methods: {
       getCollectionList() {
         getCollection().then(res => {
-          console.log(res)
           if(res.status == 1 && res.data) {
             this.orderList = res.data
           }
@@ -121,7 +120,7 @@ import { getCollection } from '@/api/mine'
 
         }
         .item-number {
-          width: 14rem;
+          width: 15rem;
           height: 2rem;
           background-image: url(../../images/collection-arrow.png);
           background-size: 100%;
@@ -137,6 +136,7 @@ import { getCollection } from '@/api/mine'
           display: flex;
           align-items: center;
           justify-content: center;
+          padding-left: 25px;
         }
         .author {
           font-size: 12px;

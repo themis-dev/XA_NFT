@@ -120,14 +120,13 @@ import moment from 'moment'
         height: 22.875rem;
         background: rgba(81, 81, 82, 1);
         opacity: 1;
-        border-radius: 20px;
+        border-radius: 26px;
          margin-bottom: 20px;
          margin-left: 24px;
          position: relative;
          cursor: pointer;
          .time {
            background: rgba(47, 49, 51, 1);
-           border-radius: 26px; 
            position: absolute;
           //  display: flex;
           //  align-content: center;
@@ -150,6 +149,7 @@ import moment from 'moment'
          .nft-img {
            width: 280px;
            height: 261px;
+           border-radius: 26px;
          }
         .item-title {
           font-size: 16px;

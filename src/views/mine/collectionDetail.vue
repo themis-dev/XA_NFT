@@ -42,15 +42,15 @@
                 <div class="order-data">
                  <div class="data-item">
                     <div class="data-item-title">收藏者</div>
-                    <div class="data-item-num">{{  }}</div>
+                    <div class="data-item-num">{{ detailObj.userName }}</div>
                   </div>
                   <div class="data-item">
                     <div class="data-item-title">生成时间</div>
-                    <div class="data-item-num">{{  }}</div>
+                    <div class="data-item-num">{{ detailObj.createTime }}</div>
                   </div>
                   <div class="data-item">
                     <div class="data-item-title">藏品哈希值</div>
-                    <div class="data-item-num">{{ detailObj.productHash }}</div>
+                    <div class="data-item-num">{{ setNumber(detailObj.productHash)}}</div>
                   </div>
                   <div class="data-item">
                     <div class="data-item-title">创作者</div>
@@ -86,7 +86,7 @@
 </template>
 
 <script>
-import { getOrderDetail } from '@/api/mine'
+import { getCollectionDetail } from '@/api/mine'
 
   export default {
     name: 'order',
@@ -110,8 +110,7 @@ import { getOrderDetail } from '@/api/mine'
     },
     methods: {
       getData() {
-        getOrderDetail({pid: this.pid}).then(res => {
-        console.log(res)
+        getCollectionDetail({pid: this.pid}).then(res => {
             if(res.status == 1 && res.data) {
                 this.detailObj = res.data
             }
@@ -122,6 +121,15 @@ import { getOrderDetail } from '@/api/mine'
     },
     goback() {
       this.$router.go(-1);
+    },
+    setNumber(value) {
+      if(value) {
+        let str = value.substring(0, 8)
+        let newStr = value.substring(value.length - 8, value.length)
+        return `${str}...${newStr}`
+      } else {
+        return ''
+      }
     }
   }
   }
@@ -192,6 +200,7 @@ import { getOrderDetail } from '@/api/mine'
       img {
         width: 300px;
         height: 300px;
+        border-radius: 8px;
       }
       .nft-msg-right {
           display: flex;

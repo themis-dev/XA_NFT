@@ -18,7 +18,7 @@
               </div>
               <el-radio-group v-model="radioValue" class="radio-group-wrapper">
                 <el-radio :label="1">支付宝</el-radio>
-                <el-radio :label="2">微信</el-radio>
+                <el-radio :label="2" disabled>微信</el-radio>
               </el-radio-group>
               <div class="btn-wrapper">
                 <button type="primary" @click="handlePaymentClick">去支付</button>
@@ -94,7 +94,7 @@ import { goPayment, getOrderDetail } from '@/api/mine'
       flex-direction: column;
       align-items: center;
       .nav {
-        width: 21.4rem;
+        width: 24.4rem;
         display: flex;
         margin-top: 40px;
         margin-bottom: 20px;
@@ -114,7 +114,7 @@ import { goPayment, getOrderDetail } from '@/api/mine'
       }
   }
   .order-detail-content {
-    width: 21.4rem;
+    width: 24.4rem;
     .order-msg {
       .nft-msg {
         background: rgba(81, 81, 82, 1);

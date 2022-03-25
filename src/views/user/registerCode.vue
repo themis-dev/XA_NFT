@@ -38,7 +38,8 @@ export default {
             sixthValue: '',
             phoneNumber: this.$route.query.phoneNumber,
             countTime: 60,
-            countDate: null
+            countDate: null,
+            isShowSend: true
         }
     },
     watch: {

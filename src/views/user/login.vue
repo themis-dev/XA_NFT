@@ -73,6 +73,27 @@ export default {
             }
         },
         handleLoginClick() {
+            if(!this.phoneNumber) {
+                this.$message({
+                    message: '请输入手机号码',
+                    type: 'warning'
+                })
+                return
+            } 
+            if(!this.password && this.activeName == 1) {
+                this.$message({
+                    message: '请输入密码',
+                    type: 'warning'
+                })
+                return
+            }
+            if(!this.captcha && this.activeName == 2) {
+                this.$message({
+                    message: '请输入验证码',
+                    type: 'warning'
+                })
+                return
+            }
             let reqObj = {
                 phoneNumber: this.phoneNumber,
                 password: this.password,
@@ -93,6 +114,13 @@ export default {
                 } 
             }).catch(error => {
                 console.log(error)
+                if(error.response.data.status == -1) {
+                    this.$message({
+                        message: error.response.data.message,
+                        type: 'warning'
+                    })
+                    return
+                }
             })
         },
         handleShowPasswordClick() {

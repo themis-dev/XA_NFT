@@ -50,12 +50,20 @@ export default {
                     phoneNumber: this.phoneNumber
                 }
                 getCaptcha(reqObj).then(res => {
-                    this.$router.push({
-                        path: '/user/registerCode',
-                        query: {
-                            phoneNumber: this.phoneNumber
-                        }
-                    })
+                    if(res.status == 1) {
+                        this.$router.push({
+                            path: '/user/registerCode',
+                            query: {
+                                phoneNumber: this.phoneNumber
+                            }
+                        })
+                    } else if(res.status == -1) {
+                        this.$message({
+                            message: res.message,
+                            type: 'warning'
+                        })
+                        return
+                    }
                 }).catch(error => {
                     console.log(error)
                 })

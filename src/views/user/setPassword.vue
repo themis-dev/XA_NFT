@@ -14,7 +14,7 @@
             </div>
             <div class="phoneNum-wrapper">
                 <div class="num">
-                    <input v-model="password" placeholder="8-16位，可包含字母大小写、数字、下划线"/>
+                    <input v-model="password" type="password" placeholder="8-16位，可包含字母大小写、数字、下划线"/>
                 </div>
             </div>
         </div>
