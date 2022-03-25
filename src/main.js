@@ -10,6 +10,8 @@ import router from './router'
 import store from './store'
 import moment from 'moment'
 
+import '@/styles/font.css'
+
 Vue.use(ElementUI);
 Vue.use(VueI18n);
 Vue.use(VueCookies);

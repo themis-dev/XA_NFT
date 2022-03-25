@@ -66,7 +66,7 @@ import moment from 'moment'
       getData() {
         getMarketData({pageNo: 1, pageSize: 100}).then(res => {
           if(res.status == 1 && res.data) {
-            this.marketData = res.data
+            this.marketData = res.data.data
           }
         })
       },
