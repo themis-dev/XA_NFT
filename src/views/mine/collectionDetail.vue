@@ -158,7 +158,7 @@ import { getCollectionDetail } from '@/api/mine'
       }
       .nav-title {
         font-size: 16px;
-        font-family: MiSans;
+        font-family: MiSans Semibold;
         font-weight: 600;
         color: #333333;
         margin-left: 3px;
@@ -176,7 +176,7 @@ import { getCollectionDetail } from '@/api/mine'
     padding-top: 50px;
     text-align: center;
     font-size: 22px;
-    font-family: MiSans;
+    font-family: MiSans Semibold;
     font-weight: 600;
     color: #333333;
     img {
@@ -209,7 +209,7 @@ import { getCollectionDetail } from '@/api/mine'
           align-items: center;
         .nft-msg-title {
           font-size: 24px;
-          font-family: MiSans;
+          font-family: MiSans Semibold;
           font-weight: 600;
           line-height: 37px;
           color: #333333;
@@ -217,7 +217,7 @@ import { getCollectionDetail } from '@/api/mine'
         }
         .nft-msg-num {
           font-size: 12px;
-        font-family: MiSans;
+        font-family: MiSans Semibold;
         font-weight: 400;
         line-height: 16px;
         color: #515152;
@@ -236,7 +236,7 @@ import { getCollectionDetail } from '@/api/mine'
         }
         .nft-msg-author {
           font-size: 12px;
-          font-family: MiSans;
+          font-family: MiSans Semibold;
           font-weight: 400;
           line-height: 16px;
           color: #CCCCCC;
@@ -276,14 +276,14 @@ import { getCollectionDetail } from '@/api/mine'
         margin-bottom: 16px;
         .data-item-title {
           font-size: 14px;
-          font-family: MiSans;
+          font-family: MiSans Semibold;
           font-weight: 400;
           line-height: 19px;
           color: #999999;
         }
         .data-item-num {
           font-size: 14px;
-          font-family: MiSans;
+          font-family: MiSans Semibold;
           font-weight: 500;
           line-height: 19px;
           color: #333333;
@@ -297,14 +297,14 @@ import { getCollectionDetail } from '@/api/mine'
       text-align: center;
       .purchase-notes-title {
         font-size: 16px;
-        font-family: MiSans;
+        font-family: MiSans Semibold;
         font-weight: 600;
         line-height: 22px;
         color: #777777;
       }
       .purchase-notes-content {
         font-size: 12px;
-        font-family: MiSans;
+        font-family: MiSans Semibold;
         font-weight: 400;
         line-height: 18px;
         color: #B5B5B5;
@@ -322,7 +322,7 @@ import { getCollectionDetail } from '@/api/mine'
       }
       .work-msg-footer-title {
         font-size: 16px;
-        font-family: MiSans;
+        font-family: MiSans Semibold;
         font-weight: 400;
         line-height: 22px;
         color: #747474;
@@ -355,7 +355,7 @@ import { getCollectionDetail } from '@/api/mine'
       }
       .nav-title {
         font-size: 16px;
-        font-family: MiSans;
+        font-family: MiSans Semibold;
         font-weight: 600;
         color: #333333;
       }
@@ -372,7 +372,7 @@ import { getCollectionDetail } from '@/api/mine'
       padding-top: 50px;
       text-align: center;
       font-size: 22px;
-      font-family: MiSans;
+      font-family: MiSans Semibold;
       font-weight: 600;
       color: #333333;
       img {
@@ -405,7 +405,7 @@ import { getCollectionDetail } from '@/api/mine'
             align-items: center;
           .nft-msg-title {
             font-size: 24px;
-            font-family: MiSans;
+            font-family: MiSans Semibold;
             font-weight: 600;
             line-height: 37px;
             color: #333333;
@@ -413,7 +413,7 @@ import { getCollectionDetail } from '@/api/mine'
           }
           .nft-msg-num {
             font-size: 12px;
-          font-family: MiSans;
+          font-family: MiSans Semibold;
           font-weight: 400;
           line-height: 16px;
           color: #515152;
@@ -432,7 +432,7 @@ import { getCollectionDetail } from '@/api/mine'
           }
           .nft-msg-author {
             font-size: 12px;
-            font-family: MiSans;
+            font-family: MiSans Semibold;
             font-weight: 400;
             line-height: 16px;
             color: #CCCCCC;
@@ -471,14 +471,14 @@ import { getCollectionDetail } from '@/api/mine'
           margin-bottom: 16px;
           .data-item-title {
             font-size: 14px;
-            font-family: MiSans;
+            font-family: MiSans Semibold;
             font-weight: 400;
             line-height: 19px;
             color: #999999;
           }
           .data-item-num {
             font-size: 14px;
-            font-family: MiSans;
+            font-family: MiSans Semibold;
             font-weight: 500;
             line-height: 19px;
             color: #333333;

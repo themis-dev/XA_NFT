@@ -46,7 +46,7 @@
                 <div class="trusteeship-wrapper">
                   <div class="trusteeship-left">
                     <div class="number">
-                      18692247521
+                      {{phoneNumber}}
                     </div>
                     <div class="address">
                       <span>账户地址：</span>

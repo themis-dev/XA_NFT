@@ -114,7 +114,7 @@ import { getOrderDetail } from '@/api/mine'
       }
       .nav-title {
         font-size: 16px;
-        font-family: MiSans;
+        font-family: MiSans Semibold;
         font-weight: 600;
         color: #333333;
         margin-left: 3px;
@@ -138,7 +138,7 @@ import { getOrderDetail } from '@/api/mine'
       margin-bottom: 15px;
     }
     font-size: 14px;
-    font-family: MiSans;
+    font-family: MiSans Semibold;
     font-weight: 500;
     color: #333333;
   }
@@ -161,7 +161,7 @@ import { getOrderDetail } from '@/api/mine'
         margin-left: 34px;
         .nft-msg-title {
           font-size: 18px;
-          font-family: MiSans;
+          font-family: MiSans Semibold;
           font-weight: 600;
           line-height: 24px;
           color: #FFFFFF;
@@ -169,7 +169,7 @@ import { getOrderDetail } from '@/api/mine'
         }
         .nft-msg-num {
           font-size: 12px;
-          font-family: MiSans;
+          font-family: MiSans Semibold;
           font-weight: 400;
           line-height: 16px;
           color: #EEE1C5;
@@ -177,7 +177,7 @@ import { getOrderDetail } from '@/api/mine'
         }
         .nft-msg-author {
           font-size: 12px;
-          font-family: MiSans;
+          font-family: MiSans Semibold;
           font-weight: 400;
           line-height: 16px;
           color: #CCCCCC;
@@ -201,14 +201,14 @@ import { getOrderDetail } from '@/api/mine'
         margin-bottom: 16px;
         .data-item-title {
           font-size: 14px;
-          font-family: MiSans;
+          font-family: MiSans Semibold;
           font-weight: 400;
           line-height: 19px;
           color: #999999;
         }
         .data-item-num {
           font-size: 14px;
-          font-family: MiSans;
+          font-family: MiSans Semibold;
           font-weight: 500;
           line-height: 19px;
           color: #333333;

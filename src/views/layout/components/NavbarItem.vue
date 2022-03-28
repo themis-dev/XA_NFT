@@ -206,7 +206,7 @@ export default {
 }
 .nav-link.header-nav-link {
     font-size: 1rem;
-    font-family: MiSans;
+    font-family: MiSans Semibold;
     font-weight: 500;
     color: #2B2B2B;
     &:hover {

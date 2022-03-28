@@ -40,7 +40,7 @@ export default {
   display: flex;
   .item {
     font-size: 22px;
-    font-family: MiSans;
+    font-family: MiSans Semibold;
     font-weight: 600;
     line-height: 29px;
     color: #999999;
@@ -59,7 +59,7 @@ export default {
   display: flex;
   .item {
     font-size: 22px;
-    font-family: MiSans;
+    font-family: MiSans Semibold;
     font-weight: 600;
     line-height: 29px;
     color: #999999;
