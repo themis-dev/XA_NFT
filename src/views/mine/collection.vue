@@ -93,6 +93,7 @@ import { getCollection } from '@/api/mine'
       color: #333333;
       text-align: center;
       padding-top: 1.875rem;
+      // font-family: MiSans Semibold;
     }
     .collection-content {
       display: flex;
@@ -111,7 +112,7 @@ import { getCollection } from '@/api/mine'
         }
         .item-title {
           font-size: 16px;
-          font-family: MiSans;
+          font-family: MiSans Semibold;
           font-weight: 600;
           line-height: 22px;
           color: #FFFFFF;
@@ -129,7 +130,7 @@ import { getCollection } from '@/api/mine'
           margin-left: 11px;
           margin-top: 4px;
           font-size: 12px;
-          font-family: MiSans;
+          font-family: MiSans Semibold;
           font-weight: 400;
           line-height: 16px;
           color: #515152;
@@ -140,7 +141,7 @@ import { getCollection } from '@/api/mine'
         }
         .author {
           font-size: 12px;
-          font-family: MiSans;
+          font-family: MiSans Semibold;
           font-weight: 400;
           line-height: 16px;
           color: #D9D9D9;
@@ -180,6 +181,7 @@ import { getCollection } from '@/api/mine'
       color: #333333;
       text-align: center;
       padding-top: 1.875rem;
+      font-family: MiSans Semibold;
     }
     .collection-content {
       display: flex;
@@ -201,7 +203,7 @@ import { getCollection } from '@/api/mine'
         }
         .item-title {
           font-size: 16px;
-          font-family: MiSans;
+          font-family: MiSans Semibold;
           font-weight: 600;
           line-height: 22px;
           color: #FFFFFF;
@@ -219,7 +221,7 @@ import { getCollection } from '@/api/mine'
           margin-left: 11px;
           margin-top: 4px;
           font-size: 12px;
-          font-family: MiSans;
+          font-family: MiSans Semibold;
           font-weight: 400;
           line-height: 16px;
           color: #515152;
@@ -230,7 +232,7 @@ import { getCollection } from '@/api/mine'
         }
         .author {
           font-size: 12px;
-          font-family: MiSans;
+          font-family: MiSans Semibold;
           font-weight: 400;
           line-height: 16px;
           color: #D9D9D9;

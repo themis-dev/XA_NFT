@@ -127,8 +127,8 @@ import { getOrderList } from '@/api/mine'
       display: flex;
       .tab-item {
         font-size: 18px;
-        font-family: MiSans;
-        font-weight: 600;
+        font-family: MiSans Semibold;
+        // font-weight: 600;
         line-height: 29px;
         color: #999999;
         margin-left: 2rem;
@@ -180,7 +180,7 @@ import { getOrderList } from '@/api/mine'
           }
           .item-author {
             font-size: 12px;
-            font-family: MiSans;
+            font-family: MiSans Semibold;
             font-weight: 400;
             line-height: 16px;
             color: #999999;
@@ -188,7 +188,7 @@ import { getOrderList } from '@/api/mine'
           }
           .item-order {
             font-size: 12px;
-            font-family: MiSans;
+            font-family: MiSans Semibold;
             font-weight: 400;
             line-height: 16px;
             color: #999999;
@@ -196,7 +196,7 @@ import { getOrderList } from '@/api/mine'
           }
           .item-price {
             font-size: 12px;
-            font-family: MiSans;
+            font-family: MiSans Semibold;
             font-weight: bold;
             line-height: 16px;
             color: #333333;
@@ -250,7 +250,7 @@ import { getOrderList } from '@/api/mine'
       justify-content: space-around;
       .tab-item {
         font-size: 18px;
-        font-family: MiSans;
+        font-family: MiSans Semibold;
         font-weight: 600;
         line-height: 29px;
         color: #999999;
@@ -304,7 +304,7 @@ import { getOrderList } from '@/api/mine'
           }
           .item-author {
             font-size: 12px;
-            font-family: MiSans;
+            font-family: MiSans Semibold;
             font-weight: 400;
             line-height: 16px;
             color: #999999;
@@ -312,7 +312,7 @@ import { getOrderList } from '@/api/mine'
           }
           .item-order {
             font-size: 12px;
-            font-family: MiSans;
+            font-family: MiSans Semibold;
             font-weight: 400;
             line-height: 16px;
             color: #999999;
@@ -322,7 +322,7 @@ import { getOrderList } from '@/api/mine'
           }
           .item-price {
             font-size: 12px;
-            font-family: MiSans;
+            font-family: MiSans Semibold;
             font-weight: bold;
             line-height: 16px;
             color: #333333;
