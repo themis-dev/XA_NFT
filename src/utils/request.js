@@ -1,5 +1,5 @@
 import axios from 'axios'
-// import { Message } from 'element-ui'
+import { Message, MessageBox } from 'element-ui'
 import { ACCESS_TOKEN } from '@/store/mutation-types'
 
 // 创建axios实例
@@ -27,14 +27,29 @@ service.interceptors.response.use(
   /**
   * status 可结合自己业务进行修改
   */
-    return response.data
+   const res = response.data
+   if (res.status !== 1) {
+     console.log(res)
+     Message({
+       message: res.message,
+       type: 'error',
+       duration: 2 * 1000
+     })
+     return Promise.reject('error')
+   } else {
+     return response.data
+   }
   },
   error => {
-    // Message({
-    //   message: error.message,
-    //   type: 'error',
-    //   duration: 1000
-    // })
+    if (error.response.status === 403 || error.response.status === 401) {
+      Message({
+      message: error.message,
+      type: 'error',
+      duration: 1000
+      })
+      sessionStorage.clear()
+      window.location.href = '/user/login'
+    }
     return Promise.reject(error)
   }
 )

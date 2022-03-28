@@ -2571,3 +2571,29 @@ body .app-main .el-dialog{
     background-color: #252525 !important;
   }
 }
+
+.el-dialog{
+  max-width: 405px;
+  color: #fff;
+  // background-color: #28282E;
+  border-radius: 8px !important;
+  @media (max-width: 959.95px) {
+    width: 90% !important;
+  }
+}
+.el-dialog__title{
+  color: #fff !important;
+  font-size: 18px;
+  font-weight: 600;
+}
+.el-dialog__close{
+  &:hover{
+    color: #fff !important;
+  }
+}
+.el-dialog__body{
+  padding: 0px 50px 30px 50px !important;
+  @media (max-width: 959.95px) {
+    padding: 20px !important;
+  }
+}
