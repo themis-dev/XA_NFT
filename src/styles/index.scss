@@ -2579,6 +2579,7 @@ body .app-main .el-dialog{
   border-radius: 8px !important;
   @media (max-width: 959.95px) {
     width: 90% !important;
+    padding: 0 30px 30px 30px;
   }
 }
 .el-dialog__title{
@@ -2592,7 +2593,7 @@ body .app-main .el-dialog{
   }
 }
 .el-dialog__body{
-  padding: 0px 50px 30px 50px !important;
+  padding: 0px 30px 30px 30px !important;
   @media (max-width: 959.95px) {
     padding: 20px !important;
   }
