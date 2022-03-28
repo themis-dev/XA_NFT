@@ -241,7 +241,7 @@ import { getOrderList } from '@/api/mine'
     border-radius: 6px 6px 0px 0px;
     margin-top: 25px;
     position: relative;
-    // padding: 22px 7px 0px 7px!important;
+    padding: 22px 7px 0px 7px!important;
     .tab {
       display: flex;
       flex-direction: row;
@@ -276,7 +276,7 @@ import { getOrderList } from '@/api/mine'
       // margin: 0 auto;
       .order-item {
         // width: 19.7rem!important;
-        height: 90px;
+        height: 100px;
         background: rgba(248, 250, 255, 1);
         border-radius: 6px;
         margin-bottom: 20px;
@@ -315,8 +315,10 @@ import { getOrderList } from '@/api/mine'
             line-height: 16px;
             color: #999999;
             margin-top: 3px;
-            // width: 131px;
-            // word-break: break-all;
+            width: 110px;
+            white-space:nowrap;
+            overflow:hidden;
+            text-overflow:ellipsis;
           }
           .item-price {
             font-size: 12px;

@@ -15,7 +15,8 @@ router.beforeEach((to, from, next) => {
   if(whiteList.includes(to.name)) {
     next()
   } else {
-    if(window.sessionStorage.getItem(ACCESS_TOKEN)) {
+    console.log(window.localStorage.getItem(ACCESS_TOKEN))
+    if(window.localStorage.getItem(ACCESS_TOKEN)) {
       if(to.path === loginRoutePath) {
         next({ path: defaultRoutePath })
         NProgress.done()

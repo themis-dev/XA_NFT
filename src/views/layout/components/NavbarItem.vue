@@ -177,6 +177,7 @@ export default {
       this.activeLang = flag;
     },
     handleLogoutCommand(command) {
+      console.log(command)
       if(command == 1) {
         window.localStorage.removeItem(ACCESS_TOKEN)
         this.token = ''

@@ -607,6 +607,7 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
       }
     }
     .purchase-notes {
+      padding: 0px 20px;
       margin-top: 54px;
       text-align: center;
       .purchase-notes-title {

@@ -49,10 +49,10 @@
                       {{phoneNumber}}
                     </div>
                     <div class="address">
-                      <span>账户地址：</span>
+                      <span>账户地址： </span><span class="copy">复制</span>
                     </div>
                     <div class="secret">
-                      <span>密钥托管ID：</span>
+                      <span>密钥托管ID：</span><span class="copy">复制</span>
                     </div>
                   </div>
                   <div class="trusteeship-right">
@@ -66,7 +66,14 @@
                     </div>
                   </div>
                 </div>
-                <el-divider><span class="divider-text">永久保存·不可篡改·公开透明</span></el-divider>
+                <div class="footer-line-wrapper">
+                  <el-divider><span class="divider-text">永久保存·不可篡改·公开透明</span></el-divider>
+                </div>
+                <div class="footer-mobile-line-wrapper">
+                  <span class="footer-line"></span>
+                  <span>永久保存·不可篡改·公开透明</span>
+                  <span class="footer-line"></span>
+                </div>
                 <div class="operation">
                   <div class="operation-left">
                     <img src="../../images/detail-img2.png" alt="">
@@ -226,11 +233,29 @@ import { updateAvatar } from '@/api/mine'
             margin-top: 23px;
             color: #777777;
             font-weight: 400;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px 0px 0px;
+            .copy{
+              color: #4859D8;
+              cursor: pointer;
+            }
           }
           .secret{
             margin-top: 15px;
             color: #777777;
             font-weight: 400;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px 0px 0px;
+            .copy{
+              color: #4859D8;
+              cursor: pointer;
+            }
           }
         }
         .trusteeship-right{
@@ -285,11 +310,16 @@ import { updateAvatar } from '@/api/mine'
           }
         }
       }
-      .divider-text{
-        font-size: 14px;
-        font-family: YouSheBiaoTiHei;
-        font-weight: 400;
-        color:#C3C3C3;
+      .footer-line-wrapper{
+        .divider-text{
+          font-size: 14px;
+          font-family: YouSheBiaoTiHei;
+          font-weight: 400;
+          color:#C3C3C3;
+        }
+      }
+      .footer-mobile-line-wrapper{
+        display: none;
       }
       .operation {
         display: flex;
@@ -453,11 +483,29 @@ import { updateAvatar } from '@/api/mine'
             margin-top: 23px;
             color: #777777;
             font-weight: 400;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10px;
+            .copy{
+              color: #4859D8;
+              cursor: pointer;
+            }
           }
           .secret{
             margin-top: 15px;
             color: #777777;
             font-weight: 400;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10px;
+            .copy{
+              color: #4859D8;
+              cursor: pointer;
+            }
           }
         }
         .trusteeship-right{
@@ -514,10 +562,27 @@ import { updateAvatar } from '@/api/mine'
           }
         }
       }
+      .footer-line-wrapper{
+        display: none;
+      }
+      .footer-mobile-line-wrapper{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        font-family: YouSheBiaoTiHei;
+        font-size: 14px;
+        .footer-line{
+          width: 50px;
+          height: 1px;
+          border-top: 1px solid #ccc;
+        }
+      }
       .operation {
         display: flex;
         align-items: center;
        justify-content: flex-end;
+       margin-top: 60px;
        .operation-left{
          display: none;
        }

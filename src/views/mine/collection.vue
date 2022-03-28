@@ -9,6 +9,7 @@
                   <img :src="item.productImage" alt="">
                   <div class="item-title">{{ item.productName }}</div>
                   <div class="item-number">{{ item.oid }}</div>
+                  <div class="item-mobile-number">{{ setTextNumber(item.oid) }}</div>
                   <div class="author">{{ item.creator }}</div>
                 </div>
                 <!-- <div class="collection-content-item">
@@ -64,6 +65,11 @@ import { getCollection } from '@/api/mine'
             pid: item.pid
           }
         })
+      },
+      setTextNumber(oid) {
+        let strNumber = ''
+        strNumber = oid.substring(0, 12)
+        return strNumber
       }
     }
   }
@@ -97,6 +103,7 @@ import { getCollection } from '@/api/mine'
     }
     .collection-content {
       display: flex;
+      flex-flow: row wrap;
       justify-content: space-around;
       margin-top: 54px;
       .collection-content-item  {
@@ -138,6 +145,9 @@ import { getCollection } from '@/api/mine'
           align-items: center;
           justify-content: center;
           padding-left: 25px;
+        }
+        .item-mobile-number{
+          display: none;
         }
         .author {
           font-size: 12px;
@@ -184,21 +194,21 @@ import { getCollection } from '@/api/mine'
       font-family: MiSans Semibold;
     }
     .collection-content {
+      width: 100%;
       display: flex;
-      flex-flow: column wrap;
-      justify-content: center;
-      align-items: center;
+      flex-flow: row wrap;
+      align-items: flex-start;
       margin-top: 54px;
       .collection-content-item  {
-        width: 17.5rem;
+        width: 8.94rem;
         height: 18.875rem;
         background: rgba(81, 81, 82, 1);
         opacity: 1;
         border-radius: 20px;
         margin-top: 20px;
         img {
-          width: 17.5rem;
-          height: 190px;
+          width: 8.94rem;
+          height: 11.9rem;
           border-radius: 20px;
         }
         .item-title {
@@ -211,8 +221,8 @@ import { getCollection } from '@/api/mine'
           margin-top: 13px;
 
         }
-        .item-number {
-          width: 15rem;
+        .item-mobile-number {
+          width: 8rem;
           height: 2rem;
           background-image: url(../../images/collection-arrow.png);
           background-size: 100%;
@@ -229,6 +239,9 @@ import { getCollection } from '@/api/mine'
           align-items: center;
           justify-content: center;
           padding-left: 25px;
+        }
+        .item-number{
+          display: none;
         }
         .author {
           font-size: 12px;

@@ -310,12 +310,13 @@ export default {
         .mark {
           background: url('../../images/home-mark.png') no-repeat;
           background-size: 100% 100%;
-          width: 22.1rem;
+          width: 21rem;
           height: 338px;
           margin: 0 auto;
           display: flex;
           flex-direction: column;
           .title{
+            font-family: MiSans Semibold;
             display: inline-block;
             font-size: 30px;
             color: #FFB080;
@@ -325,8 +326,8 @@ export default {
           }
           .desc{
             color: #EAEAEA;
-            margin-left: 34px;
-            margin-right: 30px;
+            padding-left: 21px;
+            padding-right: 21px;
           }
           .check{
             margin-top: 15px;
@@ -424,6 +425,8 @@ export default {
           font-weight: 400;
           color: #999999;
           margin-top: 10px;
+          padding-left: 21px;
+          padding-right: 21px;
         }
       }
       .plarform-series {
@@ -530,8 +533,10 @@ export default {
           font-size: 14px;
           font-weight: 400;
           color: #999999;
-          margin-top: 10px;
-          margin: 12px auto 41px;
+          margin-top: 21px;
+          margin-bottom: 41px;
+          padding-left: 18px;
+          padding-right: 18px;
         }
       }
       .value-series {
@@ -655,7 +660,7 @@ export default {
           font-weight: 400;
           color: #999999;
           margin-top: 10px;
-          padding: 0 0.5rem;
+          padding: 45px 18px 10px 18px;
         }
       }
       .artist-list{

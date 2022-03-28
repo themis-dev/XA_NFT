@@ -66,7 +66,7 @@
                   </div>
                   <div class="data-item">
                     <div class="data-item-title">记录单号</div>
-                    <div class="data-item-num">{{ detailObj.oid }}</div>
+                    <div class="data-item-num">{{ setNumber(detailObj.oid) }}</div>
                   </div>
                 </div>
               </div>
@@ -259,6 +259,9 @@ import { getCollectionDetail } from '@/api/mine'
         img{
           vertical-align: middle;
         }
+        span{
+          font-family: MiSans;
+        }
       }
     }
     .order-data {
@@ -334,6 +337,7 @@ import { getCollectionDetail } from '@/api/mine'
     width: 19.7rem;
     margin-left: 0%!important;
     transform: translate(0%)!important;
+    margin: 0 auto!important;
     .mine-tab {
       display: flex!important;
       flex-direction: row!important;
@@ -349,6 +353,8 @@ import { getCollectionDetail } from '@/api/mine'
       // margin-left: 60px;
       align-items: center;
       cursor: pointer;
+      margin-left: 0px;
+      padding-left: 5px;
       img {
         width: 10px;
         height: 18px;
@@ -389,10 +395,12 @@ import { getCollectionDetail } from '@/api/mine'
       align-items: center;
       margin-top: 45px;
       .nft-msg {
-        width: 300px;
+        width: 19.7rem;
         border-radius: 8px;
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
         img {
           width: 15.25rem;
           height: 15.25rem;
@@ -443,11 +451,13 @@ import { getCollectionDetail } from '@/api/mine'
       .nft-function{
         width: 19.7rem;
         display: flex;
-        flex-direction: row;
+        flex-flow: row wrap;
         margin-top: 27px;
         justify-content: space-around;
         align-items: center;
         div{
+          width: 50%;
+          margin-top: 16px;
           display: flex;
           flex-direction: row;
           justify-content: center;
@@ -487,5 +497,28 @@ import { getCollectionDetail } from '@/api/mine'
       }
     }
   }
+
+  .purchase-notes {
+      width: 19.7rem;
+      margin-top: 54px;
+      text-align: center;
+      .purchase-notes-title {
+        font-size: 16px;
+        font-family: MiSans Semibold;
+        font-weight: 600;
+        line-height: 22px;
+        color: #777777;
+      }
+      .purchase-notes-content {
+        font-size: 12px;
+        font-family: MiSans Semibold;
+        font-weight: 400;
+        line-height: 18px;
+        color: #B5B5B5;
+        margin-top: 12px;
+        padding: 0px;
+        text-align: left;
+      }
+    }
 }
 </style>
