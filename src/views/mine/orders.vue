@@ -224,8 +224,6 @@ import { getOrderList } from '@/api/mine'
   }
   .order {
     width: 19.7rem!important;
-    margin-left: 0%!important;
-    transform: translate(0%)!important;
     .mine-tab {
       display: flex!important;
       flex-direction: row!important;
@@ -243,7 +241,7 @@ import { getOrderList } from '@/api/mine'
     border-radius: 6px 6px 0px 0px;
     margin-top: 25px;
     position: relative;
-    padding: 22px 7px 0px 7px!important;
+    // padding: 22px 7px 0px 7px!important;
     .tab {
       display: flex;
       flex-direction: row;
@@ -272,12 +270,12 @@ import { getOrderList } from '@/api/mine'
         margin-bottom: 27px;
       }
     .order-content {
-      width: 18.5rem;
+      // width: 18.5rem;
       display: flex;
       flex-wrap: wrap;
-      margin: 0 auto;
+      // margin: 0 auto;
       .order-item {
-        width: 19.7rem!important;
+        // width: 19.7rem!important;
         height: 90px;
         background: rgba(248, 250, 255, 1);
         border-radius: 6px;
@@ -285,7 +283,7 @@ import { getOrderList } from '@/api/mine'
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 21px 23px;
+        // padding: 21px 23px;
         cursor: pointer;
         .item-left {
           display: flex;
@@ -294,7 +292,7 @@ import { getOrderList } from '@/api/mine'
             width: 61px;
             height: 61px;
             border-radius: 8px;
-            margin-right: 16px;
+            // margin-right: 16px;
           }
           .item-title {
             font-size: 18px;
@@ -317,8 +315,8 @@ import { getOrderList } from '@/api/mine'
             line-height: 16px;
             color: #999999;
             margin-top: 3px;
-            width: 131px;
-            word-break: break-all;
+            // width: 131px;
+            // word-break: break-all;
           }
           .item-price {
             font-size: 12px;

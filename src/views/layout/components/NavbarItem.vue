@@ -86,7 +86,7 @@ export default {
           path: '/mine/user'
         }
       ],
-      avatarUrl: window.sessionStorage.getItem('avatar'),
+      avatarUrl: window.localStorage.getItem('avatar'),
       token: ''
     };
   },
@@ -128,7 +128,7 @@ export default {
     //   this.avatarUrl = window.sessionStorage.getItem('avatar')
     // }, 500)
     // console.log(this.avatarUrl)
-    this.token = window.sessionStorage.getItem(ACCESS_TOKEN)
+    this.token = window.localStorage.getItem(ACCESS_TOKEN)
     this.$store.state.user.token = this.token
       if(!this.token) {
         this.$nextTick(() => {
@@ -178,7 +178,7 @@ export default {
     },
     handleLogoutCommand(command) {
       if(command == 1) {
-        window.sessionStorage.removeItem(ACCESS_TOKEN)
+        window.localStorage.removeItem(ACCESS_TOKEN)
         this.token = ''
         this.$store.state.user.token = ''
         this.$router.push({

@@ -93,8 +93,8 @@ import { updateAvatar } from '@/api/mine'
     },
     data() {
       return {
-        nickName: window.sessionStorage.getItem('nickName'),
-        phoneNumber: window.sessionStorage.getItem('phoneNumber'),
+        nickName: window.localStorage.getItem('nickName'),
+        phoneNumber: window.localStorage.getItem('phoneNumber'),
         imageUrl: ''
       }
     },
@@ -430,16 +430,17 @@ import { updateAvatar } from '@/api/mine'
         width: 100%;
         height: 1px;
         background-color:  #EFEFEF;
-        margin-top: 147px;
+        margin-top: 20px;
         margin-bottom: 35px;
       }
       .trusteeship-wrapper{
         width: 19.7rem;
+        height: auto;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         margin-bottom: 36px;
         .trusteeship-left {
-          width: 369px;
+          width: 19.7rem;
           display: flex;
           justify-content: center;
           flex-direction: column;
@@ -460,12 +461,14 @@ import { updateAvatar } from '@/api/mine'
           }
         }
         .trusteeship-right{
-          width: 454px;
+          width: 19.7rem;
+          padding: 20px 0px;
           display: flex;
           flex-direction: row;
           background: #F7FBFF;
+          margin-top: 30px;
           .item-left{
-            width: 50%;
+            width: 30%;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -485,7 +488,7 @@ import { updateAvatar } from '@/api/mine'
           .item-left::before{
             content: '';
             position: absolute;
-            top: 23px;
+            top: -0.3rem;
             right: 2px;
             height: 66px;
             width: 1px;
@@ -493,7 +496,7 @@ import { updateAvatar } from '@/api/mine'
             z-index: 10;
           }
           .item-right{
-            width: 50%;
+            width: 70%;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -515,6 +518,9 @@ import { updateAvatar } from '@/api/mine'
         display: flex;
         align-items: center;
        justify-content: flex-end;
+       .operation-left{
+         display: none;
+       }
         .logout {
           font-size: 14px;
           font-family: MiSans;
