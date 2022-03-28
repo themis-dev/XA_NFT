@@ -22,19 +22,19 @@
                   </div>
                 </div>
                 <div class="nft-function">
-                    <div>
+                    <div class="nft-function-item" @click="openShare">
                       <img style="width: 25px;height: 25px;" src="../../images/share-icon.png"/>
                       <span>分享</span>
                     </div>
-                    <div>
+                    <div class="nft-function-item" @click="openGift">
                       <img style="width: 25px;height: 25px;" src="../../images/giveto-icon.png"/>
                       <span>转赠</span>
                     </div>
-                    <div>
+                    <div class="nft-function-item">
                       <img style="width: 25px;height: 25px;" src="../../images/certificate-icon.png"/>
                       <span>证书</span>
                     </div>
-                    <div>
+                    <div class="nft-function-item">
                       <img style="width: 25px;height: 25px;" src="../../images/more-icon.png"/>
                       <span>更多</span>
                     </div>
@@ -82,10 +82,73 @@
               <div class="work-msg-footer-title">雄安链提供支持</div>
             </div>
           </div>
+          <el-dialog
+            title=""
+            :visible.sync="shareDialogVisible"
+            :show-close='false'
+            >
+            <div class="share-dialog">
+              <div class="share-dialog-title">《雄安赋》</div>
+              <div class="share-dialog-author">
+                <div class="share-dialog-author-title">创作者</div>
+                <div class="share-dialog-author-name">唐诗</div>
+              </div>
+              <img :src="detailObj.productImage" alt="" class="art">
+              <div class="share-dialog-collectioner">
+                <div class="share-dialog-collectioner-title">收藏者</div>
+                <div class="share-dialog-collectioner-name">苦行诗</div>
+              </div>
+              <div class="share-dialog-collection-num">
+                <div class="share-dialog-collection-num-title">收藏编号</div>
+                <div class="share-dialog-collection-num-val">AC9163#00074/10000</div>
+                <div class="share-dialog-collection-num-time">生成时间 2021.12.29 13:20:34</div>
+              </div>
+              <div class="share-dialog-msg-footer">
+                <img src="../../images/detail-img2.png" alt="">
+                <div class="work-msg-footer-title">雄安链提供支持</div>
+              </div>
+              <div class="share-dialog-qrcode">
+                <div>
+                  <div class="share-dialog-qrcode-title1">扫码查看幻安详情</div>
+                  <div class="share-dialog-qrcode-title2">雄安官方数字藏品NFT平台</div>
+                </div>
+                <div id="qrcode" ref="qrcode" ></div>
+              </div>
+            </div>
+          </el-dialog>
+           <el-dialog
+            title=""
+            :visible.sync="giftDialogVisible"
+            :show-close='false'
+            >
+            <div class="gift-dialog">
+              <div class="gift-dialog-title">《雄安赋》</div>
+              <div class="gift-dialog-author">
+                <div class="gift-dialog-author-title">创作者</div>
+                <div class="gift-dialog-author-name">唐诗</div>
+              </div>
+              <img :src="detailObj.productImage" alt="" class="art">
+              <div class="gift-input-div">
+                <div class="gift-input-div-item">
+                  <div>受赠人手机号</div>
+                  <el-input v-model="phone" placeholder="" size="medium"></el-input>
+                </div>
+                <div class="gift-input-div-item">
+                  <div>您的验证码</div>
+                  <el-input v-model="captcha" :type="'passwrod'" size="medium"></el-input>
+                </div>
+              </div>
+              <div class="gift-dialog-msg-footer">
+                <img src="../../images/detail-img2.png" alt="">
+                <div class="work-msg-footer-title">雄安链提供支持</div>
+              </div>
+            </div>
+          </el-dialog>
     </div>
 </template>
 
 <script>
+ import QRCode from 'qrcodejs2'
 import { getCollectionDetail } from '@/api/mine'
 
   export default {
@@ -97,7 +160,12 @@ import { getCollectionDetail } from '@/api/mine'
       return {
         active: 1,
         pid: this.$route.query.pid,
-        detailObj: {}
+        detailObj: {},
+        shareDialogVisible: false,
+        giftDialogVisible: false,
+        qr: '',
+        phone: '',
+        captcha: ''
       }
     },
     computed: {
@@ -107,6 +175,7 @@ import { getCollectionDetail } from '@/api/mine'
     },
     mounted() {
       this.getData()
+      
     },
     methods: {
       getData() {
@@ -130,6 +199,28 @@ import { getCollectionDetail } from '@/api/mine'
       } else {
         return ''
       }
+    },
+    // 生成二维码
+    crateQrcode() {
+      this.qr = new QRCode('qrcode', {
+        width: 84,
+        height: 84, // 高度
+        text: '1231231', // 二维码内容
+        // render: 'canvas', // 设置渲染方式（有两种方式 table和canvas，默认是canvas）
+        // background: '#f0f',
+        // foreground: '#ff0'
+      })
+    },
+    openShare() {
+      this.shareDialogVisible = true
+      if (!this.qr) {
+          this.$nextTick(() => {
+            this.crateQrcode()
+          })
+        }
+    },
+    openGift() {
+      this.giftDialogVisible = true
     }
   }
   }
@@ -251,6 +342,9 @@ import { getCollectionDetail } from '@/api/mine'
       margin-top: 27px;
       justify-content: space-around;
       align-items: center;
+      .nft-function-item {
+        cursor: pointer;
+      }
       div{
         display: flex;
         flex-direction: row;
@@ -487,5 +581,210 @@ import { getCollectionDetail } from '@/api/mine'
       }
     }
   }
+}
+
+.share-dialog {
+   background-image: url(../../images/watermark.png);
+  background-size: auto 20%;
+  background-repeat: no-repeat;
+  background-position: 80% 76%;
+  .share-dialog-title {
+    font-size: 28px;
+    font-family: MiSans Semibold;
+    font-weight: 600;
+    color: #333333;
+    margin-left: -20px;
+  }
+  .share-dialog-author {
+    display: flex;
+    margin-top: 8px;
+    .share-dialog-author-title {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 19px;
+      color: #999999;
+    }
+    .share-dialog-author-name {
+      font-size: 14px;
+      font-family: MiSans Semibold;
+      font-weight: 500;
+      line-height: 19px;
+      color: #333333;
+      margin-left: 22px;
+    }
+  }
+   .art {
+      width: 300px;
+      height: 300px;
+      border-radius: 8px;
+      margin-top: 30px;
+       margin-left: -12px;
+    }
+    .share-dialog-collectioner {
+      .share-dialog-collectioner-title {
+        font-size: 14px;
+        font-weight: 400;
+        color: #999999;
+        margin-top: 23px;
+      }
+      .share-dialog-collectioner-name {
+        font-size: 20px;
+        font-family: MiSans Semibold;
+        font-weight: 500;
+        line-height: 27px;
+        color: #333333;
+         margin-top: 8px;
+      }
+    }
+  .share-dialog-collection-num {
+    .share-dialog-collection-num-title {
+      font-size: 14px;
+      font-family: MiSans Semibold;
+      font-weight: 400;
+      line-height: 19px;
+      color: #999999;
+       margin-top: 20px;
+    }
+    .share-dialog-collection-num-val {
+          width: 12rem;
+          height: 2rem;
+          background-image: url(../../images/collection-arrow.png);
+          background-size: 100%;
+          background-repeat: no-repeat;
+          background-position: center center;
+          font-size: 12px;
+          font-family: MiSans Semibold;
+          font-weight: 400;
+          color: #515152;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+           margin-top: 12px;
+    }
+    .share-dialog-collection-num-time {
+      font-size: 13px;
+      font-family: MiSans Semibold;
+      font-weight: 400;
+      line-height: 19px;
+      color: #999999;
+       margin-top: 14px;
+    }
+    
+  }
+
+  .share-dialog-msg-footer {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    img {
+      width: 27px;
+    }
+    .work-msg-footer-title {
+      font-size: 16px;
+      font-family: MiSans Semibold;
+      font-weight: 400;
+      line-height: 22px;
+      color: #747474;
+      margin-left: 14px;
+      margin-top: 10px;
+    }
+  }
+  .share-dialog-qrcode {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    .share-dialog-qrcode-title1 {
+      font-size: 16px;
+      // font-family: MiSans;
+      font-weight: 400;
+      line-height: 22px;
+      color: #747474;
+    }
+    .share-dialog-qrcode-title2 {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 16px;
+      color: #999999;
+      margin-top: 2px;
+    }
+  }
+  
+}
+
+.gift-dialog {
+  .gift-dialog-title {
+    font-size: 28px;
+    font-family: MiSans Semibold;
+    font-weight: 600;
+    color: #333333;
+    margin-left: -20px;
+  }
+  .gift-dialog-author {
+    display: flex;
+    margin-top: 8px;
+    .gift-dialog-author-title {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 19px;
+      color: #999999;
+    }
+    .gift-dialog-author-name {
+      font-size: 14px;
+      font-family: MiSans Semibold;
+      font-weight: 500;
+      line-height: 19px;
+      color: #333333;
+      margin-left: 22px;
+    }
+  }
+   .art {
+      width: 300px;
+      height: 300px;
+      border-radius: 8px;
+      margin-top: 30px;
+       margin-left: -12px;
+    }
+    .gift-dialog-collectioner {
+      .gift-dialog-collectioner-title {
+        font-size: 14px;
+        font-weight: 400;
+        color: #999999;
+        margin-top: 23px;
+      }
+      .gift-dialog-collectioner-name {
+        font-size: 20px;
+        font-family: MiSans Semibold;
+        font-weight: 500;
+        line-height: 27px;
+        color: #333333;
+         margin-top: 8px;
+      }
+    }
+  .gift-dialog-msg-footer {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    img {
+      width: 27px;
+    }
+    .work-msg-footer-title {
+      font-size: 16px;
+      font-family: MiSans Semibold;
+      font-weight: 400;
+      line-height: 22px;
+      color: #747474;
+      margin-left: 14px;
+      margin-top: 10px;
+    }
+  }
+
+  /deep/ input{
+      border: none;
+      background: #f5f5f5;
+      width: 14.4rem;
+      // padding-right: 5px;
+      padding-left: 10px;
+  }
+  
 }
 </style>
