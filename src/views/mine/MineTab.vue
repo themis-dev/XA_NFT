@@ -54,5 +54,25 @@ export default {
     }
   }
 }
+@media (max-width: 500px) {
+.mine-tab {
+  display: flex;
+  .item {
+    font-size: 22px;
+    font-family: MiSans;
+    font-weight: 600;
+    line-height: 29px;
+    color: #999999;
+    margin-left: 0px;
+    cursor: pointer;
+    &.active {
+      color: #333333;
+    }
+    &:first-child {
+      margin-left: 0px;
+    }
+  }
+}
+}
 
 </style>

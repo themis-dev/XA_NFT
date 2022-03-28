@@ -329,4 +329,163 @@ import { getCollectionDetail } from '@/api/mine'
         margin-top: 6px;
       }
     }
+@media (max-width: 500px) {
+  .order-detail {
+    width: 19.7rem;
+    margin-left: 0%!important;
+    transform: translate(0%)!important;
+    .mine-tab {
+      display: flex!important;
+      flex-direction: row!important;
+      justify-content: space-around!important;
+      
+    }
+    .mine-tab .item{
+        margin-left: 0!important;
+      }
+    .nav {
+      display: flex;
+      margin-top: 40px;
+      // margin-left: 60px;
+      align-items: center;
+      cursor: pointer;
+      img {
+        width: 10px;
+        height: 18px;
+      }
+      .nav-title {
+        font-size: 16px;
+        font-family: MiSans;
+        font-weight: 600;
+        color: #333333;
+      }
+    }
+}
+  .order-detail-content {
+    width: 19.7rem;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 6px 6px 0px 0px;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 0px!important;
+    .order-status {
+      padding-top: 50px;
+      text-align: center;
+      font-size: 22px;
+      font-family: MiSans;
+      font-weight: 600;
+      color: #333333;
+      img {
+        width: 47px;
+        height: 47px;
+        margin-bottom: 15px;
+      }
+    }
+    .order-msg {
+      width: 19.7rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 45px;
+      .nft-msg {
+        width: 300px;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        img {
+          width: 15.25rem;
+          height: 15.25rem;
+          border-radius: 8px;
+        }
+        .nft-msg-right {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          .nft-msg-title {
+            font-size: 24px;
+            font-family: MiSans;
+            font-weight: 600;
+            line-height: 37px;
+            color: #333333;
+            margin-top: 18px;
+          }
+          .nft-msg-num {
+            font-size: 12px;
+          font-family: MiSans;
+          font-weight: 400;
+          line-height: 16px;
+          color: #515152;
+            margin-top: 10px;
+            background: rgba(238, 225, 197, 0.39);
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 8px 16px;
+            img{
+                width: 10.45px;
+                height: 15.97px;
+                margin-right: 5px;
+            }
+          }
+          .nft-msg-author {
+            font-size: 12px;
+            font-family: MiSans;
+            font-weight: 400;
+            line-height: 16px;
+            color: #CCCCCC;
+            margin-top: 14px;
+          }
+        }
+      }
+      .nft-function{
+        width: 19.7rem;
+        display: flex;
+        flex-direction: row;
+        margin-top: 27px;
+        justify-content: space-around;
+        align-items: center;
+        div{
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          img{
+            vertical-align: middle;
+          }
+        }
+      }
+      .order-data {
+        width: 19.7rem;
+        // background-color: #EEE1C5;
+        margin-top: 34px;
+        background-image: url(../../images/watermark.png);
+        background-size: auto 60%;
+        background-repeat: no-repeat;
+        background-position: 70% 0%;
+        .data-item {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 16px;
+          .data-item-title {
+            font-size: 14px;
+            font-family: MiSans;
+            font-weight: 400;
+            line-height: 19px;
+            color: #999999;
+          }
+          .data-item-num {
+            font-size: 14px;
+            font-family: MiSans;
+            font-weight: 500;
+            line-height: 19px;
+            color: #333333;
+          }
+        }
+      }
+    }
+  }
+}
 </style>

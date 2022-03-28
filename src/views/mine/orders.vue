@@ -213,4 +213,131 @@ import { getOrderList } from '@/api/mine'
     }  
 
 }
+@media (max-width: 500px) {
+  .container {
+    background: #FAFAFA;
+  }
+  .content{
+    padding-top: 46px;
+    margin-top: 0px!important;
+    padding-bottom: 0px!important;
+  }
+  .order {
+    width: 19.7rem!important;
+    margin-left: 0%!important;
+    transform: translate(0%)!important;
+    .mine-tab {
+      display: flex!important;
+      flex-direction: row!important;
+      justify-content: space-around!important;
+      
+    }
+    .mine-tab .item{
+        margin-left: 0!important;
+      }
+  }
+  .mine-order {
+    width: 19.7rem;
+    height: 39.375rem;
+    background: rgba(255, 255, 255,1);
+    border-radius: 6px 6px 0px 0px;
+    margin-top: 25px;
+    position: relative;
+    padding: 22px 7px 0px 7px!important;
+    .tab {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      .tab-item {
+        font-size: 18px;
+        font-family: MiSans;
+        font-weight: 600;
+        line-height: 29px;
+        color: #999999;
+        margin-left: 0px!important;
+        cursor: pointer;
+        &.active {
+          color: #333333;
+        }
+        &:first-child {
+          margin-left: 0px;
+        }
+      }
+    }
+    .line {
+        width: 100%;
+        height: 1px;
+        background-color:  #EFEFEF;
+        margin-top: 17px;
+        margin-bottom: 27px;
+      }
+    .order-content {
+      width: 18.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 auto;
+      .order-item {
+        width: 19.7rem!important;
+        height: 90px;
+        background: rgba(248, 250, 255, 1);
+        border-radius: 6px;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 21px 23px;
+        cursor: pointer;
+        .item-left {
+          display: flex;
+          align-items: center;
+          img {
+            width: 61px;
+            height: 61px;
+            border-radius: 8px;
+            margin-right: 16px;
+          }
+          .item-title {
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 24px;
+            color: #333333;
+          }
+          .item-author {
+            font-size: 12px;
+            font-family: MiSans;
+            font-weight: 400;
+            line-height: 16px;
+            color: #999999;
+            margin-top: 3px;
+          }
+          .item-order {
+            font-size: 12px;
+            font-family: MiSans;
+            font-weight: 400;
+            line-height: 16px;
+            color: #999999;
+            margin-top: 3px;
+            width: 131px;
+            word-break: break-all;
+          }
+          .item-price {
+            font-size: 12px;
+            font-family: MiSans;
+            font-weight: bold;
+            line-height: 16px;
+            color: #333333;
+            margin-top: 3px;
+          }
+        }
+        .status {
+          font-size: 14px;
+          font-weight: 500;
+          line-height: 19px;
+          color: #333333;
+        }
+      }
+    }  
+
+}
+}
 </style>

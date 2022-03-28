@@ -177,7 +177,7 @@ export default {
     align-items: center;
     justify-content: center;
     .login-wrapper{
-        width: 20rem;
+        width: 19.7rem;
         height: auto;
         margin-top: 10rem;
         .login-tabs{
@@ -207,24 +207,25 @@ export default {
                 border-radius: 8px;
                 span{
                     display: inline-block;
-                    padding: 13px 15px;
+                    padding: 0.8rem 0.93rem;
                     position: relative;
-                    margin-right: 10px;
+                    // margin-right: 10px;
                 }
                 span::after{
                     position: absolute;
                     content: "";
                     width: 1px;
-                    height: 20px;
+                    height: 22px;
                     background: #D6D6D6;
-                    top: 14px;
+                    top: 11.5px;
                     right: 0;
                 }
                 input{
                     border: none;
                     background: #f5f5f5;
-                    flex: 1;
-                    padding-right: 5px;
+                    width: 14.4rem;
+                    // padding-right: 5px;
+                    padding-left: 10px;
                 }
             }
             .password {
@@ -237,12 +238,12 @@ export default {
                 border-radius: 8px;
                 input{
                     border: none;
-                    flex: 1;
+                    width: 18rem;
                     background: #f5f5f5;
                     padding-left: 15px;
+                    padding-right: 15px;
                 }
                 span{
-                    padding: 13px 15px;
                     color: #999999;
                     .highlight{
                         i{
@@ -266,24 +267,24 @@ export default {
                 border-radius: 8px;
                 span{
                     display: inline-block;
-                    padding: 13px 15px;
                     position: relative;
-                    margin-right: 10px;
+                    padding: 0.8rem 0.93rem;
                 }
                 span::after{
                     position: absolute;
                     content: "";
                     width: 1px;
-                    height: 20px;
+                    height: 22px;
                     background: #D6D6D6;
-                    top: 14px;
+                    top: 11.5px;
                     right: 0;
                 }
                 input{
                     border: none;
                     background: #f5f5f5;
-                    flex: 1;
                     padding-right: 5px;
+                    padding-left: 10px;
+                    width: 14.4rem;
                 }
             }
             .password {
@@ -296,9 +297,10 @@ export default {
                 border-radius: 8px;
                 input{
                     border: none;
-                    flex: 1;
+                    width: 15rem;
                     background: #f5f5f5;
                     padding-left: 15px;
+                    padding-right: 15px;
                 }
                 span{
                     width: 100px;

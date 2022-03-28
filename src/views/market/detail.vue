@@ -196,6 +196,7 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
+ @media (min-width: 991.98px) {
 .market-detail {
   margin-bottom: -4rem;
   background-color: #fff;
@@ -217,8 +218,7 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
     .work-msg {
       background-image: url(../../images/detail-img1.png);
       background-repeat: no-repeat;
-      // width: 649px;
-      width: 40.6rem;
+      width: 649px;
       height: 144px;
       margin-top: 34px;
       display: flex;
@@ -422,5 +422,228 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
     }
   }
 }
-
+}
+@media (max-width: 500px) {
+  .container{
+    padding: 0;
+  }
+.market-detail{
+  width: 100%;
+  background-color: #fff;
+  .detail-top {
+    background-color: #233370;
+    background-image: url(../../images/market-banner.png);
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 670px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .work {
+      width: 18.69rem;
+      height: 18.69rem;
+      margin-top: 76px;
+      border-radius: 8px;
+    }
+    .work-msg {
+        background-image: url(../../images/detail-img1.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        width: 21rem;
+        height: 142px;
+        margin-top: 34px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+        position: relative;
+        .work-name {
+          font-size: 28px;
+          font-family: MiSans;
+          font-weight: 600;
+          line-height: 37px;
+          color: #FFFFFF;
+        }
+        .work-num {
+          display: flex;
+          align-items: center;
+          justify-content: start;
+          margin-top: 10px;
+        }
+        .item-number {
+          padding-left: 11px;
+          margin-top: 4px;
+          height: 18px;
+          color: #515152;
+          display: flex;
+          align-items: center;
+          .item-number-name {
+            width: 29px;
+            height: 18px;
+            background: #EEE1C5;
+            font-size: 12px;
+            font-family: MiSans;
+            font-weight: 400;
+            line-height: 18px;
+            color: #515152;
+            text-align: center;
+          }
+          .item-number-val {
+                width: 56px;
+                height: 18px;
+                background: #646464;
+                font-size: 12px;
+                font-family: MiSans;
+                font-weight: 400;
+                line-height: 18px;
+                color: #F1E1BE;
+                text-align: center;
+              }
+          }
+          .price {
+            font-size: 30px;
+            font-family: MiSans;
+            font-weight: 600;
+            line-height: 39px;
+            color: #CFA980;
+            letter-spacing: 1.3px;
+            padding-left: 30px;
+          }
+          .buy-btn {
+            width: 215px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(152deg, #EDD9BB 0%, #BE905D 100%);
+            box-shadow: 0px 3px 6px rgba(200, 159, 113, 0.47);
+            opacity: 1;
+            border-radius: 26px;
+            font-size: 20px;
+            font-family: MiSans;
+            font-weight: 600;
+            color: #FFFFFF;
+            text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.38);
+            cursor: pointer;
+            position: absolute;
+            bottom: -20px;
+        }
+    }
+  }
+  .work-content {
+    background-color: #fff;
+    margin-top: 59px;
+    position: relative;
+    .work-story {
+      font-size: 22px;
+      font-family: MiSans;
+      font-weight: 600;
+      line-height: 29px;
+      color: #333333;
+      padding: 0 24px;
+    }
+    .line {
+      width: 100%;
+      height: 1px;
+      background-color:#E5E5E5;
+      margin-top: 17px;
+      margin-bottom: 44px;
+    }
+    .img-left {
+      display: none;
+    }
+    .img-right {
+      display: none;
+    }
+    .work-msg-item {
+      padding: 0 24px;
+      .work-msg-item-title {
+        font-size: 18px;
+        font-family: MiSans;
+        font-weight: 600;
+        line-height: 24px;
+        color: #666666;
+        margin-bottom: 15px;
+      }
+      .work-msg-item-val {
+        font-size: 14px;
+        font-family: MiSans;
+        font-weight: 400;
+        line-height: 19px;
+        color: #848484;
+        margin-bottom: 25px;
+      }
+    }
+    .work-msg-author {
+      width: 100%;
+      height: 105px;
+      background: rgba(244, 244, 255, 1);
+      border-radius: 10px;
+      margin-top: 44px;
+      display: flex;
+      flex-direction: column;
+      padding: 0 24px;
+      align-items: center;
+      justify-content: center;
+      .work-msg-author-item {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        .author-item1 {
+          font-size: 18px;
+          font-family: MiSans;
+          font-weight: 400;
+          line-height: 34px;
+          color: #666666;
+        }
+        .author-item2 {
+          font-size: 18px;
+          font-family: MiSans;
+          font-weight: 600;
+          line-height: 34px;
+          color: #666666;
+          padding-left: 30px;
+        }
+      }
+    }
+    .purchase-notes {
+      margin-top: 54px;
+      text-align: center;
+      .purchase-notes-title {
+        font-size: 16px;
+        font-family: MiSans;
+        font-weight: 600;
+        line-height: 22px;
+        color: #777777;
+      }
+      .purchase-notes-content {
+        font-size: 12px;
+        font-family: MiSans;
+        font-weight: 400;
+        line-height: 18px;
+        color: #B5B5B5;
+        margin-top: 12px;
+        // padding: 0 260px;
+        text-align: left;
+      }
+    }
+    .work-msg-footer {
+      margin-top: 31px;
+      text-align: center;
+      img {
+        width: 27px;
+        height: 41px;
+      }
+      .work-msg-footer-title {
+        font-size: 16px;
+        font-family: MiSans;
+        font-weight: 400;
+        line-height: 22px;
+        color: #747474;
+        margin-top: 6px;
+      }
+    }
+  }
+}
+}
 </style>
