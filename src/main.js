@@ -10,9 +10,6 @@ import router from './router'
 import store from './store'
 import moment from 'moment'
 
-import Antd from 'ant-design-vue'
-import 'ant-design-vue/dist/antd.css';
-
 import VueLazyload from 'vue-lazyload'
 
 import '@/styles/font.css'
@@ -20,7 +17,6 @@ import '@/styles/font.css'
 Vue.use(ElementUI);
 Vue.use(VueI18n);
 Vue.use(VueCookies);
-Vue.use(Antd);
 Vue.use(VueLazyload, {
   loading: ''
 })
@@ -73,8 +69,8 @@ new Vue({
   el: '#app',
   data() {
     return {
-      // avatarUrl: 'http://192.168.3.233:8999/'
-      avatarUrl: 'http://35.201.215.236:8999/'
+      avatarUrl: 'http://192.168.3.233:8999/'
+      // avatarUrl: 'http://35.201.215.236:8999/'
     }
   },
   router,

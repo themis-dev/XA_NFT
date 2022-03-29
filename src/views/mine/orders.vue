@@ -15,7 +15,7 @@
                   <div class="item-left">
                     <img :src="item.productImage" alt="">
                     <div>
-                      <div class="item-title">{{ item.productName }}</div>
+                      <div class="item-title">{{ setMarkName(item.productName) }}</div>
                       <div class="item-author">{{ item.creator }}</div>
                       <div class="item-order">订单号：{{ item.oid }}</div>
                       <div class="item-price">{{ item.price }} 元</div>
@@ -98,7 +98,10 @@ import { getOrderList } from '@/api/mine'
         case 9:
           return '待付款';
       }
-    }
+    },
+    setMarkName(name) {
+        return name.substring(0, 8)
+      }
   }
   }
 </script>

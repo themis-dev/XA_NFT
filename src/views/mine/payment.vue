@@ -10,8 +10,8 @@
                 <div class="nft-msg">
                   <img :src="productImage" alt="">
                   <div class="nft-msg-right">
-                    <div class="nft-msg-title">{{ productName }}</div>
-                    <div class="nft-msg-num">{{ oid }}</div>
+                    <div class="nft-msg-title">{{ setNameLength(productName, 8) }}</div>
+                    <div class="nft-msg-num">{{ setNameLength(oid, 12) }}</div>
                     <div class="nft-msg-author">{{ creator }}</div>
                   </div>
                 </div>
@@ -30,7 +30,7 @@
 
 <script>
 import { goPayment, getOrderDetail } from '@/api/mine'
-
+import { Message } from 'element-ui'
   export default {
     name: 'order',
     data() {
@@ -63,12 +63,19 @@ import { goPayment, getOrderDetail } from '@/api/mine'
               oid: this.oid,
               whichPay: this.radioValue
           }
-          goPayment(reqObj).then(res => {
-              const div = document.createElement('div')
+          goPayment(reqObj).then((res) => {
+            console.log(res)
+              let div = document.createElement('div')
               div.id = 'alipay'
               div.innerHTML = res
               document.body.appendChild(div)
               document.querySelector('#alipay').children[0].submit()
+          }).catch(error => {
+            Message({
+              message: error.message,
+              type: 'error'
+            })
+            console.log(error)
           })
       },
     clickItem(item) {
@@ -76,6 +83,9 @@ import { goPayment, getOrderDetail } from '@/api/mine'
     },
     goback() {
       this.$router.go(-1);
+    },
+    setNameLength(name, number) {
+      return name.substring(0, number)
     }
   }
   }
@@ -186,6 +196,20 @@ import { goPayment, getOrderDetail } from '@/api/mine'
               background: #5D6FD5;
           }
       }
+  }
+}
+@media (max-width: 500px) {
+  .payment-container {
+    width: 19.7rem;
+    margin: 0 auto;
+    .order-detail{
+      .nav{
+        width: 19.7rem;
+      }
+      .order-detail-content{
+        width: 19.7rem;
+      }
+    }
   }
 }
 </style>

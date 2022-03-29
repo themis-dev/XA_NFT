@@ -25,6 +25,7 @@
 </template>
 <script>
 import { registerUser } from '@/api/user'
+import { Message } from 'element-ui'
 
 export default {
     name: 'setPassword',
@@ -50,13 +51,13 @@ export default {
          },
          handleSubmitClick() {
              if(!this.nickName) {
-                 this.$message({
+                 Message({
                      message: '请输入昵称',
                      type: 'warning'
                  })
              }
              if(!this.password) {
-                 this.$message({
+                 Message({
                      message: '请输入密码',
                      type: 'warning'
                  })
@@ -70,7 +71,7 @@ export default {
              registerUser(reqObj).then(res => {
                  console.log(res)
                  if(res.status == 1) {
-                     this.$message({
+                     Message({
                          message: res.message,
                         type: 'success'
                      })

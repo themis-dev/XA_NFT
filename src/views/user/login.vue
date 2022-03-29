@@ -44,6 +44,7 @@
 <script>
 import { login, getCaptcha } from '@/api/user'
 import { ACCESS_TOKEN } from '@/store/mutation-types'
+import { Message } from 'element-ui'
 
 export default {
     name: 'login',
@@ -74,21 +75,21 @@ export default {
         },
         handleLoginClick() {
             if(!this.phoneNumber) {
-                this.$message({
+                Message({
                     message: '请输入手机号码',
                     type: 'warning'
                 })
                 return
             } 
             if(!this.password && this.activeName == 1) {
-                this.$message({
+                Message({
                     message: '请输入密码',
                     type: 'warning'
                 })
                 return
             }
             if(!this.captcha && this.activeName == 2) {
-                this.$message({
+                Message({
                     message: '请输入验证码',
                     type: 'warning'
                 })
@@ -115,7 +116,7 @@ export default {
             }).catch(error => {
                 console.log(error)
                 if(error.response.data.status == -1) {
-                    this.$message({
+                    Message({
                         message: error.response.data.message,
                         type: 'warning'
                     })
@@ -138,7 +139,7 @@ export default {
                 }
                 getCaptcha(reqObj).then(res => {
                     if(res.status == 1) {
-                        this.$message({
+                        Message({
                             message: res.message,
                             type: 'success'
                         })

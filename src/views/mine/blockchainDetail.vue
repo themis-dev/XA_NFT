@@ -39,13 +39,25 @@
         <div class="order-circulation">
             <div class="order-circulation-title">流转信息</div>
             <el-divider></el-divider>
-            <a-steps progress-dot :current="1" direction="vertical">
+            <!-- <a-steps progress-dot :current="1" direction="vertical">
                 <a-step title="苦行诗" description="This is a description. This is a description." />
                 <a-step title="Finished" description="This is a description. This is a description." />
                 <a-step title="In Progress" description="This is a description. This is a description." />
                 <a-step title="Waiting" description="This is a description." />
                 <a-step title="Waiting" description="This is a description." />
-            </a-steps>
+            </a-steps> -->
+            <el-timeline>
+                <el-timeline-item
+                v-for="(activity, index) in activities"
+                :key="index"
+                :icon="activity.icon"
+                :type="activity.type"
+                :color="activity.color"
+                :size="activity.size"
+                :timestamp="activity.timestamp">
+                {{activity.content}}
+                </el-timeline-item>
+            </el-timeline>
         </div>
     </div>
 </template>
@@ -54,7 +66,25 @@ import { checkBlockChain } from '@/api/mine'
 export default {
     data () {
         return {
-            oid: this.$route.query.id ? this.$route.query.id : ''
+            oid: this.$route.query.id ? this.$route.query.id : '',
+            activities: [{
+                content: '支持使用图标',
+                timestamp: '2018-04-12 20:46',
+                size: 'large',
+                type: 'primary',
+                icon: 'el-icon-more'
+                }, {
+                content: '支持自定义颜色',
+                timestamp: '2018-04-03 20:46',
+                color: '#0bbd87'
+                }, {
+                content: '支持自定义尺寸',
+                timestamp: '2018-04-03 20:46',
+                size: 'large'
+                }, {
+                content: '默认样式的节点',
+                timestamp: '2018-04-03 20:46'
+            }]
         }
     },
     mounted() {
