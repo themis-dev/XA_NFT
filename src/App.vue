@@ -22,16 +22,17 @@
   }
   .app-main{
     .content{
-      background-color: #252525!important;
+      // background-color: #252525!important;
     }
     .brower-header__box{
-      background-color: #252525!important;
+      // background-color: #252525!important;
     }
   }
   .content{
     height: auto!important;
     // margin: 0 auto -99px;
     min-height: 100%;
+    // margin-bottom: 7rem;
     // background-color: #f8f9fa;
     // padding-bottom: 2rem;
   }

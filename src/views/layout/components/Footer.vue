@@ -90,7 +90,7 @@
         .desc{
           display: none;
           font-size: 16px;
-          font-family: MiSans;
+          // font-family: MiSans;
           font-weight: 400;
           color: #FFFFFF;
           margin-left: 24px;
