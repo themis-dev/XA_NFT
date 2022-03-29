@@ -305,7 +305,6 @@ import { getCaptcha } from '@/api/user'
             }, 1000)
         },
         surePresent() {
-          console.log(this.detailObj)
           if (!this.captcha || !this.phone) {
             return
           }
@@ -322,6 +321,7 @@ import { getCaptcha } from '@/api/user'
                         message: '转赠成功',
                         type: 'success'
                     })
+                     
                 }
           })
         }

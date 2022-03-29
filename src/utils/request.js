@@ -27,18 +27,19 @@ service.interceptors.response.use(
   /**
   * status 可结合自己业务进行修改
   */
-   const res = response.data
-   if (res.status !== 1) {
-     console.log(res)
-     Message({
-       message: res.message,
-       type: 'error',
-       duration: 2 * 1000
-     })
-     return Promise.reject('error')
-   } else {
-     return response.data
-   }
+  //  const res = response.data
+  //  if (res.status !== 1) {
+  //    console.log(res)
+  //    Message({
+  //      message: res.message,
+  //      type: 'error',
+  //      duration: 2 * 1000
+  //    })
+  //    return Promise.reject('error')
+  //  } else {
+  //    return response.data
+  //  }
+  return response.data
   },
   error => {
     if (error.response.status === 403 || error.response.status === 401) {
