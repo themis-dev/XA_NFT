@@ -69,8 +69,8 @@ new Vue({
   el: '#app',
   data() {
     return {
-      avatarUrl: 'http://192.168.3.233:8999/'
-      // avatarUrl: 'http://35.201.215.236:8999/'
+      // avatarUrl: 'http://192.168.3.233:8999/'
+      avatarUrl: 'http://35.201.215.236:8999/'
     }
   },
   router,
