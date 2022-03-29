@@ -326,11 +326,11 @@ export default {
           }
           .desc{
             color: #EAEAEA;
-            padding-left: 21px;
-            padding-right: 21px;
+            padding-left: 18px;
+            padding-right: 18px;
           }
           .check{
-            margin-top: 15px;
+            margin-top: 5px;
             padding-left: 34px;
             display: flex;
             flex-direction: row;

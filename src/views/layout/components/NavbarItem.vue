@@ -1,5 +1,11 @@
 <template>
   <ul class="navbar-nav header-navbar">
+    <li class="navbar-search">
+      <el-input 
+        placeholder="搜索藏品名、艺术家、发行方"
+        prefix-icon="el-icon-search"
+      />
+    </li>
     <li
       class="nav-item has-menu menu-initialized"
       :class="[
@@ -231,6 +237,23 @@ export default {
       background: #eff1f5;
     }
   }
+  .header-navbar{
+    .navbar-search {
+      display: inline-block;
+      
+      /deep/ .el-input .el-input__inner {
+        width: 280px;
+        margin-right: 80px;
+        height: 37px;
+        background: rgba(247, 247, 247, 0.39);
+        border-radius: 19px;
+      }
+
+      /deep/ .el-input .el-input__prefix .el-input__icon {
+        line-height: 38px;
+      }
+    }
+  }
   .navbar-expand-md .header-navbar .hb-header-sub-menu-nav-link {
     padding-right: 0.75rem;
     padding-left: 0.75rem;
@@ -257,5 +280,13 @@ export default {
     }
   }
   
+}
+
+@media (max-width: 500px) {
+  .header-navbar{
+    .navbar-search {
+      display: none;
+    }
+  }
 }
 </style>
