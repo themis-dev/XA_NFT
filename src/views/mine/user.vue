@@ -84,10 +84,10 @@
                     <img src="../../images/detail-img2.png" alt="">
                     <div class="operation-left-title">雄安链提供支持</div>
                   </div>
-                  <div class="operation-right">
+                  <!-- <div class="operation-right">
                     <div class="logout">注销账号</div>
                     <div class="save">保存</div>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
