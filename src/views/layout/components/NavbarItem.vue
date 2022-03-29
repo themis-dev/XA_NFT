@@ -240,7 +240,10 @@ export default {
   .header-navbar{
     .navbar-search {
       display: inline-block;
-      
+      font-family: MiSans;
+      font-weight: 500;
+      color: #9A9A9A;
+      font-size: 14px;
       /deep/ .el-input .el-input__inner {
         width: 280px;
         margin-right: 80px;
