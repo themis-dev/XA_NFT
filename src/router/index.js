@@ -114,7 +114,12 @@ export const constantRouterMap = [
       name: 'collectionActivity',
       path: 'market/collectionActivity',
       component: () => import('@/views/market/collectionActivity')
-    }
+    },
+    {
+      name: 'market-type',
+      path: 'market-type',
+      component: () => import('@/views/market/marketType')
+    },
     ]
   }
 ]

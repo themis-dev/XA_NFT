@@ -66,7 +66,10 @@ export default {
     methods: {
         handleCollectionClick(type) {
             this.$router.push({
-                path: '/'
+                path: '/market-type',
+                query: {
+                    type: type
+                }
             })
         }
     }

@@ -305,7 +305,6 @@ import { getCaptcha } from '@/api/user'
             }, 1000)
         },
         surePresent() {
-          console.log(this.detailObj)
           if (!this.captcha || !this.phone) {
             return
           }
@@ -319,9 +318,10 @@ import { getCaptcha } from '@/api/user'
             console.log(res)
             if(res.status == 1) {
                     this.$message({
-                        message: res.message,
+                        message: '转赠成功',
                         type: 'success'
                     })
+                     
                 }
           })
         }
