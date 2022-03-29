@@ -52,3 +52,12 @@ export function getCollectionDetail (params) {
     params
   })
 }
+
+// 区块链查证信息
+export function checkBlockChain (params) {
+  return request({
+    url: '/interface/api/customer/check',
+    method: 'get',
+    params
+  })
+}

@@ -337,7 +337,7 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
       padding-right: 66px;
       .work-msg-item-title {
         font-size: 18px;
-        font-family: MiSans;
+        font-family: MiSans Semibold;
         font-weight: 600;
         line-height: 24px;
         color: #666666;
@@ -375,7 +375,7 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
         }
         .author-item2 {
           font-size: 18px;
-          font-family: MiSans;
+          font-family: MiSans Semibold;
           font-weight: 600;
           line-height: 24px;
           color: #666666;
@@ -388,7 +388,7 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
       text-align: center;
       .purchase-notes-title {
         font-size: 16px;
-        font-family: MiSans;
+        font-family: MiSans Semibold;
         font-weight: 600;
         line-height: 22px;
         color: #777777;
@@ -559,7 +559,7 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
       padding: 0 24px;
       .work-msg-item-title {
         font-size: 18px;
-        font-family: MiSans;
+        font-family: MiSans Semibold;
         font-weight: 600;
         line-height: 24px;
         color: #666666;
@@ -598,7 +598,7 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
         }
         .author-item2 {
           font-size: 18px;
-          font-family: MiSans;
+          font-family: MiSans Semibold;
           font-weight: 600;
           line-height: 34px;
           color: #666666;
@@ -612,7 +612,7 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
       text-align: center;
       .purchase-notes-title {
         font-size: 16px;
-        font-family: MiSans;
+        font-family: MiSans Semibold;
         font-weight: 600;
         line-height: 22px;
         color: #777777;

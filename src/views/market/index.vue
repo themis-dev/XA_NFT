@@ -216,7 +216,7 @@ import moment from 'moment'
           }
           .price {
             font-size: 18px;
-            font-family: MiSans;
+            font-family: MiSans Semibold;
             font-weight: 600;
             line-height: 24px;
             color: #FFFFFF;
@@ -238,7 +238,7 @@ import moment from 'moment'
     // margin-top: 25px;
     .title {
       font-size: 40px;
-      font-family: MiSans;
+      font-family: MiSans Semibold;
       font-weight: 800;
       color: #333333;
       text-align: center;
@@ -351,7 +351,7 @@ import moment from 'moment'
           }
           .price {
             font-size: 18px;
-            font-family: MiSans;
+            font-family: MiSans Semibold;
             font-weight: 600;
             line-height: 24px;
             color: #FFFFFF;

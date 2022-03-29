@@ -10,11 +10,20 @@ import router from './router'
 import store from './store'
 import moment from 'moment'
 
+import Antd from 'ant-design-vue'
+import 'ant-design-vue/dist/antd.css';
+
+import VueLazyload from 'vue-lazyload'
+
 import '@/styles/font.css'
 
 Vue.use(ElementUI);
 Vue.use(VueI18n);
 Vue.use(VueCookies);
+Vue.use(Antd);
+Vue.use(VueLazyload, {
+  loading: ''
+})
 
 // this.$cookies.config('30d')
 
