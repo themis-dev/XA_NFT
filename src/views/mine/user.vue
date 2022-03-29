@@ -32,7 +32,7 @@
                         class="avatar-uploader"
                         action="http://192.168.3.233:8082/interface/api/customer/avatar"
                         :show-file-list="false"
-                        :on-change="handleUploadChange"
+                        :on-success="handleSuccess"
                         :headers="headers">
                         <img v-if="imageUrl" :src="imageUrl" class="avatar">
                         <i v-else class="el-icon-plus avatar-uploader-icon"></i>
@@ -84,10 +84,10 @@
                     <img src="../../images/detail-img2.png" alt="">
                     <div class="operation-left-title">雄安链提供支持</div>
                   </div>
-                  <div class="operation-right">
+                  <!-- <div class="operation-right">
                     <div class="logout">注销账号</div>
                     <div class="save">保存</div>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
@@ -97,9 +97,11 @@
 
 <script>
 import { updateAvatar } from '@/api/mine'
+import axios from 'axios'
 import moment from 'moment'
 import { ACCESS_TOKEN } from '@/store/mutation-types'
 import Clipboard from 'clipboard'
+import { Message } from 'element-ui'
   export default {
     name: 'user',
     components: {
@@ -148,21 +150,24 @@ import Clipboard from 'clipboard'
       beforeAvatarUpload(file) {
         const isLt100M = file.size / 1024 / 1024 <= 100
         if (!isLt100M) {
-          this.$message.error('上传文件大小不能超过 100MB!')
+          Message({
+            message: '上传文件大小不能超过 100MB!',
+            type: 'error'
+          })
           return false
         }
       },
-      handleUploadChange(file, fileList) {
-        console.log(file, fileList)
-      },
-      handleBeforeUpload(file, fileList) {
-        console.log(file, fileList)
-      },
-      handleSuccess(response) {
-        console.log(response)
-        if(response.status == -1) {
-          this.$message.error(response.message)
+      handleSuccess(res) {
+        console.log(res)
+        if(res.status == 1) {
+          Message({
+            message: res.message,
+            type: 'success'
+          })
+          this.$store.state.user.avatar = this.$root.avatarUrl + res.data
+          window.localStorage.setItem('avatar', this.$root.avatarUrl + res.data)
         }
+        
       },
       handleAddressClick() {
         var clipboard = new Clipboard('.copy-address')

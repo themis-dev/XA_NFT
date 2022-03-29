@@ -5,7 +5,7 @@
         placeholder="搜索藏品名、艺术家、发行方"
         prefix-icon="el-icon-search"
         v-model="searchValue"
-        v-on:keyup.enter="handleKeyUpClick"
+        v-on:keyup.enter.native="handleKeyUpClick"
       />
     </li>
     <li
@@ -199,9 +199,11 @@ export default {
       }
     },
     handleKeyUpClick() {
-      console.log(this.searchValue)
-      searchCollection().then(res => {
-
+      this.$router.push({
+        path: '/market',
+        query: {
+          search: this.searchValue
+        }
       })
     }
     
