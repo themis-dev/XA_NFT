@@ -1,6 +1,6 @@
 <template>
-    <div class="container content">
-            <div class="market-type">
+    <div class="market-type-page content">
+            <div class="market-type container">
               <div class="title">
                 <div class="title-left" @click="goback">
                   <img src="../../images/back-black.png" alt="">
@@ -69,10 +69,8 @@ import moment from 'moment'
     created() {
     },
     mounted() {
-      // console.log(document.getElementsByClassName('content')[0].style.backgroundColor = "#151921")
-      // document.getElementsByClassName('.content')[0][style].backgroundColor ="#151921"
-      document.getElementsByClassName('content')[0].style.backgroundColor = "#151921"
-      document.getElementsByClassName('content')[1].style.backgroundColor = "#151921"
+      // document.getElementsByClassName('content')[0].style.backgroundColor = "#151921"
+      // document.getElementsByClassName('content')[1].style.backgroundColor = "#151921"
       this.getData()
       // console.log(moment().default())
     },
@@ -143,9 +141,13 @@ import moment from 'moment'
 //     transform: translate(-50%);
 //     // background-color: #151921;
 // }
+.market-type-page {
+    background-color: #151921;
+    // padding-top: 49px;
+}
 @media (min-width: 799.95px){
   .market-type {
-    margin-top: 49px;
+    padding-top: 49px;
     padding-bottom: 7rem;
     .title {
       display: flex;
@@ -337,7 +339,7 @@ import moment from 'moment'
 
 @media (max-width: 799.95px){
     .market-type {
-     margin-top: 59px;
+     padding-top: 59px;
      padding-bottom: 7rem;
     .title {
       display: flex;
