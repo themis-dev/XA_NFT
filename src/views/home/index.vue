@@ -293,13 +293,14 @@ export default {
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
+@media (max-width: 991.98px) {
 .homePage-container {
   overflow-y: scroll;
   overflow-x: hidden;
   // 推荐
   .recommend-wrapper{
     width: 100%;
-    height: 25.9rem;
+    height: auto;
     margin: 0 auto;
     background: url('../../images/home-bgImage.png') no-repeat;
     background-size: cover;
@@ -311,7 +312,7 @@ export default {
           background: url('../../images/home-mark.png') no-repeat;
           background-size: 100% 100%;
           width: 21rem;
-          height: 338px;
+
           margin: 0 auto;
           display: flex;
           flex-direction: column;
@@ -669,6 +670,7 @@ export default {
           justify-content: center;
           align-items: center;
           flex-flow: row wrap;
+          padding-bottom: 54px;
           .item{
             width: 16.6rem;
             height: 86px;
@@ -705,30 +707,98 @@ export default {
         }
     }
   }
-
-  @media (min-width: 991.98px) {
+}
+}
+@media (min-width: 991.98px) {
     .recommend-wrapper {
-      overflow: hidden;
+      width: 100%;
+      height: 415px;
+      margin: 0 auto;
+      background: url('../../images/home-bgImage.png') no-repeat;
+      background-size: cover;
       .recommend-info{
         width: 1089px;
-        height: 100%;
         margin: 0 auto;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         .recommend {
-          width: 27.4rem;
+          width: 439px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
           .mark {
-            width: 29.1rem;
-            height: 338px;
+            background: url('../../images/home-mark.png') no-repeat;
+            background-size: 100% 100%;
+            width: 466px;
+            height: 318px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
             margin-top: 33px;
-            margin-left: 160px;
             .title{
-              margin-top: 144px;
+              font-family: MiSans Semibold;
+              display: inline-block;
+              font-size: 30px;
+              color: #FFB080;
+              margin-top: 124px;
+              font-weight: 600;
+              margin-left: 34px;
+            }
+            .desc{
+              color: #EAEAEA;
+              padding-left: 18px;
+              padding-right: 18px;
+            }
+            .check{
+              margin-top: 5px;
+              padding-left: 34px;
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+              align-items: center;
+              .btn{
+                border: none;
+                background: linear-gradient(90deg, #EDD9BB 0%, #BE905D 100%);
+                border-radius: 26px;
+                width: 5rem;
+                height: 39px;
+                line-height: 15px;
+                color: #401306;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              }
+              .btn:hover{
+                cursor: pointer;
+              }
+              .price{
+                font-size: 30px;
+                font-weight: 600;
+                color: #CFA980;
+                text-shadow: 0px 3px 6px rgba(255, 209, 142, 0.34);
+                margin-right: 34px;
+              }
             }
           }
         }
         .item{
+          padding: 5.3rem 2rem;
+          .title{
+            font-size: 40px;
+            color: #333333;
+            font-weight: 600;
+          }
+          .main{
+            font-size: 24px;
+            color: #666666;
+            margin-top: 8px;
+          }
+          .desc{
+            font-size: 12px;
+            color: #999999;
+            margin-top: 19px;
+          }
           .btn-wrapper{
             display: flex;
             flex-direction: row;
@@ -1013,8 +1083,6 @@ export default {
       }
     }
   }
-
-}
 </style>
 <style rel="stylesheet/scss" lang="scss">
 .homePage-container {

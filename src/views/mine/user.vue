@@ -54,10 +54,10 @@
                       {{phoneNumber}}
                     </div>
                     <div class="address">
-                      <span>账户地址： <span id="address">{{ setNumber(address) }}</span></span><span class="copy-address" data-clipboard-target="#address">复制</span>
+                      <span>账户地址： <span id="address">{{ setNumber(address) }}</span></span><span class="copy-address" @click="handleAddressClick" :data-clipboard-text="address">复制</span>
                     </div>
                     <div class="secret">
-                      <span>密钥托管ID：<span id="secret">{{ setNumber(mandatoryId) }}</span></span><span class="copy-secret" data-clipboard-target="#secret">复制</span>
+                      <span>密钥托管ID：<span id="secret">{{ setNumber(mandatoryId) }}</span></span><span class="copy-secret" @click="handleSecretClick" :data-clipboard-text="mandatoryId">复制</span>
                     </div>
                   </div>
                   <div class="trusteeship-right">
@@ -164,6 +164,48 @@ import Clipboard from 'clipboard'
           this.$message.error(response.message)
         }
       },
+      handleAddressClick() {
+        var clipboard = new Clipboard('.share')
+            clipboard.on('success', e => {
+                // console.log('复制成功')
+                this.$notify({
+                title: '复制成功',
+                dangerouslyUseHTMLString: true,
+                message: ``,
+                type: 'success',
+                duration: 2 * 1000
+            });
+                //  释放内存
+            clipboard.destroy()
+            })
+            clipboard.on('error', e =>{
+            // 不支持复制
+            console.log('该浏览器不支持复制')
+            // 释放内存
+            clipboard.destroy()
+            })
+      },
+      handleSecretClick() {
+        var clipboard = new Clipboard('.share')
+            clipboard.on('success', e => {
+                // console.log('复制成功')
+                this.$notify({
+                title: '复制成功',
+                dangerouslyUseHTMLString: true,
+                message: ``,
+                type: 'success',
+                duration: 2 * 1000
+            });
+                //  释放内存
+            clipboard.destroy()
+            })
+            clipboard.on('error', e =>{
+            // 不支持复制
+            console.log('该浏览器不支持复制')
+            // 释放内存
+            clipboard.destroy()
+            })
+      },
       setNumber(value) {
         if(value) {
           let str = value.substring(0, 8)
@@ -215,7 +257,6 @@ import Clipboard from 'clipboard'
   }
 .mine-user {
     width: 67.5rem;
-    height: 39.375rem;
     background: rgba(255, 255, 255,1);
     border-radius: 6px 6px 0px 0px;
     margin-top: 25px;

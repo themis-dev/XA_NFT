@@ -4,6 +4,8 @@
       <el-input 
         placeholder="搜索藏品名、艺术家、发行方"
         prefix-icon="el-icon-search"
+        v-model="searchValue"
+        v-on:keyup.enter="handleKeyUpClick"
       />
     </li>
     <li
@@ -65,6 +67,7 @@
 
 <script>
 import { ACCESS_TOKEN } from '@/store/mutation-types'
+import { searchCollection } from '@/api/market'
 export default {
   name: 'NavbarItem',
   components: {},
@@ -93,7 +96,8 @@ export default {
         }
       ],
       avatarUrl: window.localStorage.getItem('avatar'),
-      token: ''
+      token: '',
+      searchValue: ''
     };
   },
   watch: {
@@ -192,7 +196,14 @@ export default {
           path: '/user/login'
         })
       }
+    },
+    handleKeyUpClick() {
+      console.log(this.searchValue)
+      searchCollection().then(res => {
+
+      })
     }
+    
   }
 };
 </script>
