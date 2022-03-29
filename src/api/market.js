@@ -25,3 +25,12 @@ export function marketPayment (data) {
   })
 }
 
+// 搜索藏品
+export function searchCollection (params) {
+  return request({
+    url: `/interface/api/product/search`,
+    method: 'get',
+    params
+  })
+}
+

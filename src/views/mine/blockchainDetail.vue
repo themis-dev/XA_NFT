@@ -229,6 +229,7 @@ export default {
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding-bottom: 40px;
         .nav{
             width: 19.7rem;
             margin: 20px auto;

@@ -535,6 +535,7 @@ import { getCaptcha } from '@/api/user'
     margin-left: 0%!important;
     transform: translate(0%)!important;
     margin: 0 auto!important;
+    padding-bottom: 40px;
     .mine-tab {
       display: flex!important;
       flex-direction: row!important;

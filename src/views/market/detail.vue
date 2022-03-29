@@ -19,7 +19,7 @@
               ¥ {{ detailData.price }}
             </div>
           </div>
-          <div class="buy-btn" @click="handleClick">{{ detailData.price == 0 ? '立即领取' : '领取成功' }}</div>
+          <div class="buy-btn" @click="handleClick">{{ detailData.price == 0 ? '立即领取' : '立即购买' }}</div>
         </div>
       </section>
       <div class="work-content container">
@@ -201,8 +201,8 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
 <style rel="stylesheet/scss" lang="scss" scoped>
  @media (min-width: 991.98px) {
 .market-detail {
-  margin-bottom: -4rem;
   background-color: #fff;
+  padding-bottom: 41px;
   .detail-top {
     background-color: #233370;
     background-image: url(../../images/market-banner.png);
@@ -548,6 +548,7 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
   .work-content {
     background-color: #fff;
     margin-top: 59px;
+    padding-bottom: 41px;
     position: relative;
     .work-story {
       font-size: 22px;
