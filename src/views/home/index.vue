@@ -731,11 +731,11 @@ export default {
             background: url('../../images/home-mark.png') no-repeat;
             background-size: 100% 100%;
             width: 466px;
-            height: 318px;
-            margin: 0 auto;
+            height: 320px;
             display: flex;
             flex-direction: column;
-            margin-top: 33px;
+            margin-top: 38px;
+            margin-left: 150px;
             .title{
               font-family: MiSans Semibold;
               display: inline-block;
@@ -747,11 +747,11 @@ export default {
             }
             .desc{
               color: #EAEAEA;
-              padding-left: 18px;
-              padding-right: 18px;
+              padding-left: 34px;
+              padding-right: 34px;
             }
             .check{
-              margin-top: 5px;
+              margin-top: 15px;
               padding-left: 34px;
               display: flex;
               flex-direction: row;
@@ -833,6 +833,26 @@ export default {
         width: 1089px;
         height: 100%;
         margin: 0 auto;
+        .title{
+        display: flex;
+        flex-direction: column;
+        padding-top: 36px;
+        padding-bottom: 30px;
+        text-align: center;
+        .sub-title{
+          font-size: 20px;
+          font-weight: 600;
+          color: #333333;
+        }
+        .desc{
+          font-size: 14px;
+          font-weight: 400;
+          color: #999999;
+          margin-top: 10px;
+          padding-left: 21px;
+          padding-right: 21px;
+        }
+      }
         .plarform-series {
           display: flex;
           flex-direction: column;
@@ -864,14 +884,23 @@ export default {
         .series1 {
           width: 346px;
           height: 315px;
+          background: url('../../images/home-series1.png') no-repeat;
+          background-size: 100% 100%;
+          margin-bottom: 20px;
         }
         .series2 {
           width: 346px;
           height: 315px;
+          background: url('../../images/home-series2.png') no-repeat;
+          background-size: 100% 100%;
+          margin-bottom: 20px;
         }
         .series3 {
           width: 346px;
           height: 315px;
+          background: url('../../images/home-series3.png') no-repeat;
+          background-size: 100% 100%;
+          margin-bottom: 20px;
         }
       }
       .plarform-btn{
@@ -932,8 +961,26 @@ export default {
         height: 100%;
         margin: 0 auto;
         .title {
+          display: flex;
+          flex-direction: column;
+          padding-top: 36px;
+          padding-bottom: 30px;
+          text-align: center;
+          padding: 0 0.5rem;
+          margin-top: 50px;
+          .sub-title{
+            font-size: 20px;
+            font-weight: 600;
+            color: #333333;
+          }
           .desc{
-            width: 720px;
+            width: 725px;
+            font-size: 14px;
+            font-weight: 400;
+            color: #999999;
+            margin: 21px auto 41px;
+            padding-left: 18px;
+            padding-right: 18px;
           }
         }
         .value-series {
@@ -947,6 +994,7 @@ export default {
             display: flex;
             flex-direction: column;
             justify-content: center;
+            border-radius: 9px;
             .title{
               width: 100%;
               margin-top: 11px;
@@ -961,32 +1009,51 @@ export default {
               margin-top: 2px;
               padding: 0px 19px 0px 20px;
               overflow: hidden;
+              text-align: center;
             }
           }
         }
         .series1 {
           width: 174px;
           height: 293px;
+          background: url('../../images/value-icon1.png') no-repeat;
+          background-size: 100% 100%;
+          margin-bottom: 20px;
         }
         .series2 {
           width: 174px;
           height: 293px;
+          background: url('../../images/value-icon2.png') no-repeat;
+        background-size: 100% 100%;
+        margin-bottom: 20px;
         }
         .series3 {
           width: 174px;
           height: 293px;
+          background: url('../../images/value-icon3.png') no-repeat;
+        background-size: 100% 100%;
+        margin-bottom: 20px;
         }
         .series4 {
           width: 174px;
           height: 293px;
+          background: url('../../images/value-icon4.png') no-repeat;
+        background-size: 100% 100%;
+        margin-bottom: 20px;
         }
         .series5 {
           width: 174px;
           height: 293px;
+          background: url('../../images/value-icon5.png') no-repeat;
+        background-size: 100% 100%;
+        margin-bottom: 20px;
         }
         .series6 {
           width: 174px;
           height: 293px;
+          background: url('../../images/value-icon6.png') no-repeat;
+        background-size: 100% 100%;
+        margin-bottom: 20px;
         }
       }
       .value-btn{
@@ -1030,22 +1097,31 @@ export default {
         height: 100%;
         margin: 0 auto;
         .title{
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          .sub-title {
-            margin-top: 6px;
-          }
-          .desc{
-            width: 720px;
-          }
+        display: flex;
+        flex-direction: column;
+        padding-top: 36px;
+        padding-bottom: 30px;
+        text-align: center;
+        .sub-title{
+          font-size: 20px;
+          font-weight: 600;
+          color: #333333;
         }
+        .desc{
+          width: 725px;
+          font-size: 14px;
+          font-weight: 400;
+          color: #999999;
+          margin: 10px auto;
+          padding: 12px 18px 10px 18px;
+        }
+      }
         .artist-list{
           display: flex;
           justify-content: space-between;
           align-items: center;
           flex-flow: row wrap;
+          padding-bottom: 41px;
           .item{
             width: 266px;
             height: 86px;
