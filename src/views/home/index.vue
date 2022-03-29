@@ -20,7 +20,7 @@
                 <span class="title">雄安五周年纪念系列</span>
                 <span class="desc">雄安五周年纪念品，以白洋淀生态和未来科技创新为思维点，创作了10件代表雄安新区特色的数字艺术作品，分别由10位不同领域的数字艺术家创作而成。内容丰富，类型多样，书法、绘画、影视、数字手办、音乐以及动画等等</span>
                 <div class="check">
-                  <button class="btn">查看</button>
+                  <button class="btn" @click="handleMoreClick">查看</button>
                   <span class="price">￥ 19.9<span>起</span></span>
                 </div>
               </div>
@@ -172,78 +172,6 @@
               <span class="desc">中国美术学院教授</span>
             </div>
           </div>
-          <div class="item">
-            <img src="https://5b0988e595225.cdn.sohucs.com/images/20180922/1dd9c8b236464d32ad1426a8f5a1df73.jpeg"/>
-            <div class="item-desc">
-              <span class="name">刘江</span>
-              <span class="desc">西泠印社金石篆刻传承人</span>
-              <span class="desc">中国美术学院教授</span>
-            </div>
-          </div>
-          <div class="item">
-            <img src="https://5b0988e595225.cdn.sohucs.com/images/20180922/1dd9c8b236464d32ad1426a8f5a1df73.jpeg"/>
-            <div class="item-desc">
-              <span class="name">刘江</span>
-              <span class="desc">西泠印社金石篆刻传承人</span>
-              <span class="desc">中国美术学院教授</span>
-            </div>
-          </div>
-          <div class="item">
-            <img src="https://5b0988e595225.cdn.sohucs.com/images/20180922/1dd9c8b236464d32ad1426a8f5a1df73.jpeg"/>
-            <div class="item-desc">
-              <span class="name">刘江</span>
-              <span class="desc">西泠印社金石篆刻传承人</span>
-              <span class="desc">中国美术学院教授</span>
-            </div>
-          </div>
-          <div class="item">
-            <img src="https://5b0988e595225.cdn.sohucs.com/images/20180922/1dd9c8b236464d32ad1426a8f5a1df73.jpeg"/>
-            <div class="item-desc">
-              <span class="name">刘江</span>
-              <span class="desc">西泠印社金石篆刻传承人</span>
-              <span class="desc">中国美术学院教授</span>
-            </div>
-          </div>
-          <div class="item">
-            <img src="https://5b0988e595225.cdn.sohucs.com/images/20180922/1dd9c8b236464d32ad1426a8f5a1df73.jpeg"/>
-            <div class="item-desc">
-              <span class="name">刘江</span>
-              <span class="desc">西泠印社金石篆刻传承人</span>
-              <span class="desc">中国美术学院教授</span>
-            </div>
-          </div>
-          <div class="item">
-            <img src="https://5b0988e595225.cdn.sohucs.com/images/20180922/1dd9c8b236464d32ad1426a8f5a1df73.jpeg"/>
-            <div class="item-desc">
-              <span class="name">刘江</span>
-              <span class="desc">西泠印社金石篆刻传承人</span>
-              <span class="desc">中国美术学院教授</span>
-            </div>
-          </div>
-          <div class="item">
-            <img src="https://5b0988e595225.cdn.sohucs.com/images/20180922/1dd9c8b236464d32ad1426a8f5a1df73.jpeg"/>
-            <div class="item-desc">
-              <span class="name">刘江</span>
-              <span class="desc">西泠印社金石篆刻传承人</span>
-              <span class="desc">中国美术学院教授</span>
-            </div>
-          </div>
-          <div class="item">
-            <img src="https://5b0988e595225.cdn.sohucs.com/images/20180922/1dd9c8b236464d32ad1426a8f5a1df73.jpeg"/>
-            <div class="item-desc">
-              <span class="name">刘江</span>
-              <span class="desc">西泠印社金石篆刻传承人</span>
-              <span class="desc">中国美术学院教授</span>
-            </div>
-          </div>
-          <div class="item">
-            <img src="https://5b0988e595225.cdn.sohucs.com/images/20180922/1dd9c8b236464d32ad1426a8f5a1df73.jpeg"/>
-            <div class="item-desc">
-              <span class="name">刘江</span>
-              <span class="desc">西泠印社金石篆刻传承人</span>
-              <span class="desc">中国美术学院教授</span>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -363,7 +291,7 @@ export default {
         }
     }
     .item{
-      padding: 5.3rem 2rem;
+      padding: 2.3rem 2rem;
       .title{
         font-size: 40px;
         color: #333333;

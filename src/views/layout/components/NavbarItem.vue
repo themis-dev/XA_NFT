@@ -192,9 +192,10 @@ export default {
         window.localStorage.removeItem(ACCESS_TOKEN)
         this.token = ''
         this.$store.state.user.token = ''
-        this.$router.push({
-          path: '/user/login'
-        })
+        // this.$router.push({
+        //   path: '/user/login'
+        // })
+        window.location.href = '/user/login'
       }
     },
     handleKeyUpClick() {

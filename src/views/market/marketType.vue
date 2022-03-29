@@ -69,6 +69,10 @@ import moment from 'moment'
     created() {
     },
     mounted() {
+      // console.log(document.getElementsByClassName('content')[0].style.backgroundColor = "#151921")
+      // document.getElementsByClassName('.content')[0][style].backgroundColor ="#151921"
+      document.getElementsByClassName('content')[0].style.backgroundColor = "#151921"
+      document.getElementsByClassName('content')[1].style.backgroundColor = "#151921"
       this.getData()
       // console.log(moment().default())
     },
@@ -127,12 +131,12 @@ import moment from 'moment'
   }
 </script>
 
-<style rel="stylesheet/scss" lang="scss" >
-.content {
-    display: flex;
-    flex-direction: column;
-    background-color: #151921 !important;
-}
+<style rel="stylesheet/scss" lang="scss" scoped>
+// .content {
+//     display: flex;
+//     flex-direction: column;
+//     background-color: #151921;
+// }
 // .collection {
 //     width: 100%;
 //     margin-left: 50%;

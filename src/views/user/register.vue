@@ -79,6 +79,9 @@ export default {
 }
 </script>
 <style rel="stylesheet/scss" lang="scss" scoped>
+.content{
+      background-color: #fff !important;
+    }
 .register-container{
     display: flex;
     align-items: center;
@@ -132,6 +135,7 @@ export default {
                     background: #f5f5f5;
                     flex: 1;
                     padding-right: 5px;
+                    width: 100%;
                 }
             }
             .agreement-wrapper{

@@ -61,6 +61,9 @@ export default {
             countNum: 60
         }
     },
+    mounted() {
+        document.getElementsByClassName('content')[0].style.backgroundColor = "#fff"
+    },
     methods: {
         handleTabsClick(value) {
             if(value == 1) {
@@ -176,6 +179,7 @@ export default {
 }
 </script>
 <style rel="stylesheet/scss" lang="scss" scoped>
+
 .login-container{
     display: flex;
     align-items: center;
