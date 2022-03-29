@@ -90,7 +90,7 @@ import { getCollection } from '@/api/mine'
   @media (min-width: 500px) {
     .mine-collection {
         width: 67.5rem;
-        height: 39.375rem;
+        // height: 39.375rem;
         background: rgba(255, 255, 255,1);
         border-radius: 6px 6px 0px 0px;
         margin-top: 25px;
@@ -186,7 +186,7 @@ import { getCollection } from '@/api/mine'
       }
     .mine-collection {
     width: 19.7rem;
-    height: 39.375rem;
+    // height: 39.375rem;
     background: rgba(255, 255, 255,1);
     border-radius: 6px 6px 0px 0px;
     margin-top: 25px;
