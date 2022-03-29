@@ -61,3 +61,12 @@ export function giftPresent(data) {
     data
   })
 }
+
+// 区块链查证信息
+export function checkBlockChain (params) {
+  return request({
+    url: '/interface/api/customer/check',
+    method: 'get',
+    params
+  })
+}

@@ -30,7 +30,7 @@
                       <img style="width: 25px;height: 25px;" src="../../images/giveto-icon.png"/>
                       <span>转赠</span>
                     </div>
-                    <div class="nft-function-item">
+                    <div class="nft-function-item" @click="handleBlockchainClick(detailObj.oid)">
                       <img style="width: 25px;height: 25px;" src="../../images/certificate-icon.png"/>
                       <span>证书</span>
                     </div>
@@ -237,6 +237,14 @@ import { getCaptcha } from '@/api/user'
     openGift() {
       this.giftDialogVisible = true
     },
+    handleBlockchainClick(id) {
+      this.$router.push({
+        path: '/mine/blockchainDetail',
+        query: {
+          oid: id
+        }
+      })
+    },
     //截屏
         handleOk() {
             html2canvas(this.$refs.screen, {
@@ -318,7 +326,7 @@ import { getCaptcha } from '@/api/user'
           })
         }
   }
-  }
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>

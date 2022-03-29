@@ -114,7 +114,7 @@ export default {
                 border-radius: 8px;
                 span{
                     display: inline-block;
-                    padding: 13px 15px;
+                    padding: 0.8rem 0.93rem;
                     position: relative;
                     margin-right: 10px;
                 }

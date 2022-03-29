@@ -191,7 +191,7 @@ import { getCollection } from '@/api/mine'
       color: #333333;
       text-align: center;
       padding-top: 1.875rem;
-      font-family: MiSans Semibold;
+      // font-family: MiSans Semibold;
     }
     .collection-content {
       width: 100%;

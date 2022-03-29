@@ -20,6 +20,11 @@
                     <div class="item-name">密码</div>
                     <el-input v-model="password" placeholder="" disabled size="medium"></el-input>
                   </div> -->
+                  <!--
+                    action="http://35.201.215.236:8082/interface/api/customer/avatar"
+                    :on-success="handleAvatarSuccess"
+                        :before-upload="beforeAvatarUpload"
+                  -->
                   <div class="item upload-wrapper">
                     <div class="item-name">头像</div>
                     <div class="item-upload">
@@ -27,8 +32,8 @@
                         class="avatar-uploader"
                         action="http://192.168.3.233:8082/interface/api/customer/avatar"
                         :show-file-list="false"
-                        :on-success="handleAvatarSuccess"
-                        :before-upload="beforeAvatarUpload">
+                        :on-change="handleUploadChange"
+                        :headers="headers">
                         <img v-if="imageUrl" :src="imageUrl" class="avatar">
                         <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                       </el-upload>
@@ -49,10 +54,10 @@
                       {{phoneNumber}}
                     </div>
                     <div class="address">
-                      <span>账户地址： </span><span class="copy">复制</span>
+                      <span>账户地址： <span id="address">3109893ac81998</span></span><span class="copy-address" data-clipboard-target="#address">复制</span>
                     </div>
                     <div class="secret">
-                      <span>密钥托管ID：</span><span class="copy">复制</span>
+                      <span>密钥托管ID：<span id="secret">1B4C66735JJF989</span></span><span class="copy-secret" data-clipboard-target="#secret">复制</span>
                     </div>
                   </div>
                   <div class="trusteeship-right">
@@ -92,7 +97,9 @@
 
 <script>
 import { updateAvatar } from '@/api/mine'
-
+import axios from 'axios'
+import { ACCESS_TOKEN } from '@/store/mutation-types'
+import Clipboard from 'clipboard'
   export default {
     name: 'user',
     components: {
@@ -102,7 +109,10 @@ import { updateAvatar } from '@/api/mine'
       return {
         nickName: window.localStorage.getItem('nickName'),
         phoneNumber: window.localStorage.getItem('phoneNumber'),
-        imageUrl: ''
+        imageUrl: '',
+        headers: {
+          Authorization: window.localStorage.getItem(ACCESS_TOKEN) ? window.localStorage.getItem(ACCESS_TOKEN) : ''
+        }
       }
     },
     computed: {
@@ -110,12 +120,46 @@ import { updateAvatar } from '@/api/mine'
         return ''
       }
     },
-    mounted: {
+    mounted() {
+      let clipboard = new Clipboard('.copy-address')
+
+      clipboard.on('success', function(e) {
+        console.info('Action:', e.action);
+        console.info('Text:', e.text);
+        console.info('Trigger:', e.trigger);  
+        e.clearSelection();
+      }) 
+      let clipboardSecret = new Clipboard('.copy-secret')
+
+      clipboardSecret.on('success', function(e) {
+        console.info('Action:', e.action);
+        console.info('Text:', e.text);
+        console.info('Trigger:', e.trigger);  
+        e.clearSelection();
+      })  
+    },
+    methods: {
       handleAvatarSuccess(res) {
         console.log(res)
       },
-      beforeAvatarUpload() {
-
+      beforeAvatarUpload(file) {
+        const isLt100M = file.size / 1024 / 1024 <= 100
+        if (!isLt100M) {
+          this.$message.error('上传文件大小不能超过 100MB!')
+          return false
+        }
+      },
+      handleUploadChange(file, fileList) {
+        console.log(file, fileList)
+      },
+      handleBeforeUpload(file, fileList) {
+        console.log(file, fileList)
+      },
+      handleSuccess(response) {
+        console.log(response)
+        if(response.status == -1) {
+          this.$message.error(response.message)
+        }
       }
     }
   }
@@ -238,7 +282,7 @@ import { updateAvatar } from '@/api/mine'
             align-items: center;
             justify-content: space-between;
             padding: 0 20px 0px 0px;
-            .copy{
+            .copy-address{
               color: #4859D8;
               cursor: pointer;
             }
@@ -252,7 +296,7 @@ import { updateAvatar } from '@/api/mine'
             align-items: center;
             justify-content: space-between;
             padding: 0 20px 0px 0px;
-            .copy{
+            .copy-secret{
               color: #4859D8;
               cursor: pointer;
             }
@@ -488,7 +532,7 @@ import { updateAvatar } from '@/api/mine'
             align-items: center;
             justify-content: space-between;
             padding: 0 10px;
-            .copy{
+            .copy-address{
               color: #4859D8;
               cursor: pointer;
             }
@@ -502,7 +546,7 @@ import { updateAvatar } from '@/api/mine'
             align-items: center;
             justify-content: space-between;
             padding: 0 10px;
-            .copy{
+            .copy-secret{
               color: #4859D8;
               cursor: pointer;
             }

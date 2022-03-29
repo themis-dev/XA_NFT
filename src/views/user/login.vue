@@ -25,8 +25,8 @@
                 </div>
                 <div class="password">
                     <input v-model="captcha" placeholder="请输入验证码"/>
-                    <span @click="handleSendCodeClick">
-                        <span v-if="isShowSend">发送验证码</span>
+                    <span >
+                        <span v-if="isShowSend" @click="handleSendCodeClick">发送验证码</span>
                         <span v-else>{{ countNum }}s后重发</span>
                     </span>
                 </div>
@@ -36,7 +36,7 @@
             </div>
             <div class="note-wrapper">
                 <span @click="handleRegisterClick">注册账号</span>
-                <span @click="handleForgotClick">忘记密码</span>
+                <!-- <span @click="handleForgotClick">忘记密码</span> -->
             </div>
         </div>
     </div>
@@ -184,6 +184,7 @@ export default {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+            font-family: MiSans Semibold;
             .tab{
                 font-size: 26px;
                 color: #999999;

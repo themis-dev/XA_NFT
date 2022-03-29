@@ -10,11 +10,20 @@ import router from './router'
 import store from './store'
 import moment from 'moment'
 
+import Antd from 'ant-design-vue'
+import 'ant-design-vue/dist/antd.css';
+
+import VueLazyload from 'vue-lazyload'
+
 import '@/styles/font.css'
 
 Vue.use(ElementUI);
 Vue.use(VueI18n);
 Vue.use(VueCookies);
+Vue.use(Antd);
+Vue.use(VueLazyload, {
+  loading: ''
+})
 
 // this.$cookies.config('30d')
 
@@ -39,26 +48,26 @@ Vue.filter('timeFormatUTC', function(timestamp) {
   return moment(timestamp).utc().format('YYYY-MM-DD HH:mm:ss ') + ' UTC'
 })
 
-const app = process.env.NETWORK === 'mainnet' ? 36 : 37;
-const source = document.documentElement.clientWidth > 768 ? 1 : 4;
-const curr_env = process.env.NODE_ENV === 'production' ? 'prd' : 'test-6';
-window.woodpecker = window.woodpecker || {
-  app,
-  source,
-  env: curr_env,
-  modules: {
-    vhash: {
-      type: 'woodpecker'
-    }
-  }
-};
-(function() {
-  var bw = document.createElement('script');
-  bw.src = 'https://open.woodpeckerlog.com/static/woodpecker.js';
-  bw.async = true;
-  var s = document.getElementsByTagName('script')[0];
-  s.parentNode.insertBefore(bw, s);
-})();
+// const app = process.env.NETWORK === 'mainnet' ? 36 : 37;
+// const source = document.documentElement.clientWidth > 768 ? 1 : 4;
+// const curr_env = process.env.NODE_ENV === 'production' ? 'prd' : 'test-6';
+// window.woodpecker = window.woodpecker || {
+//   app,
+//   source,
+//   env: curr_env,
+//   modules: {
+//     vhash: {
+//       type: 'woodpecker'
+//     }
+//   }
+// };
+// (function() {
+//   var bw = document.createElement('script');
+//   bw.src = 'https://open.woodpeckerlog.com/static/woodpecker.js';
+//   bw.async = true;
+//   var s = document.getElementsByTagName('script')[0];
+//   s.parentNode.insertBefore(bw, s);
+// })();
 
 new Vue({
   el: '#app',
