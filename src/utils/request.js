@@ -48,6 +48,7 @@ service.interceptors.response.use(
       duration: 1000
       })
       sessionStorage.clear()
+      localStorage.clear()
       window.location.href = '/user/login'
     }
     return Promise.reject(error)

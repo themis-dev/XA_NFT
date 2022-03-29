@@ -52,3 +52,12 @@ export function getCollectionDetail (params) {
     params
   })
 }
+
+// 转赠
+export function giftPresent(data) {
+  return request({
+    url: '/interface/api/customer/present',
+    method: 'post',
+    data
+  })
+}
