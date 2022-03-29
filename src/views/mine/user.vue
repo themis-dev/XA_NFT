@@ -165,7 +165,7 @@ import Clipboard from 'clipboard'
         }
       },
       handleAddressClick() {
-        var clipboard = new Clipboard('.share')
+        var clipboard = new Clipboard('.copy-address')
             clipboard.on('success', e => {
                 // console.log('复制成功')
                 this.$notify({
@@ -186,7 +186,7 @@ import Clipboard from 'clipboard'
             })
       },
       handleSecretClick() {
-        var clipboard = new Clipboard('.share')
+        var clipboard = new Clipboard('.copy-secret')
             clipboard.on('success', e => {
                 // console.log('复制成功')
                 this.$notify({

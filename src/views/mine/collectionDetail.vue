@@ -34,7 +34,7 @@
                       <img style="width: 25px;height: 25px;" src="../../images/certificate-icon.png"/>
                       <span>证书</span>
                     </div>
-                    <div class="nft-function-item">
+                    <div class="nft-function-item" @click="goDetail(detailObj.pid)">
                       <img style="width: 25px;height: 25px;" src="../../images/more-icon.png"/>
                       <span>更多</span>
                     </div>
@@ -100,8 +100,8 @@
               </div>
               <div class="share-dialog-collection-num">
                 <div class="share-dialog-collection-num-title">收藏编号</div>
-                <div class="share-dialog-collection-num-val">AC9163#00074/10000</div>
-                <div class="share-dialog-collection-num-time">生成时间 2021.12.29 13:20:34</div>
+                <div class="share-dialog-collection-num-val">{{ setNumber(detailObj.oid)}}</div>
+                <div class="share-dialog-collection-num-time">生成时间 {{nowTime}}</div>
               </div>
               <div class="share-dialog-msg-footer">
                 <img src="../../images/detail-img2.png" alt="">
@@ -159,6 +159,7 @@
  import html2canvas from 'html2canvas'
 import { getCollectionDetail, giftPresent } from '@/api/mine'
 import { getCaptcha } from '@/api/user'
+import moment from 'moment'
 
   export default {
     name: 'order',
@@ -177,7 +178,8 @@ import { getCaptcha } from '@/api/user'
         captcha: '',
         isShowSend: true,
         timer: null,
-        countNum: 60
+        countNum: 60,
+        nowTime: ''
       }
     },
     computed: {
@@ -225,6 +227,7 @@ import { getCaptcha } from '@/api/user'
     },
     openShare() {
       this.shareDialogVisible = true
+      this.nowTime = moment.parseZone(new Date().getTime()).local().format('YYYY-MM-DD HH:mm:ss')
       if (!this.qr) {
           this.$nextTick(() => {
             this.crateQrcode()
@@ -242,6 +245,14 @@ import { getCaptcha } from '@/api/user'
         path: '/mine/blockchainDetail',
         query: {
           oid: id
+        }
+      })
+    },
+    goDetail(id) {
+      this.$router.push({
+        path: '/market-detail',
+        query: {
+          pid: id
         }
       })
     },
@@ -732,6 +743,9 @@ import { getCaptcha } from '@/api/user'
     font-weight: 600;
     color: #333333;
     margin-left: -20px;
+    @media (max-width: 500px) { 
+      font-size: 22px;
+    }
   }
   .share-dialog-author {
     display: flex;
@@ -758,6 +772,9 @@ import { getCaptcha } from '@/api/user'
       margin-top: 30px;
       display: flex;
       justify-content: center;
+      @media (max-width: 500px) { 
+      width: 90%;
+     }
     }
     .share-dialog-collectioner {
       .share-dialog-collectioner-title {
@@ -857,6 +874,9 @@ import { getCaptcha } from '@/api/user'
     font-weight: 600;
     color: #333333;
     margin-left: -20px;
+    @media (max-width: 500px) { 
+      font-size: 22px;
+    }
   }
   .gift-dialog-author {
     display: flex;
@@ -883,7 +903,11 @@ import { getCaptcha } from '@/api/user'
       margin-top: 30px;
       display: flex;
       justify-content: center;
+       @media (max-width: 500px) { 
+      width: 90%;
+     }
     }
+   
     .gift-dialog-collectioner {
       .gift-dialog-collectioner-title {
         font-size: 14px;
@@ -963,6 +987,46 @@ import { getCaptcha } from '@/api/user'
       }
       
     }
+    @media (max-width: 500px) { 
+      .gift-input-div-item {
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      .item-title {
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 19px;
+        color: #333333;
+        width: 120px;
+        text-align: right;
+        margin-right: 12px;
+        
+      }
+      .item-title-span {
+        width: 80px;
+        padding: 8px 0;
+        background: #4859D8;
+        color: #FFFFFF;
+        border-radius: 8px;
+        text-align: center;
+        position: absolute;
+        font-size: 12px;
+        right: 0px;
+        top: 0px;
+        cursor: pointer;
+      }
+     /deep/  .el-input__inner {
+        width: 200px;
+        background: #f5f5f5;
+        border: none;
+      }
+      .el-input {
+        width: 200px;
+      }
+      
+    }
+    }
     .sure {
         width: 163px;
         height: 39px;
@@ -976,6 +1040,11 @@ import { getCaptcha } from '@/api/user'
         display: flex;
         justify-content: center;
         align-items: center;
+       @media (max-width: 500px) { 
+         width: 103px;
+          height: 39px;
+         font-size: 13px;
+        }
       }
   }
 

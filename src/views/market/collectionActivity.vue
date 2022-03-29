@@ -300,9 +300,9 @@ export default {
             width: 21.7rem;
             margin: 0 auto;
             padding-top: 47px;
-            font-size: 16px;
+            font-size: 12px;
             font-weight: 400;
-            line-height: 30px;
+            line-height: 20px;
             color: #FFFFFF;
         }
         .category-title{
