@@ -87,13 +87,13 @@
             :visible.sync="shareDialogVisible"
             :show-close='false'
             >
-            <div class="share-dialog">
+            <div class="share-dialog"  ref="screen">
               <div class="share-dialog-title">《雄安赋》</div>
               <div class="share-dialog-author">
                 <div class="share-dialog-author-title">创作者</div>
                 <div class="share-dialog-author-name">唐诗</div>
               </div>
-              <img :src="detailObj.productImage" alt="" class="art">
+              <img :src="detailObj.productImage" alt="" class="art" >
               <div class="share-dialog-collectioner">
                 <div class="share-dialog-collectioner-title">收藏者</div>
                 <div class="share-dialog-collectioner-name">苦行诗</div>
@@ -130,13 +130,14 @@
               <img :src="detailObj.productImage" alt="" class="art">
               <div class="gift-input-div">
                 <div class="gift-input-div-item">
-                  <div>受赠人手机号</div>
-                  <el-input v-model="phone" placeholder="" size="medium"></el-input>
+                  <div class="item-title">受赠人手机号</div>
+                  <el-input v-model="phone" placeholder="" size="medium" ></el-input>
                 </div>
                 <div class="gift-input-div-item">
-                  <div>您的验证码</div>
+                  <div class="item-title">您的验证码</div>
                   <el-input v-model="captcha" :type="'passwrod'" size="medium"></el-input>
                 </div>
+                <div class="sure">确认转赠</div>
               </div>
               <div class="gift-dialog-msg-footer">
                 <img src="../../images/detail-img2.png" alt="">
@@ -149,6 +150,7 @@
 
 <script>
  import QRCode from 'qrcodejs2'
+ import html2canvas from 'html2canvas'
 import { getCollectionDetail } from '@/api/mine'
 
   export default {
@@ -216,6 +218,9 @@ import { getCollectionDetail } from '@/api/mine'
       if (!this.qr) {
           this.$nextTick(() => {
             this.crateQrcode()
+            // setTimeout(() => {
+            //   this.handleOk()
+            // }, 1000)
           })
         }
     },
@@ -229,8 +234,36 @@ import { getCollectionDetail } from '@/api/mine'
           oid: id
         }
       })
+    },
+    //截屏
+        handleOk() {
+            html2canvas(this.$refs.screen, {
+                useCORS: true,
+            }).then((canvas) => {
+                if (navigator.msSaveBlob) {
+                    // IE10+
+                    let blob = canvas.msToBlob()
+                    return navigator.msSaveBlob(blob, name)
+                } else {
+                    let imageurl = canvas.toDataURL('image/png')
+                    //这里需要自己选择命名规则
+                    let imagename = 'img1'
+                    this.fileDownload(imageurl, imagename)
+                }
+            })
+        },
+        //下载截屏图片
+        fileDownload(downloadUrl, downloadName) {
+            let aLink = document.createElement('a')
+            aLink.style.display = 'none'
+            aLink.href = downloadUrl
+            aLink.download = `${downloadName}.jpg`
+            // 触发点击-然后移除
+            document.body.appendChild(aLink)
+            aLink.click()
+            document.body.removeChild(aLink)
+        },
     }
-  }
   }
 </script>
 
@@ -362,7 +395,7 @@ import { getCollectionDetail } from '@/api/mine'
           vertical-align: middle;
         }
         span{
-          font-family: MiSans;
+          // font-family: MiSans se;
         }
       }
     }
@@ -655,11 +688,11 @@ import { getCollectionDetail } from '@/api/mine'
     }
   }
    .art {
-      width: 300px;
-      height: 300px;
+      width: 100%;
+      // height: 300px;
       border-radius: 8px;
       margin-top: 30px;
-       margin-left: -12px;
+      //  margin-left: -12px;
     }
     .share-dialog-collectioner {
       .share-dialog-collectioner-title {
@@ -779,11 +812,9 @@ import { getCollectionDetail } from '@/api/mine'
     }
   }
    .art {
-      width: 300px;
-      height: 300px;
+      width: 100%;
       border-radius: 8px;
       margin-top: 30px;
-       margin-left: -12px;
     }
     .gift-dialog-collectioner {
       .gift-dialog-collectioner-title {
@@ -804,7 +835,8 @@ import { getCollectionDetail } from '@/api/mine'
   .gift-dialog-msg-footer {
     display: flex;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 90px;
+    justify-content: center;
     img {
       width: 27px;
     }
@@ -818,14 +850,59 @@ import { getCollectionDetail } from '@/api/mine'
       margin-top: 10px;
     }
   }
-
-  /deep/ input{
-      border: none;
-      background: #f5f5f5;
-      width: 14.4rem;
-      // padding-right: 5px;
-      padding-left: 10px;
+  .gift-input-div {
+    display: flex;
+    flex-direction: column;
+    margin-top: 42px;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 100%;
+    .gift-input-div-item {
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      .item-title {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 19px;
+        color: #333333;
+        width: 160px;
+        text-align: right;
+        margin-right: 12px;
+      }
+     /deep/  .el-input__inner {
+        width: 180px;
+        background: #f5f5f5;
+        border: none;
+      }
+      .el-input {
+        width: 180px;
+      }
+      
+    }
+    .sure {
+        width: 163px;
+        height: 39px;
+        cursor: pointer;
+        background: rgba(72, 89, 216, 1);
+        border-radius: 19px;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 22px;
+        color: #FFFFFF;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
   }
+
+  // /deep/ input{
+  //     border: none;
+  //     background: #f5f5f5;
+  //     width: 14.4rem;
+  //     // padding-right: 5px;
+  //     padding-left: 10px;
+  // }
   
 }
 </style>
