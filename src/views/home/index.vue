@@ -225,6 +225,7 @@ export default {
 .homePage-container {
   overflow-y: scroll;
   overflow-x: hidden;
+  background: #FFFFFF;
   // 推荐
   .recommend-wrapper{
     width: 100%;
@@ -291,7 +292,7 @@ export default {
         }
     }
     .item{
-      padding: 2.3rem 2rem;
+      padding: 2.3rem 1.5rem;
       .title{
         font-size: 40px;
         color: #333333;
@@ -638,6 +639,8 @@ export default {
 }
 }
 @media (min-width: 991.98px) {
+  .homePage-container{
+    background: #FFFFFF;
     .recommend-wrapper {
       width: 100%;
       height: 415px;
@@ -1087,6 +1090,7 @@ export default {
       }
     }
   }
+}
 </style>
 <style rel="stylesheet/scss" lang="scss">
 .homePage-container {

@@ -298,7 +298,7 @@ export default {
             }
         }
         .description-wrapper{
-            width: 21.7rem;
+            width: 20.5rem;
             margin: 0 auto;
             padding-top: 47px;
             font-size: 12px;
