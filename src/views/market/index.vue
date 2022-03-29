@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import { getMarketData } from '@/api/market.js'
+import { getMarketData, searchCollection } from '@/api/market.js'
 import moment from 'moment'
   export default {
     name: 'collection',
@@ -40,7 +40,10 @@ import moment from 'moment'
     },
     data() {
       return {
-        marketData: []
+        marketData: [],
+        searchValue: this.$route.query.search ? this.$route.query.search : '',
+        pageNo: 1,
+        pageSize: 100
       }
     },
     computed: {
@@ -64,12 +67,20 @@ import moment from 'moment'
         });
       },
       getData() {
-        getMarketData({pageNo: 1, pageSize: 100}).then(res => {
+        searchCollection({ input: this.searchValue, pageNo: this.pageNo, pageSize: this.pageSize }).then(res => {
+          console.log(res)
           if(res.status == 1 && res.data) {
             this.marketData = res.data.data
           }
         })
       },
+      // getData() {
+      //   getMarketData({pageNo: 1, pageSize: 100}).then(res => {
+      //     if(res.status == 1 && res.data) {
+      //       this.marketData = res.data.data
+      //     }
+      //   })
+      // },
       setStatus(value) {
         switch (value) {
           case 0:
@@ -95,6 +106,7 @@ import moment from 'moment'
     width: 100%;
     margin-left: 50%;
     transform: translate(-50%);
+    padding-bottom: 41px;
 }
 @media (min-width: 799.95px){
       .market {
