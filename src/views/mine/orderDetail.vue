@@ -29,10 +29,10 @@
                     <div class="data-item-title">交易数量</div>
                     <div class="data-item-num">{{ orderObj.num }}</div>
                   </div>
-                  <div class="data-item">
+                  <!-- <div class="data-item">
                     <div class="data-item-title">创建时间</div>
                     <div class="data-item-num">{{  }}</div>
-                  </div>
+                  </div> -->
                   <div class="data-item">
                     <div class="data-item-title">付款时间</div>
                     <div class="data-item-num">{{ orderObj.payTime }}</div>

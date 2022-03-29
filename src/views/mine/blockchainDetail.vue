@@ -69,7 +69,11 @@ export default {
         },
         goback() {
             this.$router.go(-1)
+            document.querySelector('.browser-header').style.display="block"
         }
+    },
+    destory() {
+        document.querySelector('.browser-header').style.display="block"
     }
 }
 </script>
@@ -109,6 +113,9 @@ export default {
         img{
             width: 10px;
             height: 18px;
+        }
+        img:hover{
+            cursor: pointer;
         }
         .nav-title{
             font-size: 16px;
