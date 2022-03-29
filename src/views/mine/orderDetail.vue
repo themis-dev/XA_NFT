@@ -15,7 +15,7 @@
                 <div class="nft-msg">
                   <img src="../../images/nft-img.png" alt="">
                   <div class="nft-msg-right">
-                    <div class="nft-msg-title">{{ orderObj.productName }}</div>
+                    <div class="nft-msg-title">{{ orderObj.productName.substring(0, 7) }}</div>
                     <div class="nft-msg-num">{{ setNumber(orderObj.productHash) }}</div>
                     <div class="nft-msg-author">{{ orderObj.creator }}</div>
                   </div>

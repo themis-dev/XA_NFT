@@ -27,9 +27,8 @@ service.interceptors.response.use(
   /**
   * status 可结合自己业务进行修改
   */
-   const res = response.data
-   return response.data
-  //  if (res.status !== 1) {
+  //  const res = response.data
+  //  if (res.status && res.status !== 1) {
   //    console.log(res)
   //    Message({
   //      message: res.message,
@@ -40,19 +39,21 @@ service.interceptors.response.use(
   //  } else {
   //    return response.data
   //  }
+    return response.data
   },
-  // error => {
-  //   if (error.response.status == 403 || error.response.status == 401) {
-  //     Message({
-  //     message: error.message,
-  //     type: 'error',
-  //     duration: 1000
-  //     })
-  //     sessionStorage.clear()
-  //     window.location.href = '/user/login'
-  //   }
-  //   return Promise.reject(error)
-  // }
+  error => {
+    if (error.response.status === 403 || error.response.status === 401) {
+      Message({
+      message: error.message,
+      type: 'error',
+      duration: 1000
+      })
+      sessionStorage.clear()
+      localStorage.clear()
+      window.location.href = '/user/login'
+    }
+    return Promise.reject(error)
+  }
 )
 
 export default service

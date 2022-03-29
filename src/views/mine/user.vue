@@ -54,10 +54,10 @@
                       {{phoneNumber}}
                     </div>
                     <div class="address">
-                      <span>账户地址： <span id="address">3109893ac81998</span></span><span class="copy-address" data-clipboard-target="#address">复制</span>
+                      <span>账户地址： <span id="address">{{ setNumber(address) }}</span></span><span class="copy-address" data-clipboard-target="#address">复制</span>
                     </div>
                     <div class="secret">
-                      <span>密钥托管ID：<span id="secret">1B4C66735JJF989</span></span><span class="copy-secret" data-clipboard-target="#secret">复制</span>
+                      <span>密钥托管ID：<span id="secret">{{ setNumber(mandatoryId) }}</span></span><span class="copy-secret" data-clipboard-target="#secret">复制</span>
                     </div>
                   </div>
                   <div class="trusteeship-right">
@@ -67,7 +67,7 @@
                     </div>
                     <div class="item-right">
                       <span class='date-title'>创建时间</span>
-                      <span class='date'>2022-03-24 15：06：59</span>
+                      <span class='date'>{{ createTime }}</span>
                     </div>
                   </div>
                 </div>
@@ -97,7 +97,7 @@
 
 <script>
 import { updateAvatar } from '@/api/mine'
-import axios from 'axios'
+import moment from 'moment'
 import { ACCESS_TOKEN } from '@/store/mutation-types'
 import Clipboard from 'clipboard'
   export default {
@@ -112,7 +112,10 @@ import Clipboard from 'clipboard'
         imageUrl: '',
         headers: {
           Authorization: window.localStorage.getItem(ACCESS_TOKEN) ? window.localStorage.getItem(ACCESS_TOKEN) : ''
-        }
+        },
+        address: window.localStorage.getItem('address') ? window.localStorage.getItem('address') : '',
+        mandatoryId: window.localStorage.getItem('mandatoryId') ? window.localStorage.getItem('mandatoryId') : '',
+        createTime: window.localStorage.getItem('createTime') ? moment(parseInt(window.localStorage.getItem('createTime'))).format('YYYY-MM-DD hh:mm:ss') : '',
       }
     },
     computed: {
@@ -160,7 +163,16 @@ import Clipboard from 'clipboard'
         if(response.status == -1) {
           this.$message.error(response.message)
         }
-      }
+      },
+      setNumber(value) {
+        if(value) {
+          let str = value.substring(0, 8)
+          let newStr = value.substring(value.length - 8, value.length)
+          return `${str}...${newStr}`
+        } else {
+          return ''
+        }
+      },
     }
   }
 </script>
@@ -438,10 +450,11 @@ import Clipboard from 'clipboard'
   }
   .mine-user {
     width: 19.7rem;
-    height: 39.375rem;
+    height: auto!important;
     background: rgba(255, 255, 255,1);
     border-radius: 6px 6px 0px 0px;
-    margin-top: 25px;
+    margin-top: 20px;
+    padding-bottom: 54px;
     .title {
       font-size: 28px;
       font-weight: 600;

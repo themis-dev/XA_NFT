@@ -53,6 +53,15 @@ export function getCollectionDetail (params) {
   })
 }
 
+// 转赠
+export function giftPresent(data) {
+  return request({
+    url: '/interface/api/customer/present',
+    method: 'post',
+    data
+  })
+}
+
 // 区块链查证信息
 export function checkBlockChain (params) {
   return request({

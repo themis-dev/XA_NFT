@@ -275,7 +275,7 @@ export default {
   methods: {
     handleExploreClick() {
       this.$router.push({
-        path: '/market'
+        path: '/market/collectionActivity'
       })
     },
     handleRegisterClick() {
@@ -285,7 +285,7 @@ export default {
     },
     handleMoreClick() {
       this.$router.push({
-        path: '/market'
+        path: '/market/collectionActivity'
       })
     }
   }

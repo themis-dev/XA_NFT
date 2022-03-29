@@ -44,26 +44,26 @@ Vue.filter('timeFormatUTC', function(timestamp) {
   return moment(timestamp).utc().format('YYYY-MM-DD HH:mm:ss ') + ' UTC'
 })
 
-const app = process.env.NETWORK === 'mainnet' ? 36 : 37;
-const source = document.documentElement.clientWidth > 768 ? 1 : 4;
-const curr_env = process.env.NODE_ENV === 'production' ? 'prd' : 'test-6';
-window.woodpecker = window.woodpecker || {
-  app,
-  source,
-  env: curr_env,
-  modules: {
-    vhash: {
-      type: 'woodpecker'
-    }
-  }
-};
-(function() {
-  var bw = document.createElement('script');
-  bw.src = 'https://open.woodpeckerlog.com/static/woodpecker.js';
-  bw.async = true;
-  var s = document.getElementsByTagName('script')[0];
-  s.parentNode.insertBefore(bw, s);
-})();
+// const app = process.env.NETWORK === 'mainnet' ? 36 : 37;
+// const source = document.documentElement.clientWidth > 768 ? 1 : 4;
+// const curr_env = process.env.NODE_ENV === 'production' ? 'prd' : 'test-6';
+// window.woodpecker = window.woodpecker || {
+//   app,
+//   source,
+//   env: curr_env,
+//   modules: {
+//     vhash: {
+//       type: 'woodpecker'
+//     }
+//   }
+// };
+// (function() {
+//   var bw = document.createElement('script');
+//   bw.src = 'https://open.woodpeckerlog.com/static/woodpecker.js';
+//   bw.async = true;
+//   var s = document.getElementsByTagName('script')[0];
+//   s.parentNode.insertBefore(bw, s);
+// })();
 
 new Vue({
   el: '#app',

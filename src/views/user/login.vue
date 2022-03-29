@@ -107,6 +107,9 @@ export default {
                     window.localStorage.setItem('avatar', `${this.$root.avatarUrl}${res.data.avatar}`)
                     window.localStorage.setItem('nickName', res.data.nickName)
                     window.localStorage.setItem('phoneNumber', res.data.phoneNumber)
+                    window.localStorage.setItem('address', res.data.address)
+                    window.localStorage.setItem('createTime', res.data.createTime)
+                    window.localStorage.setItem('mandatoryId', res.data.mandatoryId)
                     this.$store.state.user.token = res.data.token
                     this.$store.state.user.avatar = `${this.$root.avatarUrl}${res.data.avatar}`
                     this.$router.push({

@@ -109,6 +109,11 @@ export const constantRouterMap = [
       name: 'blockchainDetail',
       path: 'mine/blockchainDetail',
       component: () => import('@/views/mine/blockchainDetail')
+    },
+    {
+      name: 'collectionActivity',
+      path: 'market/collectionActivity',
+      component: () => import('@/views/market/collectionActivity')
     }
     ]
   }

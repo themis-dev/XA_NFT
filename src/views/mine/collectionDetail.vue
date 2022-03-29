@@ -88,15 +88,15 @@
             :show-close='false'
             >
             <div class="share-dialog"  ref="screen">
-              <div class="share-dialog-title">《雄安赋》</div>
+              <div class="share-dialog-title">{{ detailObj.productName }}</div>
               <div class="share-dialog-author">
                 <div class="share-dialog-author-title">创作者</div>
-                <div class="share-dialog-author-name">唐诗</div>
+                <div class="share-dialog-author-name">{{ detailObj.creator }}</div>
               </div>
               <img :src="detailObj.productImage" alt="" class="art" >
               <div class="share-dialog-collectioner">
                 <div class="share-dialog-collectioner-title">收藏者</div>
-                <div class="share-dialog-collectioner-name">苦行诗</div>
+                <div class="share-dialog-collectioner-name">{{ detailObj.userName }}</div>
               </div>
               <div class="share-dialog-collection-num">
                 <div class="share-dialog-collection-num-title">收藏编号</div>
@@ -122,22 +122,28 @@
             :show-close='false'
             >
             <div class="gift-dialog">
-              <div class="gift-dialog-title">《雄安赋》</div>
+              <div class="gift-dialog-title">{{ detailObj.productName }}</div>
               <div class="gift-dialog-author">
                 <div class="gift-dialog-author-title">创作者</div>
-                <div class="gift-dialog-author-name">唐诗</div>
+                <div class="gift-dialog-author-name">{{ detailObj.creator }}</div>
               </div>
-              <img :src="detailObj.productImage" alt="" class="art">
+              <div>
+                <img :src="detailObj.productImage" alt="" class="art">
+              </div>
               <div class="gift-input-div">
                 <div class="gift-input-div-item">
                   <div class="item-title">受赠人手机号</div>
-                  <el-input v-model="phone" placeholder="" size="medium" ></el-input>
+                  <el-input v-model="phone" placeholder="请输入手机号" size="medium" ></el-input>
                 </div>
                 <div class="gift-input-div-item">
                   <div class="item-title">您的验证码</div>
-                  <el-input v-model="captcha" :type="'passwrod'" size="medium"></el-input>
+                  <el-input v-model="captcha" :type="'passwrod'" placeholder="请输入验证码" size="medium"></el-input>
+                  <span @click="handleSendCodeClick">
+                      <span v-if="isShowSend" class="item-title-span">发送验证码</span>
+                      <span v-else class="item-title-span">{{ countNum }}s后重发</span>
+                  </span>
                 </div>
-                <div class="sure">确认转赠</div>
+                <div class="sure" @click="surePresent">确认转赠</div>
               </div>
               <div class="gift-dialog-msg-footer">
                 <img src="../../images/detail-img2.png" alt="">
@@ -151,7 +157,8 @@
 <script>
  import QRCode from 'qrcodejs2'
  import html2canvas from 'html2canvas'
-import { getCollectionDetail } from '@/api/mine'
+import { getCollectionDetail, giftPresent } from '@/api/mine'
+import { getCaptcha } from '@/api/user'
 
   export default {
     name: 'order',
@@ -167,7 +174,10 @@ import { getCollectionDetail } from '@/api/mine'
         giftDialogVisible: false,
         qr: '',
         phone: '',
-        captcha: ''
+        captcha: '',
+        isShowSend: true,
+        timer: null,
+        countNum: 60
       }
     },
     computed: {
@@ -263,8 +273,60 @@ import { getCollectionDetail } from '@/api/mine'
             aLink.click()
             document.body.removeChild(aLink)
         },
-    }
+         handleSendCodeClick() {
+           if (!this.phone) {
+             this.$message({
+                    message: '请输入手机号',
+                    type: 'error'
+                })
+             return
+           }
+            let reqObj = {
+                    index: 3,
+                    phoneNumber: localStorage.getItem('phoneNumber')
+                }
+                getCaptcha(reqObj).then(res => {
+                    if(res.status == 1) {
+                        this.$message({
+                            message: res.message,
+                            type: 'success'
+                        })
+                    }
+                })
+            this.isShowSend = false
+            this.timer = setInterval(() => {
+                this.countNum--
+                if(this.countNum == 0) {
+                    this.isShowSend = true
+                    clearInterval(this.timer)
+                    this.countNum = 60
+                    return
+                } 
+            }, 1000)
+        },
+        surePresent() {
+          console.log(this.detailObj)
+          if (!this.captcha || !this.phone) {
+            return
+          }
+          let obj = {
+            captcha: this.captcha,
+            phoneNumber: this.phone,
+            oid: this.detailObj.oid,
+            pid: this.pid
+          }
+          giftPresent(obj).then(res => {
+            console.log(res)
+            if(res.status == 1) {
+                    this.$message({
+                        message: res.message,
+                        type: 'success'
+                    })
+                }
+          })
+        }
   }
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
@@ -688,11 +750,12 @@ import { getCollectionDetail } from '@/api/mine'
     }
   }
    .art {
-      width: 100%;
-      // height: 300px;
+     width: 60%;
       border-radius: 8px;
+      margin: 0 auto;
       margin-top: 30px;
-      //  margin-left: -12px;
+      display: flex;
+      justify-content: center;
     }
     .share-dialog-collectioner {
       .share-dialog-collectioner-title {
@@ -812,9 +875,12 @@ import { getCollectionDetail } from '@/api/mine'
     }
   }
    .art {
-      width: 100%;
+      width: 60%;
       border-radius: 8px;
+      margin: 0 auto;
       margin-top: 30px;
+      display: flex;
+      justify-content: center;
     }
     .gift-dialog-collectioner {
       .gift-dialog-collectioner-title {
@@ -861,6 +927,7 @@ import { getCollectionDetail } from '@/api/mine'
       margin-bottom: 24px;
       display: flex;
       align-items: center;
+      position: relative;
       .item-title {
         font-size: 14px;
         font-weight: 500;
@@ -869,14 +936,28 @@ import { getCollectionDetail } from '@/api/mine'
         width: 160px;
         text-align: right;
         margin-right: 12px;
+        
+      }
+      .item-title-span {
+        width: 100px;
+        padding: 8px 0;
+        background: #4859D8;
+        color: #FFFFFF;
+        border-radius: 8px;
+        text-align: center;
+        position: absolute;
+        font-size: 13px;
+        right: 0px;
+        top: 0px;
+        cursor: pointer;
       }
      /deep/  .el-input__inner {
-        width: 180px;
+        width: 240px;
         background: #f5f5f5;
         border: none;
       }
       .el-input {
-        width: 180px;
+        width: 240px;
       }
       
     }

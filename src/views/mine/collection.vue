@@ -7,9 +7,9 @@
               <div class="collection-content">
                 <div class="collection-content-item" v-for="item of orderList" :key="item.pid" @click="handleClick(item)">
                   <img :src="item.productImage" alt="">
-                  <div class="item-title">{{ item.productName }}</div>
+                  <div class="item-title">{{ setTextNumber(item.productName, 8) }}</div>
                   <div class="item-number">{{ item.oid }}</div>
-                  <div class="item-mobile-number">{{ setTextNumber(item.oid) }}</div>
+                  <div class="item-mobile-number">{{ setTextNumber(item.oid, 12) }}</div>
                   <div class="author">{{ item.creator }}</div>
                 </div>
                 <!-- <div class="collection-content-item">
@@ -66,9 +66,9 @@ import { getCollection } from '@/api/mine'
           }
         })
       },
-      setTextNumber(oid) {
+      setTextNumber(oid, number) {
         let strNumber = ''
-        strNumber = oid.substring(0, 12)
+        strNumber = oid.substring(0, number)
         return strNumber
       }
     }

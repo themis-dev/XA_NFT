@@ -16,23 +16,23 @@
                 </div>
                 <div class="content-title">
                     <span class="title">商品名称</span>
-                    <span class="desc">《雄安赋》</span>
+                    <span class="desc">{{ blockDetail.productName }}</span>
                 </div>
                 <div class="content-title">
                     <span class="title">创作者</span>
-                    <span class="desc"></span>
+                    <span class="desc">{{ blockDetail.creator }}</span>
                 </div>
                 <div class="content-title">
                     <span class="title">发行方</span>
-                    <span class="desc"></span>
+                    <span class="desc">{{ blockDetail.publisher }}</span>
                 </div>
                 <div class="content-title">
                     <span class="title">收藏者</span>
-                    <span class="desc"></span>
+                    <span class="desc">{{ blockDetail.owner }}</span>
                 </div>
                 <div class="content-title">
                     <span class="title">作品介绍</span>
-                    <span class="desc"></span>
+                    <span class="desc">{{ blockDetail.productIntroduction }}</span>
                 </div>
             </div>
         </div>
@@ -48,14 +48,20 @@
             </a-steps> -->
             <el-timeline>
                 <el-timeline-item
-                v-for="(activity, index) in activities"
+                v-for="(activity, index) in blockDetail.voList"
                 :key="index"
-                :icon="activity.icon"
-                :type="activity.type"
-                :color="activity.color"
-                :size="activity.size"
-                :timestamp="activity.timestamp">
-                {{activity.content}}
+                color="#3842FE">
+                <div class="timeLine-item">
+                    <p style="font-size: 14px; font-family: MiSans; font-weight: 500; color: #333333;">{{ activity.from.length > 10 ? setNumber(activity.from) : activity.from }}</p>
+                </div>
+                <div class="timeLine-item">
+                    <p style="font-size: 12px; font-family: MiSans; font-weight: 400; color: #999999;">发行时间</p>
+                    <p style="font-size: 14px; font-family: MiSans; font-weight: 500; color: #333333;">{{ activity.time }}</p>
+                </div>
+                <div class="timeLine-item">
+                    <p style="font-size: 12px; font-family: MiSans; font-weight: 400; color: #999999;">哈希值</p>
+                    <p style="font-size: 14px; font-family: MiSans; font-weight: 500; color: #333333;">{{ setNumber(activity.txHash) }}</p>
+                </div>
                 </el-timeline-item>
             </el-timeline>
         </div>
@@ -66,41 +72,36 @@ import { checkBlockChain } from '@/api/mine'
 export default {
     data () {
         return {
-            oid: this.$route.query.id ? this.$route.query.id : '',
-            activities: [{
-                content: '支持使用图标',
-                timestamp: '2018-04-12 20:46',
-                size: 'large',
-                type: 'primary',
-                icon: 'el-icon-more'
-                }, {
-                content: '支持自定义颜色',
-                timestamp: '2018-04-03 20:46',
-                color: '#0bbd87'
-                }, {
-                content: '支持自定义尺寸',
-                timestamp: '2018-04-03 20:46',
-                size: 'large'
-                }, {
-                content: '默认样式的节点',
-                timestamp: '2018-04-03 20:46'
-            }]
+            oid: this.$route.query.oid ? this.$route.query.oid : '',
+            blockDetail: {}
         }
     },
     mounted() {
         document.querySelector('.browser-header').style.display="none"
         this.getBlockchain()
+        console.log(this.$route.query.oid)
     },
     methods: {
         getBlockchain() {
-            checkBlockChain(this.oid).then(res => {
-                console.log(res)
+            checkBlockChain({ oid: this.oid }).then(res => {
+                if(res.status == 1 && res.data) {
+                    this.blockDetail = res.data
+                }
             })
         },
         goback() {
             this.$router.go(-1)
             document.querySelector('.browser-header').style.display="block"
-        }
+        },
+        setNumber(value) {
+            if(value) {
+                let str = value.substring(0, 10)
+                let newStr = value.substring(value.length - 10, value.length)
+                return `${str}...${newStr}`
+            } else {
+                return ''
+            }
+        },
     },
     destory() {
         document.querySelector('.browser-header').style.display="block"
@@ -213,6 +214,10 @@ export default {
             font-weight: 600;
             line-height: 22px;
             color: #333333;
+        }
+        /deep/ .el-timeline{
+            padding-left: 0!important;
+
         }
     }
 }

@@ -85,7 +85,7 @@ export default {
         },
         {
           title: '交易市场',
-          path: '/market'
+          path: '/market/collectionActivity'
         },
         {
           title: '我的',
@@ -240,7 +240,7 @@ export default {
   .header-navbar{
     .navbar-search {
       display: inline-block;
-      font-family: MiSans;
+      // font-family: MiSans;
       font-weight: 500;
       color: #9A9A9A;
       font-size: 14px;

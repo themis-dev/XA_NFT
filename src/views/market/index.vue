@@ -9,7 +9,7 @@
                     <img src="../../images/time.png" alt="">
                     <span>{{ setStatus(item.status) }} {{ item.openingTime }}</span>
                   </div>
-                  <img :src="item.productImage" alt="" class="nft-img">
+                  <img v-lazy="item.productImage" alt="" class="nft-img">
                   <div class="item-title">{{ item.name }}</div>
                   <div class="item-number">
                     <div class="item-number-name">限量</div>
@@ -151,6 +151,12 @@ import moment from 'moment'
            height: 261px;
            border-radius: 26px;
          }
+         .nft-img[lazy=loading] {
+           width: 280px;
+           height: 261px;
+           background: url('../../images/loading-bg.png') no-repeat;
+           background-size: cover;
+         }
         .item-title {
           font-size: 16px;
           font-family: MiSans;
@@ -285,6 +291,12 @@ import moment from 'moment'
            width: 280px;
            height: 261px;
            border-radius: 26px;
+         }
+         .nft-img[lazy=loading] {
+           width: 280px;
+           height: 261px;
+           background: url('../../images/loading-bg.png') no-repeat;
+           background-size: cover;
          }
         .item-title {
           font-size: 16px;
