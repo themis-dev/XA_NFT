@@ -644,6 +644,7 @@ export default {
     flex-direction: column;
     align-items: center;
     overflow: hidden;
+    padding-bottom: 7rem;
     .artist-info{
       .title{
         display: flex;
@@ -1090,6 +1091,7 @@ export default {
       flex-direction: column;
       position: relative;
       overflow: hidden;
+      padding-bottom: 7rem;
       .artist-info{
         width: 1089px;
         height: 100%;

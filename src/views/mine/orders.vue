@@ -117,6 +117,7 @@ import { getOrderList } from '@/api/mine'
     width: 67.5rem;
     margin-left: 50%;
     transform: translate(-50%);
+    margin-bottom: 7rem;
 }
 .mine-order {
     width: 67.5rem;

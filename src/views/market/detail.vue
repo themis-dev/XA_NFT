@@ -201,8 +201,9 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
 <style rel="stylesheet/scss" lang="scss" scoped>
  @media (min-width: 991.98px) {
 .market-detail {
+  // margin-bottom: -4rem;
+  margin-bottom: 7rem;
   background-color: #fff;
-  padding-bottom: 41px;
   .detail-top {
     background-color: #233370;
     background-image: url(../../images/market-banner.png);
@@ -439,6 +440,7 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
 .market-detail{
   width: 100%;
   background-color: #fff;
+  margin-bottom: 7rem;
   .detail-top {
     background-color: #233370;
     background-image: url(../../images/market-banner.png);
@@ -548,7 +550,6 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
   .work-content {
     background-color: #fff;
     margin-top: 59px;
-    padding-bottom: 41px;
     position: relative;
     .work-story {
       font-size: 22px;

@@ -52,15 +52,15 @@
                 :key="index"
                 color="#3842FE">
                 <div class="timeLine-item">
-                    <p style="font-size: 14px; font-family: MiSans; font-weight: 500; color: #333333;">{{ activity.from.length > 10 ? setNumber(activity.from) : activity.from }}</p>
+                    <p style="font-size: 14px; font-weight: 500; color: #333333;">{{ activity.from.length > 10 ? setNumber(activity.from) : activity.from }}</p>
                 </div>
                 <div class="timeLine-item">
-                    <p style="font-size: 12px; font-family: MiSans; font-weight: 400; color: #999999;">发行时间</p>
-                    <p style="font-size: 14px; font-family: MiSans; font-weight: 500; color: #333333;">{{ activity.time }}</p>
+                    <p style="font-size: 12px; font-weight: 400; color: #999999;">发行时间</p>
+                    <p style="font-size: 14px; font-weight: 500; color: #333333;">{{ activity.time }}</p>
                 </div>
                 <div class="timeLine-item">
-                    <p style="font-size: 12px; font-family: MiSans; font-weight: 400; color: #999999;">哈希值</p>
-                    <p style="font-size: 14px; font-family: MiSans; font-weight: 500; color: #333333;">{{ setNumber(activity.txHash) }}</p>
+                    <p style="font-size: 12px; font-weight: 400; color: #999999;">哈希值</p>
+                    <p style="font-size: 14px; font-weight: 500; color: #333333;">{{ setNumber(activity.txHash) }}</p>
                 </div>
                 </el-timeline-item>
             </el-timeline>
@@ -116,6 +116,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 7rem;
     .blockchain-header{
         width: 100%;
         height: 90px;
@@ -124,7 +125,7 @@ export default {
         span{
             display: inline-block;
             font-size: 24px;
-            font-family: MiSans;
+            // font-family: MiSans;
             font-weight: 800;
             color: #333333;
             width: 100%;
@@ -150,7 +151,7 @@ export default {
         }
         .nav-title{
             font-size: 16px;
-            font-family: MiSans;
+            // font-family: MiSans;
             font-weight: 600;
             color: #333333; 
             padding-left: 12px;
@@ -163,7 +164,7 @@ export default {
         padding: 27px;
         .order-data-title{
             font-size: 16px;
-            font-family: MiSans;
+            // font-family: MiSans;
             font-weight: 600;
             line-height: 22px;
             color: #333333;
@@ -185,7 +186,7 @@ export default {
                 flex-direction: column;
                 .title{
                     font-size: 12px;
-                    font-family: MiSans;
+                    // font-family: MiSans;
                     font-weight: 400;
                     line-height: 16px;
                     color: #999999;
@@ -193,7 +194,7 @@ export default {
                 }
                 .desc{
                     font-size: 14px;
-                    font-family: MiSans;
+                    // font-family: MiSans;
                     font-weight: 500;
                     line-height: 19px;
                     color: #333333;
@@ -210,7 +211,7 @@ export default {
         margin-top: 34px;
         .order-circulation-title{
             font-size: 16px;
-            font-family: MiSans;
+            // font-family: MiSans;
             font-weight: 600;
             line-height: 22px;
             color: #333333;
@@ -242,7 +243,7 @@ export default {
             }
             .nav-title{
                 font-size: 16px;
-                font-family: MiSans;
+                // font-family: MiSans;
                 font-weight: 600;
                 color: #333333; 
                 padding-left: 12px;
@@ -255,7 +256,7 @@ export default {
             background: #FFFFFF;
             .order-data-title{
                 font-size: 16px;
-                font-family: MiSans;
+                // font-family: MiSans;
                 font-weight: 600;
                 line-height: 22px;
                 color: #333333;
@@ -277,7 +278,7 @@ export default {
                     flex-direction: column;
                     .title{
                         font-size: 12px;
-                        font-family: MiSans;
+                        // font-family: MiSans;
                         font-weight: 400;
                         line-height: 16px;
                         color: #999999;
@@ -285,7 +286,7 @@ export default {
                     }
                     .desc{
                         font-size: 14px;
-                        font-family: MiSans;
+                        // font-family: MiSans;
                         font-weight: 500;
                         line-height: 19px;
                         color: #333333;
@@ -302,7 +303,7 @@ export default {
             padding: 27px;
             .order-circulation-title{
                 font-size: 16px;
-                font-family: MiSans;
+                // font-family: MiSans;
                 font-weight: 600;
                 line-height: 22px;
                 color: #333333;

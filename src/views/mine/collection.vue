@@ -86,6 +86,7 @@ import { getCollection } from '@/api/mine'
     width: 67.5rem;
     margin-left: 50%;
     transform: translate(-50%);
+    margin-bottom: 7rem;
   @media (min-width: 500px) {
     .mine-collection {
         width: 67.5rem;
@@ -93,6 +94,7 @@ import { getCollection } from '@/api/mine'
         background: rgba(255, 255, 255,1);
         border-radius: 6px 6px 0px 0px;
         margin-top: 25px;
+        margin-bottom: 7rem;
         .title {
           font-size: 28px;
           font-weight: 600;
@@ -172,6 +174,7 @@ import { getCollection } from '@/api/mine'
 @media (max-width: 500px) {
   .collection {
     width: 19.7rem;
+    margin-bottom: 7rem;
     .mine-tab {
       display: flex!important;
       flex-direction: row!important;
@@ -187,6 +190,7 @@ import { getCollection } from '@/api/mine'
     background: rgba(255, 255, 255,1);
     border-radius: 6px 6px 0px 0px;
     margin-top: 25px;
+    margin-bottom: 7rem;
     .title {
       font-size: 28px;
       font-weight: 600;

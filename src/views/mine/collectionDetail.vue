@@ -340,6 +340,7 @@ import { getCaptcha } from '@/api/user'
     width: 67.5rem;
     margin-left: 50%;
     transform: translate(-50%);
+    margin-bottom: 7rem;
     .nav {
       display: flex;
       margin-top: 40px;

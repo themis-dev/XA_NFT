@@ -6,7 +6,7 @@
                   <img src="../../images/back-black.png" alt="">
                   <span>雄安五周年数字藏品</span> 
                 </div>
-                <div class="title-name">《雄安五周年书法集》</div>
+                <div class="title-name">{{marketData.productTypeName}}</div>
               </div>
               <div class="line"></div>
               <div class="share" @click="share" :data-clipboard-text="href">
@@ -16,17 +16,17 @@
               <div class="introduction">
                 <img src="../../images/value-left.png" alt="" class="left">
                 <div class="introduction-text">
-                  作品集围绕雄安新区成立五周年这一重大主题，通过书法的艺术表现形式与数字展览叙事手法，将雄安新区五年来壮丽辉煌的建设成果，化作笔端的浓情厚谊。作品集由全国书坛大家名家和骨干书家、中国书协各团体会员书法工作者、全国高校书法专业工作者等共同参与，这些作品或高谈阔论，或清言雅语，点线结合，经纬交织，展现了雄安新区万众一心进行伟大实践的奋斗历程。
+                  {{marketData.productTypeIntroduction}}
                 </div>
                 <img src="../../images/value-right.png" alt="" class="right">
               </div>
               <div class="market-type-content">
-                <div class="collection-content-item" v-for="item in marketData" v-bind:key='item.pid' @click="goDetail(item)">
+                <div class="collection-content-item" v-for="item in marketData.data" v-bind:key='item.pid' @click="goDetail(item)">
                   <div class="time">
                     <img src="../../images/time.png" alt="">
                     <span>{{ setStatus(item.status) }} {{ item.openingTime }}</span>
                   </div>
-                  <img :src="item.productImage" alt="" class="nft-img">
+                  <img v-lazy="item.productImage" alt="" class="nft-img">
                   <div class="item-title">{{ item.name }}</div>
                   <div class="item-number">
                     <div class="item-number-name">限量</div>
@@ -107,9 +107,9 @@ import moment from 'moment'
         });
       },
       getData() {
-        getMarketData({pageNo: 1, pageSize: 100}).then(res => {
+        getMarketData({pageNo: 1, pageSize: 100, productType: this.$route.query.type,}).then(res => {
           if(res.status == 1 && res.data) {
-            this.marketData = res.data.data
+            this.marketData = res.data
           }
         })
       },
@@ -142,6 +142,7 @@ import moment from 'moment'
 @media (min-width: 799.95px){
   .market-type {
     margin-top: 49px;
+    padding-bottom: 7rem;
     .title {
       display: flex;
       position: relative;
@@ -246,6 +247,12 @@ import moment from 'moment'
            height: 261px;
            border-radius: 26px;
          }
+         .nft-img[lazy=loading] {
+           width: 280px;
+           height: 261px;
+           background: url('../../images/loading-bg.png') no-repeat;
+           background-size: cover;
+         }
         .item-title {
           font-size: 16px;
           font-family: MiSans;
@@ -327,6 +334,7 @@ import moment from 'moment'
 @media (max-width: 799.95px){
     .market-type {
      margin-top: 59px;
+     padding-bottom: 7rem;
     .title {
       display: flex;
       position: relative;
@@ -447,6 +455,12 @@ import moment from 'moment'
            width: 280px;
            height: 261px;
            border-radius: 26px;
+         }
+         .nft-img[lazy=loading] {
+           width: 280px;
+           height: 261px;
+           background: url('../../images/loading-bg.png') no-repeat;
+           background-size: cover;
          }
         .item-title {
           font-size: 16px;
