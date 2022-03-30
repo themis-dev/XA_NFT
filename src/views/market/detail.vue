@@ -50,7 +50,7 @@
               <div class="share-top">
                 <div>
                   <div class="share-top-title1">雄安五周年数字藏品 </div>
-                  <div class="share-top-title2">将于2022年4月3日12:00正式发行，欢迎登录领取！</div>
+                  <div class="share-top-title2">将于{{detailData.openingTime}}正式发行，欢迎登录领取！</div>
                 </div>
               </div>
               <div class="share-dialog-title">{{ detailData.productName }}</div>
