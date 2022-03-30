@@ -12,6 +12,8 @@ import moment from 'moment'
 
 import VueLazyload from 'vue-lazyload'
 
+import './utils/derective'
+
 import '@/styles/font.css'
 
 Vue.use(ElementUI);
