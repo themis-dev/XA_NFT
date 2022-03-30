@@ -195,7 +195,7 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
       this.qr = new QRCode('qrcode', {
         width: 72,
         height: 72, // 高度
-        text: 'http://35.201.215.236/market-detail?pid=', // 二维码内容
+        text: window.location.href, // 二维码内容
         // render: 'canvas', // 设置渲染方式（有两种方式 table和canvas，默认是canvas）
         // background: '#f0f',
         // foreground: '#ff0'
@@ -318,6 +318,209 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
   // margin-bottom: -4rem;
   margin-bottom: 7rem;
   background-color: #fff;
+    .share-dialog-content {
+  .footer-title {
+      font-size: 14px;
+      font-family: MiSans Semibold;
+      font-weight: 500;
+      line-height: 22px;
+      color: rgb(77, 63, 235);
+      margin-left: 14px;
+      margin-top: 10px;
+      padding-bottom: 0px;
+      text-align: center;
+    }
+}
+
+.share-dialog {
+  position: absolute;
+  z-index: -200;
+  // width: 100%;
+  padding: 30px 30px 30px 30px !important;
+  // background-color: beige;
+  @media (max-width: 500px) { 
+      padding: 20px 30px 20px 30px !important;
+  }
+  .share-top {
+    width: 100%;
+    height: 106px;
+    background: url('../../images/share-bg.png') no-repeat;
+    background-size: 100% 100%;
+    background-color: #151921;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    .share-top-title1 {
+      font-size: 26px;
+      font-weight: 600;
+      line-height: 34px;
+      color: #FADE45;
+    }
+    .share-top-title2 {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 16px;
+      color: #FFFFFF;
+      margin-top: 8px;
+    }
+  }
+  .share-dialog-title {
+    font-size: 28px;
+    font-family: MiSans Semibold;
+    font-weight: 600;
+    color: #333333;
+    margin-top: 20px;
+    @media (max-width: 500px) { 
+      font-size: 22px;
+    }
+  }
+  .share-dialog-author {
+    display: flex;
+    margin-top: 16px;
+    margin-left: 10px;
+    .share-dialog-author-title {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 19px;
+      color: #999999;
+    }
+    .share-dialog-author-name {
+      font-size: 14px;
+      font-family: MiSans Semibold;
+      font-weight: 500;
+      line-height: 19px;
+      color: #333333;
+      margin-left: 22px;
+    }
+  }
+   .art {
+     width: 100%;
+      border-radius: 8px;
+      margin: 0 auto;
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      @media (max-width: 500px) { 
+      width: 90%;
+     }
+    }
+    .share-dialog-collectioner {
+      .share-dialog-collectioner-title {
+        font-size: 14px;
+        font-weight: 400;
+        color: #999999;
+        margin-top: 23px;
+      }
+      .share-dialog-collectioner-name {
+        font-size: 20px;
+        font-family: MiSans Semibold;
+        font-weight: 500;
+        line-height: 27px;
+        color: #333333;
+         margin-top: 8px;
+      }
+    }
+  .share-dialog-collection-num {
+    display: flex;
+    margin-top: 8px;
+    align-items: center;
+    .share-dialog-collection-num-title {
+      font-size: 14px;
+      font-family: MiSans Semibold;
+      font-weight: 400;
+      line-height: 19px;
+      color: #999999;
+    }
+    .share-dialog-collection-num-val {
+          width: 12rem;
+          height: 2rem;
+          background-image: url(../../images/collection-arrow.png);
+          background-size: 100%;
+          background-repeat: no-repeat;
+          background-position: center center;
+          font-size: 12px;
+          font-family: MiSans Semibold;
+          font-weight: 400;
+          color: #515152;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-left: 22px;
+    }
+  }
+  .share-dialog-collection-num-time {
+      font-size: 13px;
+      font-family: MiSans Semibold;
+      font-weight: 400;
+      line-height: 19px;
+      color: #999999;
+       margin-top: 1px;
+    }
+    .dash {
+      width: 100%;
+      // height: 1px;
+      border: 1px dashed #E5E5E5;
+      margin-top: 30px;
+    }
+    .dash1 {
+      width: 100%;
+      border: 1px dashed #E5E5E5;
+      margin-top: 10px;
+    }
+
+  .footer-title {
+      font-size: 16px;
+      font-family: MiSans Semibold;
+      font-weight: 400;
+      line-height: 22px;
+      color: #747474;
+      margin-left: 14px;
+      margin-top: 10px;
+      text-align: center;
+    }
+  .share-dialog-qrcode {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 20px;
+    .qrcode-left {
+      display: flex;
+      // align-items: center;
+      img {
+        width: 27px;
+        height: 41px;
+        margin-right: 6px;
+      }
+    }
+    .share-dialog-qrcode-title1 {
+      font-size: 24px;
+      font-family: MiSans;
+      font-weight: 500;
+      line-height: 22px;
+      color: #333;
+    }
+    .share-dialog-qrcode-title2 {
+      font-size: 9px;
+      font-weight: 400;
+      line-height: 16px;
+      color: #999999;
+      margin-top: 2px;
+    }
+    .share-dialog-qrcode-title3 {
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 16px;
+      color: #4073C4;
+    }
+    #qrcode {
+
+    }
+  }
+  
+}
   .detail-top {
     background-color: #233370;
     background-image: url(../../images/market-banner.png);
@@ -327,6 +530,21 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
     display: flex;
     flex-direction: column;
     align-items: center;
+    .share {
+      display: flex;
+      flex-direction: column;
+      img {
+        width: 25px;
+        height: 24px;
+        margin-top: 10px;
+        margin-bottom: 6px;
+      }
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 16px;
+      color: #f1f1f1;
+
+    }
     .work {
       width: 336px;
       height: 336px;
@@ -850,7 +1068,7 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
               }
           }
           .price {
-            font-size: 30px;
+            font-size: 26px;
             font-family: MiSans Semibold;
             font-weight: 600;
             line-height: 39px;
