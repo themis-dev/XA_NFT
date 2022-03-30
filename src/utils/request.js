@@ -42,16 +42,16 @@ service.interceptors.response.use(
   return response.data
   },
   error => {
-    // if (error.response.status === 403 || error.response.status === 401) {
-    //   Message({
-    //   message: error.message,
-    //   type: 'error',
-    //   duration: 1000
-    //   })
-    //   sessionStorage.clear()
-    //   localStorage.clear()
-    //   window.location.href = '/user/login'
-    // }
+    if (error.response.status === 403 || error.response.status === 401) {
+      Message({
+        message: error.message,
+        type: 'error',
+        duration: 1000
+      })
+      sessionStorage.clear()
+      localStorage.clear()
+      window.location.href = '/user/login'
+    }
     return Promise.reject(error)
   }
 )

@@ -2,6 +2,10 @@
     <div class="market-detail">
       <section class="detail-top">
         <img v-lazy="detailData.productImage" alt="" class="work">
+        <div class="share" @click="openShare">
+          <img src="../../images/share-w.png" alt="">
+          分享
+        </div>
         <div class="work-msg">
           <div class="work-name">{{ setMarkName(detailData.name) }}</div>
           <div class="work-num">
@@ -23,6 +27,53 @@
         </div>
       </section>
       <div class="work-content container">
+        <el-dialog
+            title=""
+            :visible.sync="shareDialogVisible"
+            :show-close='false'
+            >
+            <div class="share-dialog-content"  >
+              <img :src="imageurl" alt="" style="width: 100%">
+              <div class="footer-title">长按上方图片保存或转发给朋友</div>
+            </div>
+          </el-dialog>
+       <div class="share-dialog"  ref="screen" >
+              <!-- <div class="share-dialog-author">
+                <div class="share-dialog-author-title">收藏者</div>
+                <div class="share-dialog-author-name">{{ detailObj.userName }}</div>
+              </div>
+              <div class="share-dialog-collection-num share-dialog-author">
+                <div class="share-dialog-collection-num-title">收藏编号</div>
+                <div class="share-dialog-collection-num-val">{{ setNumber(detailObj.oid)}}</div>
+              </div>
+              <div class="share-dialog-collection-num-time">生成时间 {{nowTime}}</div> -->
+              <div class="share-top">
+                <div>
+                  <div class="share-top-title1">雄安五周年数字藏品 </div>
+                  <div class="share-top-title2">将于2022年4月3日12:00正式发行，欢迎登录领取！</div>
+                </div>
+              </div>
+              <div class="share-dialog-title">{{ detailData.productName }}</div>
+               <img :src="detailData.productImage"  alt="" class="art">
+               <div class="share-dialog-author">
+                <div class="share-dialog-author-title">创作者</div>
+                <div class="share-dialog-author-name">{{detailData.creatorIntroduction }}</div>
+              </div>
+               <div class="dash"></div>
+               <div class="share-dialog-qrcode">
+                <div class="qrcode-left">
+                  <img src="../../images/logo.png" alt="">
+                  <div>
+                    <div class="share-dialog-qrcode-title1">幻安</div>
+                    <div class="share-dialog-qrcode-title2">雄安官方数字藏品NFT平台</div>
+                    <div class="share-dialog-qrcode-title3">长按二维码或微信扫一扫识别</div>
+                  </div>
+                </div>
+                <div id="qrcode" ref="qrcode" ></div>
+              </div>
+              <div class="dash1"></div>
+              <div class="footer-title">雄安链提供支持</div>
+            </div>
         <div class="work-story">
           作品故事
         </div>
@@ -80,10 +131,14 @@
           <div class="work-msg-footer-title">雄安链提供支持</div>
         </div>
       </div>
+      
     </div>
 </template>
 
 <script>
+ import QRCode from 'qrcodejs2'
+ import html2canvas from 'html2canvas'
+ import moment from 'moment'
 import { getMarketDetail, marketPayment } from '@/api/market.js'
   export default {
     name: 'collection',
@@ -118,7 +173,9 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
             content: '作为数字藏品的收藏家，你拥有每个数字藏品背后对应的特定作品、艺术品和商品的单个数字复制品，不仅可以观赏藏品、享受收藏的美好体验，还可以与好友分享收藏见解和快乐。'
           },
         ],
-        detailData: {}
+        detailData: {},
+        shareDialogVisible: false,
+        imageurl: ''
 
       }
     },
@@ -133,6 +190,63 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
       this.getData()
     },
     methods: {
+      // 生成二维码
+    crateQrcode() {
+      this.qr = new QRCode('qrcode', {
+        width: 72,
+        height: 72, // 高度
+        text: 'http://35.201.215.236/market-detail?pid=', // 二维码内容
+        // render: 'canvas', // 设置渲染方式（有两种方式 table和canvas，默认是canvas）
+        // background: '#f0f',
+        // foreground: '#ff0'
+      })
+    },
+    openShare() {
+      this.imageurl = ''
+      setTimeout(() => {
+        this.shareDialogVisible = true
+      }, 1000)
+      this.nowTime = moment.parseZone(new Date().getTime()).local().format('YYYY-MM-DD HH:mm:ss')
+      if (!this.qr) {
+          this.$nextTick(() => {
+            this.crateQrcode()
+            // setTimeout(() => {
+              this.handleOk()
+            // }, 1000)
+          })
+        }
+    },
+      //截屏
+        handleOk() {
+            html2canvas(this.$refs.screen, {
+                useCORS: true,
+                allowTaint:false,
+            }).then((canvas) => {
+                if (navigator.msSaveBlob) {
+                    // IE10+
+                    let blob = canvas.msToBlob()
+                    return navigator.msSaveBlob(blob, name)
+                } else {
+                    let imageurl = canvas.toDataURL('image/png')
+                    //这里需要自己选择命名规则
+                    let imagename = 'img-share'
+                    // this.fileDownload(imageurl, imagename)
+                    console.log(imageurl)
+                    this.imageurl = imageurl
+                }
+            })
+        },
+        //下载截屏图片
+        fileDownload(downloadUrl, downloadName) {
+            let aLink = document.createElement('a')
+            aLink.style.display = 'none'
+            aLink.href = downloadUrl
+            aLink.download = `${downloadName}.jpg`
+            // 触发点击-然后移除
+            document.body.appendChild(aLink)
+            aLink.click()
+            document.body.removeChild(aLink)
+        },
       goDetail() {
         this.$router.push({path:'/mine/order-detail'});
       },
@@ -199,7 +313,7 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
- @media (min-width: 991.98px) {
+ @media (min-width: 500px) {
 .market-detail {
   // margin-bottom: -4rem;
   margin-bottom: 7rem;
@@ -437,6 +551,209 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
   .container{
     padding: 0;
   }
+  .share-dialog-content {
+  .footer-title {
+      font-size: 14px;
+      font-family: MiSans Semibold;
+      font-weight: 500;
+      line-height: 22px;
+      color: rgb(77, 63, 235);
+      margin-left: 14px;
+      margin-top: 10px;
+      padding-bottom: 0px;
+      text-align: center;
+    }
+}
+
+.share-dialog {
+  position: absolute;
+  z-index: -200;
+  // width: 100%;
+  padding: 30px 30px 30px 30px !important;
+  // background-color: beige;
+  @media (max-width: 500px) { 
+      padding: 20px 30px 20px 30px !important;
+  }
+  .share-top {
+    width: 100%;
+    height: 106px;
+    background: url('../../images/share-bg.png') no-repeat;
+    background-size: 100% 100%;
+    background-color: #151921;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    .share-top-title1 {
+      font-size: 26px;
+      font-weight: 600;
+      line-height: 34px;
+      color: #FADE45;
+    }
+    .share-top-title2 {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 16px;
+      color: #FFFFFF;
+      margin-top: 8px;
+    }
+  }
+  .share-dialog-title {
+    font-size: 28px;
+    font-family: MiSans Semibold;
+    font-weight: 600;
+    color: #333333;
+    margin-top: 20px;
+    @media (max-width: 500px) { 
+      font-size: 22px;
+    }
+  }
+  .share-dialog-author {
+    display: flex;
+    margin-top: 16px;
+    margin-left: 10px;
+    .share-dialog-author-title {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 19px;
+      color: #999999;
+    }
+    .share-dialog-author-name {
+      font-size: 14px;
+      font-family: MiSans Semibold;
+      font-weight: 500;
+      line-height: 19px;
+      color: #333333;
+      margin-left: 22px;
+    }
+  }
+   .art {
+     width: 100%;
+      border-radius: 8px;
+      margin: 0 auto;
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      @media (max-width: 500px) { 
+      width: 90%;
+     }
+    }
+    .share-dialog-collectioner {
+      .share-dialog-collectioner-title {
+        font-size: 14px;
+        font-weight: 400;
+        color: #999999;
+        margin-top: 23px;
+      }
+      .share-dialog-collectioner-name {
+        font-size: 20px;
+        font-family: MiSans Semibold;
+        font-weight: 500;
+        line-height: 27px;
+        color: #333333;
+         margin-top: 8px;
+      }
+    }
+  .share-dialog-collection-num {
+    display: flex;
+    margin-top: 8px;
+    align-items: center;
+    .share-dialog-collection-num-title {
+      font-size: 14px;
+      font-family: MiSans Semibold;
+      font-weight: 400;
+      line-height: 19px;
+      color: #999999;
+    }
+    .share-dialog-collection-num-val {
+          width: 12rem;
+          height: 2rem;
+          background-image: url(../../images/collection-arrow.png);
+          background-size: 100%;
+          background-repeat: no-repeat;
+          background-position: center center;
+          font-size: 12px;
+          font-family: MiSans Semibold;
+          font-weight: 400;
+          color: #515152;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-left: 22px;
+    }
+  }
+  .share-dialog-collection-num-time {
+      font-size: 13px;
+      font-family: MiSans Semibold;
+      font-weight: 400;
+      line-height: 19px;
+      color: #999999;
+       margin-top: 1px;
+    }
+    .dash {
+      width: 100%;
+      // height: 1px;
+      border: 1px dashed #E5E5E5;
+      margin-top: 30px;
+    }
+    .dash1 {
+      width: 100%;
+      border: 1px dashed #E5E5E5;
+      margin-top: 10px;
+    }
+
+  .footer-title {
+      font-size: 16px;
+      font-family: MiSans Semibold;
+      font-weight: 400;
+      line-height: 22px;
+      color: #747474;
+      margin-left: 14px;
+      margin-top: 10px;
+      text-align: center;
+    }
+  .share-dialog-qrcode {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 20px;
+    .qrcode-left {
+      display: flex;
+      // align-items: center;
+      img {
+        width: 27px;
+        height: 41px;
+        margin-right: 6px;
+      }
+    }
+    .share-dialog-qrcode-title1 {
+      font-size: 24px;
+      font-family: MiSans;
+      font-weight: 500;
+      line-height: 22px;
+      color: #333;
+    }
+    .share-dialog-qrcode-title2 {
+      font-size: 9px;
+      font-weight: 400;
+      line-height: 16px;
+      color: #999999;
+      margin-top: 2px;
+    }
+    .share-dialog-qrcode-title3 {
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 16px;
+      color: #4073C4;
+    }
+    #qrcode {
+
+    }
+  }
+  
+}
 .market-detail{
   width: 100%;
   background-color: #fff;
@@ -450,6 +767,21 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
     display: flex;
     flex-direction: column;
     align-items: center;
+    .share {
+      display: flex;
+      flex-direction: column;
+      img {
+        width: 25px;
+        height: 24px;
+        margin-top: 10px;
+        margin-bottom: 6px;
+      }
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 16px;
+      color: #f1f1f1;
+
+    }
     .work {
       width: 18.69rem;
       height: 18.69rem;
@@ -547,6 +879,7 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
         }
     }
   }
+  
   .work-content {
     background-color: #fff;
     margin-top: 59px;

@@ -51,7 +51,7 @@
                         </div>
                         <!-- <el-upload
                         class="avatar-uploader"
-                        action="http://192.168.3.233:8082/interface/api/customer/avatar"
+                        :action="api + 'interface/api/customer/avatar'"
                         :show-file-list="false"
                         :on-success="handleSuccess"
                         :headers="headers">
@@ -139,7 +139,8 @@ import { Message } from 'element-ui'
         address: window.localStorage.getItem('address') ? window.localStorage.getItem('address') : '',
         mandatoryId: window.localStorage.getItem('mandatoryId') ? window.localStorage.getItem('mandatoryId') : '',
         createTime: window.localStorage.getItem('createTime') ? moment(parseInt(window.localStorage.getItem('createTime'))).format('YYYY-MM-DD hh:mm:ss') : '',
-        fileUrl: []
+        fileUrl: [],
+        api: process.env.BASE_API
       }
     },
     computed: {

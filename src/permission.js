@@ -6,7 +6,7 @@ import { ACCESS_TOKEN } from '@/store/mutation-types'
 
 NProgress.configure({ showSpinner: false }); // NProgress Configuration
 
-const whiteList = ['home', 'login', 'register', 'registerCode', 'setPassword', 'collectionActivity', 'market-type'] // no redirect whitelist
+const whiteList = ['home', 'login', 'register', 'registerCode', 'setPassword', 'collectionActivity', 'market-type', 'market', 'marketDetail'] // no redirect whitelist
 const loginRoutePath = '/user/login'
 const defaultRoutePath = '/'
 
