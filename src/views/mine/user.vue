@@ -28,7 +28,28 @@
                   <div class="item upload-wrapper">
                     <div class="item-name">头像</div>
                     <div class="item-upload">
-                        <el-upload
+                      <el-upload
+                          class="avatar-uploader"
+                          ref="upload"
+                          action="http://192.168.3.233:8082/interface/api/customer/avatar"
+                          :headers="headers"
+                          :on-success="handleSuccess"
+                          :on-change="handleUploadChange"
+                          :on-error="handleUploadError"
+                          list-type="picture-card"
+                          :auto-upload="false">
+                            <i slot="default" class="el-icon-plus"></i>
+                            <div slot="file" slot-scope="{file}">
+                              <img
+                                class="el-upload-list__item-thumbnail"
+                                :src="file.url" alt=""
+                              >
+                            </div>
+                        </el-upload>
+                        <div class="upload-button">
+                          <el-button @click="handleUploadClick">上传</el-button>
+                        </div>
+                        <!-- <el-upload
                         class="avatar-uploader"
                         action="http://192.168.3.233:8082/interface/api/customer/avatar"
                         :show-file-list="false"
@@ -36,7 +57,7 @@
                         :headers="headers">
                         <img v-if="imageUrl" :src="imageUrl" class="avatar">
                         <i v-else class="el-icon-plus avatar-uploader-icon"></i>
-                      </el-upload>
+                      </el-upload> -->
                     </div>
                     
                   </div>
@@ -118,6 +139,7 @@ import { Message } from 'element-ui'
         address: window.localStorage.getItem('address') ? window.localStorage.getItem('address') : '',
         mandatoryId: window.localStorage.getItem('mandatoryId') ? window.localStorage.getItem('mandatoryId') : '',
         createTime: window.localStorage.getItem('createTime') ? moment(parseInt(window.localStorage.getItem('createTime'))).format('YYYY-MM-DD hh:mm:ss') : '',
+        fileUrl: []
       }
     },
     computed: {
@@ -169,6 +191,12 @@ import { Message } from 'element-ui'
         }
         
       },
+      handleUploadError(err) {
+        Message({
+          message: err.response.message,
+          type: 'error'
+        })
+      },
       handleAddressClick() {
         var clipboard = new Clipboard('.copy-address')
             clipboard.on('success', e => {
@@ -211,6 +239,18 @@ import { Message } from 'element-ui'
             clipboard.destroy()
             })
       },
+      handleUploadChange(file, fileList) {
+        this.fileUrl = fileList
+      },
+      handleUploadClick() {
+        if(this.fileUrl.length == 0) {
+          this.$message.error('请上传头像')
+          return
+        }
+        this.$nextTick(() => {
+          this.$refs.upload.submit()
+        })
+      },
       setNumber(value) {
         if(value) {
           let str = value.substring(0, 8)
@@ -236,16 +276,32 @@ import { Message } from 'element-ui'
     margin-left: 50%;
     transform: translate(-50%);
 }
+.avatar-uploader {
+  display: flex;
+  flex-direction: row;
+}
 
 /deep/.avatar-uploader .el-upload {
     border: 1px dashed #d9d9d9;
     border-radius: 6px;
     cursor: pointer;
+    
     // position: relative;
     // overflow: hidden;
   }
   /deep/.avatar-uploader .el-upload:hover {
     border-color: #409EFF;
+  }
+  /deep/.avatar-uploader .el-upload--picture-card {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  /deep/ .el-upload-list--picture-card .el-upload-list__item{
+    width: 50px;
+    height: 50px;
   }
   /deep/.avatar-uploader-icon {
     font-size: 14px;
@@ -290,6 +346,18 @@ import { Message } from 'element-ui'
           }
           .item-upload {
             width: 320px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            .upload-button{
+              margin-left: 20px;
+              margin-top: -3px;
+              /deep/ .el-button{
+                background: #4859D8;
+                color: #FFFFFF;
+                padding: 10px 16px;
+              }
+            }
           }
           .certification {
             display: flex;
@@ -528,6 +596,18 @@ import { Message } from 'element-ui'
           }
           .item-upload {
             width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            .upload-button{
+              margin-left: 20px;
+              margin-top: -3px;
+              /deep/ .el-button{
+                background: #4859D8;
+                color: #FFFFFF;
+                padding: 10px 16px;
+              }
+            }
           }
           .certification {
             display: flex;

@@ -21,7 +21,7 @@
                 <span class="desc">雄安五周年纪念品，以白洋淀生态和未来科技创新为思维点，创作了10件代表雄安新区特色的数字艺术作品，分别由10位不同领域的数字艺术家创作而成。内容丰富，类型多样，书法、绘画、影视、数字手办、音乐以及动画等等</span>
                 <div class="check">
                   <button class="btn" @click="handleMoreClick">查看</button>
-                  <span class="price">￥ 19.9<span>起</span></span>
+                  <!-- <span class="price">￥ 19.9<span>起</span></span> -->
                 </div>
               </div>
             </div>
