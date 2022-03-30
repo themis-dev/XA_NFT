@@ -252,7 +252,7 @@ export default {
             color: #FFB080;
             margin-top: 124px;
             font-weight: 600;
-            margin-left: 34px;
+            margin-left: 27px;
           }
           .desc{
             color: #EAEAEA;
@@ -261,6 +261,7 @@ export default {
           }
           .check{
             margin-top: 5px;
+            padding-bottom: 10px;
             padding-left: 34px;
             display: flex;
             flex-direction: row;
@@ -369,6 +370,7 @@ export default {
           background: rgba(31, 31, 31, 0.5);
           display: flex;
           flex-direction: column;
+          border-radius: 5px;
           .title{
             width: 21.6rem;
             font-size: 16px;
@@ -392,21 +394,21 @@ export default {
       }
       .series1{
         width: 21.6rem;
-        height: 315px;
+        height: 166px;
         background: url('../../images/home-series1.png') no-repeat;
         background-size: 100% 100%;
         margin-bottom: 20px;
       }
       .series2{
         width: 21.6rem;
-        height: 315px;
+        height: 166px;
         background: url('../../images/home-series2.png') no-repeat;
         background-size: 100% 100%;
         margin-bottom: 20px;
       }
       .series3{
         width: 21.6rem;
-        height: 315px;
+        height: 166px;
         background: url('../../images/home-series3.png') no-repeat;
         background-size: 100% 100%;
         margin-bottom: 20px;
@@ -484,7 +486,7 @@ export default {
             width: 100%;
             font-size: 16px;
             font-weight: 600;
-            color: #FFFFFF;
+            color: #FCF079;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -931,7 +933,7 @@ export default {
               margin-top: 11px;
               font-size: 16px;
               font-weight: 600;
-              color: #FFFFFF;
+              color: #FCF079;
               padding: 0;
             }
             .desc{

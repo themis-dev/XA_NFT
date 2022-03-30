@@ -10,48 +10,54 @@
             <span class="line"></span>
             <span class="share-wrapper share" @click="handleShareClick" :data-clipboard-text="href"><img src="../../images/share-icon1.png"/>  <span>分享</span></span>
         </div>
-        <div class="description-wrapper">
-            <div class="desc">为了迎接雄安新区成立五周年，雄安新区智能城市创新联合会雄安区块链实验室、雄安新区未来工业设计研究院联合人民雄安网、北京星原传奇文化传媒有限公司、中信银行科技团队共同在数字文旅领域推出发行NFT数字藏品，其将在“雄安数字藏品平台”以数字图片、3D 荣誉宝盒（NFT）和纪念币的形式向公众亮相。数字图片以新区五年来各行业不同发展阶段的珍藏“大事记”照片、展现雄安各行业建设者新形象的“我与雄安的故事”系列数字明信片、为了庆祝新区五周年联合知名设计公司绘制雄安五周年纪念海报，推出具有深刻意义的数字图片，用数字图片定格雄安记忆；3D荣誉宝盒（NFT）将以古文明藏品、“雄安今朝”藏品、“容和通天”藏品的三个系列发行，以先见，见未来；另外，推出线上纪念币一枚，以“千分之五”为理念，在雄安千年大计的时间轴上见证数字城市、智能城市基石铸就的五年。每张海报、每个3D荣誉宝盒以及纪念币均基于雄安区块链技术铸造生成，都具有独一无二的链上序列号，可以作为数字藏品在雄安链上对应且唯一的权利证明。彰显雄安未来城市的新形象、新时尚，增强雄安引领未来城市品牌的认知。它让我们在数字雄安、智能雄安时代，真正拥有“专属”于自己的内容。</div>
-        </div>
         <div class="category-title">
-            六大类活动藏品，丰富的雄安数字藏品
+            多款限量版数字藏品 限时领取 先抢先得
         </div>
         <div class="collection-wrapper">
             <div class="collection-item item1" @click="handleCollectionClick(1)">
                 <div class="item-desc">
                     <span class="item-title">《雄安五周年大事记数字图片》</span>
                     <span class="item-text">整套数字图片包括10张不同类型的数字图片，均代表着雄安新区成立五周年以来不同阶段的重要时刻，每幅限量发行2022份。</span>
+                    <span class="item-mobile-text">观赏藏品</span>
                 </div>
             </div>
             <div class="collection-item item2" @click="handleCollectionClick(2)">
                 <div class="item-desc">
                     <span class="item-title">《我与雄安的故事系列数字明信片》</span>
                     <span class="item-text">整套数字明信片包含12张，从设计师、医生、教育工作者、农民、建筑师、厨师、记者、警察、歌手、消防员等不同角度展现雄安各行业建设者新形象，每张限量2022份。</span>
+                    <span class="item-mobile-text">观赏藏品</span>
                 </div>
             </div>
             <div class="collection-item item3" @click="handleCollectionClick(3)">
                 <div class="item-desc">
                     <span class="item-title">《雄安五周年纪念数字海报》</span>
                     <span class="item-text">整套数字海报包括9张不同类型的海报，分别由圈点设计、日一设计、韵博设计等三家知名设计公司围绕“雄安五周年”主题进行绘制，十分具有纪念意义，每张限量2022份。</span>
+                    <span class="item-mobile-text">观赏藏品</span>
                 </div>
             </div>
             <div class="collection-item item4" @click="handleCollectionClick(4)">
                 <div class="item-desc">
                     <span class="item-title">《以先见，见未来》</span>
                     <span class="item-text">根据雄安发展这一千年大计的政治占位，以历史、现在和未来的千年时 间轴这一思路，发行三款数字藏品</span>
+                    <span class="item-mobile-text">观赏藏品</span>
                 </div>
             </div>
             <div class="collection-item item5" @click="handleCollectionClick(5)">
                 <div class="item-desc">
                     <span class="item-title">《千分之五》</span>
                     <span class="item-text">隐藏款五周年纪念币，以“千分之五”为理念，在雄安千年大计的时间轴上见证数字城市、智能城市基石铸就的五年。</span>
+                    <span class="item-mobile-text">观赏藏品</span>
                 </div>
             </div>
             <div class="collection-item item6" @click="handleCollectionClick(6)">
                 <div class="item-desc">
                     <span class="item-title">《雄安五周年书法集》</span>
                     <span class="item-text">作品集围绕雄安新区成立五周年这一重大主题，通过书法的艺术表现形式与数字展览叙事手法，将雄安新区五年来壮丽辉煌的建设成果，化作笔端的浓情厚谊。作品集由全国书坛大家名家和骨干书家、中国书协各团体会员书法工作者、全国高校书法专业工作者等共同参与，这些作品或高谈阔论，或清言雅语，点线结合，经纬交织，展现了雄安新区万众一心进行伟大实践的奋斗历程。</span>
+                    <span class="item-mobile-text">观赏藏品</span>
                 </div>
+            </div>
+            <div class="description-wrapper">
+                <div class="desc">为了迎接雄安新区成立五周年，雄安新区智能城市创新联合会雄安区块链实验室、雄安新区未来工业设计研究院联合人民雄安网、北京星原传奇文化传媒有限公司、中信银行科技团队共同在数字文旅领域推出发行NFT数字藏品，其将在“雄安数字藏品平台”以数字图片、3D 荣誉宝盒（NFT）和纪念币的形式向公众亮相。数字图片以新区五年来各行业不同发展阶段的珍藏“大事记”照片、展现雄安各行业建设者新形象的“我与雄安的故事”系列数字明信片、为了庆祝新区五周年联合知名设计公司绘制雄安五周年纪念海报，推出具有深刻意义的数字图片，用数字图片定格雄安记忆；3D荣誉宝盒（NFT）将以古文明藏品、“雄安今朝”藏品、“容和通天”藏品的三个系列发行，以先见，见未来；另外，推出线上纪念币一枚，以“千分之五”为理念，在雄安千年大计的时间轴上见证数字城市、智能城市基石铸就的五年。每张海报、每个3D荣誉宝盒以及纪念币均基于雄安区块链技术铸造生成，都具有独一无二的链上序列号，可以作为数字藏品在雄安链上对应且唯一的权利证明。彰显雄安未来城市的新形象、新时尚，增强雄安引领未来城市品牌的认知。它让我们在数字雄安、智能雄安时代，真正拥有“专属”于自己的内容。</div>
             </div>
         </div>
         <el-dialog
@@ -59,7 +65,12 @@
             :visible.sync="activityDialogVisible"
             :show-close='false'
         >
-            <div class="dialog-wrapper" id="screen" @touchstart="handleStartClick" @touchmove="handleMoveClick" @touchend="handleEndClick">
+            <div class="share-dialog-content"  >
+              <img :src="imageUrl" alt="" style="width: 100%">
+              <div class="share-footer-title">长按上方图片保存或转发给朋友</div>
+            </div>
+        </el-dialog>
+        <div class="dialog-wrapper" ref="screen">
                 <div class="dialog-image-wrapper">
                     <div class="dialog-title">
                         <span class="dialog-main-title">雄安五周年数字藏品</span>
@@ -111,9 +122,7 @@
                             <div id="qrcode" ref="qrcode" ></div>
                         </div>
                 </div>
-            </div>
-            <div @click="handleSaveClick">长按保存图片到相册</div>
-        </el-dialog>
+        </div>
     </div>
 </template>
 <script>
@@ -128,7 +137,8 @@ export default {
             activityDialogVisible: false,
             nowTime: '',
             qr: '',
-            timer: 500
+            timer: 500,
+            imageUrl: ''
         }
     },
     mounted() {
@@ -160,6 +170,7 @@ export default {
             if (!this.qr) {
                 this.$nextTick(() => {
                     this.crateQrcode()
+                    this.handleSaveClick()
                 })
             }
             console.log(document.querySelector('#screen'))
@@ -191,19 +202,36 @@ export default {
             this.qr = new QRCode('qrcode', {
                 width: 74,
                 height: 74, 
-                text: 'http://35.201.215.236:8082/market/collectionActivity', 
+                text: `${this.href}`, 
             })
         },
         handleSaveClick() {
-            html2canvas(document.querySelector('#screen')).then(canvas => {
-                let imgUrl = canvas.toDataURL('image/png');
-                let dataURL = imgUrl;
-                
-                console.log(dataURL)
-                
-            }).catch(error => {
-
+            html2canvas(this.$refs.screen, {
+                useCORS: true,
+                allowTaint:false,
+            }).then((canvas) => {
+                if (navigator.msSaveBlob) {
+                    // IE10+
+                    let blob = canvas.msToBlob()
+                    return navigator.msSaveBlob(blob, name)
+                } else {
+                    let imageurl = canvas.toDataURL('image/png')
+                    //这里需要自己选择命名规则
+                    let imagename = 'img-share'
+                    // this.fileDownload(imageurl, imagename)
+                    console.log(imageurl)
+                    this.imageUrl = imageurl
+                }
             })
+            // html2canvas(document.querySelector('#screen')).then(canvas => {
+            //     let imgUrl = canvas.toDataURL('image/png');
+            //     let dataURL = imgUrl;
+                
+            //     console.log(dataURL)
+                
+            // }).catch(error => {
+
+            // })
         },
         handleStartClick() {
             setTimeout(() => {
@@ -330,6 +358,7 @@ export default {
                     color: #FFFFFF;
                 }
                 .item-text{
+                    display: block;
                     width: 100%;
                     height: 38px;
                     margin-top: 12px;
@@ -337,6 +366,9 @@ export default {
                     font-size: 12px;
                     font-weight: 400;
                     color: #FFFFFF;
+                }
+                .item-mobile-text{
+                    display: none;
                 }
             }
         }
@@ -365,6 +397,9 @@ export default {
             background-size: cover;
         }
     }
+    .dialog-wrapper{
+        display: none;
+    }
 }
 @media (max-width: 500px) {
     .activity-wrapper{
@@ -376,7 +411,21 @@ export default {
             display: none;
         }
         /deep/ .el-dialog {
-            padding: 0 30px 0px 30px;
+            .share-dialog-content {
+                padding-top: 20px;
+                .share-footer-title{
+                    width: 100%;
+                    font-size: 14px;
+                    font-family: MiSans Semibold;
+                    font-weight: 500;
+                    line-height: 22px;
+                    color: rgb(77, 63, 235);
+                    margin-left: 14px;
+                    margin-top: 20px;
+                    text-align: center;
+                    margin-left: 0px;
+                }
+            }
         }
         .title{
             width: 100%;
@@ -441,10 +490,10 @@ export default {
             color: #FFFFFF;
         }
         .category-title{
-            width: 19.7rem;
+            width: 18.7rem;
             margin: 0 auto;
-            padding-top: 80px;
-            padding-bottom: 47px;
+            padding-top: 21px;
+            padding-bottom: 15px;
             font-size: 30px;
             font-family: MiSans Semibold;
             font-weight: 600;
@@ -460,10 +509,12 @@ export default {
             color: #FFFFFF;
             .collection-item{
                 width: 19.7rem;
+                height: 166px;
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-end;
                 align-items: center;
+                border-radius: 8px;
                 .item-desc{
                     width: 100%;
                     height: 104px;
@@ -481,6 +532,7 @@ export default {
                         color: #FFFFFF;
                     }
                     .item-text{
+                        display: none;
                         width: 100%;
                         height: 38px;
                         margin-top: 12px;
@@ -488,6 +540,18 @@ export default {
                         font-size: 12px;
                         font-weight: 400;
                         color: #ffffff;
+                    }
+                    .item-mobile-text{
+                        display: block;
+                        width: 84px;
+                        height: 31px;
+                        background: #FADE45;
+                        line-height: 31px;
+                        text-align: center;
+                        color: #3B3B3B;
+                        font-size: 14px;
+                        border-radius: 5px;
+                        margin-top: 20px;
                     }
                 }
 
@@ -519,9 +583,15 @@ export default {
 
         }
         .dialog-wrapper{
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -99999;
             width: 295px;
             margin-left: -35px;
             text-align: center;
+            padding-bottom: 20px;
             .dialog-image-wrapper{
                 background: url('../../images/home-bgImage.png');
                 background-size: 100% 100%;
@@ -579,6 +649,7 @@ export default {
                             padding-top: 5px;
                             font-family: MiSans Semibold;
                             color: #FADE45;
+                            font-size: 8px;
                         }
                     }
                 }

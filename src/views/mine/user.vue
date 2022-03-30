@@ -25,7 +25,7 @@
                     :on-success="handleAvatarSuccess"
                         :before-upload="beforeAvatarUpload"
                   -->
-                  <div class="item upload-wrapper">
+                  <!-- <div class="item upload-wrapper">
                     <div class="item-name">头像</div>
                     <div class="item-upload">
                       <el-upload
@@ -49,18 +49,9 @@
                         <div class="upload-button">
                           <el-button @click="handleUploadClick">上传</el-button>
                         </div>
-                        <!-- <el-upload
-                        class="avatar-uploader"
-                        :action="api + 'interface/api/customer/avatar'"
-                        :show-file-list="false"
-                        :on-success="handleSuccess"
-                        :headers="headers">
-                        <img v-if="imageUrl" :src="imageUrl" class="avatar">
-                        <i v-else class="el-icon-plus avatar-uploader-icon"></i>
-                      </el-upload> -->
                     </div>
                     
-                  </div>
+                  </div> -->
                 </div>
                 <div class="item-row">
                   <div class="item real-name">
