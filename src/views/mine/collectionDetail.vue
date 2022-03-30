@@ -243,6 +243,7 @@ import moment from 'moment'
     },
     openShare() {
       this.imageurl = ''
+      this.qr = ''
       setTimeout(() => {
         this.shareDialogVisible = true
       }, 1000)

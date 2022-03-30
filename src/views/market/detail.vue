@@ -203,6 +203,7 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
     },
     openShare() {
       this.imageurl = ''
+      this.qr = ''
       setTimeout(() => {
         this.shareDialogVisible = true
       }, 1000)
