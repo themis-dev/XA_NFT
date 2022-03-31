@@ -32,8 +32,8 @@
     <div class="platform-wrapper">
       <div class="platform-info">
         <div class="title">
-          <span class="sub-title">雄安数字纪念品</span>
-          <span class="desc">通过区块链智能合约进行链上存证、链上确权、链上交易，真实可信</span>
+          <!-- <span class="sub-title">雄安数字纪念品</span>
+          <span class="desc">通过区块链智能合约进行链上存证、链上确权、链上交易，真实可信</span> -->
           <span class="sub-title">多层密钥，锁住你的雄安记忆</span>
           <span class="desc">雄安首款数字纪念品基于雄安区块链底层系统发布，可追溯、不可篡改，充分保护了创作者和收藏者的相关权益。</span>
         </div>
