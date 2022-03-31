@@ -129,7 +129,7 @@ import { Message } from 'element-ui'
         },
         address: window.localStorage.getItem('address') ? window.localStorage.getItem('address') : '',
         mandatoryId: window.localStorage.getItem('mandatoryId') ? window.localStorage.getItem('mandatoryId') : '',
-        createTime: window.localStorage.getItem('createTime') ? moment(parseInt(window.localStorage.getItem('createTime'))).format('YYYY-MM-DD hh:mm:ss') : '',
+        createTime: window.localStorage.getItem('createTime') ? window.localStorage.getItem('createTime') : '',
         fileUrl: [],
         api: process.env.BASE_API
       }
