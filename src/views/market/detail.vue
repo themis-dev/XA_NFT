@@ -65,7 +65,7 @@
                   <img src="../../images/logo.png" alt="">
                   <div>
                     <div class="share-dialog-qrcode-title1">幻安</div>
-                    <div class="share-dialog-qrcode-title2">雄安官方数字藏品NFT平台</div>
+                    <div class="share-dialog-qrcode-title2">雄安数字藏品NFT平台</div>
                     <div class="share-dialog-qrcode-title3">长按二维码或微信扫一扫识别</div>
                   </div>
                 </div>
@@ -120,10 +120,10 @@
         </div>
         <div class="purchase-notes">
           <div class="purchase-notes-title">
-            购买须知
+            用户须知
           </div>
           <div class="purchase-notes-content">
-            数字藏品为虚拟数字商品，而非实物，仅限实名认证为年满14周岁的中国大陆用户购买。数字藏品的版权由发行方或原创者拥有，除另行取得版权拥有者书面同意外，用户不得将数字藏品用于任何商业用途。本商品一经售出，不支持退换。本商品源文件不支持本地下载。请勿对数字藏品进行炒作、场外交易、欺诈，或以任何其他非法方式进行使用。
+            数字藏品为虚拟数字商品，而非实物，仅限实名认证为年满14周岁的中国大陆用户领取。数字藏品的版权由发行方或原创者拥有，除另行取得版权拥有者书面同意外，用户不得将数字藏品用于任何商业用途。本商品源文件不支持本地下载。请勿对数字藏品进行炒作、场外交易、欺诈，或以任何其他非法方式进行使用。
           </div>
         </div>
         <div class="work-msg-footer">
@@ -527,8 +527,9 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
     background-color: #233370;
     background-image: url(../../images/market-banner.png);
     background-repeat: no-repeat;
+    background-size: cover;
     width: 100%;
-    height: 670px;
+    height: 692px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -982,6 +983,7 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
     background-color: #233370;
     background-image: url(../../images/market-banner.png);
     background-repeat: no-repeat;
+    background-size: cover;
     width: 100%;
     height: 670px;
     display: flex;

@@ -6,7 +6,7 @@
             <img class="title-icon" src="../../images/activity-icon1.png"/>
         </div>
         <div class="subtitle">
-            <span class="second">雄安官方数字藏品NFT平台</span>
+            <span class="second">雄安数字藏品NFT平台</span>
             <span class="line"></span>
             <span class="share-wrapper share" @click="handleShareClick" :data-clipboard-text="href"><img src="../../images/share-icon1.png"/>  <span>分享</span></span>
         </div>
@@ -113,7 +113,7 @@
                                 <img class="footer-image" src="../../images/logo.png"/>
                                 <div class="footer-title">
                                     <span class="footer-subtitle">幻安</span>
-                                    <span class="footer-desc">雄安官方数字藏品NFT平台</span>
+                                    <span class="footer-desc">雄安数字藏品NFT平台</span>
                                 </div>
                             </div>
                             <div class="dialog-qcord-text">长按二维码或微信扫一扫识别</div>
@@ -515,6 +515,7 @@ export default {
                 justify-content: flex-end;
                 align-items: center;
                 border-radius: 8px;
+                margin-top: 11px;
                 .item-desc{
                     width: 100%;
                     height: 104px;

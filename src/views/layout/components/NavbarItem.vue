@@ -87,7 +87,7 @@ export default {
           path: '/home'
         },
         {
-          title: '交易市场',
+          title: '探索藏品',
           path: '/market/collectionActivity'
         },
         {
