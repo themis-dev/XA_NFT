@@ -203,11 +203,13 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
     },
     openShare() {
       this.imageurl = ''
-      this.qr = ''
       setTimeout(() => {
         this.shareDialogVisible = true
       }, 1000)
       this.nowTime = moment.parseZone(new Date().getTime()).local().format('YYYY-MM-DD HH:mm:ss')
+      this.$nextTick(() => {
+        this.handleOk()
+      })
       if (!this.qr) {
           this.$nextTick(() => {
             this.crateQrcode()
