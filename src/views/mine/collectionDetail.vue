@@ -594,7 +594,7 @@ import moment from 'moment'
       }
 @media (min-width: 500px) {
   .share-dialog{
-    // display: none;
+    display: none;
   }
   .work-msg-footer{
     display: flex;
