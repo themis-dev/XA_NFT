@@ -38,7 +38,7 @@
                       <div>{{ item.creator }}</div>
                     </div>
                     <div class="price">
-                      ¥ {{ item.price }}
+                     {{ item.price ? '¥' + item.price : '' }} 
                     </div>
                   </div>
                 </div>
