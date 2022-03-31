@@ -9,10 +9,10 @@
                 <div class="title-name">{{marketData.productTypeName}}</div>
               </div>
               <div class="line"></div>
-              <div class="share" @click="share" :data-clipboard-text="href">
+              <!-- <div class="share" @click="share" :data-clipboard-text="href">
                 <img src="../../images/share.png" alt="">
                 <span>分享</span>
-              </div>
+              </div> -->
               <div class="introduction">
                 <img src="../../images/value-left.png" alt="" class="left">
                 <div class="introduction-text">
@@ -65,6 +65,9 @@ import moment from 'moment'
       message() {
         return ''
       }
+    },
+    beforeCreate() {
+      document.querySelector('#footer-wrapper').style.background = "#1F1F26"
     },
     created() {
     },
@@ -125,6 +128,9 @@ import moment from 'moment'
             return '即将发行'
         }
       }
+    },
+    beforeDestroy() {
+        document.querySelector('#footer-wrapper').style.background = "#BCBCBC"
     }
   }
 </script>

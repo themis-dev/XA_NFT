@@ -309,7 +309,12 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
         })
       },
       setMarkName(name) {
-        return name.substring(0, 8)
+        if(name) {
+          return name.substring(0, 8)
+        } else {
+          name
+        }
+        
       }
     }
   }

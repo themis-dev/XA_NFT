@@ -69,7 +69,6 @@ export default {
                  password: this.password
              }
              registerUser(reqObj).then(res => {
-                 console.log(res)
                  if(res.status == 1) {
                      Message({
                          message: res.message,

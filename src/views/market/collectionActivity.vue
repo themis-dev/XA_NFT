@@ -2,16 +2,16 @@
     <div class="activity-wrapper">
         <div class="title">
             <img class="title-icon" src="../../images/activity-icon1.png"/>
-            <span class="title-text">雄安五周年数字藏品</span>
+            <span class="title-text">雄安五周年数字纪念品</span>
             <img class="title-icon" src="../../images/activity-icon1.png"/>
         </div>
         <div class="subtitle">
-            <span class="second">雄安数字藏品NFT平台</span>
+            <span class="second">雄安数字纪念品</span>
             <span class="line"></span>
             <span class="share-wrapper share" @click="handleShareClick" :data-clipboard-text="href"><img src="../../images/share-icon1.png"/>  <span>分享</span></span>
         </div>
         <div class="category-title">
-            多款限量版数字藏品 限时领取 先抢先得
+            多款限量版数字纪念品 限时领取 先抢先得
         </div>
         <div class="collection-wrapper">
             <div class="collection-item item1" @click="handleCollectionClick(1)">
@@ -73,12 +73,12 @@
         <div class="dialog-wrapper" ref="screen">
                 <div class="dialog-image-wrapper">
                     <div class="dialog-title">
-                        <span class="dialog-main-title">雄安五周年数字藏品</span>
-                        <span class="dialog-subtitle">雄安官方数字藏品NFT平台</span>
+                        <span class="dialog-main-title">雄安五周年数字纪念品</span>
+                        <span class="dialog-subtitle">雄安官方数字纪念品</span>
                         <span class="dialog-line"></span>
                     </div>
                     <div class="dialog-content">
-                        雄安新区成立五周年，艺术家们创作了众多优秀的雄安NFT数字藏品。每张海报、每个3D荣誉宝盒、纪念币以及书法作品均基于雄安区块链技术铸造生成，都具有独一无二的链上序列号，可以作为数字藏品在雄安链上对应且唯一的权利证明。彰显雄安未来城市的新形象、新时尚，增强雄安引领未来城市品牌的认知。它让我们在数字雄安、智能雄安时代，真正拥有“专属”于自己的内容。
+                        雄安新区成立五周年，艺术家们创作了众多优秀的雄安数字纪念品。每张海报、每个3D荣誉宝盒、纪念币以及书法作品均基于雄安区块链技术铸造生成，都具有独一无二的链上序列号，可以作为数字藏品在雄安链上对应且唯一的权利证明。彰显雄安未来城市的新形象、新时尚，增强雄安引领未来城市品牌的认知。它让我们在数字雄安、智能雄安时代，真正拥有“专属”于自己的内容。
                     </div>
                     <div class="dialog-collection-wrapper">
                         <div class="dialog-collection-item">
@@ -113,7 +113,7 @@
                                 <img class="footer-image" src="../../images/logo.png"/>
                                 <div class="footer-title">
                                     <span class="footer-subtitle">幻安</span>
-                                    <span class="footer-desc">雄安数字藏品NFT平台</span>
+                                    <span class="footer-desc">雄安数字纪念品</span>
                                 </div>
                             </div>
                             <div class="dialog-qcord-text">长按二维码或微信扫一扫识别</div>
@@ -141,8 +141,13 @@ export default {
             imageUrl: ''
         }
     },
-    mounted() {
+    beforeCreate() {
+        document.querySelector('#footer-wrapper').style.background = "#1F1F26"
+    },
+    created() {
         
+    },
+    mounted() {
     },
     methods: {
         handleShareClick() {
@@ -232,24 +237,10 @@ export default {
             // }).catch(error => {
 
             // })
-        },
-        handleStartClick() {
-            setTimeout(() => {
-                
-            }, this.timer)
-        },
-        handleMoveClick() {
-            clearTimeout(this.timer)
-            Message({
-                message: '22222'
-            })
-        },
-        handleEndClick() {
-            clearTimeout(this.timer)
-            Message({
-                message: '33333'
-            })
         }
+    },
+    beforeDestroy() {
+        document.querySelector('#footer-wrapper').style.background = "#BCBCBC"
     }
 }
 </script>
@@ -597,7 +588,6 @@ export default {
                 background: url('../../images/home-bgImage.png');
                 background-size: 100% 100%;
                 background-color: #151921;
-                border-radius: 8px;
                 .dialog-title{
                     display: flex;
                     flex-direction: column;

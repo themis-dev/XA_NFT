@@ -1,10 +1,10 @@
 ﻿﻿<template>
-  <footer class="footer">
+  <footer class="footer" id="footer-wrapper">
     <div class="container">
       <div class="left">
         <img src="../../../images/footer-icon1.png"/>
         <span class="title">幻安</span>
-        <span class="desc">雄安官方数字藏品NFT平台</span>
+        <span class="desc">雄安数字纪念品</span>
       </div>
       <div class="right">
         <div>
@@ -37,12 +37,14 @@
         toggleFlag: false,
         mobile: false,
         activeIndex: 0,
-        subTitleIndex: 0
+        subTitleIndex: 0,
+        isRouter: this.$store.state.chains.currentRouter == '/market/collectionActivity' ? true : false
       }
     },
     created() {
     },
     mounted() {
+      console.log(this.isRouter)
     },
     methods: {
       handleClick(index) {

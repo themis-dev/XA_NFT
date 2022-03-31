@@ -100,8 +100,13 @@ import { getOrderList } from '@/api/mine'
       }
     },
     setMarkName(name) {
+      if(name) {
         return name.substring(0, 8)
+      } else {
+        return name
       }
+        
+    }
   }
   }
 </script>

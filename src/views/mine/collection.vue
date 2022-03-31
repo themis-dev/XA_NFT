@@ -67,9 +67,13 @@ import { getCollection } from '@/api/mine'
         })
       },
       setTextNumber(oid, number) {
-        let strNumber = ''
-        strNumber = oid.substring(0, number)
-        return strNumber
+        if(oid) {
+          let strNumber = ''
+          strNumber = oid.substring(0, number)
+          return strNumber
+        } else {
+          return oid
+        }
       }
     }
   }

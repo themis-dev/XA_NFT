@@ -5,8 +5,8 @@
         <el-row :gutter="24" justify="center">
           <el-col :xs="24" :md="12" :lg="12">
             <div class="recommend item">
-              <span class="title">幻安数字藏品</span>
-              <span class="main">雄安区块链数字藏品NFT平台</span>
+              <span class="title">幻安数字纪念品</span>
+              <span class="main">雄安区块链数字纪念品</span>
               <span class="desc">数字藏品是使用雄安链的区块链技术进行唯一标识的经数字化的特定作品、艺术品和商品，包括但不限于数字画作、图片、音乐、视频、3D模型、书法等各种形式。数字藏品为虚拟数字商品，而非实物。</span>
               <div class="btn-wrapper">
                 <button class="explore" @click="handleExploreClick">探索</button>
@@ -32,7 +32,7 @@
     <div class="platform-wrapper">
       <div class="platform-info">
         <div class="title">
-          <span class="sub-title">雄安数字藏品NFT平台</span>
+          <span class="sub-title">雄安数字纪念品</span>
           <span class="desc">通过区块链智能合约进行链上存证、链上确权、链上交易，真实可信</span>
         </div>
         <el-row :gutter="24" justify="center">
@@ -141,7 +141,7 @@
           <el-col :xs="0" :md="4" :lg="4">
             <div class="series5 value-series">
               <div class="series-wrapper">
-                <span class="title">纪念币</span>
+                <span class="title">纪念章</span>
                 <span class="desc">《千分之五》</span>
               </div>
             </div>
@@ -365,6 +365,7 @@ export default {
     flex-direction: column;
     align-items: center;
     overflow: hidden;
+    padding-bottom: 40px;
     .platform-info{
       .title{
         display: flex;
@@ -477,7 +478,7 @@ export default {
 
   .value-wrapper {
     width: 100%;
-    background: #FAFAFA;
+    background: #FFFFFF;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -798,6 +799,8 @@ export default {
       flex-direction: column;
       position: relative;
       overflow: hidden;
+      background: #FAFAFA;
+      padding-bottom: 40px;
       .platform-info{
         width: 1089px;
         height: 100%;

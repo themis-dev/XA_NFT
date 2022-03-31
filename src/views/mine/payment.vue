@@ -85,7 +85,12 @@ import { Message } from 'element-ui'
       this.$router.go(-1);
     },
     setNameLength(name, number) {
-      return name.substring(0, number)
+      if(name) {
+        return name.substring(0, number)
+      } else {
+        return name
+      }
+      
     }
   }
   }

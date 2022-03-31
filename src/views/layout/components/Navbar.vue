@@ -7,7 +7,7 @@
             <a class="navbar-brand text-dark font-weight-bolder" href="/">
               <img height="24" :src="logosrc()" alt="Huobi Logo" />
               <span class="title">幻安</span>
-              <span class="title-meta">雄安官方数字藏品NFT平台</span>
+              <span class="title-meta">雄安数字纪念品</span>
             </a>
           </div>
           <div>

@@ -79,7 +79,6 @@ export default {
     mounted() {
         document.querySelector('.browser-header').style.display="none"
         this.getBlockchain()
-        console.log(this.$route.query.oid)
     },
     methods: {
         getBlockchain() {
