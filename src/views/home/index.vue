@@ -5,9 +5,9 @@
         <el-row :gutter="24" justify="center">
           <el-col :xs="24" :md="12" :lg="12">
             <div class="recommend item">
-              <span class="title">幻安数字纪念品</span>
-              <span class="main">雄安区块链数字纪念品</span>
-              <span class="desc">数字纪念品是使用雄安链的区块链技术进行唯一标识的经数字化的特定作品、艺术品和商品，包括但不限于数字画作、图片、音乐、视频、3D模型、书法等各种形式。数字纪念品为虚拟数字商品，而非实物。</span>
+              <span class="title">雄安数字纪念品</span>
+              <span class="main">基于雄安区块链底层系统</span>
+              <span class="desc">数字纪念品是使用区块链技术进行唯一标识的经数字化的特定作品、艺术品和商品，包括但不限于数字画作、图片、音乐、视频、3D模型、书法等各种形式。数字纪念品为虚拟数字商品，而非实物。</span>
               <div class="btn-wrapper">
                 <button class="explore" @click="handleExploreClick">探索</button>
                 <button @click="handleRegisterClick">注册</button>

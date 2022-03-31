@@ -5,11 +5,11 @@
             <div class="mine-collection">
               <div class="title">纪念品列表</div>
               <div class="collection-content">
-                <div class="collection-content-item" v-for="item of orderList" :key="item.pid" @click="handleClick(item)">
+                <div class="collection-content-item" v-for="item of orderList" :key="item.oid" @click="handleClick(item)">
                   <img :src="item.productImage" alt="">
-                  <div class="item-title">{{ setTextNumber(item.productName, 8) }}</div>
-                  <div class="item-number">{{ item.oid }}</div>
-                  <div class="item-mobile-number">{{ setTextNumber(item.oid, 12) }}</div>
+                  <div class="item-title">{{ item.productName }}</div>
+                  <div class="item-number">{{ setNumber(item.oid, 12) }}</div>
+                  <div class="item-mobile-number">{{ setNumber(item.oid, 6) }}</div>
                   <div class="author">{{ item.creator }}</div>
                 </div>
                 <!-- <div class="collection-content-item">
@@ -62,19 +62,20 @@ import { getCollection } from '@/api/mine'
         this.$router.push({
           path: '/mine/collectionDetail',
           query: {
+            oid: item.oid,
             pid: item.pid
           }
         })
       },
-      setTextNumber(oid, number) {
-        if(oid) {
-          let strNumber = ''
-          strNumber = oid.substring(0, number)
-          return strNumber
+      setNumber(value, number) {
+        if(value) {
+          let str = value.substring(0, number)
+          let newStr = value.substring(value.length - number, value.length)
+          return `${str}...${newStr}`
         } else {
-          return oid
+          return ''
         }
-      }
+      },
     }
   }
 </script>
@@ -152,8 +153,7 @@ import { getCollection } from '@/api/mine'
               color: #515152;
               display: flex;
               align-items: center;
-              justify-content: center;
-              padding-left: 25px;
+              padding-left: 30px;
             }
             .item-mobile-number{
               display: none;

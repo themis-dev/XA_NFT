@@ -183,6 +183,7 @@ import moment from 'moment'
       return {
         active: 1,
         pid: this.$route.query.pid,
+        oid: this.$route.query.oid,
         detailObj: {},
         shareDialogVisible: false,
         shareDialogVisible1: false,
@@ -208,7 +209,7 @@ import moment from 'moment'
     },
     methods: {
       getData() {
-        getCollectionDetail({pid: this.pid}).then(res => {
+        getCollectionDetail({oid: this.oid}).then(res => {
             if(res.status == 1 && res.data) {
                 this.detailObj = res.data
                 // this.imageUrlToBase64()
@@ -593,7 +594,7 @@ import moment from 'moment'
       }
 @media (min-width: 500px) {
   .share-dialog{
-    // display: none;
+    display: none;
   }
   .work-msg-footer{
     display: flex;

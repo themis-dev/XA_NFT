@@ -46,7 +46,7 @@
           分享
         </div>
         <div class="work-msg">
-          <div class="work-name">{{ setMarkName(detailData.name) }}</div>
+          <div class="work-name">{{ detailData.name }}</div>
           <div class="work-num">
             <div>
               <div class="item-number">
@@ -284,7 +284,7 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
               type: 'success'
             })
             this.$router.push({
-              path: '/mine/order',
+              path: '/mine/collection',
               query: {
                 active: 9
               }

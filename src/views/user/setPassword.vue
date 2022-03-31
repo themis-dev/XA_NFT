@@ -26,6 +26,7 @@
 <script>
 import { registerUser } from '@/api/user'
 import { Message } from 'element-ui'
+import { ACCESS_TOKEN } from '@/store/mutation-types'
 
 export default {
     name: 'setPassword',
@@ -70,12 +71,21 @@ export default {
              }
              registerUser(reqObj).then(res => {
                  if(res.status == 1) {
+                    window.localStorage.setItem(ACCESS_TOKEN, `Bearer ${res.data.token}`)
+                    window.localStorage.setItem('avatar', `${this.$root.avatarUrl}${res.data.avatar}`)
+                    window.localStorage.setItem('nickName', res.data.nickName)
+                    window.localStorage.setItem('phoneNumber', res.data.phoneNumber)
+                    window.localStorage.setItem('address', res.data.address)
+                    window.localStorage.setItem('createTime', res.data.createTime)
+                    window.localStorage.setItem('mandatoryId', res.data.mandatoryId)
+                    this.$store.state.user.token = res.data.token
+                    this.$store.state.user.avatar = `${this.$root.avatarUrl}${res.data.avatar}`
                      Message({
                          message: res.message,
                         type: 'success'
                      })
                      this.$router.push({
-                         path: '/user/login'
+                         path: '/'
                      })
                 }
              }).catch(error => {
