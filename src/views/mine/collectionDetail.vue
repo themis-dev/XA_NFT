@@ -22,7 +22,7 @@
                   </div>
                 </div>
                 <div class="nft-function">
-                    <div class="nft-function-item" @click="openShare">
+                    <div class="nft-function-item web" @click="openShare">
                       <img style="width: 25px;height: 25px;" src="../../images/share-icon.png"/>
                       <span>分享</span>
                     </div>
@@ -98,7 +98,7 @@
             :show-close='false'
             > -->
             <div class="share-dialog"  ref="screen" >
-              <div class="share-dialog-author">
+              <div class="share-dialog-author" v-if="detailObj.creator !== ' '">
                 <div class="share-dialog-author-title">创作者</div>
                 <div class="share-dialog-author-name">{{ detailObj.creator }}</div>
               </div>
@@ -382,6 +382,11 @@ import moment from 'moment'
                         type: 'success'
                     })
                      
+                } else {
+                  this.$message({
+                        message: res.message,
+                        type: 'error'
+                    })
                 }
           })
         }
@@ -509,6 +514,11 @@ import moment from 'moment'
       .nft-function-item {
         cursor: pointer;
       }
+      @media (min-width: 500px) {
+      .web {
+        display: none;
+      }
+      }
       div{
         display: flex;
         flex-direction: row;
@@ -584,7 +594,7 @@ import moment from 'moment'
       }
 @media (min-width: 500px) {
   .share-dialog{
-    display: none;
+    // display: none;
   }
   .work-msg-footer{
     display: flex;

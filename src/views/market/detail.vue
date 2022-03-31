@@ -13,12 +13,12 @@
               <div class="share-top">
                 <div>
                   <div class="share-top-title1">雄安五周年数字纪念品 </div>
-                  <div class="share-top-title2">将于{{detailData.openingTime}}正式发行，欢迎登录领取！</div>
+                  <div class="share-top-title2">{{detailData.openingTime}}正式发行，欢迎领取！</div>
                 </div>
               </div>
               <div class="share-dialog-title">{{ detailData.productName }}</div>
                <img :src="detailData.productImage"  alt="" class="art">
-               <div class="share-dialog-author">
+               <div class="share-dialog-author" v-if="detailData.creatorIntroduction !== ' '">
                 <div class="share-dialog-author-title">创作者</div>
                 <div class="share-dialog-author-name">{{detailData.creatorIntroduction }}</div>
               </div>
@@ -59,7 +59,7 @@
               </div>
             </div>
             <div class="price">
-              ¥ {{ detailData.price }}
+              {{ detailData.price ? '¥' + detailData.price : '' }} 
             </div>
           </div>
           <div class="buy-btn" @click="handleClick">{{ detailData.price == 0 ? '立即领取' : '立即购买' }}</div>
@@ -87,32 +87,32 @@
           <div class="work-msg-item-title">{{item.title}}</div>
           <div class="work-msg-item-val">{{item.content}}</div>
         </div> -->
-        <div class="work-msg-item">
+        <div class="work-msg-item" v-show="detailData.productIntroduction !== ' '">
           <div class="work-msg-item-title">作品介绍</div>
           <div class="work-msg-item-val">{{detailData.productIntroduction}}</div>
         </div>
-        <div class="work-msg-item">
+        <div class="work-msg-item" v-show="detailData.productDetail !== ' '">
           <div class="work-msg-item-title">作品细节</div>
           <div class="work-msg-item-val">{{detailData.productDetail}}</div>
         </div>
-        <div class="work-msg-item">
+        <div class="work-msg-item" v-show="detailData.creatorIntroduction !== ' '">
           <div class="work-msg-item-title">作者介绍</div>
           <div class="work-msg-item-val">{{detailData.creatorIntroduction}}</div>
         </div>
-        <div class="work-msg-item">
+        <div class="work-msg-item" v-show="detailData.publisher !== ' '">
           <div class="work-msg-item-title">发行方</div>
           <div class="work-msg-item-val">{{detailData.publisher}}</div>
         </div>
-        <div class="work-msg-item">
+        <div class="work-msg-item" v-show="detailData.numismaticValue !== ' '">
           <div class="work-msg-item-title">收藏价值</div>
           <div class="work-msg-item-val">{{detailData.numismaticValue}}</div>
         </div>
-        <div class="work-msg-item">
+        <div class="work-msg-item" v-show="detailData.creationBackground !== ' '">
           <div class="work-msg-item-title">创作背景</div>
           <div class="work-msg-item-val">{{detailData.creationBackground}}</div>
         </div>
         <div class="work-msg-author">
-          <div class="work-msg-author-item">
+          <div class="work-msg-author-item" v-show="detailData.creationBackground !== ' '">
             <span class="author-item1">创作者</span>
             <span class="author-item2">{{ detailData.creator }}</span>
           </div>
@@ -213,14 +213,11 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
       if (!this.qr) {
           this.$nextTick(() => {
             this.crateQrcode()
-            // setTimeout(() => {
-              this.handleOk()
-            // }, 1000)
           })
         }
         this.$nextTick(() => {
-        this.handleOk()
-      })
+          this.handleOk()
+        })
     },
       //截屏
         handleOk() {
@@ -235,7 +232,7 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
                 } else {
                     let imageurl = canvas.toDataURL('image/png')
                     //这里需要自己选择命名规则
-                    let imagename = 'img-share'
+                    let imagename = 'img-share1'
                     // this.fileDownload(imageurl, imagename)
                     console.log(imageurl)
                     this.imageurl = imageurl
@@ -545,6 +542,7 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
     .share {
       display: flex;
       flex-direction: column;
+      display: none;
       img {
         width: 25px;
         height: 24px;
@@ -798,9 +796,7 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
 .share-dialog {
   position: absolute;
   z-index: -200;
-  // width: 100%;
   padding: 30px 30px 30px 30px !important;
-  // background-color: beige;
   @media (max-width: 500px) { 
       padding: 20px 30px 20px 30px !important;
   }
@@ -1020,7 +1016,7 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
     .work {
       // width: 18.69rem;
       // width: 90%;
-      height: 250px;
+      height: 220px;
       margin-top: 76px;
       border-radius: 8px;
       
