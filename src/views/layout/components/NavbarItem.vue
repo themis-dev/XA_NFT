@@ -92,7 +92,7 @@ export default {
         },
         {
           title: '我的',
-          path: '/mine/user'
+          path: '/mine/collection'
         }
       ],
       avatarUrl: window.localStorage.getItem('avatar'),
@@ -118,7 +118,7 @@ export default {
       } else {
         this.$nextTick(() => {
           this.navData[2].title = '我的'
-          this.navData[2].path = '/mine/user'
+          this.navData[2].path = '/mine/collection'
         })
         
       }
@@ -148,7 +148,7 @@ export default {
       } else {
         this.$nextTick(() => {
           this.navData[2].title = '我的'
-        this.navData[2].path = '/mine/user'
+        this.navData[2].path = '/mine/collection'
         })
       }
   },
