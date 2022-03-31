@@ -74,7 +74,7 @@
             </div>
             <div class="purchase-notes">
               <div class="purchase-notes-content">
-                温馨提示：本数字藏品版权由发行方或者原作创作者拥有，除另行取得版权拥有者书面同意外，用户不得将数字藏品用于任何商业用途。请远离非理性炒作，防范欺诈风险
+                温馨提示：本数字纪念品版权由发行方或者原作创作者拥有，除另行取得版权拥有者书面同意外，用户不得将数字纪念品用于任何商业用途。请远离非理性炒作，防范欺诈风险
               </div>
             </div>
             <div class="work-msg-footer">
@@ -119,7 +119,7 @@
                   <img src="../../images/logo.png" alt="">
                   <div>
                     <div class="share-dialog-qrcode-title1">幻安</div>
-                    <div class="share-dialog-qrcode-title2">雄安官方数字藏品NFT平台</div>
+                    <div class="share-dialog-qrcode-title2">雄安数字纪念品</div>
                     <div class="share-dialog-qrcode-title3">长按二维码或微信扫一扫识别</div>
                   </div>
                 </div>
@@ -247,15 +247,15 @@ import moment from 'moment'
         this.shareDialogVisible = true
       }, 1000)
       this.nowTime = moment.parseZone(new Date().getTime()).local().format('YYYY-MM-DD HH:mm:ss')
-      this.$nextTick(() => {
-        this.handleOk()
-      })
       if (!this.qr) {
           this.$nextTick(() => {
             this.crateQrcode()
               this.handleOk()
           })
         }
+        this.$nextTick(() => {
+        this.handleOk()
+      })
     },
     openGift() {
       this.giftDialogVisible = true
@@ -652,9 +652,11 @@ import moment from 'moment'
         justify-content: center;
         align-items: center;
         img {
-          width: 15.25rem;
-          height: 15.25rem;
-          border-radius: 8px;
+          width: 100%;
+          object-fit: contain;
+          // width: 15.25rem;
+          // height: 15.25rem;
+          // object-fit:contain;
         }
         .nft-msg-right {
             display: flex;
@@ -822,7 +824,7 @@ import moment from 'moment'
     }
   }
    .art {
-     width: 90%;
+      width: 90%;
       border-radius: 8px;
       margin: 0 auto;
       margin-top: 30px;
@@ -955,12 +957,13 @@ import moment from 'moment'
 }
 
 .gift-dialog {
+  padding: 20px;
   .gift-dialog-title {
     font-size: 28px;
     font-family: MiSans Semibold;
     font-weight: 600;
     color: #333333;
-    margin-left: -20px;
+    // margin-left: -20px;
     @media (max-width: 500px) { 
       font-size: 22px;
     }

@@ -1,7 +1,46 @@
 <template>
     <div class="market-detail">
+      <div class="share-dialog"  ref="screen" >
+              <!-- <div class="share-dialog-author">
+                <div class="share-dialog-author-title">收藏者</div>
+                <div class="share-dialog-author-name">{{ detailObj.userName }}</div>
+              </div>
+              <div class="share-dialog-collection-num share-dialog-author">
+                <div class="share-dialog-collection-num-title">收藏编号</div>
+                <div class="share-dialog-collection-num-val">{{ setNumber(detailObj.oid)}}</div>
+              </div>
+              <div class="share-dialog-collection-num-time">生成时间 {{nowTime}}</div> -->
+              <div class="share-top">
+                <div>
+                  <div class="share-top-title1">雄安五周年数字纪念品 </div>
+                  <div class="share-top-title2">将于{{detailData.openingTime}}正式发行，欢迎登录领取！</div>
+                </div>
+              </div>
+              <div class="share-dialog-title">{{ detailData.productName }}</div>
+               <img :src="detailData.productImage"  alt="" class="art">
+               <div class="share-dialog-author">
+                <div class="share-dialog-author-title">创作者</div>
+                <div class="share-dialog-author-name">{{detailData.creatorIntroduction }}</div>
+              </div>
+               <div class="dash"></div>
+               <div class="share-dialog-qrcode">
+                <div class="qrcode-left">
+                  <img src="../../images/logo.png" alt="">
+                  <div>
+                    <div class="share-dialog-qrcode-title1">幻安</div>
+                    <div class="share-dialog-qrcode-title2">雄安数字纪念品</div>
+                    <div class="share-dialog-qrcode-title3">长按二维码或微信扫一扫识别</div>
+                  </div>
+                </div>
+                <div id="qrcode" ref="qrcode" ></div>
+              </div>
+              <div class="dash1"></div>
+              <div class="footer-title">雄安链提供支持</div>
+            </div>
       <section class="detail-top">
-        <img v-lazy="detailData.productImage" alt="" class="work">
+        <div class="img-work">
+          <img v-lazy="detailData.productImage" alt="" class="work">
+        </div>
         <div class="share" @click="openShare">
           <img src="../../images/share-w.png" alt="">
           分享
@@ -37,43 +76,7 @@
               <div class="footer-title">长按上方图片保存或转发给朋友</div>
             </div>
           </el-dialog>
-       <div class="share-dialog"  ref="screen" >
-              <!-- <div class="share-dialog-author">
-                <div class="share-dialog-author-title">收藏者</div>
-                <div class="share-dialog-author-name">{{ detailObj.userName }}</div>
-              </div>
-              <div class="share-dialog-collection-num share-dialog-author">
-                <div class="share-dialog-collection-num-title">收藏编号</div>
-                <div class="share-dialog-collection-num-val">{{ setNumber(detailObj.oid)}}</div>
-              </div>
-              <div class="share-dialog-collection-num-time">生成时间 {{nowTime}}</div> -->
-              <div class="share-top">
-                <div>
-                  <div class="share-top-title1">雄安五周年数字藏品 </div>
-                  <div class="share-top-title2">将于{{detailData.openingTime}}正式发行，欢迎登录领取！</div>
-                </div>
-              </div>
-              <div class="share-dialog-title">{{ detailData.productName }}</div>
-               <img :src="detailData.productImage"  alt="" class="art">
-               <div class="share-dialog-author">
-                <div class="share-dialog-author-title">创作者</div>
-                <div class="share-dialog-author-name">{{detailData.creatorIntroduction }}</div>
-              </div>
-               <div class="dash"></div>
-               <div class="share-dialog-qrcode">
-                <div class="qrcode-left">
-                  <img src="../../images/logo.png" alt="">
-                  <div>
-                    <div class="share-dialog-qrcode-title1">幻安</div>
-                    <div class="share-dialog-qrcode-title2">雄安数字藏品NFT平台</div>
-                    <div class="share-dialog-qrcode-title3">长按二维码或微信扫一扫识别</div>
-                  </div>
-                </div>
-                <div id="qrcode" ref="qrcode" ></div>
-              </div>
-              <div class="dash1"></div>
-              <div class="footer-title">雄安链提供支持</div>
-            </div>
+       
         <div class="work-story">
           作品故事
         </div>
@@ -123,7 +126,7 @@
             用户须知
           </div>
           <div class="purchase-notes-content">
-            数字藏品为虚拟数字商品，而非实物，仅限实名认证为年满14周岁的中国大陆用户领取。数字藏品的版权由发行方或原创者拥有，除另行取得版权拥有者书面同意外，用户不得将数字藏品用于任何商业用途。本商品源文件不支持本地下载。请勿对数字藏品进行炒作、场外交易、欺诈，或以任何其他非法方式进行使用。
+            数字纪念品为虚拟数字商品，而非实物，仅限实名认证为年满14周岁的中国大陆用户领取。数字纪念品的版权由发行方或原创者拥有，除另行取得版权拥有者书面同意外，用户不得将数字纪念品用于任何商业用途。本商品源文件不支持本地下载。请勿对数字纪念品进行炒作、场外交易、欺诈，或以任何其他非法方式进行使用。
           </div>
         </div>
         <div class="work-msg-footer">
@@ -154,11 +157,11 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
           },
           {
             title: '作品细节',
-            content: '数字藏品是使用蚂蚁链的区块链技术进行唯一标识的经数字化的特定作品、艺术品和商品，包括但不限于数字画作、图片、音乐、视频、3D模型等各种形式。数字藏品为虚拟数字商品，而非实物，一经售出，不支持退换。'
+            content: '数字纪念品是使用蚂蚁链的区块链技术进行唯一标识的经数字化的特定作品、艺术品和商品，包括但不限于数字画作、图片、音乐、视频、3D模型等各种形式。数字纪念品为虚拟数字商品，而非实物，一经售出，不支持退换。'
           },
           {
             title: '作者介绍',
-            content: '每个数字藏品都映射着特定区块链上的唯一序列号，不可篡改、不可分割，也不能互相替代。每一个数字藏品都代表特定作品、艺术品和商品或其限量发售的单个数字复制品，记录着其不可篡改的链上权利。'
+            content: '每个数字纪念品都映射着特定区块链上的唯一序列号，不可篡改、不可分割，也不能互相替代。每一个数字纪念品都代表特定作品、艺术品和商品或其限量发售的单个数字复制品，记录着其不可篡改的链上权利。'
           },
           {
             title: '发行方',
@@ -166,11 +169,11 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
           },
           {
             title: '收藏价值',
-            content: '数字藏品是使用蚂蚁链的区块链技术进行唯一标识的经数字化的特定作品、艺术品和商品，包括但不限于数字画作、图片、音乐、视频、3D模型等各种形式。数字藏品为虚拟数字商品，而非实物，一经售出，不支持退换。每个数字藏品都映射着特定区块链上的唯一序列号，不可篡改、不可分割，也不能互相替代。每一个数字藏品都代表特定作品、艺术品和商品或其限量发售的单个数字复制品，记录着其不可篡改的链上权利。因此数字藏品与虚拟货币等同质化代币存在本质不同，有特定作品、艺术品和商品的实际价值做支撑，也不具备支付功能等任何货币属性。'
+            content: '数字纪念品是使用蚂蚁链的区块链技术进行唯一标识的经数字化的特定作品、艺术品和商品，包括但不限于数字画作、图片、音乐、视频、3D模型等各种形式。数字纪念品为虚拟数字商品，而非实物，一经售出，不支持退换。每个数字纪念品都映射着特定区块链上的唯一序列号，不可篡改、不可分割，也不能互相替代。每一个数字纪念品都代表特定作品、艺术品和商品或其限量发售的单个数字复制品，记录着其不可篡改的链上权利。因此数字纪念品与虚拟货币等同质化代币存在本质不同，有特定作品、艺术品和商品的实际价值做支撑，也不具备支付功能等任何货币属性。'
           },
           {
             title: '创作背景',
-            content: '作为数字藏品的收藏家，你拥有每个数字藏品背后对应的特定作品、艺术品和商品的单个数字复制品，不仅可以观赏藏品、享受收藏的美好体验，还可以与好友分享收藏见解和快乐。'
+            content: '作为数字纪念品的收藏家，你拥有每个数字纪念品背后对应的特定作品、艺术品和商品的单个数字复制品，不仅可以观赏藏品、享受收藏的美好体验，还可以与好友分享收藏见解和快乐。'
           },
         ],
         detailData: {},
@@ -207,9 +210,6 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
         this.shareDialogVisible = true
       }, 1000)
       this.nowTime = moment.parseZone(new Date().getTime()).local().format('YYYY-MM-DD HH:mm:ss')
-      this.$nextTick(() => {
-        this.handleOk()
-      })
       if (!this.qr) {
           this.$nextTick(() => {
             this.crateQrcode()
@@ -218,6 +218,9 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
             // }, 1000)
           })
         }
+        this.$nextTick(() => {
+        this.handleOk()
+      })
     },
       //截屏
         handleOk() {
@@ -309,7 +312,7 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
         })
       },
       setMarkName(name) {
-        return name.substring(0, 8)
+        return name ? name.substring(0, 8) : ''
       }
     }
   }
@@ -551,7 +554,7 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
 
     }
     .work {
-      width: 336px;
+      // width: 336px;
       height: 336px;
       margin-top: 76px;
       border-radius: 8px;
@@ -560,7 +563,7 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
       width: 336px;
       height: 336px;
       background: url('../../images/loading-bg.png') no-repeat;
-      background-size: cover;
+      background-size: 100%;
     }
     .work-msg {
       background-image: url(../../images/detail-img1.png);
@@ -1006,17 +1009,23 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
       color: #f1f1f1;
 
     }
+    .img-work {
+      // width: 100%;
+      text-align: center;
+    }
     .work {
-      width: 18.69rem;
-      height: 18.69rem;
+      // width: 18.69rem;
+      // width: 90%;
+      height: 250px;
       margin-top: 76px;
       border-radius: 8px;
+      
     }
     .work[lazy=loading] {
       width: 18.69rem;
       height: 18.69rem;
       background: url('../../images/loading-bg.png') no-repeat;
-      background-size: cover;
+      background-size: 100%;
     }
     .work-msg {
         background-image: url(../../images/detail-img1.png);

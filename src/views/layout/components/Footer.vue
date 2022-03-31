@@ -4,7 +4,7 @@
       <div class="left">
         <img src="../../../images/footer-icon1.png"/>
         <span class="title">幻安</span>
-        <span class="desc">雄安官方数字藏品NFT平台</span>
+        <span class="desc">雄安数字纪念品</span>
       </div>
       <div class="right">
         <div>

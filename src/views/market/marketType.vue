@@ -4,15 +4,15 @@
               <div class="title">
                 <div class="title-left" @click="goback">
                   <img src="../../images/back-black.png" alt="">
-                  <span>雄安五周年数字藏品</span> 
+                  <span>雄安五周年数字纪念品</span> 
                 </div>
                 <div class="title-name">{{marketData.productTypeName}}</div>
               </div>
               <div class="line"></div>
-              <div class="share" @click="share" :data-clipboard-text="href">
+              <!-- <div class="share" @click="share" :data-clipboard-text="href">
                 <img src="../../images/share.png" alt="">
                 <span>分享</span>
-              </div>
+              </div> -->
               <div class="introduction">
                 <img src="../../images/value-left.png" alt="" class="left">
                 <div class="introduction-text">
@@ -252,6 +252,7 @@ import moment from 'moment'
            width: 280px;
            height: 261px;
            border-radius: 26px;
+          object-fit: cover;
          }
          .nft-img[lazy=loading] {
            width: 280px;
@@ -460,6 +461,7 @@ import moment from 'moment'
          .nft-img {
            width: 280px;
            height: 261px;
+               object-fit: cover;
            border-radius: 26px;
          }
          .nft-img[lazy=loading] {

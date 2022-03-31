@@ -2,16 +2,16 @@
     <div class="activity-wrapper">
         <div class="title">
             <img class="title-icon" src="../../images/activity-icon1.png"/>
-            <span class="title-text">雄安五周年数字藏品</span>
+            <span class="title-text">雄安五周年数字纪念品</span>
             <img class="title-icon" src="../../images/activity-icon1.png"/>
         </div>
         <div class="subtitle">
-            <span class="second">雄安数字藏品NFT平台</span>
+            <span class="second">雄安数字纪念品</span>
             <span class="line"></span>
             <span class="share-wrapper share" @click="handleShareClick" :data-clipboard-text="href"><img src="../../images/share-icon1.png"/>  <span>分享</span></span>
         </div>
         <div class="category-title">
-            多款限量版数字藏品 限时领取 先抢先得
+            多款限量版数字纪念品 限时领取 先抢先得
         </div>
         <div class="collection-wrapper">
             <div class="collection-item item1" @click="handleCollectionClick(1)">
@@ -38,7 +38,7 @@
             <div class="collection-item item4" @click="handleCollectionClick(4)">
                 <div class="item-desc">
                     <span class="item-title">《以先见，见未来》</span>
-                    <span class="item-text">根据雄安发展这一千年大计的政治占位，以历史、现在和未来的千年时 间轴这一思路，发行三款数字藏品</span>
+                    <span class="item-text">根据雄安发展这一千年大计的政治占位，以历史、现在和未来的千年时 间轴这一思路，发行三款数字纪念品</span>
                     <span class="item-mobile-text">观赏藏品</span>
                 </div>
             </div>
@@ -57,7 +57,7 @@
                 </div>
             </div>
             <div class="description-wrapper">
-                <div class="desc">为了迎接雄安新区成立五周年，雄安新区智能城市创新联合会雄安区块链实验室、雄安新区未来工业设计研究院联合人民雄安网、北京星原传奇文化传媒有限公司、中信银行科技团队共同在数字文旅领域推出发行NFT数字藏品，其将在“雄安数字藏品平台”以数字图片、3D 荣誉宝盒（NFT）和纪念币的形式向公众亮相。数字图片以新区五年来各行业不同发展阶段的珍藏“大事记”照片、展现雄安各行业建设者新形象的“我与雄安的故事”系列数字明信片、为了庆祝新区五周年联合知名设计公司绘制雄安五周年纪念海报，推出具有深刻意义的数字图片，用数字图片定格雄安记忆；3D荣誉宝盒（NFT）将以古文明藏品、“雄安今朝”藏品、“容和通天”藏品的三个系列发行，以先见，见未来；另外，推出线上纪念币一枚，以“千分之五”为理念，在雄安千年大计的时间轴上见证数字城市、智能城市基石铸就的五年。每张海报、每个3D荣誉宝盒以及纪念币均基于雄安区块链技术铸造生成，都具有独一无二的链上序列号，可以作为数字藏品在雄安链上对应且唯一的权利证明。彰显雄安未来城市的新形象、新时尚，增强雄安引领未来城市品牌的认知。它让我们在数字雄安、智能雄安时代，真正拥有“专属”于自己的内容。</div>
+                <div class="desc">为了迎接雄安新区成立五周年，雄安新区智能城市创新联合会雄安区块链实验室、雄安新区未来工业设计研究院联合人民雄安网、北京星原传奇文化传媒有限公司、中信银行科技团队共同在数字文旅领域推出发行NFT数字纪念品，其将在“雄安数字纪念品平台”以数字图片、3D 荣誉宝盒（NFT）和纪念币的形式向公众亮相。数字图片以新区五年来各行业不同发展阶段的珍藏“大事记”照片、展现雄安各行业建设者新形象的“我与雄安的故事”系列数字明信片、为了庆祝新区五周年联合知名设计公司绘制雄安五周年纪念海报，推出具有深刻意义的数字图片，用数字图片定格雄安记忆；3D荣誉宝盒（NFT）将以古文明藏品、“雄安今朝”藏品、“容和通天”藏品的三个系列发行，以先见，见未来；另外，推出线上纪念币一枚，以“千分之五”为理念，在雄安千年大计的时间轴上见证数字城市、智能城市基石铸就的五年。每张海报、每个3D荣誉宝盒以及纪念币均基于雄安区块链技术铸造生成，都具有独一无二的链上序列号，可以作为数字纪念品在雄安链上对应且唯一的权利证明。彰显雄安未来城市的新形象、新时尚，增强雄安引领未来城市品牌的认知。它让我们在数字雄安、智能雄安时代，真正拥有“专属”于自己的内容。</div>
             </div>
         </div>
         <el-dialog
@@ -73,12 +73,12 @@
         <div class="dialog-wrapper" ref="screen">
                 <div class="dialog-image-wrapper">
                     <div class="dialog-title">
-                        <span class="dialog-main-title">雄安五周年数字藏品</span>
-                        <span class="dialog-subtitle">雄安官方数字藏品NFT平台</span>
+                        <span class="dialog-main-title">雄安五周年数字纪念品</span>
+                        <span class="dialog-subtitle">雄安数字纪念品</span>
                         <span class="dialog-line"></span>
                     </div>
                     <div class="dialog-content">
-                        雄安新区成立五周年，艺术家们创作了众多优秀的雄安NFT数字藏品。每张海报、每个3D荣誉宝盒、纪念币以及书法作品均基于雄安区块链技术铸造生成，都具有独一无二的链上序列号，可以作为数字藏品在雄安链上对应且唯一的权利证明。彰显雄安未来城市的新形象、新时尚，增强雄安引领未来城市品牌的认知。它让我们在数字雄安、智能雄安时代，真正拥有“专属”于自己的内容。
+                        雄安新区成立五周年，艺术家们创作了众多优秀的雄安NFT数字纪念品。每张海报、每个3D荣誉宝盒、纪念币以及书法作品均基于雄安区块链技术铸造生成，都具有独一无二的链上序列号，可以作为数字纪念品在雄安链上对应且唯一的权利证明。彰显雄安未来城市的新形象、新时尚，增强雄安引领未来城市品牌的认知。它让我们在数字雄安、智能雄安时代，真正拥有“专属”于自己的内容。
                     </div>
                     <div class="dialog-collection-wrapper">
                         <div class="dialog-collection-item">
@@ -113,7 +113,7 @@
                                 <img class="footer-image" src="../../images/logo.png"/>
                                 <div class="footer-title">
                                     <span class="footer-subtitle">幻安</span>
-                                    <span class="footer-desc">雄安数字藏品NFT平台</span>
+                                    <span class="footer-desc">雄安数字纪念品</span>
                                 </div>
                             </div>
                             <div class="dialog-qcord-text">长按二维码或微信扫一扫识别</div>

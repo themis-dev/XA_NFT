@@ -5,9 +5,9 @@
         <el-row :gutter="24" justify="center">
           <el-col :xs="24" :md="12" :lg="12">
             <div class="recommend item">
-              <span class="title">幻安数字藏品</span>
-              <span class="main">雄安区块链数字藏品NFT平台</span>
-              <span class="desc">数字藏品是使用雄安链的区块链技术进行唯一标识的经数字化的特定作品、艺术品和商品，包括但不限于数字画作、图片、音乐、视频、3D模型、书法等各种形式。数字藏品为虚拟数字商品，而非实物。</span>
+              <span class="title">幻安数字纪念品</span>
+              <span class="main">雄安区块链数字纪念品</span>
+              <span class="desc">数字纪念品是使用雄安链的区块链技术进行唯一标识的经数字化的特定作品、艺术品和商品，包括但不限于数字画作、图片、音乐、视频、3D模型、书法等各种形式。数字纪念品为虚拟数字商品，而非实物。</span>
               <div class="btn-wrapper">
                 <button class="explore" @click="handleExploreClick">探索</button>
                 <button @click="handleRegisterClick">注册</button>
@@ -32,9 +32,13 @@
     <div class="platform-wrapper">
       <div class="platform-info">
         <div class="title">
-          <span class="sub-title">雄安数字藏品NFT平台</span>
-          <span class="desc">通过区块链智能合约进行链上存证、链上确权、链上交易，真实可信</span>
+          <span class="sub-title">多层密钥，锁住你的雄安记忆</span>
+          <span class="desc">雄安首款数字纪念品基于雄安区块链底层系统发布，可追溯、不可篡改，充分保护了创作者和收藏者的相关权益。</span>
         </div>
+        <!-- <div class="title">
+          <span class="sub-title">独一无二，专属你的雄安记忆</span>
+          <span class="desc">每个雄安数字纪念品都具有独一无二的链上序列号，可以作为数字纪念品在雄安链上对应且唯一的权利证明。</span>
+        </div> -->
         <el-row :gutter="24" justify="center">
           <el-col :xs="24" :md="8" :lg="8">
             <div class="series1 plarform-series">
@@ -66,7 +70,7 @@
             <div class="series4 plarform-series series-top">
               <div class="series-wrapper">
                 <span class="title">《以先见，见未来》</span>
-                <span class="desc">根据雄安发展这一千年大计的政治占位，以历史、现在和未来的千年时 间轴这一思路，发行三款数字藏品</span>
+                <span class="desc">根据雄安发展这一千年大计的政治占位，以历史、现在和未来的千年时 间轴这一思路，发行三款数字纪念品</span>
               </div>
             </div>
           </el-col>
@@ -101,9 +105,13 @@
 
     <div class="value-wrapper">
       <div class="value-info">
+        <!-- <div class="title">
+          <span class="sub-title">数字艺术纪念品价值</span>
+          <span class="desc">数字纪念品具有唯一性，是因为它们基于区块链技术，从诞生起就与特定的作品、艺术品和商品建立唯一的映射关系，每个数字纪念品都具有独一无二的链上序列号，可以作为数字纪念品在特定区块链上对应且唯一的权利证明。</span>
+        </div> -->
         <div class="title">
-          <span class="sub-title">数字艺术藏品价值</span>
-          <span class="desc">数字藏品具有唯一性，是因为它们基于区块链技术，从诞生起就与特定的作品、艺术品和商品建立唯一的映射关系，每个数字藏品都具有独一无二的链上序列号，可以作为数字藏品在特定区块链上对应且唯一的权利证明。</span>
+          <span class="sub-title">独一无二，专属你的雄安记忆</span>
+          <span class="desc">每个雄安数字纪念品都具有独一无二的链上序列号，可以作为数字纪念品在雄安链上对应且唯一的权利证明。</span>
         </div>
         <el-row :gutter="24" justify="center">
           <el-col :xs="8" :md="4" :lg="4">
@@ -170,7 +178,7 @@
     <!-- <div class="artist-wrapper">
       <div class="artist-info">
         <div class="title">
-          <span class="sub-title">数字藏品艺术家纷纷选择幻安</span>
+          <span class="sub-title">数字纪念品艺术家纷纷选择幻安</span>
           <span class="desc">区块链技术可以很好地解决传统互联网时代“复制黏贴”无法有效保护知识产权的顽疾，它可以帮助明确权利所有者与使用者之间的关系，这对于尊重数字内容创新和保护知识产权都有非常重要的积极意义。</span>
         </div>
         <div class="artist-list">

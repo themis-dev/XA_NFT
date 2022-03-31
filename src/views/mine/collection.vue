@@ -217,11 +217,12 @@ import { getCollection } from '@/api/mine'
         padding-bottom: 20px;
         img {
           width: 8.94rem;
-          height: 11.9rem;
+          height: 10.9rem;
+          object-fit: cover;
           border-radius: 20px;
         }
         .item-title {
-          font-size: 16px;
+          font-size: 13px;
           font-family: MiSans Semibold;
           font-weight: 600;
           line-height: 22px;
