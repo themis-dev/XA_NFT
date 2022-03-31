@@ -235,7 +235,7 @@ import moment from 'moment'
       this.qr = new QRCode('qrcode', {
         width: 72,
         height: 72, // 高度
-        text: 'http://35.201.215.236/market-detail?pid=' + this.detailObj.pid, // 二维码内容
+        text: 'https://arts.huoshu.org/market-detail?pid=' + this.detailObj.pid, // 二维码内容
         // render: 'canvas', // 设置渲染方式（有两种方式 table和canvas，默认是canvas）
         // background: '#f0f',
         // foreground: '#ff0'
@@ -243,17 +243,17 @@ import moment from 'moment'
     },
     openShare() {
       this.imageurl = ''
-      this.qr = ''
       setTimeout(() => {
         this.shareDialogVisible = true
       }, 1000)
       this.nowTime = moment.parseZone(new Date().getTime()).local().format('YYYY-MM-DD HH:mm:ss')
+      this.$nextTick(() => {
+        this.handleOk()
+      })
       if (!this.qr) {
           this.$nextTick(() => {
             this.crateQrcode()
-            // setTimeout(() => {
               this.handleOk()
-            // }, 1000)
           })
         }
     },
