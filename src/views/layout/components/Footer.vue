@@ -44,7 +44,6 @@
     created() {
     },
     mounted() {
-      console.log(this.isRouter)
     },
     methods: {
       handleClick(index) {

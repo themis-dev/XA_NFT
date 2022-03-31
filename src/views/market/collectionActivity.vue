@@ -11,7 +11,7 @@
             <span class="share-wrapper share" @click="handleShareClick" :data-clipboard-text="href"><img src="../../images/share-icon1.png"/>  <span>分享</span></span>
         </div>
         <div class="category-title">
-            多款限量版数字纪念品 限时领取 先抢先得
+            多款限量数字纪念品 限时领取 先抢先得
         </div>
         <div class="collection-wrapper">
             <div class="collection-item item1" @click="handleCollectionClick(1)">
@@ -595,7 +595,7 @@ export default {
                     justify-content: center;
                     align-items: center;
                     .dialog-main-title{
-                        font-size: 30px;
+                        font-size: 24px;
                         color: #FADE45;
                         padding-top: 30px;
                         font-family: MiSans Semibold;
