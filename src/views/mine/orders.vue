@@ -304,7 +304,7 @@ import { getOrderList } from '@/api/mine'
             // margin-right: 16px;
           }
           .item-title {
-            font-size: 18px;
+            font-size: 14px;
             font-weight: 600;
             line-height: 24px;
             color: #333333;

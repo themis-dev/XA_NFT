@@ -4,7 +4,7 @@
               <div class="title">
                 <div class="title-left" @click="goback">
                   <img src="../../images/back-black.png" alt="">
-                  <span>雄安五周年数字藏品</span> 
+                  <span>雄安五周年数字纪念品</span> 
                 </div>
                 <div class="title-name">{{marketData.productTypeName}}</div>
               </div>
@@ -258,6 +258,7 @@ import moment from 'moment'
            width: 280px;
            height: 261px;
            border-radius: 26px;
+          object-fit: cover;
          }
          .nft-img[lazy=loading] {
            width: 280px;
@@ -466,6 +467,7 @@ import moment from 'moment'
          .nft-img {
            width: 280px;
            height: 261px;
+               object-fit: cover;
            border-radius: 26px;
          }
          .nft-img[lazy=loading] {
