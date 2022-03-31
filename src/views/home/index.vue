@@ -7,7 +7,7 @@
             <div class="recommend item">
               <span class="title">幻安数字藏品</span>
               <span class="main">雄安区块链数字藏品NFT平台</span>
-              <span class="desc">数字藏品是使用雄安链的区块链技术进行唯一标识的经数字化的特定作品、艺术品和商品，包括但不限于数字画作、图片、音乐、视频、3D模型等各种形式。数字藏品为虚拟数字商品，而非实物，一经售出，不支持退换。</span>
+              <span class="desc">数字藏品是使用雄安链的区块链技术进行唯一标识的经数字化的特定作品、艺术品和商品，包括但不限于数字画作、图片、音乐、视频、3D模型、书法等各种形式。数字藏品为虚拟数字商品，而非实物。</span>
               <div class="btn-wrapper">
                 <button class="explore" @click="handleExploreClick">探索</button>
                 <button @click="handleRegisterClick">注册</button>
@@ -18,7 +18,7 @@
             <div class="recommend">
               <div class="mark">
                 <span class="title">雄安五周年纪念系列</span>
-                <span class="desc">雄安五周年纪念品，以白洋淀生态和未来科技创新为思维点，创作了10件代表雄安新区特色的数字艺术作品，分别由10位不同领域的数字艺术家创作而成。内容丰富，类型多样，书法、绘画、影视、数字手办、音乐以及动画等等</span>
+                <span class="desc">雄安新区设立五周年之际，首款数字纪念品将震撼发布，献礼雄安每位建设者！雄安数字纪念品以数字图片、3D荣誉宝盒和纪念章的形式向公众亮相，每个系列限量发行。</span>
                 <div class="check">
                   <button class="btn" @click="handleMoreClick">查看</button>
                   <!-- <span class="price">￥ 19.9<span>起</span></span> -->
@@ -32,31 +32,57 @@
     <div class="platform-wrapper">
       <div class="platform-info">
         <div class="title">
-          <span class="sub-title">雄安官方数字藏品NFT平台</span>
+          <span class="sub-title">雄安数字藏品NFT平台</span>
           <span class="desc">通过区块链智能合约进行链上存证、链上确权、链上交易，真实可信</span>
         </div>
         <el-row :gutter="24" justify="center">
           <el-col :xs="24" :md="8" :lg="8">
             <div class="series1 plarform-series">
               <div class="series-wrapper">
-                <span class="title">白洋淀风景油画系列</span>
-                <span class="desc">作为数字藏品的收藏家，你拥有每个数字藏品背后对应的特定作品、艺术品和商品的单个数字复制品，不仅可以观赏藏品、享受收藏的美好体验，还可以与好友分享收藏见解和快乐。</span>
+                <span class="title">《雄安五周年大事记数字图片》</span>
+                <span class="desc">整套数字图片包括10张不同类型的数字图片，均代表着雄安新区成立五周年以来不同阶段的重要时刻，每幅限量发行2022份。</span>
               </div>
             </div>
           </el-col>
           <el-col :xs="24" :md="8" :lg="8">
             <div class="series2 plarform-series">
               <div class="series-wrapper">
-                <span class="title">雄安莲花山玉石系列</span>
-                <span class="desc">作为数字藏品的收藏家，你拥有每个数字藏品背后对应的特定作品、艺术品和商品的单个数字复制品，不仅可以观赏藏品、享受收藏的美好体验，还可以与好友分享收藏见解和快乐。</span>
+                <span class="title">《我与雄安的故事系列数字明信片》</span>
+                <span class="desc">整套数字明信片包含12张，从设计师、医生、教育工作者、农民、建筑师、厨师、记者、警察、歌手、消防员等不同角度展现雄安各行业建设者新形象，每张限量2022份。</span>
               </div>
             </div>
           </el-col>
           <el-col :xs="24" :md="8" :lg="8">
             <div class="series3 plarform-series">
               <div class="series-wrapper">
-                <span class="title">雄安五周年纪念品活动</span>
-                <span class="desc">作为数字藏品的收藏家，你拥有每个数字藏品背后对应的特定作品、艺术品和商品的单个数字复制品，不仅可以观赏藏品、享受收藏的美好体验，还可以与好友分享收藏见解和快乐。</span>
+                <span class="title">《雄安五周年纪念数字海报》</span>
+                <span class="desc">整套数字海报包括9张不同类型的海报，分别由圈点设计、日一设计、韵博设计等三家知名设计公司围绕“雄安五周年”主题进行绘制，十分具有纪念意义，每张限量2022份。</span>
+              </div>
+            </div>
+          </el-col>
+        </el-row>
+        <el-row :gutter="24" justify="center">
+          <el-col :xs="24" :md="8" :lg="8">
+            <div class="series4 plarform-series series-top">
+              <div class="series-wrapper">
+                <span class="title">《以先见，见未来》</span>
+                <span class="desc">根据雄安发展这一千年大计的政治占位，以历史、现在和未来的千年时 间轴这一思路，发行三款数字藏品</span>
+              </div>
+            </div>
+          </el-col>
+          <el-col :xs="24" :md="8" :lg="8">
+            <div class="series5 plarform-series  series-top">
+              <div class="series-wrapper">
+                <span class="title">《千分之五》</span>
+                <span class="desc">隐藏款五周年纪念币，以“千分之五”为理念，在雄安千年大计的时间轴上见证数字城市、智能城市基石铸就的五年。</span>
+              </div>
+            </div>
+          </el-col>
+          <el-col :xs="24" :md="8" :lg="8">
+            <div class="series6 plarform-series  series-top">
+              <div class="series-wrapper">
+                <span class="title">《雄安五周年书法集》</span>
+                <span class="desc">作品集围绕雄安新区成立五周年这一重大主题，通过书法的艺术表现形式与数字展览叙事手法，将雄安新区五年来壮丽辉煌的建设成果，化作笔端的浓情厚谊。作品集由全国书坛大家名家和骨干书家、中国书协各团体会员书法工作者、全国高校书法专业工作者等共同参与，这些作品或高谈阔论，或清言雅语，点线结合，经纬交织，展现了雄安新区万众一心进行伟大实践的奋斗历程。</span>
               </div>
             </div>
           </el-col>
@@ -83,48 +109,48 @@
           <el-col :xs="8" :md="4" :lg="4">
             <div class="series1 value-series">
               <div class="series-wrapper">
-                <span class="title">《雄安赋》</span>
-                <span class="desc">雄安五周年纪念系列</span>
+                <span class="title">雄安建设场景</span>
+                <span class="desc">《雄安五周年大事记数字图片》</span>
               </div>
             </div>
           </el-col>
           <el-col :xs="8" :md="4" :lg="4">
             <div class="series2 value-series">
               <div class="series-wrapper">
-                <span class="title">龙蛋</span>
-                <span class="desc">未来都市系列</span>
+                <span class="title">热忱</span>
+                <span class="desc">《我与雄安的故事系列数字明信片》</span>
               </div>
             </div>
           </el-col>
           <el-col :xs="8" :md="4" :lg="4">
             <div class="series3 value-series">
               <div class="series-wrapper">
-                <span class="title">AI人-ORA</span>
-                <span class="desc">唐家数字人系列</span>
+                <span class="title">雄安崛起</span>
+                <span class="desc">《雄安五周年纪念数字海报》</span>
               </div>
             </div>
           </el-col>
           <el-col :xs="0" :md="4" :lg="4">
             <div class="series4 value-series">
               <div class="series-wrapper">
-                <span class="title">欧阳修咏零陵</span>
-                <span class="desc">雄安书画作品集</span>
+                <span class="title">雄安站</span>
+                <span class="desc">《以先见，见未来》</span>
               </div>
             </div>
           </el-col>
           <el-col :xs="0" :md="4" :lg="4">
             <div class="series5 value-series">
               <div class="series-wrapper">
-                <span class="title">山行</span>
-                <span class="desc">雄安创新音乐人系列</span>
+                <span class="title">纪念币</span>
+                <span class="desc">《千分之五》</span>
               </div>
             </div>
           </el-col>
           <el-col :xs="0" :md="4" :lg="4">
             <div class="series6 value-series">
               <div class="series-wrapper">
-                <span class="title">GT2RS</span>
-                <span class="desc">数字跑车系列</span>
+                <span class="title">燕赵大地</span>
+                <span class="desc">《雄安五周年书法集》</span>
               </div>
             </div>
           </el-col>
@@ -141,7 +167,7 @@
       </div>
     </div>
 
-    <div class="artist-wrapper">
+    <!-- <div class="artist-wrapper">
       <div class="artist-info">
         <div class="title">
           <span class="sub-title">数字藏品艺术家纷纷选择幻安</span>
@@ -174,7 +200,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 <script>
@@ -413,6 +439,15 @@ export default {
         background-size: 100% 100%;
         margin-bottom: 20px;
       }
+      .series4{
+        display: none;
+      }
+      .series5{
+        display: none;
+      }
+      .series6{
+        display: none;
+      }
     }
     .plarform-btn{
         width: 100%;
@@ -447,6 +482,7 @@ export default {
     flex-direction: column;
     align-items: center;
     overflow: hidden;
+    padding-bottom: 59px;
     .value-info{
       .title{
         display: flex;
@@ -473,7 +509,7 @@ export default {
       }
       .value-series {
         margin: 0 auto;
-        padding: 0;
+        padding: 0px;
         display: flex;
         align-items: flex-end;
         .series-wrapper{
@@ -806,13 +842,16 @@ export default {
             }
             .desc{
               width: 100%;
-              height: 34px;
+              height: 35px;
               color: #FFFFFF;
               margin-top: 16px;
               padding: 0px 19px 0px 20px;
               overflow: hidden;
             }
           }
+        }
+        .series-top {
+          margin-top: 40px;
         }
         .series1 {
           width: 346px;
@@ -832,6 +871,27 @@ export default {
           width: 346px;
           height: 315px;
           background: url('../../images/home-series3.png') no-repeat;
+          background-size: 100% 100%;
+          margin-bottom: 20px;
+        }
+        .series4 {
+          width: 346px;
+          height: 315px;
+          background: url('../../images/home-series4.png') no-repeat;
+          background-size: 100% 100%;
+          margin-bottom: 20px;
+        }
+        .series5 {
+          width: 346px;
+          height: 315px;
+          background: url('../../images/home-series5.png') no-repeat;
+          background-size: 100% 100%;
+          margin-bottom: 20px;
+        }
+        .series6 {
+          width: 346px;
+          height: 315px;
+          background: url('../../images/home-series6.png') no-repeat;
           background-size: 100% 100%;
           margin-bottom: 20px;
         }
@@ -889,6 +949,7 @@ export default {
       position: relative;
       background: #FFFFFF;
       overflow: hidden;
+      padding-bottom: 59px;
       .value-info{
         width: 1089px;
         height: 100%;

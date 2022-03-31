@@ -122,7 +122,7 @@ import moment from 'moment'
           case 1:
             return '销售中';
           case 9:
-            return '未开售'
+            return '即将发行'
         }
       }
     }
