@@ -336,6 +336,7 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
 }
 
 .share-dialog {
+  display: none;
   position: absolute;
   z-index: -200;
   // width: 100%;

@@ -199,7 +199,7 @@ export default {
       }
     },
     handleKeyUpClick() {
-      this.$router.push({
+      this.$router.replace({
         path: '/market',
         query: {
           search: this.searchValue

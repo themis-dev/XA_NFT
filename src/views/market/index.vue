@@ -51,11 +51,17 @@ import moment from 'moment'
         return ''
       }
     },
+    watch: {
+      $route(to, from) {
+        if(to.path == from.path) {
+          window.location.reload()
+        }
+      }
+    },
     created() {
     },
     mounted() {
       this.getData()
-      // console.log(moment().default())
     },
     methods: {
       goDetail(item) {
@@ -68,7 +74,6 @@ import moment from 'moment'
       },
       getData() {
         searchCollection({ input: this.searchValue, pageNo: this.pageNo, pageSize: this.pageSize }).then(res => {
-          console.log(res)
           if(res.status == 1 && res.data) {
             this.marketData = res.data.data
           }
