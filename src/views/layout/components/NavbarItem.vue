@@ -2,7 +2,7 @@
   <ul class="navbar-nav header-navbar">
     <li class="navbar-search">
       <el-input 
-        placeholder="搜索藏品名、艺术家、发行方"
+        placeholder="搜索纪念品名、艺术家、发行方"
         prefix-icon="el-icon-search"
         v-model="searchValue"
         v-on:keyup.enter.native="handleKeyUpClick"
@@ -87,7 +87,7 @@ export default {
           path: '/home'
         },
         {
-          title: '探索藏品',
+          title: '探索纪念品',
           path: '/market/collectionActivity'
         },
         {

@@ -1,7 +1,7 @@
 <template>
   <div class="mine-tab">
       <div :class="active === 1 ?'item active': 'item'" @click="clickItem(1)">个人信息</div>
-      <div :class="active === 2 ?'item active': 'item'" @click="clickItem(2)">我的藏品</div>
+      <div :class="active === 2 ?'item active': 'item'" @click="clickItem(2)">我的纪念品</div>
       <div :class="active === 3 ?'item active': 'item'" @click="clickItem(3)">我的订单</div>
   </div>
 </template>

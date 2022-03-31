@@ -3,7 +3,7 @@
         <div class="collection">
             <MineTab />
             <div class="mine-collection">
-              <div class="title">藏品列表</div>
+              <div class="title">纪念品列表</div>
               <div class="collection-content">
                 <div class="collection-content-item" v-for="item of orderList" :key="item.pid" @click="handleClick(item)">
                   <img :src="item.productImage" alt="">

@@ -2,7 +2,7 @@
     <div class="success-container">
         <img src="../../images/success.png"/>
         <span>购买成功</span>
-        <button @click="handleCheckClick">查看藏品</button>
+        <button @click="handleCheckClick">查看纪念品</button>
     </div>
 </template>
 <script>

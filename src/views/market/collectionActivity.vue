@@ -18,46 +18,46 @@
                 <div class="item-desc">
                     <span class="item-title">《雄安五周年大事记数字图片》</span>
                     <span class="item-text">整套数字图片包括10张不同类型的数字图片，均代表着雄安新区成立五周年以来不同阶段的重要时刻，每幅限量发行2022份。</span>
-                    <span class="item-mobile-text">观赏藏品</span>
+                    <span class="item-mobile-text">观赏纪念品</span>
                 </div>
             </div>
             <div class="collection-item item2" @click="handleCollectionClick(2)">
                 <div class="item-desc">
                     <span class="item-title">《我与雄安的故事系列数字明信片》</span>
                     <span class="item-text">整套数字明信片包含12张，从设计师、医生、教育工作者、农民、建筑师、厨师、记者、警察、歌手、消防员等不同角度展现雄安各行业建设者新形象，每张限量2022份。</span>
-                    <span class="item-mobile-text">观赏藏品</span>
+                    <span class="item-mobile-text">观赏纪念品</span>
                 </div>
             </div>
             <div class="collection-item item3" @click="handleCollectionClick(3)">
                 <div class="item-desc">
                     <span class="item-title">《雄安五周年纪念数字海报》</span>
                     <span class="item-text">整套数字海报包括9张不同类型的海报，分别由圈点设计、日一设计、韵博设计等三家知名设计公司围绕“雄安五周年”主题进行绘制，十分具有纪念意义，每张限量2022份。</span>
-                    <span class="item-mobile-text">观赏藏品</span>
+                    <span class="item-mobile-text">观赏纪念品</span>
                 </div>
             </div>
             <div class="collection-item item4" @click="handleCollectionClick(4)">
                 <div class="item-desc">
                     <span class="item-title">《以先见，见未来》</span>
                     <span class="item-text">根据雄安发展这一千年大计的政治占位，以历史、现在和未来的千年时 间轴这一思路，发行三款数字纪念品</span>
-                    <span class="item-mobile-text">观赏藏品</span>
+                    <span class="item-mobile-text">观赏纪念品</span>
                 </div>
             </div>
             <div class="collection-item item5" @click="handleCollectionClick(5)">
                 <div class="item-desc">
                     <span class="item-title">《千分之五》</span>
-                    <span class="item-text">隐藏款五周年纪念币，以“千分之五”为理念，在雄安千年大计的时间轴上见证数字城市、智能城市基石铸就的五年。</span>
-                    <span class="item-mobile-text">观赏藏品</span>
+                    <span class="item-text">隐藏款五周年纪念章，以“千分之五”为理念，在雄安千年大计的时间轴上见证数字城市、智能城市基石铸就的五年。</span>
+                    <span class="item-mobile-text">观赏纪念品</span>
                 </div>
             </div>
             <div class="collection-item item6" @click="handleCollectionClick(6)">
                 <div class="item-desc">
                     <span class="item-title">《雄安五周年书法集》</span>
                     <span class="item-text">作品集围绕雄安新区成立五周年这一重大主题，通过书法的艺术表现形式与数字展览叙事手法，将雄安新区五年来壮丽辉煌的建设成果，化作笔端的浓情厚谊。作品集由全国书坛大家名家和骨干书家、中国书协各团体会员书法工作者、全国高校书法专业工作者等共同参与，这些作品或高谈阔论，或清言雅语，点线结合，经纬交织，展现了雄安新区万众一心进行伟大实践的奋斗历程。</span>
-                    <span class="item-mobile-text">观赏藏品</span>
+                    <span class="item-mobile-text">观赏纪念品</span>
                 </div>
             </div>
             <div class="description-wrapper">
-                <div class="desc">为了迎接雄安新区成立五周年，雄安新区智能城市创新联合会雄安区块链实验室、雄安新区未来工业设计研究院联合人民雄安网、北京星原传奇文化传媒有限公司、中信银行科技团队共同在数字文旅领域推出发行NFT数字纪念品，其将在“雄安数字纪念品平台”以数字图片、3D 荣誉宝盒（NFT）和纪念币的形式向公众亮相。数字图片以新区五年来各行业不同发展阶段的珍藏“大事记”照片、展现雄安各行业建设者新形象的“我与雄安的故事”系列数字明信片、为了庆祝新区五周年联合知名设计公司绘制雄安五周年纪念海报，推出具有深刻意义的数字图片，用数字图片定格雄安记忆；3D荣誉宝盒（NFT）将以古文明藏品、“雄安今朝”藏品、“容和通天”藏品的三个系列发行，以先见，见未来；另外，推出线上纪念币一枚，以“千分之五”为理念，在雄安千年大计的时间轴上见证数字城市、智能城市基石铸就的五年。每张海报、每个3D荣誉宝盒以及纪念币均基于雄安区块链技术铸造生成，都具有独一无二的链上序列号，可以作为数字纪念品在雄安链上对应且唯一的权利证明。彰显雄安未来城市的新形象、新时尚，增强雄安引领未来城市品牌的认知。它让我们在数字雄安、智能雄安时代，真正拥有“专属”于自己的内容。</div>
+                <div class="desc">为迎接雄安新区成立五周年，雄安区块链实验室、雄安新区未来工业设计研究院联合人民雄安网、北京星原传奇文化传媒有限公司、中信银行科技团队共同在数字文旅领域推出发行数字纪念品，其将在“雄安数字纪念平台”--幻安，以数字图片、3D 荣誉宝盒和纪念章的形式向公众亮相。数字图片以新区五年来各行业不同发展阶段的珍藏“大事记”照片、展现雄安各行业建设者新形象的“我与雄安的故事”系列数字明信片、为了庆祝新区五周年联合知名设计公司绘制的雄安五周年纪念海报，用数字图片定格雄安记忆；以及3D荣誉宝盒将以古文明藏品、“雄安今朝”藏品、“未来之眼”藏品的三个系列发行，以先见，见未来；另外，推出线上纪念章一枚，以“千分之五”为理念，在雄安千年大计的时间轴上见证数字城市、智能城市基石铸就的五年。每张图片、每个3D荣誉宝盒以及纪念币均基于雄安区块链技术铸造生成，都具有独一无二的链上序列号，可以作为数字藏品在雄安链上对应且唯一的权利证明。彰显雄安未来城市的新形象、新时尚，增强雄安引领未来城市品牌的认知，更好的记录、延续“专属”于建设者的雄安数字记忆。</div>
             </div>
         </div>
         <el-dialog
@@ -95,7 +95,7 @@
                             <span class="dialog-image-desc">《雄安五周年纪念数字海报》</span>
                         </div>
                         <div class="dialog-collection-item">
-                            <img src="../../images/home-series4.png" class="dialog-image"/>
+                            <img src="../../images/home-series4.jpg" class="dialog-image"/>
                             <span class="dialog-image-desc">《以先见，见未来》</span>
                         </div>
                         <div class="dialog-collection-item">
@@ -377,7 +377,7 @@ export default {
             background-size: cover;
         }
         .item4{
-            background: url('../../images/home-series4.png') no-repeat;
+            background: url('../../images/home-series4.jpg') no-repeat;
             background-size: cover;
         }
         .item5{
@@ -562,7 +562,7 @@ export default {
                 background-size: 100% 100%;
             }
             .item4{
-                background: url('../../images/home-series4.png') no-repeat;
+                background: url('../../images/home-series4.jpg') no-repeat;
                 background-size: cover;
             }
             .item5{

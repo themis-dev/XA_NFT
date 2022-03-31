@@ -4,11 +4,11 @@
             <MineTab />
             <div class="nav" @click="goback">
               <img src="../../images/back.png" alt="">
-              <div class="nav-title">我的藏品列表</div>
+              <div class="nav-title">我的纪念品列表</div>
             </div>
             <div class="order-detail-content">
               <div class="order-status">
-                <div>藏品详情</div>
+                <div>纪念品详情</div>
               </div>
               <div class="order-msg">
                 <div class="nft-msg">
@@ -49,7 +49,7 @@
                     <div class="data-item-num">{{ detailObj.createTime }}</div>
                   </div>
                   <div class="data-item">
-                    <div class="data-item-title">藏品哈希值</div>
+                    <div class="data-item-title">纪念品哈希值</div>
                     <div class="data-item-num">{{ setNumber(detailObj.productHash)}}</div>
                   </div>
                   <div class="data-item">
@@ -581,6 +581,35 @@ import moment from 'moment'
         margin-top: 6px;
         text-align: center;
       }
+@media (min-width: 500px) {
+  .share-dialog{
+    display: none;
+  }
+  .work-msg-footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 24px;
+    img{
+      width: 26.82px;
+      height: 41px;
+    }
+  }
+}
+@media (max-width: 500px) {
+  .work-msg-footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 24px;
+    img{
+      width: 26.82px;
+      height: 41px;
+    }
+  }
+}
 @media (max-width: 500px) {
   .order-detail {
     width: 19.7rem;

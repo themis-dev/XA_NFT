@@ -7,11 +7,7 @@
             <div class="recommend item">
               <span class="title">幻安数字纪念品</span>
               <span class="main">雄安区块链数字纪念品</span>
-<<<<<<< HEAD
-              <span class="desc">数字藏品是使用雄安链的区块链技术进行唯一标识的经数字化的特定作品、艺术品和商品，包括但不限于数字画作、图片、音乐、视频、3D模型、书法等各种形式。数字藏品为虚拟数字商品，而非实物。</span>
-=======
               <span class="desc">数字纪念品是使用雄安链的区块链技术进行唯一标识的经数字化的特定作品、艺术品和商品，包括但不限于数字画作、图片、音乐、视频、3D模型、书法等各种形式。数字纪念品为虚拟数字商品，而非实物。</span>
->>>>>>> d728ad5d695931e1e183e45294f8c2bd0f4d636a
               <div class="btn-wrapper">
                 <button class="explore" @click="handleExploreClick">探索</button>
                 <button @click="handleRegisterClick">注册</button>
@@ -36,13 +32,10 @@
     <div class="platform-wrapper">
       <div class="platform-info">
         <div class="title">
-<<<<<<< HEAD
           <span class="sub-title">雄安数字纪念品</span>
           <span class="desc">通过区块链智能合约进行链上存证、链上确权、链上交易，真实可信</span>
-=======
           <span class="sub-title">多层密钥，锁住你的雄安记忆</span>
           <span class="desc">雄安首款数字纪念品基于雄安区块链底层系统发布，可追溯、不可篡改，充分保护了创作者和收藏者的相关权益。</span>
->>>>>>> d728ad5d695931e1e183e45294f8c2bd0f4d636a
         </div>
         <!-- <div class="title">
           <span class="sub-title">独一无二，专属你的雄安记忆</span>
@@ -87,7 +80,7 @@
             <div class="series5 plarform-series  series-top">
               <div class="series-wrapper">
                 <span class="title">《千分之五》</span>
-                <span class="desc">隐藏款五周年纪念币，以“千分之五”为理念，在雄安千年大计的时间轴上见证数字城市、智能城市基石铸就的五年。</span>
+                <span class="desc">隐藏款五周年纪念章，以“千分之五”为理念，在雄安千年大计的时间轴上见证数字城市、智能城市基石铸就的五年。</span>
               </div>
             </div>
           </el-col>
@@ -897,7 +890,7 @@ export default {
         .series4 {
           width: 346px;
           height: 315px;
-          background: url('../../images/home-series4.png') no-repeat;
+          background: url('../../images/home-series4.jpg') no-repeat;
           background-size: 100% 100%;
           margin-bottom: 20px;
         }
