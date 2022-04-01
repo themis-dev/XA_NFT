@@ -266,7 +266,11 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
         })
       },
       handleClick() {
-        if(this.detailData.status == 0) {
+         getMarketDetail({pid: this.pid}).then(res => {
+          if(res.status == 1 && res.data) {
+            this.detailData = res.data
+          } 
+          if(this.detailData.status == 0) {
           this.$message({
             message: '纪念品已领光',
             type: 'warning'
@@ -310,6 +314,11 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
             })
           }
         })
+          
+        }).catch(error => {
+          console.log(error)
+        })
+        
       },
       setMarkName(name) {
         if(name) {
