@@ -72,10 +72,7 @@ import moment from 'moment'
     created() {
     },
     mounted() {
-      // document.getElementsByClassName('content')[0].style.backgroundColor = "#151921"
-      // document.getElementsByClassName('content')[1].style.backgroundColor = "#151921"
       this.getData()
-      // console.log(moment().default())
     },
     methods: {
       goback() {
@@ -150,6 +147,12 @@ import moment from 'moment'
 .market-type-page {
     background-color: #151921;
     // padding-top: 49px;
+    @media (max-width: 799.95px){
+      min-height: 800px;
+    }
+    @media (min-width: 799.95px){
+      min-height: 800px;
+    }
 }
 @media (min-width: 799.95px){
   .market-type {
