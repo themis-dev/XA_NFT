@@ -78,7 +78,7 @@
                       <span class='status'>已托管</span>
                     </div>
                     <div class="item-right">
-                      <span class='date-title'>创建时间</span>
+                      <span class='date-title'>注册时间</span>
                       <span class='date'>{{ createTime }}</span>
                     </div>
                   </div>

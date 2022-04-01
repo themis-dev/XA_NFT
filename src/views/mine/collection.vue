@@ -125,6 +125,7 @@ import { getCollection } from '@/api/mine'
             img {
               width: 17.5rem;
               height: 190px;
+              object-fit: cover;
               border-radius: 20px;
             }
             .item-title {
