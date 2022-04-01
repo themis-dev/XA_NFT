@@ -11,7 +11,7 @@
             <span class="share-wrapper share" @click="handleShareClick" :data-clipboard-text="href"><img src="../../images/share-icon1.png"/>  <span>分享</span></span>
         </div>
         <div class="category-title">
-            多款限量数字纪念品 限量领取
+            多款数字纪念品 限量领取
         </div>
         <div class="collection-wrapper">
             <div class="collection-item item1" @click="handleCollectionClick(1)">
@@ -559,19 +559,19 @@ export default {
 
             }
             .item1{
-                background: url('../../images/home-series1.png') no-repeat;
+                background: url('../../images/home-series7.png') no-repeat;
                 background-size: 100% 100%;
             }
             .item2{
-                background: url('../../images/home-series2.png') no-repeat;
+                background: url('../../images/home-series8.png') no-repeat;
                 background-size: 100% 100%;
             }
             .item3{
-                background: url('../../images/home-series3.png') no-repeat;
+                background: url('../../images/home-series9.png') no-repeat;
                 background-size: 100% 100%;
             }
             .item4{
-                background: url('../../images/home-series4.jpg') no-repeat;
+                background: url('../../images/home-series10.png') no-repeat;
                 background-size: cover;
             }
             .item5{
@@ -579,7 +579,7 @@ export default {
                 background-size: cover;
             }
             .item6{
-                background: url('../../images/home-series6.png') no-repeat;
+                background: url('../../images/home-series11.png') no-repeat;
                 background-size: cover;
             }
             .item7{

@@ -457,21 +457,21 @@ export default {
       .series1{
         width: 21.6rem;
         height: 166px;
-        background: url('../../images/home-series1.png') no-repeat;
+        background: url('../../images/home-series7.png') no-repeat;
         background-size: 100% 100%;
         margin-bottom: 20px;
       }
       .series2{
         width: 21.6rem;
         height: 166px;
-        background: url('../../images/home-series2.png') no-repeat;
+        background: url('../../images/home-series8.png') no-repeat;
         background-size: 100% 100%;
         margin-bottom: 20px;
       }
       .series3{
         width: 21.6rem;
         height: 166px;
-        background: url('../../images/home-series3.png') no-repeat;
+        background: url('../../images/home-series9.png') no-repeat;
         background-size: 100% 100%;
         margin-bottom: 20px;
       }
