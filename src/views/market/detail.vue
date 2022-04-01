@@ -533,8 +533,8 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
   
 }
   .detail-top {
-    background-color: #233370;
-    background-image: url(../../images/market-banner.png);
+    background-color: #333;
+    background-image: url('http://arts.huoshu.org:8999/group1/M00/00/04/CnkAAmJGvgGACdllAAwmkbFm0IQ318.png');
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
@@ -989,8 +989,8 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
   background-color: #fff;
   margin-bottom: 7rem;
   .detail-top {
-    background-color: #233370;
-    background-image: url(../../images/market-banner.png);
+    background-color: #333;
+    background-image: url(../../images/market-banner1.png);
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;

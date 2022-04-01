@@ -578,6 +578,7 @@ export default {
             padding: 0 0.5rem;
             margin-top: 16px;
             text-align: center;
+            font-size: 10px;
           }
         }
       }
@@ -1065,7 +1066,7 @@ export default {
               color: #FFFFFF;
               margin-top: 2px;
               padding: 0px 19px 0px 20px;
-              overflow: hidden;
+              // overflow: hidden;
               text-align: center;
             }
           }
