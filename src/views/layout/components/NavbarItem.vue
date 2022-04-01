@@ -54,7 +54,7 @@
       </div> -->
       <el-dropdown @command="handleLogoutCommand">
         <div class="nav-item-image" style="width: 40px;height: 40px;">
-          <img src="../../../images/user-icon.png" style="width: 40px;height: 40px;border-radius: 100%"/>
+          <img src="../../../images/user-icon.png" style="width: 40px;height: 40px;border-radius: 100%; cursor: pointer;"/>
         </div>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item command="1">退出登录</el-dropdown-item>
@@ -293,6 +293,9 @@ export default {
             width: 100%;
           }
         }
+      }
+      .nav-item:hover{
+        cursor: pointer;
       }
     }
   }
