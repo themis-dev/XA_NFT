@@ -268,13 +268,13 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
       handleClick() {
         if(this.detailData.status == 0) {
           this.$message({
-            message: '当前商品已售罄',
+            message: '纪念品已领光',
             type: 'warning'
           })
           return
         } else if(this.detailData.status == 9){
           this.$message({
-            message: '当前商品未开售',
+            message: '领取活动尚未开始',
             type: 'warning'
           })
           return
