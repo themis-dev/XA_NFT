@@ -46,7 +46,7 @@
                 <a-step title="Waiting" description="This is a description." />
                 <a-step title="Waiting" description="This is a description." />
             </a-steps> -->
-            <el-timeline>
+            <el-timeline v-if="blockDetail.voList && blockDetail.voList.length > 0">
                 <el-timeline-item
                 v-for="(activity, index) in blockDetail.voList"
                 :key="index"
@@ -64,6 +64,7 @@
                 </div>
                 </el-timeline-item>
             </el-timeline>
+            <span v-else style="margin-left: 40px;margin-top: 20px;">上链中...</span>
         </div>
     </div>
 </template>
