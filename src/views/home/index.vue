@@ -16,11 +16,11 @@
           </el-col>
           <el-col :xs="24" :md="12" :lg="12">
             <div class="recommend">
-              <div class="mark">
+              <div class="mark" @click="handleMoreClick">
                 <span class="title">雄安五周年纪念系列</span>
                 <span class="desc">雄安新区设立五周年之际，首款数字纪念品将震撼发布，献礼雄安每位建设者！雄安数字纪念品以数字图片、3D荣誉宝盒和纪念章的形式向公众亮相，每个系列限量发行。</span>
                 <div class="check">
-                  <button class="btn" @click="handleMoreClick">查看</button>
+                  <button class="btn">查看</button>
                   <!-- <span class="price">￥ 19.9<span>起</span></span> -->
                 </div>
               </div>
@@ -43,7 +43,7 @@
         </div> -->
         <el-row :gutter="24" justify="center">
           <el-col :xs="24" :md="8" :lg="8">
-            <div class="series1 plarform-series">
+            <div class="series1 plarform-series" @click="handleMoreClick">
               <div class="series-wrapper">
                 <span class="title">《雄安五周年大事记数字图片》</span>
                 <span class="desc">整套数字图片包括10张不同类型的数字图片，均代表着雄安新区成立五周年以来不同阶段的重要时刻，每幅限量发行2022份。</span>
@@ -51,7 +51,7 @@
             </div>
           </el-col>
           <el-col :xs="24" :md="8" :lg="8">
-            <div class="series2 plarform-series">
+            <div class="series2 plarform-series" @click="handleMoreClick">
               <div class="series-wrapper">
                 <span class="title">《我与雄安的故事系列数字明信片》</span>
                 <span class="desc">整套数字明信片包含12张，从设计师、医生、教育工作者、农民、建筑师、厨师、记者、警察、歌手、消防员等不同角度展现雄安各行业建设者新形象，每张限量2022份。</span>
@@ -59,7 +59,7 @@
             </div>
           </el-col>
           <el-col :xs="24" :md="8" :lg="8">
-            <div class="series3 plarform-series">
+            <div class="series3 plarform-series" @click="handleMoreClick">
               <div class="series-wrapper">
                 <span class="title">《雄安五周年纪念数字海报》</span>
                 <span class="desc">整套数字海报包括9张不同类型的海报，分别由圈点设计、日一设计、韵博设计等三家知名设计公司围绕“雄安五周年”主题进行绘制，十分具有纪念意义，每张限量2022份。</span>
@@ -69,23 +69,23 @@
         </el-row>
         <el-row :gutter="24" justify="center">
           <el-col :xs="24" :md="8" :lg="8">
-            <div class="series4 plarform-series series-top">
+            <div class="series4 plarform-series series-top" @click="handleMoreClick">
               <div class="series-wrapper">
                 <span class="title">《以先见，见未来》</span>
                 <span class="desc">根据雄安发展这一千年大计的政治占位，以历史、现在和未来的千年时 间轴这一思路，发行三款数字纪念品</span>
               </div>
             </div>
           </el-col>
-          <el-col :xs="24" :md="8" :lg="8">
-            <div class="series5 plarform-series  series-top">
+          <!-- <el-col :xs="24" :md="8" :lg="8">
+            <div class="series5 plarform-series  series-top" @click="handleMoreClick">
               <div class="series-wrapper">
                 <span class="title">《千分之五》</span>
                 <span class="desc">隐藏款五周年纪念章，以“千分之五”为理念，在雄安千年大计的时间轴上见证数字城市、智能城市基石铸就的五年。</span>
               </div>
             </div>
-          </el-col>
+          </el-col> -->
           <el-col :xs="24" :md="8" :lg="8">
-            <div class="series6 plarform-series  series-top">
+            <div class="series6 plarform-series  series-top" @click="handleMoreClick">
               <div class="series-wrapper">
                 <span class="title">《雄安五周年书法集》</span>
                 <span class="desc">作品集围绕雄安新区成立五周年这一重大主题，通过书法的艺术表现形式与数字展览叙事手法，将雄安新区五年来壮丽辉煌的建设成果，化作笔端的浓情厚谊。作品集由全国书坛大家名家和骨干书家、中国书协各团体会员书法工作者、全国高校书法专业工作者等共同参与，这些作品或高谈阔论，或清言雅语，点线结合，经纬交织，展现了雄安新区万众一心进行伟大实践的奋斗历程。</span>
@@ -115,56 +115,80 @@
           <span class="sub-title">独一无二，专属你的雄安记忆</span>
           <span class="desc">每个雄安数字纪念品都具有独一无二的链上序列号，可以作为数字纪念品在雄安链上对应且唯一的权利证明。</span>
         </div>
-        <el-row :gutter="24" justify="center">
-          <el-col :xs="8" :md="4" :lg="4">
-            <div class="series1 value-series">
+        <div class="value-image-wrapper">
+          <div class="series1 value-series" @click="handleMoreClick">
               <div class="series-wrapper">
                 <span class="title">雄安建设场景</span>
                 <span class="desc">《雄安五周年大事记数字图片》</span>
               </div>
+          </div>
+          <div class="series2 value-series" @click="handleMoreClick">
+              <div class="series-wrapper">
+                <span class="title">热忱</span>
+                <span class="desc">《我与雄安的故事系列数字明信片》</span>
+              </div>
             </div>
+          <div class="series3 value-series" @click="handleMoreClick">
+              <div class="series-wrapper">
+                <span class="title">雄安崛起</span>
+                <span class="desc">《雄安五周年纪念数字海报》</span>
+              </div>
+            </div>
+            <div class="series4 value-series" @click="handleMoreClick">
+              <div class="series-wrapper">
+                <span class="title">雄安站</span>
+                <span class="desc">《以先见，见未来》</span>
+              </div>
+            </div>
+            <div class="series6 value-series" @click="handleMoreClick">
+              <div class="series-wrapper">
+                <span class="title">燕赵大地</span>
+                <span class="desc">《雄安五周年书法集》</span>
+              </div>
+            </div>
+        </div>
+        <!-- <el-row :gutter="24" justify="center" class="footer-wrapper">
+          <el-col :xs="8" :md="5" :lg="4">
+            <div class="series1 value-series" @click="handleMoreClick">
+              <div class="series-wrapper">
+                <span class="title">雄安建设场景</span>
+                <span class="desc">《雄安五周年大事记数字图片》</span>
+              </div>
+          </div>
           </el-col>
-          <el-col :xs="8" :md="4" :lg="4">
-            <div class="series2 value-series">
+          <el-col :xs="8" :md="5" :lg="4">
+            <div class="series2 value-series" @click="handleMoreClick">
               <div class="series-wrapper">
                 <span class="title">热忱</span>
                 <span class="desc">《我与雄安的故事系列数字明信片》</span>
               </div>
             </div>
           </el-col>
-          <el-col :xs="8" :md="4" :lg="4">
-            <div class="series3 value-series">
+          <el-col :xs="8" :md="5" :lg="4">
+            <div class="series3 value-series" @click="handleMoreClick">
               <div class="series-wrapper">
                 <span class="title">雄安崛起</span>
                 <span class="desc">《雄安五周年纪念数字海报》</span>
               </div>
             </div>
           </el-col>
-          <el-col :xs="0" :md="4" :lg="4">
-            <div class="series4 value-series">
+          <el-col :xs="0" :md="5" :lg="4">
+            <div class="series4 value-series" @click="handleMoreClick">
               <div class="series-wrapper">
                 <span class="title">雄安站</span>
                 <span class="desc">《以先见，见未来》</span>
               </div>
             </div>
           </el-col>
-          <el-col :xs="0" :md="4" :lg="4">
-            <div class="series5 value-series">
-              <div class="series-wrapper">
-                <span class="title">纪念章</span>
-                <span class="desc">《千分之五》</span>
-              </div>
-            </div>
-          </el-col>
-          <el-col :xs="0" :md="4" :lg="4">
-            <div class="series6 value-series">
+          <el-col :xs="0" :md="5" :lg="4">
+            <div class="series6 value-series" @click="handleMoreClick">
               <div class="series-wrapper">
                 <span class="title">燕赵大地</span>
                 <span class="desc">《雄安五周年书法集》</span>
               </div>
             </div>
           </el-col>
-        </el-row>
+        </el-row> -->
         <div class="value-btn">
           <button class="btn" @click="handleMoreClick">查看更多</button>
         </div>
@@ -519,6 +543,11 @@ export default {
           padding-right: 18px;
         }
       }
+      .value-image-wrapper{
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+        }
       .value-series {
         margin: 0 auto;
         padding: 0px;
@@ -573,6 +602,7 @@ export default {
         margin-bottom: 20px;
       }
       .series4{
+        display: none;
         width: 6.8rem;
         height: 293px;
         background: url('../../images/value-icon4.png') no-repeat;
@@ -580,6 +610,7 @@ export default {
         margin-bottom: 20px;
       }
       .series5{
+        display: none;
         width: 6.8rem;
         height: 293px;
         background: url('../../images/value-icon5.png') no-repeat;
@@ -587,6 +618,7 @@ export default {
         margin-bottom: 20px;
       }
       .series6{
+        display: none;
         width: 6.8rem;
         height: 293px;
         background: url('../../images/value-icon6.png') no-repeat;
@@ -762,6 +794,9 @@ export default {
               }
             }
           }
+          .mark:hover{
+            cursor: pointer;
+          }
         }
         .item{
           padding: 5.3rem 2rem;
@@ -867,6 +902,9 @@ export default {
             }
           }
         }
+        .plarform-series:hover{
+          cursor: pointer;
+        }
         .series-top {
           margin-top: 40px;
         }
@@ -963,6 +1001,7 @@ export default {
       width: 100%;
       display: flex;
       flex-direction: column;
+      justify-content: center!important;
       position: relative;
       background: #FFFFFF;
       overflow: hidden;
@@ -994,6 +1033,11 @@ export default {
             padding-right: 18px;
           }
         }
+        .value-image-wrapper{
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+        }
         .value-series {
           display: flex;
           flex-direction: column;
@@ -1024,6 +1068,9 @@ export default {
             }
           }
         }
+        .value-series:hover{
+          cursor: pointer;
+        }
         .series1 {
           width: 174px;
           height: 293px;
@@ -1046,20 +1093,22 @@ export default {
         margin-bottom: 20px;
         }
         .series4 {
+          display: block;
           width: 174px;
           height: 293px;
           background: url('../../images/value-icon4.png') no-repeat;
         background-size: 100% 100%;
         margin-bottom: 20px;
         }
-        .series5 {
-          width: 174px;
-          height: 293px;
-          background: url('../../images/value-icon5.png') no-repeat;
-        background-size: 100% 100%;
-        margin-bottom: 20px;
-        }
+        // .series5 {
+        //   width: 174px;
+        //   height: 293px;
+        //   background: url('../../images/value-icon5.png') no-repeat;
+        // background-size: 100% 100%;
+        // margin-bottom: 20px;
+        // }
         .series6 {
+          display: block;
           width: 174px;
           height: 293px;
           background: url('../../images/value-icon6.png') no-repeat;

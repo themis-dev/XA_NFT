@@ -42,13 +42,13 @@
                     <span class="item-mobile-text">观赏纪念品</span>
                 </div>
             </div>
-            <div class="collection-item item5" @click="handleCollectionClick(5)">
+            <!-- <div class="collection-item item5" @click="handleCollectionClick(5)">
                 <div class="item-desc">
                     <span class="item-title">《千分之五》</span>
-                    <span class="item-text">隐藏款五周年纪念章，以“千分之五”为理念，在雄安千年大计的时间轴上见证数字城市、智能城市基石铸就的五年。</span>
+                    <span class="item-text">隐藏款五周年，在雄安千年大计的时间轴上见证数字城市、智能城市基石铸就的五年。</span>
                     <span class="item-mobile-text">观赏纪念品</span>
                 </div>
-            </div>
+            </div> -->
             <div class="collection-item item6" @click="handleCollectionClick(6)">
                 <div class="item-desc">
                     <span class="item-title">《雄安五周年书法集》</span>
@@ -56,8 +56,9 @@
                     <span class="item-mobile-text">观赏纪念品</span>
                 </div>
             </div>
+            <div class="collection-item item7"></div>
             <div class="description-wrapper">
-                <div class="desc">为迎接雄安新区成立五周年，雄安区块链实验室、雄安新区未来工业设计研究院联合人民雄安网、北京星原传奇文化传媒有限公司、中信银行科技团队共同在数字文旅领域推出发行数字纪念品，其将在“雄安数字纪念平台”--幻安，以数字图片、3D 荣誉宝盒和纪念章的形式向公众亮相。数字图片以新区五年来各行业不同发展阶段的珍藏“大事记”照片、展现雄安各行业建设者新形象的“我与雄安的故事”系列数字明信片、为了庆祝新区五周年联合知名设计公司绘制的雄安五周年纪念海报，用数字图片定格雄安记忆；以及3D荣誉宝盒将以古文明纪念品、“雄安今朝”纪念品、“未来之眼”纪念品的三个系列发行，以先见，见未来；另外，推出线上纪念章一枚，以“千分之五”为理念，在雄安千年大计的时间轴上见证数字城市、智能城市基石铸就的五年。每张图片、每个3D荣誉宝盒以及纪念币均基于雄安区块链技术铸造生成，都具有独一无二的链上序列号，可以作为数字藏品在雄安链上对应且唯一的权利证明。彰显雄安未来城市的新形象、新时尚，增强雄安引领未来城市品牌的认知，更好的记录、延续“专属”于建设者的雄安数字记忆。</div>
+                <div class="desc">为迎接雄安新区成立五周年，雄安区块链实验室、雄安新区未来工业设计研究院联合人民雄安网、北京星原传奇文化传媒有限公司、中信银行科技团队共同在数字文旅领域推出发行数字纪念品，其将在“雄安数字纪念平台”--幻安，以数字图片、3D 荣誉宝盒的形式向公众亮相。数字图片以新区五年来各行业不同发展阶段的珍藏“大事记”照片、展现雄安各行业建设者新形象的“我与雄安的故事”系列数字明信片、为了庆祝新区五周年联合知名设计公司绘制的雄安五周年纪念海报，用数字图片定格雄安记忆；以及3D荣誉宝盒将以古文明纪念品、“雄安今朝”纪念品、“未来之眼”纪念品的三个系列发行，以先见，见未来。每张图片、每个3D荣誉宝盒均基于雄安区块链技术铸造生成，都具有独一无二的链上序列号，可以作为数字藏品在雄安链上对应且唯一的权利证明。彰显雄安未来城市的新形象、新时尚，增强雄安引领未来城市品牌的认知，更好的记录、延续“专属”于建设者的雄安数字记忆。</div>
             </div>
         </div>
         <el-dialog
@@ -77,7 +78,7 @@
                         <span class="dialog-line"></span>
                     </div>
                     <div class="dialog-content">
-                        雄安新区成立五周年，艺术家们创作了众多优秀的雄安数字纪念品。每张海报、每个3D荣誉宝盒、纪念币以及书法作品均基于雄安区块链技术铸造生成，都具有独一无二的链上序列号，可以作为数字藏品在雄安链上对应且唯一的权利证明。彰显雄安未来城市的新形象、新时尚，增强雄安引领未来城市品牌的认知。它让我们在数字雄安、智能雄安时代，真正拥有“专属”于自己的内容。
+                        雄安新区成立五周年，艺术家们创作了众多优秀的雄安数字纪念品。每张海报、每个3D荣誉宝盒以及书法作品均基于雄安区块链技术铸造生成，都具有独一无二的链上序列号，可以作为数字藏品在雄安链上对应且唯一的权利证明。彰显雄安未来城市的新形象、新时尚，增强雄安引领未来城市品牌的认知。它让我们在数字雄安、智能雄安时代，真正拥有“专属”于自己的内容。
                         <span class="dialog-subtitle">雄安数字纪念品</span>
                         <span class="dialog-line"></span>
                     </div>
@@ -98,14 +99,15 @@
                             <img src="../../images/home-series4.jpg" class="dialog-image"/>
                             <span class="dialog-image-desc">《以先见，见未来》</span>
                         </div>
-                        <div class="dialog-collection-item">
+                        <!-- <div class="dialog-collection-item">
                             <img src="../../images/home-series5.png" class="dialog-image"/>
                             <span class="dialog-image-desc">《千分之五》</span>
-                        </div>
+                        </div> -->
                         <div class="dialog-collection-item">
                             <img src="../../images/home-series6.png" class="dialog-image"/>
                             <span class="dialog-image-desc">《雄安五周年书法集》</span>
                         </div>
+                        <div class="dialog-collection-item item-none"></div>
                     </div>
                 </div>
                 <div class="dialog-footer-wrapper">
@@ -324,7 +326,7 @@ export default {
         color: #FFFFFF;
         display: flex;
         flex-flow: row wrap;
-        justify-content: space-around;
+        justify-content: space-between;
         padding-bottom: 81px;
         .collection-item{
             width: 30%;
@@ -365,6 +367,9 @@ export default {
                 }
             }
         }
+        .collection-item:hover{
+            cursor: pointer;
+        }
         .item1{
             background: url('../../images/home-series1.png') no-repeat;
             background-size: cover;
@@ -388,6 +393,9 @@ export default {
         .item6{
             background: url('../../images/home-series6.png') no-repeat;
             background-size: cover;
+        }
+        .item7{
+            display: block;
         }
     }
     .dialog-wrapper{
@@ -574,6 +582,9 @@ export default {
                 background: url('../../images/home-series6.png') no-repeat;
                 background-size: cover;
             }
+            .item7{
+                display: none;
+            }
 
         }
         .dialog-wrapper{
@@ -644,6 +655,9 @@ export default {
                             color: #FADE45;
                             font-size: 8px;
                         }
+                    }
+                    .item-none{
+                        display: block;
                     }
                 }
             }

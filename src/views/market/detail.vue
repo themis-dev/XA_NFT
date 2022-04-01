@@ -192,7 +192,7 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
     mounted() {
       
       this.getData()
-     
+      
     },
     methods: {
       // 生成二维码

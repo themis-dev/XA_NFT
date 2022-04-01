@@ -9,11 +9,11 @@
       <div class="right">
         <div>
           <img/>
-          <span>雄安新区未来工业设计研究院</span>
+          <span>雄安新区区块链实验室</span>
         </div>
         <div class="right-footer">
           <img/>
-          <span>雄安新区区块链实验室</span>
+          <span>雄安新区未来工业设计研究院</span>
         </div>
       </div>
     </div>
