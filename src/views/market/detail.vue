@@ -99,8 +99,8 @@
           <div class="work-msg-item-title">作者介绍</div>
           <div class="work-msg-item-val">{{detailData.creatorIntroduction}}</div>
         </div>
-        <div class="work-msg-item" v-show="detailData.publisher !== ' '">
-          <div class="work-msg-item-title">发行方</div>
+        <div class="work-msg-item" v-show="detailData.publisherIntroduction !== ' '">
+          <div class="work-msg-item-title">发行方简介</div>
           <div class="work-msg-item-val">{{detailData.publisherIntroduction}}</div>
         </div>
         <div class="work-msg-item" v-show="detailData.numismaticValue !== ' '">

@@ -455,7 +455,7 @@ import moment from 'moment'
       flex-direction: column;
       img {
         width: 300px;
-        height: 300px;
+        height: auto;
         border-radius: 8px;
       }
       .nft-msg-right {
@@ -690,6 +690,7 @@ import moment from 'moment'
         img {
           width: 100%;
           object-fit: contain;
+          height: auto;
           // width: 15.25rem;
           // height: 15.25rem;
           // object-fit:contain;
