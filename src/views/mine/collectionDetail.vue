@@ -292,7 +292,7 @@ import moment from 'moment'
 				
 				var quality = 0.8;
 				//这里的dataurl就是base64类型
-        console.log(1111)
+        // console.log(1111)
 				var dataURL = canvas.toDataURL("image/jpeg", quality);//使用toDataUrl将图片转换成jpeg的格式,不要把图片压缩成png，因为压缩成png后base64的字符串可能比不转换前的长！
 			  console.log(dataURL)
 			}
@@ -377,7 +377,11 @@ import moment from 'moment'
                         message: '转赠成功',
                         type: 'success'
                     })
-                     
+                    setTimeout(() => {
+                      this.$router.push({
+                        path: '/mine/collection',
+                      })
+                    }, 1000)
                 } else {
                   this.$message({
                         message: res.message,
