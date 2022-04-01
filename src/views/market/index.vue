@@ -2,7 +2,7 @@
     <div class="container content">
         <div class="collection">
             <div class="market">
-              <div class="title">交易市场</div>
+              <div class="title">探索纪念品</div>
               <div class="collection-content">
                 <div class="collection-content-item" v-for="item in marketData" v-bind:key='item.pid' @click="goDetail(item)">
                   <div class="time">

@@ -149,6 +149,13 @@ export default {
         
     },
     mounted() {
+         this.nowTime = moment.parseZone(new Date().getTime()).local().format('YYYY-MM-DD HH:mm:ss')
+            if (!this.qr) {
+                this.$nextTick(() => {
+                    this.crateQrcode()
+                    this.handleSaveClick()
+                })
+            }
     },
     methods: {
         handleShareClick() {
@@ -172,13 +179,7 @@ export default {
             // // 释放内存
             // clipboard.destroy()
             // })
-            this.nowTime = moment.parseZone(new Date().getTime()).local().format('YYYY-MM-DD HH:mm:ss')
-            if (!this.qr) {
-                this.$nextTick(() => {
-                    this.crateQrcode()
-                    this.handleSaveClick()
-                })
-            }
+           
             console.log(document.querySelector('#screen'))
         // document.querySelector('#screen').addEventListener('touchstart', () => {
         //     Message({
