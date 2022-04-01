@@ -56,10 +56,10 @@
                     <div class="data-item-title">创作者</div>
                     <div class="data-item-num">{{ detailObj.creator }}</div>
                   </div>
-                  <div class="data-item">
+                  <!-- <div class="data-item">
                     <div class="data-item-title">交易金额</div>
                     <div class="data-item-num">{{ detailObj.price }}元</div>
-                  </div>
+                  </div> -->
                   <div class="data-item">
                     <div class="data-item-title">交易时间</div>
                     <div class="data-item-num">{{ detailObj.payTime }}</div>
