@@ -2,7 +2,7 @@
     <div class="activity-wrapper">
         <div class="title">
             <img class="title-icon" src="../../images/activity-icon1.png"/>
-            <span class="title-text">雄安五周年数字纪念品</span>
+            <span class="title-text">雄安记忆系列数字纪念品</span>
             <img class="title-icon" src="../../images/activity-icon1.png"/>
         </div>
         <div class="subtitle">
@@ -74,7 +74,7 @@
         <div class="dialog-wrapper" ref="screen">
                 <div class="dialog-image-wrapper">
                     <div class="dialog-title">
-                        <span class="dialog-main-title">雄安五周年数字纪念品</span>
+                        <span class="dialog-main-title">雄安记忆系列数字纪念品</span>
                         <span class="dialog-line"></span>
                     </div>
                     <div class="dialog-content">

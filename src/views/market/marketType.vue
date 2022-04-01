@@ -4,7 +4,7 @@
               <div class="title">
                 <div class="title-left" @click="goback">
                   <img src="../../images/back-black.png" alt="">
-                  <span>雄安五周年数字纪念品</span> 
+                  <span>雄安记忆系列数字纪念品</span> 
                 </div>
                 <div class="title-name">{{marketData.productTypeName}}</div>
               </div>

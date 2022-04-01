@@ -17,7 +17,7 @@
           <el-col :xs="24" :md="12" :lg="12">
             <div class="recommend">
               <div class="mark" @click="handleMoreClick">
-                <span class="title">雄安五周年纪念系列</span>
+                <span class="title">雄安记忆系列</span>
                 <span class="desc">雄安新区设立五周年之际，首款数字纪念品将震撼发布，献礼雄安每位建设者！雄安数字纪念品以数字图片、3D荣誉宝盒的形式向公众亮相，每个系列限量发行。</span>
                 <div class="check">
                   <button class="btn">查看</button>
