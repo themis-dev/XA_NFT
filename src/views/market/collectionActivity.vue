@@ -11,7 +11,7 @@
             <span class="share-wrapper share" @click="handleShareClick" :data-clipboard-text="href"><img src="../../images/share-icon1.png"/>  <span>分享</span></span>
         </div>
         <div class="category-title">
-            多款数字纪念品 限量领取
+            多款数字纪念品<br/>限量领取
         </div>
         <div class="collection-wrapper">
             <div class="collection-item item1" @click="handleCollectionClick(1)">
