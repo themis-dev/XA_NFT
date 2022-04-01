@@ -37,7 +37,7 @@
             </div>
         </div>
         <div class="order-circulation">
-            <div class="order-circulation-title">流转信息</div>
+            <div class="order-circulation-title">链上信息</div>
             <el-divider></el-divider>
             <!-- <a-steps progress-dot :current="1" direction="vertical">
                 <a-step title="苦行诗" description="This is a description. This is a description." />
@@ -52,7 +52,7 @@
                 :key="index"
                 color="#3842FE">
                 <div class="timeLine-item">
-                    <p style="font-size: 14px; font-weight: 500; color: #333333;">{{ activity.from.length > 10 ? setNumber(activity.from) : activity.from }}</p>
+                    <p style="font-size: 14px; font-weight: 500; color: #333333;">来自: {{ activity.from.length > 10 ? setNumber(activity.from) : activity.from }}</p>
                 </div>
                 <div class="timeLine-item">
                     <p style="font-size: 12px; font-weight: 400; color: #999999;">发行时间</p>
