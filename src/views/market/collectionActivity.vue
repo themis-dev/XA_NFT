@@ -151,13 +151,13 @@ export default {
         
     },
     mounted() {
-         this.nowTime = moment.parseZone(new Date().getTime()).local().format('YYYY-MM-DD HH:mm:ss')
-            if (!this.qr) {
-                this.$nextTick(() => {
-                    this.crateQrcode()
-                    this.handleSaveClick()
-                })
-            }
+        this.nowTime = moment.parseZone(new Date().getTime()).local().format('YYYY-MM-DD HH:mm:ss')
+        if (!this.qr) {
+            this.$nextTick(() => {
+                this.crateQrcode()
+                this.handleSaveClick()
+            })
+        }
     },
     methods: {
         handleShareClick() {

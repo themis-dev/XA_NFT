@@ -12,7 +12,7 @@
               <div class="share-dialog-collection-num-time">生成时间 {{nowTime}}</div> -->
               <div class="share-top">
                 <div>
-                  <div class="share-top-title1">雄安五周年数字纪念品 </div>
+                  <div class="share-top-title1">雄安五周年数字纪念品</div>
                   <div class="share-top-title2">{{detailData.openingTime}}正式发行，欢迎领取！</div>
                 </div>
               </div>
@@ -268,13 +268,13 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
       handleClick() {
         if(this.detailData.status == 0) {
           this.$message({
-            message: '当前商品已售罄',
+            message: '纪念品已领光',
             type: 'warning'
           })
           return
         } else if(this.detailData.status == 9){
           this.$message({
-            message: '当前商品未开售',
+            message: '领取活动尚未开始',
             type: 'warning'
           })
           return
@@ -814,6 +814,7 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-width: 320px;
     
     .share-top-title1 {
       font-size: 26px;
@@ -1043,10 +1044,9 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
         justify-content: start;
         position: relative;
         .work-name {
-          font-size: 28px;
+          font-size: 20px;
           font-family: MiSans Semibold;
           font-weight: 600;
-          line-height: 37px;
           color: #FFFFFF;
         }
         .work-num {
