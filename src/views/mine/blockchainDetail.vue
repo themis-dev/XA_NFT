@@ -76,8 +76,10 @@ export default {
             blockDetail: {}
         }
     },
-    mounted() {
+    beforeCreate() {
         document.querySelector('.browser-header').style.display="none"
+    },
+    mounted() {
         this.getBlockchain()
     },
     methods: {
@@ -102,7 +104,7 @@ export default {
             }
         },
     },
-    destory() {
+    beforeDestroy() {
         document.querySelector('.browser-header').style.display="block"
     }
 }
