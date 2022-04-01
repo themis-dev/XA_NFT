@@ -120,6 +120,11 @@ export const constantRouterMap = [
       path: 'market-type',
       component: () => import('@/views/market/marketType')
     },
+    {
+      name: 'serviceAgreement',
+      path: 'user/serviceAgreement',
+      component: () => import('@/views/user/serviceAgreement')
+    },
     ]
   }
 ]

@@ -11,7 +11,7 @@
                 </div>
                 <div class="agreement-wrapper">
                     <el-checkbox v-model="isChecked" @change="handleCheckChange"></el-checkbox>
-                    <span style="margin-left: 2px;">阅读并同意<span class="link">服务协议</span>和<span class="link">隐私协议</span></span>
+                    <span style="margin-left: 2px;">阅读并同意<span class="link" @click="handleServerClick">服务协议</span></span>
                 </div>
             </div>
             <div class="btn-wrapper">
@@ -74,7 +74,12 @@ export default {
                 })
                 return
             }
-        }   
+        },
+        handleServerClick() {
+            this.$router.push({
+                path: '/user/serviceAgreement'
+            })
+        }  
     }
 }
 </script>

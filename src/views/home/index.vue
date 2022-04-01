@@ -18,7 +18,7 @@
             <div class="recommend">
               <div class="mark" @click="handleMoreClick">
                 <span class="title">雄安五周年纪念系列</span>
-                <span class="desc">雄安新区设立五周年之际，首款数字纪念品将震撼发布，献礼雄安每位建设者！雄安数字纪念品以数字图片、3D荣誉宝盒和纪念章的形式向公众亮相，每个系列限量发行。</span>
+                <span class="desc">雄安新区设立五周年之际，首款数字纪念品将震撼发布，献礼雄安每位建设者！雄安数字纪念品以数字图片、3D荣誉宝盒的形式向公众亮相，每个系列限量发行。</span>
                 <div class="check">
                   <button class="btn">查看</button>
                   <!-- <span class="price">￥ 19.9<span>起</span></span> -->
@@ -556,9 +556,10 @@ export default {
         .series-wrapper{
           width: 100%;
           height: 104px;
-          background: rgba(31, 31, 31, 0.18);
+          background: rgba(31, 31, 31, 0.5);
           display: flex;
           flex-direction: column;
+          border-radius: 8px;
           .title{
             width: 100%;
             font-size: 16px;
@@ -880,9 +881,10 @@ export default {
             width: 100%;
             height: 104px;
             margin-top: 211px;
-            background: rgba(31, 31, 31, 0.13);
+            background: rgba(31, 31, 31, 0.5);
             display: flex;
             flex-direction: column;
+            border-radius: 8px;
             .title{
               width: 100%;
               margin-top: 11px;
@@ -1045,7 +1047,7 @@ export default {
             width: 100%;
             height: 104px;
             margin-top: 189px;
-            background: rgba(31, 31, 31, 0.18);
+            background: rgba(31, 31, 31, 0.5);
             display: flex;
             flex-direction: column;
             justify-content: center;
