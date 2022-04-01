@@ -89,11 +89,11 @@ import moment from 'moment'
       setStatus(value) {
         switch (value) {
           case 0:
-            return '售罄';
+            return '已领完';
           case 1:
-            return '销售中';
+            return '领取中';
           case 9:
-            return '未开售'
+            return '即将发行'
         }
       }
     }
