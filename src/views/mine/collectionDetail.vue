@@ -997,7 +997,12 @@ import moment from 'moment'
 }
 
 .gift-dialog {
-  padding: 20px;
+  @media (max-width: 500px) { 
+    padding: 20px 0px 20px 12px;
+  }
+  @media (min-width: 500px) { 
+    padding: 20px;
+  }
   .gift-dialog-title {
     font-size: 28px;
     font-family: MiSans Semibold;
@@ -1147,12 +1152,12 @@ import moment from 'moment'
         cursor: pointer;
       }
      /deep/  .el-input__inner {
-        width: 200px;
+        width: 180px;
         background: #f5f5f5;
         border: none;
       }
       .el-input {
-        width: 200px;
+        width: 180px;
       }
       
     }

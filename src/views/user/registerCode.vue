@@ -117,7 +117,6 @@ export default {
              this.$router.go(-1)
          },
          handleChange(e) {
-            console.log(e.target.value)
             e.target.value = e.target.value.replace(/[^0-9]{6}/g,'')
             if(e.target.value.length > 6) {
                 this.sendCodeValue = e.target.value.slice(0, 6)

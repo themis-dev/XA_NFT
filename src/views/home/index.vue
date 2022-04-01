@@ -401,6 +401,7 @@ export default {
         margin: 0 auto;
         display: flex;
         align-items: flex-end;
+        border-radius: 8px;
         .series-wrapper{
           width: 100%;
           height: 104px;
@@ -838,6 +839,8 @@ export default {
         .plarform-series {
           display: flex;
           flex-direction: column;
+          border-radius: 8px;
+          overflow: hidden;
           .series-wrapper{
             width: 100%;
             height: 104px;
@@ -860,6 +863,7 @@ export default {
               margin-top: 16px;
               padding: 0px 19px 0px 20px;
               overflow: hidden;
+              border-radius: 8px;
             }
           }
         }
