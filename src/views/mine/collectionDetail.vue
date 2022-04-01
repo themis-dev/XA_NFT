@@ -205,7 +205,6 @@ import moment from 'moment'
     },
     mounted() {
       this.getData()
-      
     },
     methods: {
       getData() {
@@ -214,6 +213,13 @@ import moment from 'moment'
                 this.detailObj = res.data
                 // this.imageUrlToBase64()
             }
+           this.nowTime = moment.parseZone(new Date().getTime()).local().format('YYYY-MM-DD HH:mm:ss')
+            if (!this.qr) {
+                this.$nextTick(() => {
+                  this.crateQrcode()
+                    this.handleOk()
+                })
+              }
         })
       },
     clickItem(item) {
@@ -243,20 +249,10 @@ import moment from 'moment'
       })
     },
     openShare() {
-      this.imageurl = ''
       setTimeout(() => {
         this.shareDialogVisible = true
       }, 1000)
-      this.nowTime = moment.parseZone(new Date().getTime()).local().format('YYYY-MM-DD HH:mm:ss')
-      if (!this.qr) {
-          this.$nextTick(() => {
-            this.crateQrcode()
-              this.handleOk()
-          })
-        }
-        this.$nextTick(() => {
-        this.handleOk()
-      })
+      
     },
     openGift() {
       this.giftDialogVisible = true

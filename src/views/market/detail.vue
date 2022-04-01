@@ -190,7 +190,9 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
     created() {
     },
     mounted() {
+      
       this.getData()
+     
     },
     methods: {
       // 生成二维码
@@ -205,19 +207,10 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
       })
     },
     openShare() {
-      this.imageurl = ''
       setTimeout(() => {
         this.shareDialogVisible = true
       }, 1000)
-      this.nowTime = moment.parseZone(new Date().getTime()).local().format('YYYY-MM-DD HH:mm:ss')
-      if (!this.qr) {
-          this.$nextTick(() => {
-            this.crateQrcode()
-          })
-        }
-        this.$nextTick(() => {
-          this.handleOk()
-        })
+      
     },
       //截屏
         handleOk() {
@@ -258,6 +251,15 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
           if(res.status == 1 && res.data) {
             this.detailData = res.data
           } 
+          this.nowTime = moment.parseZone(new Date().getTime()).local().format('YYYY-MM-DD HH:mm:ss')
+          if (!this.qr) {
+              this.$nextTick(() => {
+                this.crateQrcode()
+              })
+            }
+           this.$nextTick(() => {
+                this.handleOk()
+            })
         }).catch(error => {
           console.log(error)
         })
