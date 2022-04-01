@@ -1,13 +1,13 @@
 <template>
   <ul class="navbar-nav header-navbar">
-    <li class="navbar-search">
+    <!-- <li class="navbar-search">
       <el-input 
         placeholder="搜索纪念品名、艺术家、发行方"
         prefix-icon="el-icon-search"
         v-model="searchValue"
         v-on:keyup.enter.native="handleKeyUpClick"
       />
-    </li>
+    </li> -->
     <li
       class="nav-item has-menu menu-initialized"
       :class="[
