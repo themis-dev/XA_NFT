@@ -814,6 +814,7 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-width: 320px;
     
     .share-top-title1 {
       font-size: 26px;
@@ -1043,10 +1044,9 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
         justify-content: start;
         position: relative;
         .work-name {
-          font-size: 28px;
+          font-size: 20px;
           font-family: MiSans Semibold;
           font-weight: 600;
-          line-height: 37px;
           color: #FFFFFF;
         }
         .work-num {
