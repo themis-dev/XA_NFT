@@ -538,7 +538,8 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-    height: 692px;
+    // height: 692px;
+    padding-bottom: 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -559,8 +560,8 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
 
     }
     .work {
-      // width: 336px;
-      height: 336px;
+      width: 886px;
+      // height: 336px;
       margin-top: 76px;
       border-radius: 8px;
     }
@@ -994,7 +995,8 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-    height: 670px;
+    // height: 670px;
+    padding-bottom: 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1014,19 +1016,20 @@ import { getMarketDetail, marketPayment } from '@/api/market.js'
 
     }
     .img-work {
-      // width: 100%;
+      width: 100%;
       text-align: center;
     }
     .work {
       // width: 18.69rem;
-      // width: 90%;
-      height: 220px;
+      width: 90%;
+      // height: 220px;
       margin-top: 76px;
       border-radius: 8px;
       
     }
     .work[lazy=loading] {
       width: 18.69rem;
+      // width: 90%;
       height: 18.69rem;
       background: url('../../images/loading-bg.png') no-repeat;
       background-size: 100%;
