@@ -585,21 +585,21 @@ export default {
       .series1{
         width: 6.8rem;
         height: 293px;
-        background: url('../../images/value-icon1.png') no-repeat;
+        background: url('../../images/value-icon7.png') no-repeat;
         background-size: 100% 100%;
         margin-bottom: 20px;
       }
       .series2{
         width: 6.8rem;
         height: 293px;
-        background: url('../../images/value-icon2.png') no-repeat;
+        background: url('../../images/value-icon8.png') no-repeat;
         background-size: 100% 100%;
         margin-bottom: 20px;
       }
       .series3{
         width: 6.8rem;
         height: 293px;
-        background: url('../../images/value-icon3.png') no-repeat;
+        background: url('../../images/value-icon9.png') no-repeat;
         background-size: 100% 100%;
         margin-bottom: 20px;
       }
