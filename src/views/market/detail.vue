@@ -12,7 +12,7 @@
               <div class="share-dialog-collection-num-time">生成时间 {{nowTime}}</div> -->
               <div class="share-top">
                 <div>
-                  <div class="share-top-title1">雄安五周年数字纪念品 </div>
+                  <div class="share-top-title1">雄安五周年数字纪念品</div>
                   <div class="share-top-title2">{{detailData.openingTime}}正式发行，欢迎领取！</div>
                 </div>
               </div>
