@@ -9,6 +9,7 @@
                     <span>+86</span>
                     <input v-model="phoneNumber" placeholder="请输入手机号码"/>
                 </div>
+
                 <div class="agreement-wrapper">
                     <el-checkbox v-model="isChecked" @change="handleCheckChange"></el-checkbox>
                     <span style="margin-left: 2px;">阅读并同意<span class="link" @click="handleServerClick">服务协议</span></span>
@@ -18,33 +19,40 @@
                 <button type="primary" @click="handleNextClick">下一步</button>
             </div>
         </div>
+        <el-dialog :visible.sync="dialogVisible" class="dialog-wrapper">
+                <div class="verify-wrapper">
+                    <slide-verify :l="42"
+                        :r="10"
+                        :w="310"
+                        :h="155"
+                        ref="slideblock"
+                        slider-text="向右滑动"
+                        @success="onSuccess"
+                        @fail="onFail"
+                        @refresh="onRefresh"
+                    ></slide-verify>
+                </div>
+            </el-dialog>
     </div>
 </template>
 <script>
 import { getCaptcha } from '@/api/user'
+import { Message } from 'element-ui'
 
 export default {
     name: 'register',
     data () {
         return {
             phoneNumber: '',
-            isChecked: false
+            isChecked: false,
+            dialogVisible: false
         }
     },
     methods: {
         handleCheckChange(value) {
-            console.log(value)
             this.isChecked = value
         },
-        handleNextClick() {
-            if(!this.phoneNumber) {
-                this.$message({
-                    message: '请输入手机号码',
-                    type: 'warning'
-                })
-                return
-            }
-            if(this.isChecked) {
+        onSuccess(){
                 let reqObj = {
                     index: 1,
                     phoneNumber: this.phoneNumber
@@ -58,22 +66,44 @@ export default {
                             }
                         })
                     } else if(res.status == -1) {
-                        this.$message({
+                        Message({
                             message: res.message,
                             type: 'warning'
                         })
+                        this.dialogVisible = false
                         return
                     }
+                    this.dialogVisible = false
+                    this.$refs.slideblock.reset();
                 }).catch(error => {
                     console.log(error)
                 })
-            } else {
+        },
+        onFail(){
+            this.$refs.slideblock.reset();
+        },
+        onRefresh(){
+            
+        },
+        handleNextClick() {
+            if(!this.phoneNumber) {
                 this.$message({
+                    message: '请输入手机号码',
+                    type: 'warning'
+                })
+                return
+            }
+            if(this.isChecked) {
+                this.dialogVisible = true
+            } else {
+                Message({
                     message: '请勾选阅读并同意',
                     type: 'warning'
                 })
                 return
             }
+            this.$refs.slideblock.reset();
+            
         },
         handleServerClick() {
             this.$router.push({
@@ -174,6 +204,34 @@ export default {
             }
         }
 
+    }
+    .dialog-wrapper{
+        @media (max-width: 500px) {
+            /deep/.el-dialog{
+                width: 100px!important;
+                .el-dialog__header{
+                    width: 100px!important;
+                }
+                .el-dialog__body{
+                    width: 80px!important;
+                }
+            }
+        }
+        
+        /deep/ .el-dialog__body{
+            height: 280px;
+            .verify-wrapper{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 80px;
+            }
+        }
+    }
+    /deep/.el-dialog-wrapper{
+        @media (max-width: 500px) {
+             width: 200px!important;
+        }
     }
 }
 </style>
