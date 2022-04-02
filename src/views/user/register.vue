@@ -80,7 +80,7 @@ export default {
                 })
         },
         onFail(){
-            this.$refs.slideblock.reset();
+            // this.$refs.slideblock.reset();
         },
         onRefresh(){
             

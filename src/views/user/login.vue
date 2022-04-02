@@ -279,8 +279,8 @@ export default {
             
         },
         onFail(){
-            this.dialogVisible = false
-            this.$refs.slideblock.reset();
+            // this.dialogVisible = false
+            // this.$refs.slideblock.reset();
         },
         onRefresh(){
             
