@@ -156,7 +156,9 @@
                       <span v-else class="item-title-span">{{ countNum }}s后重发</span>
                   </span>
                 </div>
-                <div class="sure" @click="surePresent">确认转赠</div>
+                
+                <!-- <div class="sure" v-loading='loading' @click="surePresent">确认转赠</div> -->
+                <el-button round v-loading='loading' type="primary" :disabled='btnDiasble' @click="surePresent">确认转赠</el-button>
               </div>
               <div class="gift-dialog-msg-footer">
                 <img src="../../images/detail-img2.png" alt="">
@@ -195,7 +197,9 @@ import moment from 'moment'
         timer: null,
         countNum: 60,
         nowTime: '',
-        imageurl: ""
+        imageurl: "",
+        loading: false,
+        btnDiasble: false
       }
     },
     computed: {
@@ -361,9 +365,11 @@ import moment from 'moment'
             }, 1000)
         },
         surePresent() {
+          // this.loading = true
           if (!this.captcha || !this.phone) {
             return
           }
+          this.btnDiasble = true
           let obj = {
             captcha: this.captcha,
             phoneNumber: this.phone,
@@ -372,16 +378,17 @@ import moment from 'moment'
           }
           giftPresent(obj).then(res => {
             console.log(res)
+            this.btnDiasble = false
             if(res.status == 1) {
                     this.$message({
                         message: '转赠成功',
                         type: 'success'
                     })
-                    setTimeout(() => {
+                    // setTimeout(() => {
                       this.$router.push({
                         path: '/mine/collection',
                       })
-                    }, 1000)
+                    // }, 1000)
                 } else {
                   this.$message({
                         message: res.message,
@@ -1182,6 +1189,17 @@ import moment from 'moment'
          font-size: 13px;
         }
       }
+    /deep/ .el-button--primary {
+          color: #FFF;
+          //  width: 163px;
+          background-color: rgba(72, 89, 216, 1);
+          border-color: rgba(72, 89, 216, 1);
+          .el-loading-mask {
+            border-color: rgba(72, 89, 216, 1) !important;
+            border-radius: 20px;
+          }
+      }
+     
   }
 
   // /deep/ input{
