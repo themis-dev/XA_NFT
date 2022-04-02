@@ -87,6 +87,11 @@ export default {
                      this.$router.push({
                          path: '/'
                      })
+                } else if(res.status == -1) {
+                    Message({
+                        message: res.message,
+                        type: 'error'
+                    })
                 }
              }).catch(error => {
                 console.log(error)
