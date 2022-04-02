@@ -6,7 +6,7 @@
             <img class="title-icon" src="../../images/activity-icon1.png"/>
         </div>
         <div class="subtitle">
-            <span class="second">雄安数字纪念品</span>
+            <!-- <span class="second">雄安数字纪念品</span> -->
             <span class="line"></span>
             <span class="share-wrapper share" @click="handleShareClick" :data-clipboard-text="href"><img src="../../images/share-icon1.png"/>  <span>分享</span></span>
         </div>
@@ -296,6 +296,7 @@ export default {
             height: 7px;
             background: #FFF079;
             border-radius: 26px;
+            margin-top: 10px;
         }
         .share-wrapper{
             display: none;
@@ -313,7 +314,7 @@ export default {
     .category-title{
         width: 1178px;
         margin: 0 auto;
-        padding-top: 80px;
+        padding-top: 60px;
         font-size: 30px;
         font-family: MiSans Semibold;
         font-weight: 600;
@@ -470,6 +471,7 @@ export default {
                 font-size: 14px;
                 text-align: center;
                 line-height: 31px;
+                margin-top: 20px;
                 img{
                     width: 14.9px;
                     height: 14.6px;
@@ -621,8 +623,8 @@ export default {
                     }
                     .dialog-line{
                         display: block;
-                        width: 45px;
-                        height: 7px;
+                        width: 25px;
+                        height: 4px;
                         background: #FFF079;
                         border-radius: 26px;
                         margin-top: 8px;
