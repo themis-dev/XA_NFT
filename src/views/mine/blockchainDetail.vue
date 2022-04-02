@@ -52,7 +52,7 @@
                 :key="index"
                 color="#3842FE">
                 <div class="timeLine-item">
-                    <p style="font-size: 14px; font-weight: 500; color: #333333;">来自: {{ activity.from.length > 10 ? setNumber(activity.from) : activity.from }}</p>
+                    <p style="font-size: 14px; font-weight: 500; color: #333333;  word-break: break-all;">来自: {{ activity.from.length > 10 ? (activity.from) : activity.from }}</p>
                 </div>
                 <div class="timeLine-item">
                     <p style="font-size: 12px; font-weight: 400; color: #999999;">领取时间</p>
@@ -60,7 +60,7 @@
                 </div>
                 <div class="timeLine-item">
                     <p style="font-size: 12px; font-weight: 400; color: #999999;">哈希值</p>
-                    <p style="font-size: 14px; font-weight: 500; color: #333333;">{{ setNumber(activity.txHash) }}</p>
+                    <p style="font-size: 14px; font-weight: 500; color: #333333; word-break: break-all;">{{ (activity.txHash) }}</p>
                 </div>
                 </el-timeline-item>
             </el-timeline>
