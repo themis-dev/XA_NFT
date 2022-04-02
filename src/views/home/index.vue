@@ -10,7 +10,7 @@
               <span class="desc">数字纪念品是使用区块链技术进行唯一标识的经数字化的特定作品、艺术品和商品，包括但不限于数字画作、图片、音乐、视频、3D模型、书法等各种形式。数字纪念品为虚拟数字商品，而非实物。</span>
               <div class="btn-wrapper">
                 <button class="explore" @click="handleExploreClick">探索</button>
-                <button v-if="isLogin" @click="handleRegisterClick">注册</button>
+                <button class="register-btn" v-if="isLogin" @click="handleRegisterClick">注册</button>
               </div>
             </div>
           </el-col>
@@ -390,10 +390,12 @@ export default {
         .explore{
           background: #4859D8;
           color: #FFFFFF;
-          margin-right: 30px;
         }
         .explore:hover{
           background: #5D6FD5;
+        }
+        .register-btn{
+          margin-left: 30px;
         }
       }
     }
