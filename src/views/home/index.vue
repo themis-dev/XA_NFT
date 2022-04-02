@@ -378,7 +378,7 @@ export default {
       .btn-wrapper{
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
         margin-top: 37px;
         button{
           width: 8.18rem;
@@ -390,6 +390,7 @@ export default {
         .explore{
           background: #4859D8;
           color: #FFFFFF;
+          margin-right: 30px;
         }
         .explore:hover{
           background: #5D6FD5;
