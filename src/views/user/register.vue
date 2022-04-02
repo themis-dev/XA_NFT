@@ -23,7 +23,7 @@
                 <div class="verify-wrapper">
                     <slide-verify :l="42"
                         :r="10"
-                        :w="310"
+                        :w="280"
                         :h="155"
                         ref="slideblock"
                         slider-text="向右滑动"
