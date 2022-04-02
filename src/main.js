@@ -11,6 +11,7 @@ import store from './store'
 import moment from 'moment'
 
 import VueLazyload from 'vue-lazyload'
+import SlideVerify from 'vue-monoplasty-slide-verify';
 
 import './utils/derective'
 
@@ -22,6 +23,7 @@ Vue.use(VueCookies);
 Vue.use(VueLazyload, {
   loading: ''
 })
+Vue.use(SlideVerify)
 
 // this.$cookies.config('30d')
 

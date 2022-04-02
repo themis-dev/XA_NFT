@@ -39,6 +39,20 @@
                 <!-- <span @click="handleForgotClick">忘记密码</span> -->
             </div>
         </div>
+        <el-dialog :visible.sync="dialogVisible" class="dialog-wrapper">
+                <div class="verify-wrapper">
+                    <slide-verify :l="42"
+                        :r="10"
+                        :w="310"
+                        :h="155"
+                        ref="slideblock"
+                        slider-text="向右滑动"
+                        @success="onSuccess"
+                        @fail="onFail"
+                        @refresh="onRefresh"
+                    ></slide-verify>
+                </div>
+            </el-dialog>
     </div>
 </template>
 <script>
@@ -58,7 +72,8 @@ export default {
             isShowPassword: true,
             isShowSend: true,
             timer: null,
-            countNum: 60
+            countNum: 60,
+            dialogVisible: false
         }
     },
     mounted() {
@@ -77,6 +92,7 @@ export default {
             }
         },
         handleLoginClick() {
+            
             if(!this.phoneNumber) {
                 Message({
                     message: '请输入手机号码',
@@ -98,12 +114,53 @@ export default {
                 })
                 return
             }
-            let reqObj = {
-                phoneNumber: this.phoneNumber,
-                password: this.password,
-                captcha: this.captcha
-            }
-            login(reqObj).then(res => {
+            if(this.activeName == 1) {
+                let reqObj = {
+                    phoneNumber: this.phoneNumber,
+                    password: this.password,
+                    captcha: this.captcha
+                }
+                login(reqObj).then(res => {
+                    if(res.status == 1 && res.data) {
+                        window.localStorage.setItem(ACCESS_TOKEN, `Bearer ${res.data.token}`)
+                        window.localStorage.setItem('avatar', `${this.$root.avatarUrl}${res.data.avatar}`)
+                        window.localStorage.setItem('nickName', res.data.nickName)
+                        window.localStorage.setItem('phoneNumber', res.data.phoneNumber)
+                        window.localStorage.setItem('address', res.data.address)
+                        window.localStorage.setItem('createTime', res.data.createTime)
+                        window.localStorage.setItem('mandatoryId', res.data.mandatoryId)
+                        this.$store.state.user.token = res.data.token
+                        this.$store.state.user.avatar = `${this.$root.avatarUrl}${res.data.avatar}`
+                        this.phoneNumber = ''
+                        this.password = ''
+                        this.captcha = ''
+                        this.$router.push({
+                            path: '/'
+                        })
+                    } else {
+                        Message({
+                            message: res.message,
+                            type: 'warning'
+                        })
+                    }
+                    this.dialogVisible = false
+                    this.$refs.slideblock.reset();
+                }).catch(error => {
+                    if(error.response.data.status == -1) {
+                        Message({
+                            message: error.response.data.message,
+                            type: 'warning'
+                        })
+                        return
+                    }
+                })
+            } else {
+                let reqObj = {
+                    phoneNumber: this.phoneNumber,
+                    password: this.password,
+                    captcha: this.captcha
+                }
+                login(reqObj).then(res => {
                 if(res.status == 1 && res.data) {
                     window.localStorage.setItem(ACCESS_TOKEN, `Bearer ${res.data.token}`)
                     window.localStorage.setItem('avatar', `${this.$root.avatarUrl}${res.data.avatar}`)
@@ -114,6 +171,9 @@ export default {
                     window.localStorage.setItem('mandatoryId', res.data.mandatoryId)
                     this.$store.state.user.token = res.data.token
                     this.$store.state.user.avatar = `${this.$root.avatarUrl}${res.data.avatar}`
+                    this.phoneNumber = ''
+                    this.password = ''
+                    this.captcha = ''
                     this.$router.push({
                         path: '/'
                     })
@@ -123,8 +183,9 @@ export default {
                         type: 'warning'
                     })
                 }
+                this.dialogVisible = false
+                this.$refs.slideblock.reset();
             }).catch(error => {
-                console.log(error)
                 if(error.response.data.status == -1) {
                     Message({
                         message: error.response.data.message,
@@ -133,6 +194,8 @@ export default {
                     return
                 }
             })
+            } 
+            
         },
         handleShowPasswordClick() {
             this.isShowPassword = !this.isShowPassword
@@ -143,6 +206,39 @@ export default {
             }
         },
         handleSendCodeClick() {
+            if(!this.phoneNumber) {
+                Message({
+                    message: '请输入手机号码',
+                    type: 'warning'
+                })
+                return
+            } 
+            this.dialogVisible = true
+
+            // let reqObj = {
+            //         index: 2,
+            //         phoneNumber: this.phoneNumber
+            //     }
+            //     getCaptcha(reqObj).then(res => {
+            //         if(res.status == 1) {
+            //             Message({
+            //                 message: res.message,
+            //                 type: 'success'
+            //             })
+            //         }
+            //     })
+            // this.isShowSend = false
+            // this.timer = setInterval(() => {
+            //     this.countNum--
+            //     if(this.countNum == 0) {
+            //         this.isShowSend = true
+            //         clearInterval(this.timer)
+            //         this.countNum = 60
+            //         return
+            //     } 
+            // }, 1000)
+        },
+        onSuccess() {
             let reqObj = {
                     index: 2,
                     phoneNumber: this.phoneNumber
@@ -153,18 +249,41 @@ export default {
                             message: res.message,
                             type: 'success'
                         })
+                        this.isShowSend = false
+                        this.timer = setInterval(() => {
+                            this.countNum--
+                            if(this.countNum == 0) {
+                                this.isShowSend = true
+                                clearInterval(this.timer)
+                                this.countNum = 60
+                                return
+                            } 
+                        }, 1000)
+                    } else {
+                        this.isShowSend = true
+                        this.dialogVisible = false
+                        Message({
+                            message: res.message,
+                            type: 'error'
+                        })
                     }
-                })
-            this.isShowSend = false
-            this.timer = setInterval(() => {
-                this.countNum--
-                if(this.countNum == 0) {
+                    this.dialogVisible = false
+                    this.$refs.slideblock.reset();
+                }).catch(err => {
                     this.isShowSend = true
-                    clearInterval(this.timer)
-                    this.countNum = 60
-                    return
-                } 
-            }, 1000)
+                    this.dialogVisible = false
+                    console.log(err)
+                })
+            
+            
+            
+        },
+        onFail(){
+            this.dialogVisible = false
+            this.$refs.slideblock.reset();
+        },
+        onRefresh(){
+            
         },
         handleRegisterClick() {
             this.$router.push({
@@ -359,6 +478,34 @@ export default {
             }
         }
 
+    }
+    .dialog-wrapper{
+        @media (max-width: 500px) {
+            /deep/.el-dialog{
+                width: 100px!important;
+                .el-dialog__header{
+                    width: 100px!important;
+                }
+                .el-dialog__body{
+                    width: 80px!important;
+                }
+            }
+        }
+        
+        /deep/ .el-dialog__body{
+            height: 280px;  
+            .verify-wrapper{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 80px;
+            }
+        }
+    }
+    /deep/.el-dialog-wrapper{
+        @media (max-width: 500px) {
+             width: 200px!important;
+        }
     }
 }
 </style>
